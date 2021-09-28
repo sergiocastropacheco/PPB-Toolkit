@@ -170,7 +170,7 @@ getwd()
 
 **2. Fixing your WD by writing setwd("Folder Location") **
 ```{r, eval = F}
-setwd("C:/Users/Usuario1/Google Drive/RSR/PPB Toolkit")
+setwd("C:/Users/Usuario1/Documents/Github/PPB-Toolkit")
 ```
 
 So, I set my WD to a file inside my Google Drive Folder, inside a folder called RSR, and finally, into one called PPB Toolkit.  This step is specially tricky and works differently in PC and Mac. You should be sure that you can type precisely the location on your computer. Alternatively, you can follow step 3.
