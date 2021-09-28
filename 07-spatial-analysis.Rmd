@@ -1,0 +1,171 @@
+# Spatial Analysis
+
+## SpATS
+
+The package "SpATS" is here explained.
+
+The proper explanation of the statistics behind can be found [here](https://www.sciencedirect.com/science/article/pii/S2211675317301070?casa_token=vtmG6I6PWwsAAAAA:UXWSox0zDSMUU3wnJfCEvtBFbTrW4FK1EOdf-GT6O00G1MVMWpMRLNevjzVwRDNf71y46ml6) and [here](https://link.springer.com/article/10.1007/s00122-017-2894-4).
+
+
+Before using the package, it must be installed.
+```{r, eval = F}
+install.packages("SpATS")
+```
+
+And then called:
+```{r, message= F, warning= F}
+library (SpATS)
+```
+
+We will use the same tomato data that we have been using:
+```{r, echo=FALSE, message=FALSE, warning=FALSE, results=F}
+mydata <- read.csv("tomatoMLT2020.csv")
+```
+
+
+So, to properly perform the analysis, we can only use data from one location, in order to grasp the spatial heterogeneity of that specific farm. So, we first subset the data from Sestola
+
+
+```{r, message= F, warning= F}
+data.Sestola <- subset(mydata, location == "Sestola")
+```
+
+
+```{r message=FALSE, warning=FALSE, results=F}
+spats.Sestola  =    SpATS(data=      data.Sestola,    #My subset from Sestole   
+                          response= "yield",          #The name of my variable
+                          genotype = "variety",       #The name of my genotupe columns
+                          genotype.as.random = F,     #This is a long story. Genotypes set as random or as fixed.
+                                                      # define my model. In the first case, I will obtain BLUPs 
+                                                      # values, and in the seconed, BLUEs values.
+                          spatial = ~ SAP(row, col))  #This arguments designs the row-column distribution of the field
+
+```
+
+```{r, message= F, warning= F}
+plot(spats.Sestola)
+```
+
+We are intereseted in the BLUES (or the BLUPS), which is an estimate (or a prediction) of the breeding genetic value for each genotype. In the plot, it is given as a deviation from the mean. If we add the overall mean value to that number, we would have what we call an adjusted mean. In SpATS, this can be done through **predict()**.
+
+```{r, message= F, warning= F}
+adj.means = predict(spats.Sestola, which = 'variety')
+adj.means
+```
+
+And I could plot them.
+```{r, message= F, warning= F}
+library(ggplot2)
+ggplot(adj.means, aes(x= variety, y = predicted.values))+
+  geom_bar(stat= "identity", fill = "tomato")+
+  geom_errorbar( aes(ymax = predicted.values+ standard.errors,
+                     ymin = predicted.values- standard.errors))
+```
+
+
+To better understand the kind of transformation that we did to the data, we can take a look at this plot, which represents the raw yield numbers for each plot in the field.
+
+```{r, message= F, warning= F}
+ggplot(data.Sestola, aes(x=row, y = col, label= variety, fill = yield))+
+  geom_tile()+
+  geom_text()+
+  scale_fill_gradientn(colors=c("blue", "lightblue", "green3", "yellow", "red"))
+```
+
+We can see some examples, for instance:
+
+* Var. D was the best variety. It had an outstanding performance in Column 6 Row 1 and then, an average performance in Row 3 Column 4. The combination of both performances allowed this variety to have the highest BLUEs value.
+
+* Var. H had the lowest adjusted mean. Both repetitions were more or less in the center of the plot, but both had bad performances.
+
+Moreover, the SpATS object we have just created is full of different objects, for example
+
+```{r, eval = F}
+spats.Sestola$call       # The original call
+spats.Sestola$model      # The parameters of the model
+spats.Sestola$deviance   # The deviance indicate how appropiate is the fitting of the model.
+spats.Sestola$coeff      # This is the coefficient for every factor, including genotype and field position.
+```
+
+We then would have to do the same for every environment. We could do it manually, writing the code above for every environment. It is possible, but lenghty. We will here propose the code to do it into a loop function. Looping in R (and in general) is extremely useful, and we will use this example to show the basics on how looping is done.
+
+First, we create a list of the elements that will be used in my loop. In our case, the list will contain the 4 location name. Alternatively, and most commonly, the lists are simply a sequence of numbers.
+
+```{r}
+mylocs = unique(mydata$loc) # The unique() function takes the unique values from a vector
+mylocs
+```
+
+Now, we will draw the loop. The main function is **for()** followed by curly braces {}. The **for()** defines a how to go over the loop; we will write **for (i in mylocs)** meaning that *i* is a variable that will take the value of each one of the elements in my list (the location names). And then, everything inside the curly braces is what will be done with i being a given value within the list
+
+
+```{r, results = "hide", message= F, results = F}
+for (i in mylocs){                                    # i is a variable that will take the value of every element in mylocs
+  myenv = i                                           # Define "myenv" as whatever we have in i
+  mysubset= subset(mydata, location == i)                     # Make a subset with environment i
+  
+  myspats =  SpATS(response = "yield",                # This is the SpATS function we saw before
+                 genotype = "variety", 
+                 genotype.as.random = F,
+                 data=      mysubset,                 # The data is coming from the specific subset done within the loop
+                spatial = ~ SAP(row, col))
+  adjusted.means <- predict(myspats,                  #  With "myspats", we estimate the adjusted means
+                            which = "variety")   
+  adjusted.means$location <- myenv                         # To our "adjusted.means" data frame, we add a column with the name of environment                        
+  assign(value  = adjusted.means[,c(6,1,4,5)],        # I want to save the adjusted means object (rearrangin column order)
+         x=  paste0("means.",myenv))                  # with a new name define as "means.myenv", where myenv is the actual name of the environment
+}
+
+```
+
+The possibilities of looping are vast. We could, for example, create a new loop, within our main loop, for also obtaining the adjusted means for other variables. We will not do it for now.
+
+Now, we have four different adjusted means object, one for each environment. We could bind the with the **rbind()** function, which stands for rowbind.
+
+```{r}
+all.means <- rbind(means.Castronuovo, means.Molise, means.Rotonda, means.Sestola)
+
+#We can additionally change some column names to make things more clean
+names(all.means)[3] <- "yield_adj_mean"
+names(all.means)[4] <- "yield_sd"
+```
+
+And we plot it:
+
+
+```{r}
+ggplot(data= all.means,                     # Our data frame
+       aes(x=variety,                       # Variety is the x axis
+           y=yield_adj_mean))+              # Yield Adjusted Means are the y axis
+  geom_bar(stat='identity',                 # The bars are plotted according to the identity actual values in the cells
+           fill= "tomato")+                 # and filled with "tomato" color
+  facet_wrap(location~.)+                        # Make a facet per each location 
+  labs(x= "Genotype",y= "Yield")  +         # Axis labels
+  geom_errorbar(                            #Error bars
+          aes(ymin=yield_adj_mean - yield_sd, 
+              ymax=yield_adj_mean + yield_sd),
+              width=0.2)+
+  theme(axis.text.x = element_text(angle =90))
+```
+
+
+Moreover, given that ggplot can handle plotting data from two different data sources, we could do the same plot, but including also the raw data, and check for the main differences between both.
+
+```{r}
+ggplot(data= all.means,                     # Our data frame
+       aes(x=variety,                       # Variety is the x axis
+           y=yield_adj_mean))+              # Yield Adjusted Means are the y axis
+  geom_bar(stat='identity',                 # The bars are plotted according to the identity actual values in the cells
+           fill= "tomato")+                 # and filled with "tomato" color
+  facet_wrap(location~.)+                        # Make a facet per each location 
+  labs(x= "Genotype",y= "Yield")  +         # Axis labels
+  geom_errorbar(                            #Error bars
+          aes(ymin=yield_adj_mean - yield_sd, 
+              ymax=yield_adj_mean + yield_sd),
+              width=0.2)+
+  theme(axis.text.x = element_text(angle =90))+
+  geom_point(data= mydata, aes(x= variety,y=yield), col= "darkgreen")+   # A point for every raw yield observation
+  geom_point(data= mydata, aes(x= variety,y=yield), stat = "summary",    # And a cross for the mean of the rar observations.
+             fun = "mean", col= "darkgreen", shape= 4)
+```
+

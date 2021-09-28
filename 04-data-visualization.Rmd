@@ -1,0 +1,201 @@
+# Basics of Data Visualisation
+
+Here goes some important talk about the importance of data visualization.
+
+Trough this chapter, we will see the very basics of data visualization with two of the most used packages in R, which are the  Base Package and ggplot.
+
+## Base package
+
+It is maybe the easiest package to use, but it is less flexible. Some basic functions are:
+ 
+* plot()
+* hist()
+* barplot()
+* boxplot()
+
+---
+
+### Plot vs. Index
+
+If we use the most basic of functions, **plot() **, and we only indicate one variable, the other axis will be automatically assigned to an "index" value. This means that data will be plotted as they appear in the data frame.
+
+```{r}
+#First we upload our data
+mydata <- read.csv("tomatoMLT2020.csv")
+
+#The we fill the plot function with only one argument
+plot(mydata$yield)
+
+```
+
+This could be useful to know if, in a given section of the data frame, the observations are notably different than the rest. In this case, because data are arranged by environment, this area of high points in the center indicate the presence of a very productive environment.
+
+---
+
+### Scatter plot
+
+This is a kind of plot you can use if you have two quantitative variables.
+
+```{r}
+plot( x= mydata$yield,                 # The x axis is the total yield.
+      y= mydata$farmers_eval)          # The y axis is the farmer's evaluation.
+```
+
+---
+
+### Histogram
+
+Histograms are very useful to understand the distribution of the data. Normally, for most biological data, we would expect a [normal distribution](https://en.wikipedia.org/wiki/Normal_distribution).
+
+```{r}
+hist(mydata$yield)
+```
+
+On the same histogram, we could do further elaborations to make it look better. We could add a main title, labs for the axes, define the number of breaks or columns, and select the name of the color, from this [list](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf).
+
+```{r}
+hist(x= mydata$yield,                                                   #Variable to plot
+     main= "Histogram for Farmer's Evaluation in Tomato PPB trials",    #Main Title
+     xlab= "Evaluation", ylab= "Frequency",                             #Axis titles
+     breaks= 12,                                                        #How many breaks or columns       
+     col= "coral")   #Color
+```
+
+Elements can be added after a plot was called. For example, in this case, we can add a vertical line to the plot, and we could position that line exactly in the mean value for yield.
+```{r}
+hist(x= mydata$farmers_eval,                                                   
+     main= "Histogram for Farmer's Evaluation in Tomato PPB trials",    
+     xlab= "Evaluation", ylab= "Frequency",                             
+     breaks= 12,                                                        
+     col= "coral")                                   
+abline(v= mean(mydata$farmers_eval),     # Vertical line
+       col = "dodgerblue",                 # Line color
+       lwd= 4)                           # Line width
+```
+
+---
+
+**Box plot**
+
+Another useful way to plot information is through a [boxplot](https://en.wikipedia.org/wiki/Box_plot) which not only presents the mean values, but also the quartile distribution. It would be useful, for example to compare the overall yields of the different varieties (or in the different environments). However, for this kind of plot to work, we need at least one of the variables to be a factor. We can check the variable types with the **str() ** function, and see that both the variety and the location are interpreted as characters
+
+```{r}
+str(mydata)
+```
+
+We can change that easily with the **as.factor() ** function. What we do is that replace the actual column we have, with the same column interpreted as a factor.
+
+```{r}
+mydata$variety <- as.factor(mydata$variety)
+mydata$location <- as.factor(mydata$location)
+
+```
+
+Now we can do the boxplot. By using the function **plot() ** with a quantitative and a factor variable, a boxplot is automatically generated 
+
+
+```{r, out.width= "150%"}
+plot(x= mydata$location,         
+     y= mydata$yield,           
+     ylab= "Yield (kg)",        
+     xlab = "Location")         
+```
+
+## ggplot 
+
+ggplot is one of the most used and versatile packages to do graphics in R. 'gg' stands for  "grammar of graphics", and it is based on a modular system that allows you to build your plots feature by feature. It can be easily installed with **install.packages() ** (only once) and called with **library() ** (every time that you open an R Session).
+
+```{r, eval = F}
+install.packages("ggplot2")
+library(ggplot2)
+```
+
+```{r, echo = F}
+library(ggplot2)
+```
+
+The most important thing in ggplot is that every feature should be included as a layer. The main function is **ggplot() **, and the main arguments are the data frame that you are using, and **aes() **, that stands for aestithics and lets you choose the parameters for the graph. We could do one first try.
+
+```{r}
+ggplot(data= mydata,   # my data frame
+       aes(x=variety,      # my x axis
+           y=yield))   # my y axis and the (very important) closure of parenthesis
+```
+
+### Box Plot
+
+We have created the plot and it's coordinates, but we have not assigned any 'geometrical' object yet. At this point, we could add bars, points, lines, boxes, etc. For a box plot, we write the same code and add the function **geom_boxplot() **, which can be empty of arguments, as the indispensable ones have already been declared. However, because I want my boxes to be red as gray, I can specify it as an argument.
+
+```{r}
+ggplot(data= mydata, aes(x=variety, y=yield))+
+  geom_boxplot(fill = "gray")
+  
+```
+On top of the boxes, I could choose to plot every individual observation with a point, and, if I wish too, I could color those points according to the corresponding location. Notice that now, the color argument is inside an **aes() ** function, because we are not assigning an arbitrary color for all points, but rather making them vary according to a parameter present in the data frame.
+
+```{r, out.width="150%"}
+ggplot(data= mydata,  aes(x=variety,y=yield))+ 
+  geom_boxplot(fill = "gray")+ 
+  geom_point(aes(col = location)) 
+```
+
+Overall, there is a large deal of different geometries that can be used, alone or in combinations, to represent data in many ways. In that case, a very handy ressource for geometries in ggplot is the specially designed [Cheat Sheet](https://www.maths.usyd.edu.au/u/UG/SM/STAT3022/r/current/Misc/data-visualization-2.1.pdf) that they offer.
+
+Finally, if you find it akward, or too bulky two have all the information from all the locations in one plot. You could easily make a small subplot, ie. a 'facet', for every location. Both functions **facet_wrap() ** and **facet_grid() ** can do this in slightly different ways. If we do this, it is convenient to remove the points colored by location. The plot would look like this:
+
+```{r, out.width="150%"}
+ggplot(data= mydata,  aes(x=variety,y=yield))+ 
+  geom_boxplot(fill = "gray")+ 
+  facet_wrap(location~., # I choose to plot my locations, 
+                         # the "~" sign means allows me introduce another variable to 
+                         # to subdivide the plots, but I choose none so we just write "."
+             ncol =1,
+             scales= 'free')    # Additionally, we want all the subplots the be drawn in only one column
+  
+```
+
+### Scatter plots
+
+If I choose to plot two quantitative variables against one another, and choose the **geom_point() ** for each each point, a very useful scatter plot will come out. What is more, I could add a fitted line according to a linear model (or one of other models avaiable)
+
+```{r}
+ggplot(data= mydata, aes(y=farmers_eval ,  x=yield))+
+                   geom_point()+
+                   geom_smooth(method= lm) #Regression line with Linear Method (lm)
+
+```
+
+To this point, some evident effect of correlation can be seen between the yield and the farmer's evaluation. But we see clearly a cloud of points in the upper right, which correspond normally to our highest yielding location. We could, for example, divide environments with **facet_wrap() ** and add a small label to each point trough **geom_text() ** or **geom_label** , indicating the corresponding variety
+
+```{r}
+ggplot(data= mydata, aes(y=farmers_eval ,  x=yield))+
+                   geom_point()+
+                   geom_smooth(method= lm)+           
+                   facet_wrap(location~., ncol=2, scales= 'free')+
+                   geom_text(aes(label = variety),    # we define the variety as the parameter
+                              size= 2,
+                             nudge_y =0.1 )                  # and we put the small so that they don't overlap 
+```
+
+plot.cor.stats <-plot.cor + stat_cor(label.y= 4) # L'argumento label.y  ci da la posizione del testo
+plot.cor.stats
+
+### Bar plots
+
+To be done!
+
+### Adjusting details
+
+
+
+
+## Exporting plots
+
+There are mainly two ways to export a package: by clicking manually or through R code.
+
+*  by clicking manually.
+
+
+png("ilmioplotbellino.png", width= 300, height= 300)
+plot.cor.facets
+dev.off()

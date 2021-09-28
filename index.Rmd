@@ -1,0 +1,28 @@
+--- 
+title: "A PPB Toolkit in RStudio"
+author: "Sergio Castro and Matteo Petitti"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+description: "This is just a test."
+---
+
+<style>
+body {
+text-align: justify}
+</style>
+
+# Description
+
+Very brief description of the book. I want to eliminate this part but still not sure how.
+
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+```

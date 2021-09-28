@@ -1,0 +1,79 @@
+# Data Wrangling and Summarizing
+
+Data wrangling is one of the most important activites that you can do in R. It allows you to, sistematically, take a given data frame (or several) and set them into the format that works best for the analysis. In the last chaper, we saw already some of the most basic elements of data wrangling (like creating a new column from two other). Now, we will see a brief summary of what can be done with dplyr, a package specifically designed for that purpose.
+
+## dplyr
+
+'dplyr' is a package developed by the R Core Team developers, and gives us "an easy and intuitive grammatic for data manipulation". We first have to install it (only once) and call it (every time you open R).
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, results=F, show=F}
+setwd("C:/Users/Usuario1/Google Drive/RSR/PPB Toolkit")
+mydata <- read.csv("tomatoMLT2020.csv")
+```
+
+```{r, eval = F, warning = F, results=F, message=F}
+install.packages("dplyr")
+library(dplyr)
+```
+
+```{r, echo= F, warning = F, results=F, message = F}
+library(dplyr)
+```
+
+Some of the most useful functions in dplyr R are 
+```{r, eval = F}
+filter() # To filter rows according to criteria
+select() # TO select only certain columns
+rename() # To rename columns. 
+mutate() # TO create a new column from an old one.
+```
+
+For example, you can create a new dataframe that contains a reduced set of variables.
+
+```{r}
+newdataframe <- select(mydata, location, variety, yield, farmers_eval, mean_fruit_weight)
+```
+
+
+Within this new data frame, you can create a new column, which converts mean fruit weight (now in kg) to grams (g), through the function "mutate".
+
+```{r}
+newdataframe2 <- mutate(newdataframe, meanfruitweight_grams = mean_fruit_weight * 1000)
+```
+
+
+**The pipeline %>% operator.**
+
+With the pipeline operator you can chain more than one operation together, instead of using temporary objects and changing them. It also allows to call my first object ('mydata') only once
+
+```{r}
+newdataframe3 <- mydata %>%
+                 select(location, variety, rep, mean_fruit_weight) %>%
+                 mutate( meanfruitweight_grams = mean_fruit_weight * 1000)
+                
+```
+
+**Aggregate data**
+
+Finally, dplyr helps us us to calculate, for example, the mean perfomance of each variety per environment, given that there are two reps.
+
+For this, you have to use the group_by() and summarize (). Under group_by, we put the aggrupating facors. Under summarize, we put the columns we want, in this case, we want the means and the standard deviations
+.
+```{r, warning = F, message=F}
+mydata_means <- mydata %>%                   #Our initial object
+              group_by(variety, location) %>%         #Groupped by variety and location
+              summarize(mean(farmers_eval),           #Mean of farmer's evaluation
+                          sd(farmers_eval),           #SD of farmer's evaluation
+                          mean(yield),                #Mean of yield
+                         sd(yield))                   #SD of yield
+
+```
+
+**Save your data**
+
+Once you have created and modified and object, you can save it on the same folder in a .csv format.
+
+```{r}
+write.csv(mydata_means, "tomatodata_means.csv")
+```
+

@@ -1,0 +1,148 @@
+
+#libs
+library(dplyr)
+
+setwd("C:/Users/Usuario1/Google Drive/RSR/DB & Fieldbook/Integrazione dati grano")
+
+
+#Caricare datti
+
+marzo.cancello <- read.csv("C:/Users/Usuario1/Google Drive/RSR/DB & Fieldbook/Integrazione dati grano/Marzo Cancello Est 2021.csv")
+marzo.pastificcio <- read.csv("C:/Users/Usuario1/Google Drive/RSR/DB & Fieldbook/Integrazione dati grano/Marzo Pastificcio 2021.csv")
+aprile.cancello <- read_excel("Aprile Campo Cancello Esterno 2021.xlsx")
+aprile.pastificcio <- read_excel("Aprile Campo Pastificcio 2021.xlsx")
+maggio.cancello <- read.csv("Maggio Campo Cancello Esterno.csv")
+maggio.pastificcio <- read.csv("Maggio Campo Pastificcio 2021.csv")
+giugnio.cancello <-   read.csv("Giugno Campo Cancello Esterno 2021.csv")
+giugnio.pastificcio  <-read.csv("Giugno Campo Pastificcio 2021.csv"  )
+luglio.cancello <- read_excel("LuglioCampo Cancello.xlsx" )
+luglio.pastificcio <- read_excel("Luglio Campo Pastificcio.xlsx")
+
+
+#Giving months
+
+marzo.cancello$Mese = "Marzo"
+aprile.cancello$Mese = "Aprile"
+maggio.cancello$Mese = "Maggio"
+giugnio.cancello$Mese = "Giugnio"
+luglio.cancello$Mese = "Luglio"
+marzo.pastificcio$Mese = "Marzo"
+aprile.pastificcio$Mese = "Aprile"
+maggio.pastificcio$Mese = "Maggio"
+giugnio.pastificcio$Mese = "Giugnio"
+luglio.pastificcio$Mese = "Luglio"
+
+
+#Setting names
+
+#Marzo
+setdiff(names(marzo.cancello), names(marzo.pastificcio))
+setdiff(names(aprile.cancello), names(aprile.pastificcio))
+setdiff(names(maggio.cancello), names(maggio.pastificcio))
+setdiff( names(maggio.pastificcio),names(maggio.cancello))
+
+
+#Bind them all
+library(plyr)
+mybind=  rbind.fill (marzo.cancello, marzo.pastificcio, aprile.cancello, aprile.pastificcio, maggio.cancello, maggio.pastificcio, giugnio.cancello, giugnio.pastificcio)
+sort(names(mybind))
+
+
+#Fix epigenetics
+mybind[mybind$plot_id == "EPG01", "entry_name"] = 	"Villa Glori/RSR (mutico)"
+mybind[mybind$plot_id == "EPG01", "RSR_code"] =	"RSR04161"
+
+mybind[mybind$plot_id == "EPG02", "entry_name"] = 	"Vilmorin 27"
+mybind[mybind$plot_id == "EPG02", "RSR_code"] =	"RSR04162"
+
+mybind[mybind$plot_id == "EPG03", "entry_name"] = 	"Frassineto (?)"
+mybind[mybind$plot_id == "EPG03", "RSR_code"] =	"RSR04163"
+
+mybind[mybind$plot_id == "EPG04", "entry_name"] = 	"Abbondanza/RSR (mutica)"
+mybind[mybind$plot_id == "EPG04", "RSR_code"] =	"RSR04164"
+
+mybind[mybind$plot_id == "EPG05", "entry_name"] = 	"Leone"
+mybind[mybind$plot_id == "EPG05", "RSR_code"] =	"RSR04165"
+
+mybind[mybind$plot_id == "EPG06", "entry_name"] = 	"Bologna"
+mybind[mybind$plot_id == "EPG06", "RSR_code"] =	"RSR04166"
+
+
+#Select columns
+library(dplyr)
+x= paste(names(mybind), collapse= ",")
+x
+
+
+
+mydata = mybind %>% select(plot_id, entry_name,  RSR_code,"Mese" = Mese, Nome.Campionatore, location.GPS, 
+                           Parcella.SI.NO,Parcella.Numero.Piante,
+                           Copertura.Parcella,Colore.Piante,Colore.Altro,
+                           Infestanti.Numero,Infestanti.Tipo,
+                           Danni,Danni.Foto,Osservazioni,Osservazioni.Foto,
+                        Allettamento,Allettamento.Causa,
+                        Malattie,Malattie.Notes,   Foto.Malattia,
+                        Maturita.Spighe, Presenza.reste,Presenza.di.cere,
+                        P1_Alt.1.rachide,P1_Alt.2.spiga,P2_Alt.1.rachide, P2_Alt.2.spiga, 
+                        P3_Alt.1.rachide, P3_Alt.2.spiga,P4_Alt.1.rachide,  P4_Alt.2.spiga,
+                        P5_Alt.1.rachide,P5_Alt.2.spiga,P6_Alt.1.rachide,P6_Alt.2.spiga,
+                        P7_Alt.1.rachide,P7_Alt.2.spiga,P8_Alt.1.rachide,P8_Alt.2.spiga,
+                        P9_Alt.1.rachide,P9_Alt.2.spiga,P10_Alt.1.rachide,P10_Alt.2.spiga,
+                        Parcella.Foto,RGV.FAO.Foto,RGV.FAO ) 
+
+names(mydata)
+mydata$Media_Alt.1.rachide = rowMeans(mydata[c("P1_Alt.1.rachide",
+                                               "P2_Alt.1.rachide",
+                                               "P3_Alt.1.rachide",
+                                               "P4_Alt.1.rachide",
+                                               "P5_Alt.1.rachide",
+                                               "P6_Alt.1.rachide",
+                                               "P7_Alt.1.rachide",
+                                               "P8_Alt.1.rachide",
+                                               "P9_Alt.1.rachide",
+                                               "P10_Alt.1.rachide"
+                                               )], na.rm = T)
+mydata$Media_Alt.2.spiga =   rowMeans(mydata[c("P1_Alt.2.spiga",
+                                               "P2_Alt.2.spiga",
+                                               "P3_Alt.2.spiga",
+                                               "P4_Alt.2.spiga",
+                                               "P5_Alt.2.spiga",
+                                               "P6_Alt.2.spiga",
+                                               "P7_Alt.2.spiga",
+                                               "P8_Alt.2.spiga",
+                                               "P9_Alt.2.spiga",
+                                               "P10_Alt.2.spiga")], na.rm = T)
+
+#Controllare
+library(ggplot2)
+ggplot(mydata, aes(x= plot_id, y = Media_Alt.1.rachide))+
+  geom_point()
+
+shapiro.test(mydata$Media_Alt.1.rachide)
+
+
+#Fix Parcella si no
+table(mydata$Parcella.SI.NO)
+mydata$Parcella.SI.NO = revalue(mydata$Parcella.SI.NO, c("2_Metaï¿½"= "2_Metà",
+                                                         "2_MetÃ" = "2_Metà",
+                                                         "2_MetÃ "= "2_Metà",
+                                                         "? Assente" = "4_Assente"))
+mydata[grep("Met", mydata$Parcella.SI.NO),"Parcella.SI.NO"] =  "2_Metà"
+mydata[mydata$entry,"Parcella.SI.NO"] =  "2_Metà"
+table(mydata$Parcella.SI.NO)
+
+
+#Fix other
+table(mydata$Copertura.Parcella)
+table(mydata$Colore.Piante) #Can be fixed but it's too much work
+table(mydata$Infestanti.Tipo)
+
+mydata$Infestanti.Tipo= revalue(mydata$Infestanti.Tipo, c("1Uguali" = "1_Uguali",
+                                                          "2Mono" = "2_Mono",
+                                                          "3Dico" = "3_Dico"))
+
+
+table(mydata$Allettamento)
+
+write.csv(mydata, "Compiled and curated data.csv")
+

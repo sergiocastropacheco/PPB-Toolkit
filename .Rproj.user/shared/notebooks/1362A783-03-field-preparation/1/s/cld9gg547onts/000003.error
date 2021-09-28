@@ -1,0 +1,1 @@
+{"frames":[{"func":"design.rcbd(mylist, r = 2, serie = 2)","file":"","line_number":0,"end_line_number":0,"character_number":0,"end_character_number":0}],"message":"Error in design.rcbd(mylist, r = 2, serie = 2) : \n  objeto 'mylist' no encontrado\n"}

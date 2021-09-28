@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 8 GGE Biplots | A PPB Toolkit in RStudio</title>
+  <meta name="description" content="This is just a test." />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 8 GGE Biplots | A PPB Toolkit in RStudio" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is just a test." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 8 GGE Biplots | A PPB Toolkit in RStudio" />
+  
+  <meta name="twitter:description" content="This is just a test." />
+  
+
+<meta name="author" content="Sergio Castro and Matteo Petitti" />
+
+
+<meta name="date" content="2021-07-19" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="spatial-analysis.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A PPB Toolkit in R and RStudio</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Foreword</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
+<li class="chapter" data-level="3" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html"><i class="fa fa-check"></i><b>3</b> First steps in R</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html#basic-statistics-and-data-manipulation"><i class="fa fa-check"></i><b>3.1</b> Basic statistics and data manipulation</a></li>
+<li class="chapter" data-level="3.2" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html#packages-in-r."><i class="fa fa-check"></i><b>3.2</b> Packages in R.</a></li>
+<li class="chapter" data-level="3.3" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html#final-considerations"><i class="fa fa-check"></i><b>3.3</b> Final considerations</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="field-preparation.html"><a href="field-preparation.html"><i class="fa fa-check"></i><b>4</b> Field Preparation</a></li>
+<li class="chapter" data-level="5" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html"><i class="fa fa-check"></i><b>5</b> Basics of Data Visualisation</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#base-package"><i class="fa fa-check"></i><b>5.1</b> Base package</a></li>
+<li class="chapter" data-level="5.2" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#ggplot"><i class="fa fa-check"></i><b>5.2</b> ggplot</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="statistical-tests.html"><a href="statistical-tests.html"><i class="fa fa-check"></i><b>6</b> Statistical tests</a>
+<ul>
+<li class="chapter" data-level="6.0.1" data-path="statistical-tests.html"><a href="statistical-tests.html#normalita-con-grafichi-e-shapiro-wilks"><i class="fa fa-check"></i><b>6.0.1</b> 1. Normalita (con Grafichi e Shapiro Wilks)</a></li>
+<li class="chapter" data-level="6.0.2" data-path="statistical-tests.html"><a href="statistical-tests.html#anova"><i class="fa fa-check"></i><b>6.0.2</b> 2. ANOVA</a></li>
+<li class="chapter" data-level="6.0.3" data-path="statistical-tests.html"><a href="statistical-tests.html#lsd-o-hsd"><i class="fa fa-check"></i><b>6.0.3</b> 3. LSD o HSD</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="spatial-analysis.html"><a href="spatial-analysis.html"><i class="fa fa-check"></i><b>7</b> Spatial Analysis</a></li>
+<li class="chapter" data-level="8" data-path="gge-biplots.html"><a href="gge-biplots.html"><i class="fa fa-check"></i><b>8</b> GGE Biplots</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A PPB Toolkit in RStudio</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="gge-biplots" class="section level1" number="8">
+<h1><span class="header-section-number">Chapter 8</span> GGE Biplots</h1>
+<p>#Cos’e?
+#Una forma facile de visualizare il effetto del genotipo e interazzione GxE</p>
+<p>#Prima si fa il modelo
+gge_model &lt;- gge(all.means, #data set (si possono usare anche i dati crudi)
+env = loc, #colonna ambiente
+gen = geno, #colona genotipo
+resp= yield_mean, #colona risposta
+scaling = 1) #Scalare con la desv. std. per normalizare i ambienti</p>
+<p>#Now plot it</p>
+<p>plot(gge_model)</p>
+<p>#Come analizare? Lo vedremo piu avanti.</p>
+<p>#Mean vs. Stability
+plot(gge_model, type = 2)</p>
+<p>#Genotype Ranking!
+plot(gge_model, type = 8)</p>
+<p>#Which won where
+plot(gge_model, type= 3)</p>
+<p>#Genotype Comparison
+plot(gge_model,
+type = 9,
+sel_gen1 = “Geno 1,”
+sel_gen2 = “Geno 14”)</p>
+<p>#Modifiyng the plot.
+#The GGE BiPlot is a GGplot object, so it can be easily modified.</p>
+<p>plot(gge_model,
+col.gen = “black,”
+col.env = “red,”
+size.text.env= 7,
+size.text.gen = 8,
+title =F)+ #Fino qui arriva la funzione di metan e passiamo a ggplot
+labs(title = “Yield GGE Biplot”) +
+theme(title = element_text(size= 20),
+axis.title = element_text(size= 20),
+axis.text = element_text(size= 15))</p>
+<p>#4. PPBstats!</p>
+<p>#Prima, ci vuole questo altro pachetto che ci aiutta a instalare PPB stats
+install.packages(“devtools”)
+library(devtools)</p>
+<p>#Cerca il archivio .zip che vi ho inviato e fai unzip nel tuo WD
+#Devi avere quindi una cartella nel tuo WD che si chiama "“PPBstats-0.26”
+devtools::install(“PPBstats-0.26”)</p>
+<p>#oppure
+devtools::install_github(“priviere/PPBstats”)</p>
+<p>library(PPBstats)
+#Sappere di piu in questo link
+#<a href="https://priviere.github.io/PPBstats_web_site/articles/2.book.html" class="uri">https://priviere.github.io/PPBstats_web_site/articles/2.book.html</a></p>
+<p>#Disegno di campo
+Campo_Castronuovo = design_experiment(
+location = “Castronuovo,”
+year = “2020,”
+expe.type = “fully-replicated,”
+germplasm = varieta,
+nb.blocks = 2,
+nb.cols= 7)</p>
+<p>Campo_Castronuovo</p>
+<p>#Questo ogetto ci serve anche per fieldbook!
+Campo_Castronuovo<span class="math inline">\(`fully-replicated`\)</span>data.frame</p>
+<p>#anche si puo fare incompemplete
+ibd = design_experiment(
+year = “2020,”
+expe.type = “IBD,”
+germplasm = varieta,
+nb.blocks = 10, # i.e. number of location if each location has one block
+nb.cols = 3)</p>
+<p>ibd</p>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="spatial-analysis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["PPB Toolkit.pdf", "PPB Toolkit.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,7 @@
+"0","field <- design.rcbd(mylist,            #germplasms list
+                    r= 2,               #number of blocks or repetitions
+                    serie= 2)           #plots numbering method)
+"
+"2","Error in design.rcbd(mylist, r = 2, serie = 2) : 
+  objeto 'mylist' no encontrado
+"

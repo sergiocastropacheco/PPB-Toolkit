@@ -1,0 +1,500 @@
+# First Steps in R
+
+<style>
+body {
+text-align: justify}
+</style>
+
+
+If you already know the basics of R, you can skip this section and go straight to the next chapter!
+
+## Getting started
+
+If not, many ressources are available on line to master the language and procedures on R. If you are interested, we suggest some of them at the end of this chapter. However, this first chapter  gives the most basic elements of R that will be useful later on, for the objetives of this PPB Toolkit.
+
+At this point, if you do not have it already, we suggest you to download the programming language R in this [link](https://www.r-project.org/) and RStudio, the associated Integrated Development Environment in this [link](https://www.rstudio.com/products/rstudio/download/). Alternatively, you can try the cloud version [R studio cloud](https://rstudio.cloud/), but have in mind that most explanations in this toolkit will be done according to a locally downloaded version.
+    
+---- 
+
+**The RStudio  Screen**
+
+If at this point, you have downloaded and opened RStudio, you should be looking at something similar to the image in Figure 1 (This image is provisory). In order to facilitate communication between us and to properly navigate through the RStudio screen later on, some precisions must be made about this.
+
+![](Rstudio screen 2.png)
+**Figure 1. The RStudio Screen. 1: The Text Editor. 2: The Environment. 3: The Plots. 4: The Console. **
+
+The RStudio screen is normally divided into 4 large panels. Different tools could be assigned to those 4 panels, and their order can be inverted. However, we will here describe the most commons uses for the standard positions of these panels.
+
+The text editor (1) usually appears at the upper left cuadrant. It is evidently where most typing happens and what is typed can then be saved in the form of a script. 
+
+The console (2) is at lower left cuadrant, every line of code run passes through here, and it is also where results are usually shown. Also, when an error occurs, the explanation of the error appears here. Moreover, some other features might be shown in this cuadrant if decided by the user, such as the Terminal and R Markdown (which will not be covered in this toolkit).
+
+The upper right corner (3) usually shows us the objects that are present in the R environment. We will later on see what objects can be and how to use them.
+
+The lower right cuadrant (4) is one of the most versatile spaces. It can be used to see the plots, to browse for files and to ask for help.
+
+
+----
+  
+**Basic operations.**
+
+R can be thought simply like a calculator (but a very powerful one). Start by writing on the console "1+1", and then click the Enter button.
+
+```{r}
+1+1 
+```
+
+
+The first strip is what we typed, and the second shows the result of the request. The [1] symbol indicates that this is the first line of answer, and the only element present is a 2. Later on, we will see that certain operations will produce several lines of answers, so it is useful that results are ordered by numbers.
+
+Try to type now "1+1" on the text editor. Once typed, you can click on the "Run" button on the upper right to see the same results. Or alternatively (and faster), you can just type Ctrl+Enter while the cursor is on that line.
+
+```{r}
+1+1
+```
+
+We should expect the same results by performing operations directly on the console or on the text editor. However, the text editor is more flexible, because you can save all your text as a script, and rerun it later.
+
+---- 
+
+**Basic Arithmetics **
+
+Let's explore  a bit of other arithmetic functions. For example, if you want to multiply 6 times 9, just type "6*9" in the text editor and hit Ctrl+Enter:
+
+```{r}
+6*9
+```
+
+Or maybe you want to divide 3 by 2.
+```{r}
+3/2
+```
+
+Perhaps you are interested in estimating the square root of 2.
+```{r}
+sqrt(2)
+```
+
+Or in calculating 10 to the power of 2.
+```{r}
+10^2
+```
+
+---- 
+
+**Basic functions**
+
+Functions are the base of R. Internally, they contain the operations that we want to execute. They are always written followed by a parenthesis and everything that is between parenthesis is called "arguments" . You can learn more about each function by typing the ? symbol, followed by the name of the function.
+    
+Three simple examples of useful functions:
+
+      Concatenate =  c() 
+      Mean = mean()
+      Standard deviation =  sd()
+    
+How to use them?
+
+* Use c() to put together a set of elements. In this case, numbers.
+```{r}
+c(1,2,3,4)
+```
+
+Use mean() to estimate the mean of the four elements inside the c() function.
+```{r}
+mean(c(1,2,3,4))
+```
+
+
+You can do the same, but with sd(), to estimate the standard deviation
+```{r}
+sd (c(1,2,3,4))
+```
+
+---- 
+
+**Objects**
+
+The term "Object" refers to most of the information stored in your R session. An object can be a number, a character, a dataframe, a plot, or other things. You can see your objects in the upper right window of RStudio, called Environment.
+
+You can create objects by using  ‘ = ’ o ‘ <- ‘, although the latter is generally prefered. For example, create an object called x, containing the numbers 1, 2 and 3.
+
+```{r}
+x = c(1,2,3)
+x
+```
+
+Or create and object called myvector, with all numbers from 1 to 5. The ":" symbol indicated that every number between 1 and 5 will be included.
+
+```{r}
+myvector= c(1:5)
+myvector
+```
+
+Now, you should see in the upper right window your two newly created objects, called "x" and "myvector".
+
+
+Two important notes:
+
+* When you create an object, it does not appear automatically in the console. To actually see the object you created, you have to "call it" by writing it's name on the text editor and typing Ctrl+Enter. Or, by writing it on the console and hitting simply Enter.
+
+* Attention to ortography and lower/upper cases!! MyVector is not myvector (typos make up the most common errors for R begginers)
+
+---- 
+
+**Saving your script.**
+
+You can save your script to work on it later, and, in that way, you have a proper register of the analysis you did.It's very useful to create a folder in your computer for every project you do in R. We invite you to create a folder on your documents and call it "R PPB toolkit" or whatever name you like better.
+
+Once created, you can save the script in which you are working by clicking on:
+
+* File > Save As > Choose your folder and save your script as “myscript.R”.
+
+(It's important to finish with ".R", to indicate your file format.)
+
+---- 
+
+## Preparing and reading your data
+
+**Setting up your Working Directory. **
+
+The Working Directory (WD) is a very important  concept, and it is simply the folder in which you are working. This folder should work both for uploading files and placing the outputs of your work.
+
+The most important things to di regarding your WD are:
+
+**1. Knowing which folder is your actual WD, by using getwd() **
+```{r}
+getwd()  
+```
+*This is our working directory in our computer, but yours will be inevitably named diferently.
+
+
+**2. Fixing your WD by writing setwd("Folder Location") **
+```{r, eval = F}
+setwd("C:/Users/Usuario1/Google Drive/RSR/PPB Toolkit")
+```
+
+So, I set my WD to a file inside my Google Drive Folder, inside a folder called RSR, and finally, into one called PPB Toolkit.  This step is specially tricky and works differently in PC and Mac. You should be sure that you can type precisely the location on your computer. Alternatively, you can follow step 3.
+
+
+**3. Fixing your WD by clicking. **
+
+You can also set your WD by clicking on RStudio. 
+
+* Session > Set Working Directory > Choose Directory > Manually locate your folder.
+
+This is useful because chances of typos and errors are reduced, but, if you have to do it every time you open RStudio, it might be annoying.
+
+*After doing this, you will see on the console that a code was automatically written, using the setwd(function). A nice trick is to copy and paste this direction into your script (inside the setwd() function), so that you are sure that is it typed correctly.
+
+---- 
+
+**Preparing your data.**
+
+Normally, after evaluations in the field or in the laboratory, data is usually stored in a spreadsheet format in Excel, Google Sheets or other similar options. In those files, data should be kept in a format that is as tidy as possible, to facilitate further elaborations. The fundamentals of tidy data can be found [here](https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html).
+
+In this toolkit we will work mostly with data from a tomato PPB project developed in Italy (I would like to also add data from another source, maybe later). For this case, the data corresponds to a Multi Location Trial (MLT) done in 2020 at 4 different locations. The material evaluated came from a composite cross of 4 different landraces, and subjected to Natural Selection or Farmers Selection. However, to simplify this toolkit, varieties were simply named from A to N, as there were 14 different genotypes. Data also includes variables like mean of farmer's evaluations, the yield at first harvest, the total yield, the mean fruit weight and the percentage of marketable yield (as defined by the farmers).
+
+
+![](tomatodata.png)
+**Figure 2. Snapshot of the spreadsheet containing the data from the tomato Multi-Location Trial as part of a PPB program. **
+ 
+
+
+Moreover, there are some general advices that can be given about the format of the data to upload.
+
+* For the column names, it is convenient to use short but explanative names and to avoid spaces. This allows for less problems in the analysis. That is why, for example, column 7 on Figure 2 reads "farmers_eval" instead of "Farmer's Evaluation".
+
+* If you data frame has missing data, it is convenient to use always the same character as data frame indicator. It can be a "*" or even "NA", but, for now, avoid leaving blanks for the missing data. 
+
+---- 
+
+**Uploading the data.**
+
+Data can be uploaded to R studio directly from the spreadsheet file in a excel format. However, the best way to do it is transforming your file into a "comma separated values" or .csv file. This is a lighter and easier to read format for most programs. To convert your spreadsheet into this format, you just have to click on "Save As", and choose the option "CSV (comma delimited)". You can know if you did it right if you open the same document in a text editor, such as Word or Notepad, and you see that now your rows have become just a long string of text separated with commas.
+
+Once your data file is on .csv format and saved in the folder you choose for Working Directory, you can upload it this way.
+
+```{r }
+mydata <- read.csv("tomatoMLT2020.csv")
+```
+
+In this case, we knew that there was a file called 'tomatoMLT2020.csv' in our working directory. So, through this line, we are at the same time reading the data, and assigning it to an object called "mydata"
+
+
+Another way to do this would be be clicking
+
+* Import Database > From text(base) > Manually choose and select your file. 
+
+In that case, you will see that  the code required to perform that operation will be automatically written on the console.
+
+Moreover, off course that you can also import files that are in a excel format. You could, for example, click on:
+
+* Import Database > From Excel > Manually choose and select your file. 
+
+Or, as well, use the required function.
+```{r, eval = F}
+mydata <- read_excel("tomatoMLT2020.xlsx")
+```
+
+More information about this importing data into R can be found [here](http://www.sthda.com/english/wiki/importing-data-into-r).
+
+**Checking your data **
+
+It is generally convenient to check your data once you have uploaded it. This way, you make sure that you are choosing the right file and that no information was loss or distorted in the uploading process. Once you have uploaded the data, you can ask questions through R about the data, for example:
+
+What is the structure of my data? 
+
+```{r}
+str(mydata)
+```
+
+This function is particularly useful, as you can see the data type of your columns. They might be characters, numerics, integrers (numbers without decimals) and factors, among others. For example, in this case, the location and the variety are read as characters, while they should be factors. We will soon see how to change this.
+
+We could, also do more specifical questions, like how many columns do I have? Or how many rows? What are the names of my variables?
+```{r}
+ncol(mydata)
+nrow(mydata)
+names(mydata)
+```
+
+Maybe you only want to see the first 10 rows, pr only the last 10 rows.
+```{r, results = F}
+head(mydata)
+tail(mydata)
+```
+
+Of course, you can always choose your data in spreadsheet format.
+```{r, results = F, eval= F}
+View(mydata)
+```
+This does not appear in the book format, but in your RStudio screen, it will make a new tab appear with your data in a spreadsheet format.
+
+
+Bottomline, we advice to  always check your data when uploading. Specifically,  check the data type of each variable, as this might lead to problems during the analysis and manipulation.
+    
+---- 
+
+## Basic data manipulation
+
+
+**Accesing your data **
+
+Before performing statistic analysis, it is useful to understand how you can "call" a specific column or row in R, so that you can easiliy access your data. Here are two basic examples.
+
+* To access a specific column, you can use the data frame name, followed by the "$" operator and the column name. For example, if I wanted to see every data point on my yield column, I could type.
+
+```{r, width= 100}
+mydata$yield
+```
+
+Thus, this gives every one of the 112 observations on plot yield, in the order in which they appear in the data frame.
+
+* You can, alternatively, use the form data[row,column].  For example, if you only want to see the data point in the third row and third column.
+ 
+```{r}
+mydata[3,3]
+```
+
+The same idea can be used to see only the first row, and all columns.
+```{r}
+mydata[1,]
+```
+
+Or also, it could be useful to see rows 1, 2 and 3, and only the first column.
+```{r}
+mydata[c(1,2,3),1]
+```
+
+You can also call columns by their names. In this case, lines 1 to 10 of the Farmer's Evaluations
+```{r}
+mydata[1:10, "farmers_eval"]
+```
+
+
+---- 
+
+**Vector arithmetics**
+
+In the same way in which you can do arithmetics with simple numbers (as seen before), you can do it with vectors (a series of numbers). Also, if you use introduce a hashtag (#) in your text editor or console, you can freely write text that explains what you are doing. For example:
+
+```{r}
+# Define a v vector
+v <- c(10,20, 30, 40, 50)
+# Define a w vector
+w <- c(1, 2, 3, 4, 5)
+# Add them up to create a t vector
+t= v + w
+
+# t is the sum of v and w
+t
+```
+
+
+
+---- 
+
+**Create a new column. **
+
+Using vector arithmetics we could create new columns in our data frame, done through calculations performed with the existing columns. For example, in our particular data set, we have data for total yield and the data for percentage of marketable yield. A simple way to obtain only the marketable yield, would be to multiply the total yield with the percentage of marketable yield. This will create a new vector which we will simply call "newvector"
+
+```{r}
+newvector <- mydata$yield *   mydata$perc_mark_yield
+```
+
+Once you created the vector, you can add it to the data frame. You can also do it directly, but we chose it this way to make it simpler to understand.
+
+```{r}
+mydata$mark_yield <- newvector
+```
+
+----
+
+## Basic Statistics and Plots
+
+**Minimal statistics**
+
+Now that we know how to call an specifical column in the data frame, it is possible to perform some basic statistics on these variables.
+
+* Estimate the mean of a variable.
+```{r}
+mean(mydata$yield)
+```
+
+* Estimate the median.
+```{r}
+median(mydata$yield)
+
+```
+
+* Estimate the standard deviation.
+```{r}
+sd(mydata$yield)
+```
+
+---- 
+
+**A simple plot.**
+
+Using the function plot() we can create simple exploratory graphs, which will appear on the lower right pannel.
+```{r, warning= F }
+plot( x= mydata$farmers_eval,        # My x axis
+      y= mydata$yield,               # My y axis
+      xlab= "Yield per plant (kg)",  # My x label
+      ylab= "Farmer's Evaluation" )  # My y label
+```
+
+
+**Another simple plot.**
+
+We could, for example plot the harvest data for each location. But first, we will check if the data types are right.
+
+```{r}
+str(mydata)
+```
+
+Looks like the location is a character variable. This means that it is just a loose string of text. We rather want it to be a factor, so that all observations with the same location can be grouped in plots. The function **as.factor()** allows me to change any type of variable into a factor
+
+```{r}
+mydata$location = as.factor(mydata$location)
+```
+
+And now we can do the plot.
+
+```{r}
+plot( x= mydata$location, 
+      y=mydata$yield,
+      ylab= "Yield per plant (kg)",
+      xlab= "Location")
+```
+
+----
+
+**Subsetting your data. **
+
+Suppose you only want to work with a section of your data frame, for example, only the data for one location.
+
+There are many ways to do this, a rather simple one is using the function subset()
+
+```{r}
+soloRotonda <- subset(mydata, mydata$location == "Rotonda")
+nrow(soloRotonda)
+```
+
+Notice how we created a new subset, only with data from Rotonda. After checking, we see it has only 28 rows, as there were only 28 plots per location..
+
+Notice also how we used the "==" sign, to express a logical function stating the location had to be equal to "Rotonda"
+
+In R, the other characters to indicate logical expressions are:\
+
+     * '==' for equal\
+     * '!=' for different \
+     * '<,>' less than, more than \
+     * '<=' less or equal to  \
+     * '>=' more or equal to \
+     * '&' if we want one condition AND another.
+     * "|" if we Want one condition OR another. 
+     
+For example, we can select only the data for Rotonda, and only varieties A and B. If we check how many row we have now, we will see that, as expected we only have two rows, two for Var. A and 2 for Var. B.
+
+```{r}
+Var.AB_Rotonda <- subset(mydata, 
+                  mydata$location == "Rotonda"
+                  &  #And
+                  mydata$variety  == "Var. A" 
+                  |  #Or
+                  mydata$location == "Rotonda"
+                  &  #And
+                  mydata$variety  == "Var. B" )
+
+nrow(Var.AB_Rotonda)
+```
+
+----
+
+## Packages in R.
+
+Packages are what keeps the R community growing, as virtually anyone can create and upload a package in R. A package can be loosely defined as a group of functions that serve to a certain objective or area of study. Some of them are very useful to treat and analyze data from varietial trials and PPB programs, and we will see many examples later.  Downloading and installing them is very easy, you have mostly two options.
+
+
+1. The simplest is to click on  Tools > Install Packages > and write the package name. This works as long as the package is on the CRAN repositoy, which is the official R repository where developers upload packages.
+
+2. To make it easier, and embeded into your code, you could also write
+```{r, eval =F}
+install.packages("yourpackagename")
+#Don't try this! It's only an example!
+```
+
+Once installed, you have to call it so that it is active on R. This is true for every time you open R.
+```{r, eval =F}
+library(yourpackagename)
+#Again, don't try this.
+```
+
+We will use and install several packages in the following chapters.
+
+----
+
+## Final considerations
+
+**Ask questions!**
+
+It's very hard to know (and to remember!) how everything is done in R. And, like any language, the only way to become fluent is to practice often. There will always be things that you might want to do, and which are not included in this very small manual. For those cases, curiosity is a gread advantage, and here is some small advice about how to proceed.
+
+Examples:
+
+*  1. When you wish to better understand a function and it's arguments, you can type ?functionname (and changing "functionname" for your actual function). This will display a window on the left lower panel which explains thoroughly the function and how is it done.
+
+*  2. When you want to something in particular, but are not sure how to do it in R, A great approach is just to google: "How to _____ in R". This can get you out of many troubles, the tricky part is finding out how to ask the proper question.
+
+*  3. When you run a piece of code and receive an error (usually displayed with red letters on the console) try to read them and see what they mean. Sometimes, these errors are hard to interpret, and one good approach is to copy-paste them in google, and see who was suffered from this before.
+
+
+**To learn more**
+
+These are just some sources to learn more about R:
+
+* The basic book is the [R Cookbook](https://rc2e.com/).
+
+* This site offers plenty of information with nice tutorials: [STHDA](http://www.sthda.com/english/)
+
+* This is a cool blog where people ask questions you might have: [Stack Overflow](https://stackoverflow.com/)

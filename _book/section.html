@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 8  | A PPB Toolkit in RStudio</title>
+  <meta name="description" content="This is just a test." />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 8  | A PPB Toolkit in RStudio" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is just a test." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 8  | A PPB Toolkit in RStudio" />
+  
+  <meta name="twitter:description" content="This is just a test." />
+  
+
+<meta name="author" content="Sergio Castro and Matteo Petitti" />
+
+
+<meta name="date" content="2021-07-19" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="spatial-analysis.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A PPB Toolkit in R and RStudio</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Foreword</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
+<li class="chapter" data-level="3" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html"><i class="fa fa-check"></i><b>3</b> First steps in R</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html#basic-statistics-and-data-manipulation"><i class="fa fa-check"></i><b>3.1</b> Basic statistics and data manipulation</a></li>
+<li class="chapter" data-level="3.2" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html#packages-in-r."><i class="fa fa-check"></i><b>3.2</b> Packages in R.</a></li>
+<li class="chapter" data-level="3.3" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html#final-considerations"><i class="fa fa-check"></i><b>3.3</b> Final considerations</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="field-preparation.html"><a href="field-preparation.html"><i class="fa fa-check"></i><b>4</b> Field Preparation</a></li>
+<li class="chapter" data-level="5" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html"><i class="fa fa-check"></i><b>5</b> Basics of Data Visualisation</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#base-package"><i class="fa fa-check"></i><b>5.1</b> Base package</a></li>
+<li class="chapter" data-level="5.2" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#ggplot"><i class="fa fa-check"></i><b>5.2</b> ggplot</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="statistical-tests.html"><a href="statistical-tests.html"><i class="fa fa-check"></i><b>6</b> Statistical tests</a>
+<ul>
+<li class="chapter" data-level="6.0.1" data-path="statistical-tests.html"><a href="statistical-tests.html#normalita-con-grafichi-e-shapiro-wilks"><i class="fa fa-check"></i><b>6.0.1</b> 1. Normalita (con Grafichi e Shapiro Wilks)</a></li>
+<li class="chapter" data-level="6.0.2" data-path="statistical-tests.html"><a href="statistical-tests.html#anova"><i class="fa fa-check"></i><b>6.0.2</b> 2. ANOVA</a></li>
+<li class="chapter" data-level="6.0.3" data-path="statistical-tests.html"><a href="statistical-tests.html#lsd-o-hsd"><i class="fa fa-check"></i><b>6.0.3</b> 3. LSD o HSD</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="spatial-analysis.html"><a href="spatial-analysis.html"><i class="fa fa-check"></i><b>7</b> Spatial Analysis</a></li>
+<li class="chapter" data-level="8" data-path="section.html"><a href="section.html"><i class="fa fa-check"></i><b>8</b> </a>
+<ul>
+<li class="chapter" data-level="8.0.1" data-path="section.html"><a href="section.html#gge-biplots"><i class="fa fa-check"></i><b>8.0.1</b> GGE Biplots</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A PPB Toolkit in RStudio</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="section" class="section level1" number="8">
+<h1><span class="header-section-number">Chapter 8</span> </h1>
+<p>spats.castronuovo = SpATS(response = “yield,” #La mia variabile tra virgolette
+genotype = “geno,” #nome genotipi
+genotype.as.random = F, #Questa e una lunga storia! Depende si voliamo calculare BLUPS o BLUES
+data= data.castronuovo, #i miei dati
+spatial = ~ SAP(row, col)) #row e col si chiamano le mie varibile con questa info</p>
+<p>#E vediamo come si vede
+plot(spats.castronuovo)</p>
+<p>#QUesto oggetto e pieno di roba
+spats.castronuovo<span class="math inline">\(call spats.castronuovo\)</span>model
+spats.castronuovo<span class="math inline">\(var.comp spats.castronuovo\)</span>eff.dim
+spats.castronuovo$deviance</p>
+<p>#Ma lo roba importante e questa
+spats.castronuovo$coeff</p>
+<p>#Per prendere i valori de ogni genotipo facciamo cosi</p>
+<p>predict(spats.castronuovo, which = “geno”)</p>
+<p>#Lo facciamo, ma dentro de un loop
+#A petizione di GEA!</p>
+<p>for (i in 1:4){ #i e la mia variabale, voglio fare tutto tra parentessi prima con i = 1, por i = 2, por i = 3, poi 1=4,
+mysubset= subset(data, loc.num== i) #Fare subset con mi ambiente (cambiato de lettere a numero)
+myenv = first(mysubset<span class="math inline">\(loc) #ottener il nome del ambiente  myspats = SpATS(response = &quot;yield&quot;, #Funzione spats che gia conosciamo  genotype = &quot;geno&quot;,  genotype.as.random = F,  data= mysubset,  spatial = ~ SAP(row, col))  adjusted.means &lt;- predict(myspats, which = &quot;geno&quot;) #Salvare le medie agiustate  adjusted.means\)</span>loc &lt;- myenv #aggiungere una colonna alle medie con il ambiente
+assign(paste0(“means.”myenv), adjusted.means[,c(6,1,4,5)]) #salvare tuto in un oggeto chiamato means.“ambiente”
+}
+#Finito il loop</p>
+<p>#(si puo metere un loop dentro del loop per fare le medie agiustate per ogni charattere)
+#Oppure copiare e collare e cambiare “yield” per un altra variabile</p>
+<p>#Ci abbiamo 4 oggetti diversi
+means.Castronuovo
+means.Molise
+means.Rotonda
+means.Sestola</p>
+<p>#Collare tutti
+all.means &lt;- rbind(means.Castronuovo, means.Molise, means.Rotonda, means.Sestola)
+#Cambiare un paio de nomi de collonni
+names(all.means)[3] &lt;- “yield_mean”
+names(all.means)[4] &lt;- “yield_sd”</p>
+<p>#Facciamo il plot</p>
+<p>library(ggplot2)</p>
+<p>ggplot(all.means,
+aes(x=geno,
+y=yield_mean))+
+geom_bar(stat=‘identity,’
+fill= “tomato”)+
+facet_wrap(loc~.)+
+labs(x= “Genotype,”
+y= “Yield”)+
+geom_errorbar(aes(ymin=yield_mean - yield_sd,
+ymax=yield_mean+yield_sd),
+width=0.2)</p>
+
+<div id="gge-biplots" class="section level3" number="8.0.1">
+<h3><span class="header-section-number">8.0.1</span> GGE Biplots</h3>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="spatial-analysis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["PPB Toolkit.pdf", "PPB Toolkit.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

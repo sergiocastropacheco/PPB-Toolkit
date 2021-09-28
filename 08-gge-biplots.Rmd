@@ -1,0 +1,91 @@
+# GGE Biplots
+
+#Cos'e?
+#Una forma facile de visualizare il effetto del genotipo e interazzione GxE
+
+#Prima si fa il modelo
+gge_model <-  gge(all.means, #data set (si possono usare anche i dati crudi)
+                  env = loc, #colonna ambiente
+                  gen = geno, #colona genotipo
+                  resp= yield_mean,  #colona risposta
+                  scaling = 1) #Scalare con la desv. std. per normalizare i ambienti
+
+#Now plot it
+
+plot(gge_model)
+
+#Come analizare? Lo vedremo piu avanti.
+
+
+#Mean vs. Stability
+plot(gge_model, type = 2)
+
+#Genotype Ranking!
+plot(gge_model, type = 8)
+
+#Which won where
+plot(gge_model, type= 3)
+
+
+#Genotype Comparison
+plot(gge_model,
+     type = 9,
+     sel_gen1 = "Geno 1",
+     sel_gen2 = "Geno 14")
+
+
+#Modifiyng the plot.
+#The GGE BiPlot is a GGplot object, so it can be easily modified.
+
+plot(gge_model,
+     col.gen = "black",
+     col.env = "red",
+     size.text.env= 7,
+     size.text.gen = 8,
+     title =F)+ #Fino qui arriva la funzione di metan e passiamo a ggplot
+  labs(title = "Yield GGE Biplot") + 
+  theme(title = element_text(size= 20),
+        axis.title = element_text(size= 20),
+        axis.text = element_text(size= 15))
+
+
+#4. PPBstats!
+
+#Prima, ci vuole questo altro pachetto che ci aiutta a instalare PPB stats
+install.packages("devtools")
+library(devtools)
+
+#Cerca il archivio .zip che vi ho inviato e fai unzip nel tuo WD
+#Devi avere quindi una cartella nel tuo WD che si chiama ""PPBstats-0.26"
+devtools::install("PPBstats-0.26")
+
+#oppure
+devtools::install_github("priviere/PPBstats")
+
+library(PPBstats)
+#Sappere di piu in questo link
+#https://priviere.github.io/PPBstats_web_site/articles/2.book.html
+
+#Disegno di campo
+Campo_Castronuovo = design_experiment(
+  location = "Castronuovo",
+  year = "2020",
+  expe.type = "fully-replicated",
+  germplasm = varieta,
+  nb.blocks = 2,
+  nb.cols= 7)
+
+Campo_Castronuovo
+
+#Questo ogetto ci serve anche per fieldbook!
+Campo_Castronuovo$`fully-replicated`$data.frame
+
+#anche si puo fare incompemplete
+ibd = design_experiment(
+  year = "2020",
+  expe.type = "IBD",
+  germplasm = varieta,
+  nb.blocks = 10, # i.e. number of location if each location has one block
+  nb.cols = 3)
+
+ibd

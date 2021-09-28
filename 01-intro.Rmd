@@ -1,0 +1,19 @@
+# Introduction
+
+An introduction for this book must be written. Here, we will write some words about the importance of PPB and this kind of toolkit.
+
+Below are some bullets on why R is good and useful.
+
+
+**Why R? **
+
+We propose R as a very powerful tool for PPB purposes for three main reasons:
+
+* **Open Source. **\
+Anyone can download R and use it for free. What is more, anyone can also make its own contribution and expand the possibilites of things that can be done through this language. In fact, R is constantly updated by users around the world.
+
+* **Polifunctional. **\
+Through R and RStudio, you can integrate most of the data related needs in PPB, such as Data Management, Statistical Analysis and Data Visualization.
+
+* **Reproducibile. ** \
+After developing all your designs and analysis, you can share your methods and results with the community. Then, virtually anyone with access to your data and your code can review every step you took and (hopefully) arrive to the same result.

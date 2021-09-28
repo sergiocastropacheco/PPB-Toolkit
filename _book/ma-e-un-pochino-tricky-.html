@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 25 MA! E un pochino tricky. | A PPB Toolkit in RStudio</title>
+  <meta name="description" content="This is just a test." />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 25 MA! E un pochino tricky. | A PPB Toolkit in RStudio" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is just a test." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 25 MA! E un pochino tricky. | A PPB Toolkit in RStudio" />
+  
+  <meta name="twitter:description" content="This is just a test." />
+  
+
+<meta name="author" content="Sergio Castro and Matteo Petitti" />
+
+
+<meta name="date" content="2021-07-19" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="posso-mettere-i-letri-nella-tabbella-.html"/>
+<link rel="next" href="prima-devo-aggiungere-il-nome-del-genotipo-a-la-tabella.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A PPB Toolkit in R and RStudio</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Foreword</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
+<li class="chapter" data-level="3" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html"><i class="fa fa-check"></i><b>3</b> First steps in R</a>
+<ul>
+<li class="chapter" data-level="3.0.1" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html#why-r"><i class="fa fa-check"></i><b>3.0.1</b> Why R?</a></li>
+<li class="chapter" data-level="3.0.2" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html#lets-start"><i class="fa fa-check"></i><b>3.0.2</b> Let’s start</a></li>
+<li class="chapter" data-level="3.0.3" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html#other-arithmetic-functions."><i class="fa fa-check"></i><b>3.0.3</b> Other Arithmetic functions.</a></li>
+<li class="chapter" data-level="3.0.4" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html#functions"><i class="fa fa-check"></i><b>3.0.4</b> Functions</a></li>
+<li class="chapter" data-level="3.0.5" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html#objects"><i class="fa fa-check"></i><b>3.0.5</b> Objects</a></li>
+<li class="chapter" data-level="3.0.6" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html#saving-your-script."><i class="fa fa-check"></i><b>3.0.6</b> Saving your script.</a></li>
+<li class="chapter" data-level="3.0.7" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html#setting-up-your-working-directory."><i class="fa fa-check"></i><b>3.0.7</b> Setting up your Working Directory.</a></li>
+<li class="chapter" data-level="3.0.8" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html#preparing-your-data"><i class="fa fa-check"></i><b>3.0.8</b> Preparing your data</a></li>
+<li class="chapter" data-level="3.0.9" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html#uploading-the-data."><i class="fa fa-check"></i><b>3.0.9</b> Uploading the data.</a></li>
+<li class="chapter" data-level="3.0.10" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html#check-your-data"><i class="fa fa-check"></i><b>3.0.10</b> Check your data</a></li>
+<li class="chapter" data-level="3.0.11" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html#accesing-your-data"><i class="fa fa-check"></i><b>3.0.11</b> Accesing your data</a></li>
+<li class="chapter" data-level="3.1" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html#some-basic-statistics"><i class="fa fa-check"></i><b>3.1</b> Some basic statistics</a></li>
+<li class="chapter" data-level="3.2" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html#vector-arithmetics"><i class="fa fa-check"></i><b>3.2</b> Vector arithmetics</a></li>
+<li class="chapter" data-level="3.3" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html#create-a-new-column."><i class="fa fa-check"></i><b>3.3</b> Create a new column.</a></li>
+<li class="chapter" data-level="3.4" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html#a-simple-plot"><i class="fa fa-check"></i><b>3.4</b> A simple plot</a></li>
+<li class="chapter" data-level="3.5" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html#another-simple-plot"><i class="fa fa-check"></i><b>3.5</b> Another simple plot</a></li>
+<li class="chapter" data-level="3.6" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html#subsetting-your-data."><i class="fa fa-check"></i><b>3.6</b> Subsetting your data.</a></li>
+<li class="chapter" data-level="3.7" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html#packages-in-r."><i class="fa fa-check"></i><b>3.7</b> Packages in R.</a></li>
+<li class="chapter" data-level="3.8" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html#the-pipeline-operator"><i class="fa fa-check"></i><b>3.8</b> The pipeline %&gt;% operator</a></li>
+<li class="chapter" data-level="3.9" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html#aggregate-data"><i class="fa fa-check"></i><b>3.9</b> Aggregate data</a></li>
+<li class="chapter" data-level="3.10" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html#save-your-data"><i class="fa fa-check"></i><b>3.10</b> Save your data</a></li>
+<li class="chapter" data-level="3.11" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html#ask-questions"><i class="fa fa-check"></i><b>3.11</b> Ask questions!</a></li>
+<li class="chapter" data-level="3.12" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html#to-learn-more"><i class="fa fa-check"></i><b>3.12</b> To learn more</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="field-preparation.html"><a href="field-preparation.html"><i class="fa fa-check"></i><b>4</b> Field Preparation</a>
+<ul>
+<li class="chapter" data-level="4.0.1" data-path="field-preparation.html"><a href="field-preparation.html#we-could-also-do-other-designs"><i class="fa fa-check"></i><b>4.0.1</b> We could also do other designs</a></li>
+<li class="chapter" data-level="4.0.2" data-path="field-preparation.html"><a href="field-preparation.html#data-visualisation"><i class="fa fa-check"></i><b>4.0.2</b> Data Visualisation</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="visualizzare-dati-in-r-.html"><a href="visualizzare-dati-in-r-.html"><i class="fa fa-check"></i><b>5</b> Visualizzare dati in R —————————-</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="visualizzare-dati-in-r-.html"><a href="visualizzare-dati-in-r-.html#perche-visualizzare-i-dati"><i class="fa fa-check"></i><b>5.1</b> Perche visualizzare i dati</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="per-esplorare-e-comprendere-i-dati-.html"><a href="per-esplorare-e-comprendere-i-dati-.html"><i class="fa fa-check"></i><b>6</b> - Per esplorare e comprendere i dati.</a></li>
+<li class="chapter" data-level="7" data-path="per-convididere-in-presentazioni-o-publicazione-.html"><a href="per-convididere-in-presentazioni-o-publicazione-.html"><i class="fa fa-check"></i><b>7</b> - Per convididere in presentazioni o publicazione.</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="per-convididere-in-presentazioni-o-publicazione-.html"><a href="per-convididere-in-presentazioni-o-publicazione-.html#il-paccheto-base."><i class="fa fa-check"></i><b>7.1</b> Il paccheto base.</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="cosi-non-vediamo-niente.html"><a href="cosi-non-vediamo-niente.html"><i class="fa fa-check"></i><b>8</b> Cosi non vediamo niente!</a></li>
+<li class="chapter" data-level="9" data-path="il-plot-e-creato.html"><a href="il-plot-e-creato.html"><i class="fa fa-check"></i><b>9</b> Il plot e creato,</a></li>
+<li class="chapter" data-level="10" data-path="con-le-varibile-giuste.html"><a href="con-le-varibile-giuste.html"><i class="fa fa-check"></i><b>10</b> con le varibile giuste</a></li>
+<li class="chapter" data-level="11" data-path="e-cose-questo-.html"><a href="e-cose-questo-.html"><i class="fa fa-check"></i><b>11</b> E cose questo “~.”</a></li>
+<li class="chapter" data-level="12" data-path="lo-vedremo-doppo.html"><a href="lo-vedremo-doppo.html"><i class="fa fa-check"></i><b>12</b> Lo vedremo doppo!</a></li>
+<li class="chapter" data-level="13" data-path="grafichi-de-correlazioni.html"><a href="grafichi-de-correlazioni.html"><i class="fa fa-check"></i><b>13</b> Grafichi de correlazioni</a></li>
+<li class="chapter" data-level="14" data-path="si-deve-correre-questa-riga-per-vedere-il-plot.html"><a href="si-deve-correre-questa-riga-per-vedere-il-plot.html"><i class="fa fa-check"></i><b>14</b> Si deve correre questa riga per vedere il plot</a>
+<ul>
+<li class="chapter" data-level="14.0.1" data-path="si-deve-correre-questa-riga-per-vedere-il-plot.html"><a href="si-deve-correre-questa-riga-per-vedere-il-plot.html#statistical-tests"><i class="fa fa-check"></i><b>14.0.1</b> Statistical tests</a></li>
+<li class="chapter" data-level="14.1" data-path="si-deve-correre-questa-riga-per-vedere-il-plot.html"><a href="si-deve-correre-questa-riga-per-vedere-il-plot.html#test-stadistici--"><i class="fa fa-check"></i><b>14.1</b> Test stadistici !! ——————————-</a>
+<ul>
+<li class="chapter" data-level="14.1.1" data-path="si-deve-correre-questa-riga-per-vedere-il-plot.html"><a href="si-deve-correre-questa-riga-per-vedere-il-plot.html#normalita-con-grafichi-e-shapiro-wilks"><i class="fa fa-check"></i><b>14.1.1</b> 1. Normalita (con Grafichi e Shapiro Wilks)</a></li>
+<li class="chapter" data-level="14.1.2" data-path="si-deve-correre-questa-riga-per-vedere-il-plot.html"><a href="si-deve-correre-questa-riga-per-vedere-il-plot.html#anova"><i class="fa fa-check"></i><b>14.1.2</b> 2. ANOVA</a></li>
+<li class="chapter" data-level="14.1.3" data-path="si-deve-correre-questa-riga-per-vedere-il-plot.html"><a href="si-deve-correre-questa-riga-per-vedere-il-plot.html#lsd-o-hsd"><i class="fa fa-check"></i><b>14.1.3</b> 3. LSD o HSD</a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="si-deve-correre-questa-riga-per-vedere-il-plot.html"><a href="si-deve-correre-questa-riga-per-vedere-il-plot.html#normalita--"><i class="fa fa-check"></i><b>14.2</b> Normalita ——————————-</a></li>
+<li class="chapter" data-level="14.3" data-path="si-deve-correre-questa-riga-per-vedere-il-plot.html"><a href="si-deve-correre-questa-riga-per-vedere-il-plot.html#normalita-con-graphichi--"><i class="fa fa-check"></i><b>14.3</b> Normalita con graphichi —-</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="non-e-molto-normale-andiamo-vedere-cosa-ce.html"><a href="non-e-molto-normale-andiamo-vedere-cosa-ce.html"><i class="fa fa-check"></i><b>15</b> Non e molto normale. Andiamo vedere cosa c’e</a></li>
+<li class="chapter" data-level="16" data-path="per-ambiente.html"><a href="per-ambiente.html"><i class="fa fa-check"></i><b>16</b> per ambiente!</a></li>
+<li class="chapter" data-level="17" data-path="e-chiaro-que-molise-e-sestola-sono-abastanza-normali-.html"><a href="e-chiaro-que-molise-e-sestola-sono-abastanza-normali-.html"><i class="fa fa-check"></i><b>17</b> E chiaro que Molise e Sestola sono abastanza normali.</a></li>
+<li class="chapter" data-level="18" data-path="e-che-in-rotonda-e-castronuovo-si-sono-outliers-que-ci-lasciano-essere-normalli-.html"><a href="e-che-in-rotonda-e-castronuovo-si-sono-outliers-que-ci-lasciano-essere-normalli-.html"><i class="fa fa-check"></i><b>18</b> E che in Rotonda e Castronuovo si sono outliers que ci lasciano essere normalli.</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="e-che-in-rotonda-e-castronuovo-si-sono-outliers-que-ci-lasciano-essere-normalli-.html"><a href="e-che-in-rotonda-e-castronuovo-si-sono-outliers-que-ci-lasciano-essere-normalli-.html#normalita-con-test--"><i class="fa fa-check"></i><b>18.1</b> Normalita con test —-</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="il-test-piu-usato-e-shapiro-wilks.html"><a href="il-test-piu-usato-e-shapiro-wilks.html"><i class="fa fa-check"></i><b>19</b> Il test piu usato e Shapiro-Wilks</a></li>
+<li class="chapter" data-level="20" data-path="ma-ce-unaltra-opzione.html"><a href="ma-ce-unaltra-opzione.html"><i class="fa fa-check"></i><b>20</b> Ma c’e un’altra opzione</a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="ma-ce-unaltra-opzione.html"><a href="ma-ce-unaltra-opzione.html#anova--"><i class="fa fa-check"></i><b>20.1</b> ANOVA ——————————————-</a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="cose-un-anova.html"><a href="cose-un-anova.html"><i class="fa fa-check"></i><b>21</b> Cos’e un ANOVA?</a></li>
+<li class="chapter" data-level="22" data-path="tutto-quello-si-confirma-graficamente.html"><a href="tutto-quello-si-confirma-graficamente.html"><i class="fa fa-check"></i><b>22</b> TUtto quello si confirma graficamente</a></li>
+<li class="chapter" data-level="23" data-path="finalmente-si-voglio-fare-un-plot-con-i-letri.html"><a href="finalmente-si-voglio-fare-un-plot-con-i-letri.html"><i class="fa fa-check"></i><b>23</b> Finalmente, si voglio fare un plot con i letri,</a></li>
+<li class="chapter" data-level="24" data-path="posso-mettere-i-letri-nella-tabbella-.html"><a href="posso-mettere-i-letri-nella-tabbella-.html"><i class="fa fa-check"></i><b>24</b> posso mettere i letri nella tabbella.</a></li>
+<li class="chapter" data-level="25" data-path="ma-e-un-pochino-tricky-.html"><a href="ma-e-un-pochino-tricky-.html"><i class="fa fa-check"></i><b>25</b> MA! E un pochino tricky.</a></li>
+<li class="chapter" data-level="26" data-path="prima-devo-aggiungere-il-nome-del-genotipo-a-la-tabella.html"><a href="prima-devo-aggiungere-il-nome-del-genotipo-a-la-tabella.html"><i class="fa fa-check"></i><b>26</b> Prima, devo aggiungere il nome del genotipo a la tabella</a>
+<ul>
+<li class="chapter" data-level="26.1" data-path="prima-devo-aggiungere-il-nome-del-genotipo-a-la-tabella.html"><a href="prima-devo-aggiungere-il-nome-del-genotipo-a-la-tabella.html#finalmente-il-plot."><i class="fa fa-check"></i><b>26.1</b> Finalmente, il plot.</a></li>
+</ul></li>
+<li class="chapter" data-level="27" data-path="e-come-meto-le-lettere-a-canto-delle-box.html"><a href="e-come-meto-le-lettere-a-canto-delle-box.html"><i class="fa fa-check"></i><b>27</b> E come meto le lettere a canto delle “box?”</a></li>
+<li class="chapter" data-level="28" data-path="piu-complicatino-ma-possibile.html"><a href="piu-complicatino-ma-possibile.html"><i class="fa fa-check"></i><b>28</b> Piu complicatino ma possibile</a></li>
+<li class="chapter" data-level="29" data-path="devo-indicare-la-posizione-x-univocamente-per-ogni-genotipo-.html"><a href="devo-indicare-la-posizione-x-univocamente-per-ogni-genotipo-.html"><i class="fa fa-check"></i><b>29</b> Devo indicare la posizione “x” univocamente per ogni genotipo.</a></li>
+<li class="chapter" data-level="30" data-path="come-ho-due-dati-per-genotipo-si-lo-faccio-adesseo-avro-due-lettere-.html"><a href="come-ho-due-dati-per-genotipo-si-lo-faccio-adesseo-avro-due-lettere-.html"><i class="fa fa-check"></i><b>30</b> Come ho due dati per genotipo, si lo faccio adesseo avro due lettere.</a></li>
+<li class="chapter" data-level="31" data-path="cose-sigue.html"><a href="cose-sigue.html"><i class="fa fa-check"></i><b>31</b> Cose sigue?</a></li>
+<li class="chapter" data-level="32" data-path="special-packages.html"><a href="special-packages.html"><i class="fa fa-check"></i><b>32</b> Special packages!</a></li>
+<li class="chapter" data-level="33" data-path="for-next-time-digger-spats-gge-biplot-ppb-stats.html"><a href="for-next-time-digger-spats-gge-biplot-ppb-stats.html"><i class="fa fa-check"></i><b>33</b> For next time diGGer, SPATS, GGE BiPLOT, PPB STATS!</a>
+<ul>
+<li class="chapter" data-level="33.0.1" data-path="for-next-time-digger-spats-gge-biplot-ppb-stats.html"><a href="for-next-time-digger-spats-gge-biplot-ppb-stats.html#spatial-analysis"><i class="fa fa-check"></i><b>33.0.1</b> Spatial Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="34" data-path="spats-.html"><a href="spats-.html"><i class="fa fa-check"></i><b>34</b> SpAts —————————————————-</a></li>
+<li class="chapter" data-level="35" data-path="section.html"><a href="section.html"><i class="fa fa-check"></i><b>35</b> </a>
+<ul>
+<li class="chapter" data-level="35.0.1" data-path="section.html"><a href="section.html#gge-biplots"><i class="fa fa-check"></i><b>35.0.1</b> GGE Biplots</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A PPB Toolkit in RStudio</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="ma-e-un-pochino-tricky." class="section level1" number="25">
+<h1><span class="header-section-number">Chapter 25</span> MA! E un pochino tricky.</h1>
+<p>#(Si e troppo complesso si puo fare oppure in power point)</p>
+<p>#Andiamo</p>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="posso-mettere-i-letri-nella-tabbella-.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="prima-devo-aggiungere-il-nome-del-genotipo-a-la-tabella.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["PPB Toolkit.pdf", "PPB Toolkit.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
