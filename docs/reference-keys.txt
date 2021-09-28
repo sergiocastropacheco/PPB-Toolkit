@@ -34,3 +34,6 @@ spatial-analysis
 spats
 gge-biplots
 preface
+metan
+which-won-where
+mean-vs.-stability

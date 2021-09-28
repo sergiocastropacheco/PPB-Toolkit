@@ -1,91 +1,85 @@
-# GGE Biplots
+# GGE BiPlots
 
-#Cos'e?
-#Una forma facile de visualizare il effetto del genotipo e interazzione GxE
+## metan
 
-#Prima si fa il modelo
-gge_model <-  gge(all.means, #data set (si possono usare anche i dati crudi)
-                  env = loc, #colonna ambiente
-                  gen = geno, #colona genotipo
-                  resp= yield_mean,  #colona risposta
-                  scaling = 1) #Scalare con la desv. std. per normalizare i ambienti
+```{r, eval = F}
+install.packages("metan")
+library(metan)
+```
 
-#Now plot it
+```{r, warning = F, message =F}
+library(metan)
+```
 
+
+
+```{r}
+mydata <- read.csv("tomatoMLT2020.csv")
+```
+
+```{r}
+gge_model <-  gge(mydata,               #data set (si possono usare anche le medie aggiustate 
+                  env = location,          #colonna ambiente
+                  gen = variety,      #colona genotipo
+                  resp= yield,        #colona risposta o variabile
+                  scaling = 1)        #Scalare con la desv. std. per normalizare i ambienti
+```
+
+
+```{r}
 plot(gge_model)
+```
 
-#Come analizare? Lo vedremo piu avanti.
 
+#### Which won where
 
-#Mean vs. Stability
+The "Which-Won-Where" type draws a polygon along the genotypes that are the farthest away from the origin, this means that they are the genotypes with longest vectors and are thus the most responsive. As a rule of thumb,
+genotypes which are on the polygon vertex had the best performances in the environments found in the same sector (Yan et al., 2007).
+
+```{r}
+plot(gge_model, type= 3)
+```
+
+### Mean vs. Stability
+The "Mean vs. Stability" feature draws a first line, the mean environmental axis, passing through the origin with an arrow representing the "ideal" environment, and then a second line perpendicular to the first,  which represents the GxE interaction.  Genotypes with projections close to the arrow in the first axis would be high performers in this ideal environment,  while large projections on the second axis indicate low stability or high GxE interaction.
+
+```{r}
 plot(gge_model, type = 2)
+```
+
 
 #Genotype Ranking!
+# Fa un cerchio nella posizione del genotipo ideal
+# Poi, piu vicino e un genotypo de questo cerchio, piu bono e
+```{r}
 plot(gge_model, type = 8)
-
-#Which won where
-plot(gge_model, type= 3)
-
+```
 
 #Genotype Comparison
+# Fa una linea nel mezzo tra due genotipi, i ambiente nel latto d ogni genotipo sono quelli dove lui e andato meglio
+```{r}
 plot(gge_model,
      type = 9,
-     sel_gen1 = "Geno 1",
-     sel_gen2 = "Geno 14")
-
+     sel_gen1 = "Var. A",
+     sel_gen2 = "Var. L")
+```    
 
 #Modifiyng the plot.
 #The GGE BiPlot is a GGplot object, so it can be easily modified.
 
+```{r}
+library(ggplot2)
+
 plot(gge_model,
-     col.gen = "black",
-     col.env = "red",
+     col.gen = "black", 
+     col.env = "blue",     
      size.text.env= 7,
      size.text.gen = 8,
-     title =F)+ #Fino qui arriva la funzione di metan e passiamo a ggplot
-  labs(title = "Yield GGE Biplot") + 
-  theme(title = element_text(size= 20),
+     title =F)+
+     labs(title = "GGE BIPLOT FIGO")+
+     theme(axis.text.x = element_text(size= 30)) #Fino qui arriva la funzione di metan e passiamo a ggplot
+  labs(title = "Yield GGE Biplot") +              #Mettere in titulo
+  theme(title = element_text(size= 20),           #Cambiare la dimensioni delle intestature ed altri testi
         axis.title = element_text(size= 20),
         axis.text = element_text(size= 15))
-
-
-#4. PPBstats!
-
-#Prima, ci vuole questo altro pachetto che ci aiutta a instalare PPB stats
-install.packages("devtools")
-library(devtools)
-
-#Cerca il archivio .zip che vi ho inviato e fai unzip nel tuo WD
-#Devi avere quindi una cartella nel tuo WD che si chiama ""PPBstats-0.26"
-devtools::install("PPBstats-0.26")
-
-#oppure
-devtools::install_github("priviere/PPBstats")
-
-library(PPBstats)
-#Sappere di piu in questo link
-#https://priviere.github.io/PPBstats_web_site/articles/2.book.html
-
-#Disegno di campo
-Campo_Castronuovo = design_experiment(
-  location = "Castronuovo",
-  year = "2020",
-  expe.type = "fully-replicated",
-  germplasm = varieta,
-  nb.blocks = 2,
-  nb.cols= 7)
-
-Campo_Castronuovo
-
-#Questo ogetto ci serve anche per fieldbook!
-Campo_Castronuovo$`fully-replicated`$data.frame
-
-#anche si puo fare incompemplete
-ibd = design_experiment(
-  year = "2020",
-  expe.type = "IBD",
-  germplasm = varieta,
-  nb.blocks = 10, # i.e. number of location if each location has one block
-  nb.cols = 3)
-
-ibd
+```
