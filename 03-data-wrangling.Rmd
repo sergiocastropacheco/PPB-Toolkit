@@ -7,7 +7,7 @@ Data wrangling is one of the most important activites that you can do in R. It a
 'dplyr' is a package developed by the R Core Team developers, and gives us "an easy and intuitive grammatic for data manipulation". We first have to install it (only once) and call it (every time you open R).
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE, results=F, show=F}
-setwd("C:/Users/Usuario1/Google Drive/RSR/PPB Toolkit")
+setwd("C:/Users/Usuario1/Documents/Github/PPB-Toolkit")
 mydata <- read.csv("tomatoMLT2020.csv")
 ```
 
