@@ -37,3 +37,6 @@ preface
 metan
 which-won-where
 mean-vs.-stability
+genotype-ranking
+genotype-comparison
+modifiyng-the-plot.

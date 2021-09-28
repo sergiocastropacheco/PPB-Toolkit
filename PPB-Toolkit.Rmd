@@ -1,3 +1,146 @@
+--- 
+title: "A PPB Toolkit in RStudio"
+author: "Sergio Castro and Matteo Petitti"
+date: "Last Update: `r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+---
+--- 
+title: "A PPB Toolkit in RStudio"
+author: "Sergio Castro and Matteo Petitti"
+date: "Last Update: `r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+---
+
+<style>
+body {
+text-align: justify}
+</style>
+
+
+----------------
+
+# Preface 
+
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+```
+
+<!--chapter:end:index.Rmd-->
+
+# Introduction
+
+An introduction for this book must be written. Here, we will write some words about the importance of PPB and this kind of toolkit.
+
+Below are some bullets on why R is good and useful.
+
+
+**Why R? **
+
+We propose R as a very powerful tool for PPB purposes for three main reasons:
+
+* **Open Source. **\
+Anyone can download R and use it for free. What is more, anyone can also make its own contribution and expand the possibilites of things that can be done through this language. In fact, R is constantly updated by users around the world.
+
+* **Polifunctional. **\
+Through R and RStudio, you can integrate most of the data related needs in PPB, such as Data Management, Statistical Analysis and Data Visualization.
+
+* **Reproducibile. ** \
+After developing all your designs and analysis, you can share your methods and results with the community. Then, virtually anyone with access to your data and your code can review every step you took and (hopefully) arrive to the same result.
+
+<!--chapter:end:01-intro.Rmd-->
+
+
+# First Steps in R
+
+Placeholder
+
+
+## Getting started
+## Preparing and reading your data
+## Basic data manipulation
+## Basic Statistics and Plots
+## Packages in R.
+## Final considerations
+
+<!--chapter:end:02-first-steps-in-R.Rmd-->
+
+
+# Data Wrangling and Summarizing
+
+Placeholder
+
+
+## dplyr
+
+<!--chapter:end:03-data-wrangling.Rmd-->
+
+
+# Basics of Data Visualisation
+
+Placeholder
+
+
+## Base package
+### Plot vs. Index
+### Scatter plot
+### Histogram
+## ggplot 
+### Box Plot
+### Scatter plots
+### Bar plots
+### Adjusting details
+## Exporting plots
+
+<!--chapter:end:04-data-visualization.Rmd-->
+
+
+# Experimental Design and Field Preparation
+
+Placeholder
+
+
+## DiGGer 
+### Randomized Complete Block Design!
+###  Incomplete Block Design (IBD)
+### Partially Replicated Block Design
+## Agricolae
+### Randomized Complete Block Design
+### Partially Replicated Block Design
+## Organic Trials
+
+<!--chapter:end:05-field-preparation.Rmd-->
+
+
+# Statistical tests
+
+Placeholder
+
+
+
+<!--chapter:end:06-statistical-tests.Rmd-->
+
+
+# Spatial Analysis
+
+Placeholder
+
+
+## SpATS
+
+<!--chapter:end:07-spatial-analysis.Rmd-->
+
 # GGE BiPlots
 
 Introduce description for GGE BiPlots
@@ -94,3 +237,12 @@ plot(gge_model,
   theme(title = element_text(size= 20),          # We can change the title or axis font size
         axis.title = element_text(size= 20)) 
 ```
+
+<!--chapter:end:08-gge-biplots.Rmd-->
+
+`r if (knitr::is_html_output()) '
+# References {-}
+'`
+
+<!--chapter:end:10-references.Rmd-->
+
