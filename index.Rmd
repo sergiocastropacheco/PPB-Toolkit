@@ -15,6 +15,11 @@ text-align: justify}
 </style>
 
 
+----------------
+
+# Preface 
+
+
 ```{r include=FALSE}
 # automatically create a bib database for R packages
 knitr::write_bib(c(
