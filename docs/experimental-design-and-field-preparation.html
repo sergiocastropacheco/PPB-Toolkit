@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 6 Experimental Design and Field Preparation | A PPB Toolkit in RStudio</title>
-  <meta name="description" content="Chapter 6 Experimental Design and Field Preparation | A PPB Toolkit in RStudio" />
+  <title>Chapter 5 Experimental Design and Field Preparation | A PPB Toolkit in RStudio</title>
+  <meta name="description" content="Chapter 5 Experimental Design and Field Preparation | A PPB Toolkit in RStudio" />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 6 Experimental Design and Field Preparation | A PPB Toolkit in RStudio" />
+  <meta property="og:title" content="Chapter 5 Experimental Design and Field Preparation | A PPB Toolkit in RStudio" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 6 Experimental Design and Field Preparation | A PPB Toolkit in RStudio" />
+  <meta name="twitter:title" content="Chapter 5 Experimental Design and Field Preparation | A PPB Toolkit in RStudio" />
   
   
   
@@ -119,6 +119,28 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -136,59 +158,68 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">A PPB Toolkit in R and RStudio</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a></li>
-<li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
-<li class="chapter" data-level="3" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html"><i class="fa fa-check"></i><b>3</b> First Steps in R</a>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html"><i class="fa fa-check"></i><b>2</b> First Steps in R</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html#getting-started"><i class="fa fa-check"></i><b>3.1</b> Getting started</a></li>
-<li class="chapter" data-level="3.2" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html#preparing-and-reading-your-data"><i class="fa fa-check"></i><b>3.2</b> Preparing and reading your data</a></li>
-<li class="chapter" data-level="3.3" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html#basic-data-manipulation"><i class="fa fa-check"></i><b>3.3</b> Basic data manipulation</a></li>
-<li class="chapter" data-level="3.4" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html#basic-statistics-and-plots"><i class="fa fa-check"></i><b>3.4</b> Basic Statistics and Plots</a></li>
-<li class="chapter" data-level="3.5" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html#packages-in-r."><i class="fa fa-check"></i><b>3.5</b> Packages in R.</a></li>
-<li class="chapter" data-level="3.6" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html#final-considerations"><i class="fa fa-check"></i><b>3.6</b> Final considerations</a></li>
+<li class="chapter" data-level="2.1" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html#getting-started"><i class="fa fa-check"></i><b>2.1</b> Getting started</a></li>
+<li class="chapter" data-level="2.2" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html#preparing-and-reading-your-data"><i class="fa fa-check"></i><b>2.2</b> Preparing and reading your data</a></li>
+<li class="chapter" data-level="2.3" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html#basic-data-manipulation"><i class="fa fa-check"></i><b>2.3</b> Basic data manipulation</a></li>
+<li class="chapter" data-level="2.4" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html#basic-statistics-and-plots"><i class="fa fa-check"></i><b>2.4</b> Basic Statistics and Plots</a></li>
+<li class="chapter" data-level="2.5" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html#packages-in-r."><i class="fa fa-check"></i><b>2.5</b> Packages in R.</a></li>
+<li class="chapter" data-level="2.6" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html#final-considerations"><i class="fa fa-check"></i><b>2.6</b> Final considerations</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="data-wrangling-and-summarizing.html"><a href="data-wrangling-and-summarizing.html"><i class="fa fa-check"></i><b>4</b> Data Wrangling and Summarizing</a>
+<li class="chapter" data-level="3" data-path="data-wrangling-and-summarizing.html"><a href="data-wrangling-and-summarizing.html"><i class="fa fa-check"></i><b>3</b> Data Wrangling and Summarizing</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="data-wrangling-and-summarizing.html"><a href="data-wrangling-and-summarizing.html#dplyr"><i class="fa fa-check"></i><b>4.1</b> dplyr</a></li>
+<li class="chapter" data-level="3.1" data-path="data-wrangling-and-summarizing.html"><a href="data-wrangling-and-summarizing.html#dplyr"><i class="fa fa-check"></i><b>3.1</b> dplyr</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html"><i class="fa fa-check"></i><b>5</b> Basics of Data Visualisation</a>
+<li class="chapter" data-level="4" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html"><i class="fa fa-check"></i><b>4</b> Basics of Data Visualisation</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#base-package"><i class="fa fa-check"></i><b>5.1</b> Base package</a>
+<li class="chapter" data-level="4.1" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#base-package"><i class="fa fa-check"></i><b>4.1</b> Base package</a>
 <ul>
-<li class="chapter" data-level="5.1.1" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#plot-vs.-index"><i class="fa fa-check"></i><b>5.1.1</b> Plot vs. Index</a></li>
-<li class="chapter" data-level="5.1.2" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#scatter-plot"><i class="fa fa-check"></i><b>5.1.2</b> Scatter plot</a></li>
-<li class="chapter" data-level="5.1.3" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#histogram"><i class="fa fa-check"></i><b>5.1.3</b> Histogram</a></li>
+<li class="chapter" data-level="4.1.1" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#plot-vs.-index"><i class="fa fa-check"></i><b>4.1.1</b> Plot vs. Index</a></li>
+<li class="chapter" data-level="4.1.2" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#scatter-plot"><i class="fa fa-check"></i><b>4.1.2</b> Scatter plot</a></li>
+<li class="chapter" data-level="4.1.3" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#histogram"><i class="fa fa-check"></i><b>4.1.3</b> Histogram</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#ggplot"><i class="fa fa-check"></i><b>5.2</b> ggplot</a>
+<li class="chapter" data-level="4.2" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#ggplot"><i class="fa fa-check"></i><b>4.2</b> ggplot</a>
 <ul>
-<li class="chapter" data-level="5.2.1" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#box-plot"><i class="fa fa-check"></i><b>5.2.1</b> Box Plot</a></li>
-<li class="chapter" data-level="5.2.2" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#scatter-plots"><i class="fa fa-check"></i><b>5.2.2</b> Scatter plots</a></li>
-<li class="chapter" data-level="5.2.3" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#bar-plots"><i class="fa fa-check"></i><b>5.2.3</b> Bar plots</a></li>
-<li class="chapter" data-level="5.2.4" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#adjusting-details"><i class="fa fa-check"></i><b>5.2.4</b> Adjusting details</a></li>
+<li class="chapter" data-level="4.2.1" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#box-plot"><i class="fa fa-check"></i><b>4.2.1</b> Box Plot</a></li>
+<li class="chapter" data-level="4.2.2" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#scatter-plots"><i class="fa fa-check"></i><b>4.2.2</b> Scatter plots</a></li>
+<li class="chapter" data-level="4.2.3" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#bar-plots"><i class="fa fa-check"></i><b>4.2.3</b> Bar plots</a></li>
+<li class="chapter" data-level="4.2.4" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#adjusting-details"><i class="fa fa-check"></i><b>4.2.4</b> Adjusting details</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#exporting-plots"><i class="fa fa-check"></i><b>5.3</b> Exporting plots</a></li>
+<li class="chapter" data-level="4.3" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#exporting-plots"><i class="fa fa-check"></i><b>4.3</b> Exporting plots</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="experimental-design-and-field-preparation.html"><a href="experimental-design-and-field-preparation.html"><i class="fa fa-check"></i><b>6</b> Experimental Design and Field Preparation</a>
+<li class="chapter" data-level="5" data-path="experimental-design-and-field-preparation.html"><a href="experimental-design-and-field-preparation.html"><i class="fa fa-check"></i><b>5</b> Experimental Design and Field Preparation</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="experimental-design-and-field-preparation.html"><a href="experimental-design-and-field-preparation.html#digger"><i class="fa fa-check"></i><b>6.1</b> DiGGer</a>
+<li class="chapter" data-level="5.1" data-path="experimental-design-and-field-preparation.html"><a href="experimental-design-and-field-preparation.html#digger"><i class="fa fa-check"></i><b>5.1</b> DiGGer</a>
 <ul>
-<li class="chapter" data-level="6.1.1" data-path="experimental-design-and-field-preparation.html"><a href="experimental-design-and-field-preparation.html#randomized-complete-block-design"><i class="fa fa-check"></i><b>6.1.1</b> Randomized Complete Block Design!</a></li>
-<li class="chapter" data-level="6.1.2" data-path="experimental-design-and-field-preparation.html"><a href="experimental-design-and-field-preparation.html#incomplete-block-design-ibd"><i class="fa fa-check"></i><b>6.1.2</b> Incomplete Block Design (IBD)</a></li>
-<li class="chapter" data-level="6.1.3" data-path="experimental-design-and-field-preparation.html"><a href="experimental-design-and-field-preparation.html#partially-replicated-block-design"><i class="fa fa-check"></i><b>6.1.3</b> Partially Replicated Block Design</a></li>
+<li class="chapter" data-level="5.1.1" data-path="experimental-design-and-field-preparation.html"><a href="experimental-design-and-field-preparation.html#randomized-complete-block-design"><i class="fa fa-check"></i><b>5.1.1</b> Randomized Complete Block Design!</a></li>
+<li class="chapter" data-level="5.1.2" data-path="experimental-design-and-field-preparation.html"><a href="experimental-design-and-field-preparation.html#incomplete-block-design-ibd"><i class="fa fa-check"></i><b>5.1.2</b> Incomplete Block Design (IBD)</a></li>
+<li class="chapter" data-level="5.1.3" data-path="experimental-design-and-field-preparation.html"><a href="experimental-design-and-field-preparation.html#partially-replicated-block-design"><i class="fa fa-check"></i><b>5.1.3</b> Partially Replicated Block Design</a></li>
 </ul></li>
-<li class="chapter" data-level="6.2" data-path="experimental-design-and-field-preparation.html"><a href="experimental-design-and-field-preparation.html#agricolae"><i class="fa fa-check"></i><b>6.2</b> Agricolae</a>
+<li class="chapter" data-level="5.2" data-path="experimental-design-and-field-preparation.html"><a href="experimental-design-and-field-preparation.html#agricolae"><i class="fa fa-check"></i><b>5.2</b> Agricolae</a>
 <ul>
-<li class="chapter" data-level="6.2.1" data-path="experimental-design-and-field-preparation.html"><a href="experimental-design-and-field-preparation.html#randomized-complete-block-design-1"><i class="fa fa-check"></i><b>6.2.1</b> Randomized Complete Block Design</a></li>
-<li class="chapter" data-level="6.2.2" data-path="experimental-design-and-field-preparation.html"><a href="experimental-design-and-field-preparation.html#partially-replicated-block-design-1"><i class="fa fa-check"></i><b>6.2.2</b> Partially Replicated Block Design</a></li>
+<li class="chapter" data-level="5.2.1" data-path="experimental-design-and-field-preparation.html"><a href="experimental-design-and-field-preparation.html#randomized-complete-block-design-1"><i class="fa fa-check"></i><b>5.2.1</b> Randomized Complete Block Design</a></li>
+<li class="chapter" data-level="5.2.2" data-path="experimental-design-and-field-preparation.html"><a href="experimental-design-and-field-preparation.html#partially-replicated-block-design-1"><i class="fa fa-check"></i><b>5.2.2</b> Partially Replicated Block Design</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="experimental-design-and-field-preparation.html"><a href="experimental-design-and-field-preparation.html#organic-trials"><i class="fa fa-check"></i><b>6.3</b> Organic Trials</a></li>
+<li class="chapter" data-level="5.3" data-path="experimental-design-and-field-preparation.html"><a href="experimental-design-and-field-preparation.html#organic-trials"><i class="fa fa-check"></i><b>5.3</b> Organic Trials</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="statistical-tests.html"><a href="statistical-tests.html"><i class="fa fa-check"></i><b>7</b> Statistical tests</a></li>
-<li class="chapter" data-level="8" data-path="spatial-analysis.html"><a href="spatial-analysis.html"><i class="fa fa-check"></i><b>8</b> Spatial Analysis</a>
+<li class="chapter" data-level="6" data-path="statistical-tests.html"><a href="statistical-tests.html"><i class="fa fa-check"></i><b>6</b> Statistical tests</a></li>
+<li class="chapter" data-level="7" data-path="spatial-analysis.html"><a href="spatial-analysis.html"><i class="fa fa-check"></i><b>7</b> Spatial Analysis</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="spatial-analysis.html"><a href="spatial-analysis.html#spats"><i class="fa fa-check"></i><b>8.1</b> SpATS</a></li>
+<li class="chapter" data-level="7.1" data-path="spatial-analysis.html"><a href="spatial-analysis.html#spats"><i class="fa fa-check"></i><b>7.1</b> SpATS</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="gge-biplots.html"><a href="gge-biplots.html"><i class="fa fa-check"></i><b>9</b> GGE Biplots</a></li>
+<li class="chapter" data-level="8" data-path="gge-biplots.html"><a href="gge-biplots.html"><i class="fa fa-check"></i><b>8</b> GGE BiPlots</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="gge-biplots.html"><a href="gge-biplots.html#metan"><i class="fa fa-check"></i><b>8.1</b> metan</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="gge-biplots.html"><a href="gge-biplots.html#which-won-where"><i class="fa fa-check"></i><b>8.1.1</b> Which won where</a></li>
+<li class="chapter" data-level="8.1.2" data-path="gge-biplots.html"><a href="gge-biplots.html#mean-vs.-stability"><i class="fa fa-check"></i><b>8.1.2</b> Mean vs. Stability</a></li>
+<li class="chapter" data-level="8.1.3" data-path="gge-biplots.html"><a href="gge-biplots.html#genotype-ranking"><i class="fa fa-check"></i><b>8.1.3</b> Genotype Ranking</a></li>
+<li class="chapter" data-level="8.1.4" data-path="gge-biplots.html"><a href="gge-biplots.html#genotype-comparison"><i class="fa fa-check"></i><b>8.1.4</b> Genotype Comparison</a></li>
+<li class="chapter" data-level="8.1.5" data-path="gge-biplots.html"><a href="gge-biplots.html#modifying-the-plot."><i class="fa fa-check"></i><b>8.1.5</b> Modifying the plot.</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -210,8 +241,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="experimental-design-and-field-preparation" class="section level1" number="6">
-<h1><span class="header-section-number">Chapter 6</span> Experimental Design and Field Preparation</h1>
+<div id="experimental-design-and-field-preparation" class="section level1" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Experimental Design and Field Preparation</h1>
 <p>RStudio can help us in preparing the distribution of entries in our field, according to specific experimental designs. For more information in the design of on-farm cultivar trials, we strongly suggest this <a href="%22https://www.liveseed.eu/wp-content/uploads/2021/06/LIVESEED-BOOKLET-5_FNL_web.pdf%22">booklet</a>.</p>
 <p>We will cover three types of design:</p>
 <ul>
@@ -228,8 +259,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>A reduced number of genotypes, called checks, are present in every block. The other genotypes are only present once in the design.</li>
 </ul></li>
 </ul>
-<div id="digger" class="section level2" number="6.1">
-<h2><span class="header-section-number">6.1</span> DiGGer</h2>
+<div id="digger" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> DiGGer</h2>
 <p>DiGGer is a very useful and used package that does experimental design by optimizing row-column arrangements. However, unlike many other packages in R, it is not on the CRAN repository and must be requested to the creators through <a href="http://nswdpibiom.org/austatgen/software/">this site</a>. To properly install the package on your RStudio, you can follow the next steps.</p>
 <ul>
 <li><p><strong>Step 1:</strong></p>
@@ -243,8 +274,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><strong>Step 3: </strong></p></li>
 <li><p>Set the RStudio working directory of R in the folder that contains the decompressed files. To check, you can use the function <strong>list.files()</strong> in your working directory, to see if you are in the right directory with the required files. You should see something like this:</p></li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="experimental-design-and-field-preparation.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;C:/Users/Usuario1/Google Drive/RSR/Digger&quot;</span>) <span class="co">#Momentary change of  WD</span></span>
-<span id="cb1-2"><a href="experimental-design-and-field-preparation.html#cb1-2" aria-hidden="true" tabindex="-1"></a> <span class="fu">list.files</span>(<span class="fu">getwd</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="experimental-design-and-field-preparation.html#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;C:/Users/Usuario1/Google Drive/RSR/Digger&quot;</span>) <span class="co">#Momentary change of  WD</span></span>
+<span id="cb96-2"><a href="experimental-design-and-field-preparation.html#cb96-2" aria-hidden="true" tabindex="-1"></a> <span class="fu">list.files</span>(<span class="fu">getwd</span>())</span></code></pre></div>
 <pre><code>## [1] &quot;DiGGer_1.0.5.tgz&quot;                             
 ## [2] &quot;DiGGer_1.0.5.zip&quot;                             
 ## [3] &quot;DiGGer_1.0.5_R_x86_64-redhat-linux-gnu.tar.gz&quot;
@@ -258,40 +289,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><strong>Step 4:</strong></p></li>
 <li><p>Now, you are ready to install the package. Both the “.tgz” and the “.zip” files could work depending on your operation system. For Windows users, the “.zip” should work better.</p></li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="experimental-design-and-field-preparation.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(&quot;DiGGer_1.0.5.zip&quot;, repos = NULL)</span></span></code></pre></div>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="experimental-design-and-field-preparation.html#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(&quot;DiGGer_1.0.5.zip&quot;, repos = NULL)</span></span></code></pre></div>
 <p>For Linux and Mac users, the “.tgz” exxtension should work:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="experimental-design-and-field-preparation.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(&quot;DiGGer_1.0.5.tgz&quot;, repos = NULL)</span></span></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="experimental-design-and-field-preparation.html#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(&quot;DiGGer_1.0.5.tgz&quot;, repos = NULL)</span></span></code></pre></div>
 <p>You might get some <strong>warning</strong> messages, but as long you don’t receive <strong>error</strong> messages, we are on the right track. To finalize, you can call the package, and check if everything is alright</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="experimental-design-and-field-preparation.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DiGGer)</span></code></pre></div>
-<div id="randomized-complete-block-design" class="section level3" number="6.1.1">
-<h3><span class="header-section-number">6.1.1</span> Randomized Complete Block Design!</h3>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="experimental-design-and-field-preparation.html#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DiGGer)</span></code></pre></div>
+<div id="randomized-complete-block-design" class="section level3" number="5.1.1">
+<h3><span class="header-section-number">5.1.1</span> Randomized Complete Block Design!</h3>
 <p>Let’s start with an example in which we have 14 different varieties. I will make a vector with their names, which, to simplify, they will be “Var. A,” “Var. B,” up to “Var. N.”</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="experimental-design-and-field-preparation.html#cb6-1" aria-hidden="true" tabindex="-1"></a>variety.list <span class="ot">=</span>  <span class="fu">c</span>(<span class="st">&quot;Var. A&quot;</span>,<span class="st">&quot;Var. B&quot;</span>, <span class="st">&quot;Var. C&quot;</span>,<span class="st">&quot;Var. D&quot;</span>,</span>
-<span id="cb6-2"><a href="experimental-design-and-field-preparation.html#cb6-2" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;Var. E&quot;</span>, <span class="st">&quot;Var. F&quot;</span>, <span class="st">&quot;Var. G&quot;</span>,  <span class="st">&quot;Var. H&quot;</span>,</span>
-<span id="cb6-3"><a href="experimental-design-and-field-preparation.html#cb6-3" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;Var. I&quot;</span>, <span class="st">&quot;Var. J&quot;</span>, <span class="st">&quot;Var. K&quot;</span>,  <span class="st">&quot;Var. L&quot;</span>,</span>
-<span id="cb6-4"><a href="experimental-design-and-field-preparation.html#cb6-4" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;Var. M&quot;</span>, <span class="st">&quot;Var. N&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="experimental-design-and-field-preparation.html#cb101-1" aria-hidden="true" tabindex="-1"></a>variety.list <span class="ot">=</span>  <span class="fu">c</span>(<span class="st">&quot;Var. A&quot;</span>,<span class="st">&quot;Var. B&quot;</span>, <span class="st">&quot;Var. C&quot;</span>,<span class="st">&quot;Var. D&quot;</span>,</span>
+<span id="cb101-2"><a href="experimental-design-and-field-preparation.html#cb101-2" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;Var. E&quot;</span>, <span class="st">&quot;Var. F&quot;</span>, <span class="st">&quot;Var. G&quot;</span>,  <span class="st">&quot;Var. H&quot;</span>,</span>
+<span id="cb101-3"><a href="experimental-design-and-field-preparation.html#cb101-3" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;Var. I&quot;</span>, <span class="st">&quot;Var. J&quot;</span>, <span class="st">&quot;Var. K&quot;</span>,  <span class="st">&quot;Var. L&quot;</span>,</span>
+<span id="cb101-4"><a href="experimental-design-and-field-preparation.html#cb101-4" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;Var. M&quot;</span>, <span class="st">&quot;Var. N&quot;</span>)</span></code></pre></div>
 <p>We will use the function <strong>corDiGGer()</strong>. But, before running the function, some important aspects should be discuted.</p>
 <p>First, <strong>that the function will not work if the design is not “resolvable”</strong>. That is, for this design, the amount of treatments should be a multiple of the total amount of plots, so that the design is completely balanced. For example, if we have 14 treatments, we could have 28 total plots (14 * 2 ), 42 total plots (14 * 3), and so on.</p>
 <p>Second, even if we have several farms and locations with the same number of entries and plots, <strong>we need to do a new RCBD for each one of them</strong>. Repeating the same design through several locations is a typical mistake in the design of PPB programs.</p>
 <p>Third, every time that the function is run, the randomization will be redone. This is useful if we want new randomizations for each new farm or location, but could be a constrain if we want to keep proper record of our work. The randomization could be fixed by using the optional argument <strong>rngSeeds</strong>, which takes two numbers that uses as seed of the randomization process, and allows to “fix” a given randomization</p>
 <p>So, the function looks like this</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="experimental-design-and-field-preparation.html#cb7-1" aria-hidden="true" tabindex="-1"></a>mydesign <span class="ot">&lt;-</span> <span class="fu">corDiGGer</span>(<span class="at">numberOfTreatments=</span> <span class="dv">14</span>,    <span class="co"># 14 treatments or genotypes</span></span>
-<span id="cb7-2"><a href="experimental-design-and-field-preparation.html#cb7-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">rowsInDesign =</span> <span class="dv">4</span>,              <span class="co"># 4 rows in the design</span></span>
-<span id="cb7-3"><a href="experimental-design-and-field-preparation.html#cb7-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">columnsInDesign =</span> <span class="dv">7</span>,           <span class="co"># 7 columns in the design</span></span>
-<span id="cb7-4"><a href="experimental-design-and-field-preparation.html#cb7-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">treatRepPerRep =</span> <span class="dv">1</span>,            <span class="co"># Every block has only one rep per genotype</span></span>
-<span id="cb7-5"><a href="experimental-design-and-field-preparation.html#cb7-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">rowsInReplicate =</span> <span class="dv">2</span>,           <span class="co"># Every block has two columns</span></span>
-<span id="cb7-6"><a href="experimental-design-and-field-preparation.html#cb7-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">treatName =</span> variety.list,      <span class="co"># Here I introduce my name vector.</span></span>
-<span id="cb7-7"><a href="experimental-design-and-field-preparation.html#cb7-7" aria-hidden="true" tabindex="-1"></a>                  <span class="at">rngSeeds =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">999</span>))           <span class="co"># This fixes the randomization, so your results and ours are the same</span></span></code></pre></div>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="experimental-design-and-field-preparation.html#cb102-1" aria-hidden="true" tabindex="-1"></a>mydesign <span class="ot">&lt;-</span> <span class="fu">corDiGGer</span>(<span class="at">numberOfTreatments=</span> <span class="dv">14</span>,    <span class="co"># 14 treatments or genotypes</span></span>
+<span id="cb102-2"><a href="experimental-design-and-field-preparation.html#cb102-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">rowsInDesign =</span> <span class="dv">4</span>,              <span class="co"># 4 rows in the design</span></span>
+<span id="cb102-3"><a href="experimental-design-and-field-preparation.html#cb102-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">columnsInDesign =</span> <span class="dv">7</span>,           <span class="co"># 7 columns in the design</span></span>
+<span id="cb102-4"><a href="experimental-design-and-field-preparation.html#cb102-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">treatRepPerRep =</span> <span class="dv">1</span>,            <span class="co"># Every block has only one rep per genotype</span></span>
+<span id="cb102-5"><a href="experimental-design-and-field-preparation.html#cb102-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">rowsInReplicate =</span> <span class="dv">2</span>,           <span class="co"># Every block has two columns</span></span>
+<span id="cb102-6"><a href="experimental-design-and-field-preparation.html#cb102-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">treatName =</span> variety.list,      <span class="co"># Here I introduce my name vector.</span></span>
+<span id="cb102-7"><a href="experimental-design-and-field-preparation.html#cb102-7" aria-hidden="true" tabindex="-1"></a>                  <span class="at">rngSeeds =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">999</span>))           <span class="co"># This fixes the randomization, so your results and ours are the same</span></span></code></pre></div>
 <p>Once done, we could inmediatly do a plot with <strong>plot.diGGer</strong></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="experimental-design-and-field-preparation.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.DiGGer</span>(mydesign)</span></code></pre></div>
-<p><img src="PPB-Toolkit_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="experimental-design-and-field-preparation.html#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.DiGGer</span>(mydesign)</span></code></pre></div>
+<p><img src="PPB-Toolkit_files/figure-html/unnamed-chunk-71-1.png" width="672" /></p>
 <p>So, we chose to name our resulting object <strong>mydesign</strong>, which has different objects inside, the most imporant ones are</p>
 <ul>
 <li>mydesign$ddphase</li>
 <li>mydesign$dlist</li>
 </ul>
 <p>mydesign$ddphase has, as the first element, a map of the field with the respective entry number.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="experimental-design-and-field-preparation.html#cb9-1" aria-hidden="true" tabindex="-1"></a>mydesign<span class="sc">$</span>ddphase </span></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="experimental-design-and-field-preparation.html#cb104-1" aria-hidden="true" tabindex="-1"></a>mydesign<span class="sc">$</span>ddphase </span></code></pre></div>
 <pre><code>## [[1]]
 ## [[1]]$design
 ##      [,1] [,2] [,3] [,4] [,5] [,6] [,7]
@@ -306,19 +337,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [[1]]$lastImprovement
 ## [1] 90501</code></pre>
 <p>To show only the map, we need a more specific approach.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="experimental-design-and-field-preparation.html#cb11-1" aria-hidden="true" tabindex="-1"></a>mydesign<span class="sc">$</span>ddphase[[<span class="dv">1</span>]]<span class="sc">$</span>design</span></code></pre></div>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="experimental-design-and-field-preparation.html#cb106-1" aria-hidden="true" tabindex="-1"></a>mydesign<span class="sc">$</span>ddphase[[<span class="dv">1</span>]]<span class="sc">$</span>design</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6] [,7]
 ## [1,]    8   10    3   14    7    9    6
 ## [2,]    5   12    2   13    1   11    4
 ## [3,]   10    1    8    4   14    2    9
 ## [4,]   13    6   12    3   11    7    5</code></pre>
 <p>The “[[1]]” indicates that we are taking the first elemet of the list. And then, we call exactly for the outcoming design. To handle it more easily, we could rename this map simply to “myfield”</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="experimental-design-and-field-preparation.html#cb13-1" aria-hidden="true" tabindex="-1"></a>myfield <span class="ot">=</span> mydesign<span class="sc">$</span>ddphase[[<span class="dv">1</span>]]<span class="sc">$</span>design</span></code></pre></div>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="experimental-design-and-field-preparation.html#cb108-1" aria-hidden="true" tabindex="-1"></a>myfield <span class="ot">=</span> mydesign<span class="sc">$</span>ddphase[[<span class="dv">1</span>]]<span class="sc">$</span>design</span></code></pre></div>
 <p>And now, we could write it directly into excel with a “.csv” format. It will be saved in your working directory</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="experimental-design-and-field-preparation.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(myfield,                    <span class="co"># Name of your R object</span></span>
-<span id="cb14-2"><a href="experimental-design-and-field-preparation.html#cb14-2" aria-hidden="true" tabindex="-1"></a>          <span class="st">&quot;My Field RCBD.csv&quot;</span>)        <span class="co"># Desired name of your excel file</span></span></code></pre></div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="experimental-design-and-field-preparation.html#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(myfield,                    <span class="co"># Name of your R object</span></span>
+<span id="cb109-2"><a href="experimental-design-and-field-preparation.html#cb109-2" aria-hidden="true" tabindex="-1"></a>          <span class="st">&quot;My Field RCBD.csv&quot;</span>)        <span class="co"># Desired name of your excel file</span></span></code></pre></div>
 <p>The other object, “mydesign$dlist” has more info, including the genotype name, the row-column position, and the block number. This could be exported as excel in the same way as before.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="experimental-design-and-field-preparation.html#cb15-1" aria-hidden="true" tabindex="-1"></a>mydesign<span class="sc">$</span>dlist</span></code></pre></div>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="experimental-design-and-field-preparation.html#cb110-1" aria-hidden="true" tabindex="-1"></a>mydesign<span class="sc">$</span>dlist</span></code></pre></div>
 <pre><code>##    UNIT     ID ENTRY ROW RANGE REP TRT
 ## 1     1 Var. H     8   1     1   1   8
 ## 2     2 Var. E     5   2     1   1   5
@@ -349,30 +380,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 27   27 Var. I     9   3     7   2   9
 ## 28   28 Var. E     5   4     7   2   5</code></pre>
 <p>We could use this object, for example, to create a nice plot through ggplot</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="experimental-design-and-field-preparation.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb17-2"><a href="experimental-design-and-field-preparation.html#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mydesign<span class="sc">$</span>dlist, <span class="fu">aes</span>(<span class="at">x=</span> ROW, <span class="at">y =</span> RANGE, <span class="at">label=</span> ID, <span class="at">fill=</span> ID))<span class="sc">+</span></span>
-<span id="cb17-3"><a href="experimental-design-and-field-preparation.html#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>()<span class="sc">+</span><span class="fu">geom_text</span>()<span class="sc">+</span>           <span class="co"># Geometry for color tiles and labels</span></span>
-<span id="cb17-4"><a href="experimental-design-and-field-preparation.html#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span> <span class="st">&quot;Row&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Column&quot;</span>)       <span class="co">#Axis labels</span></span></code></pre></div>
-<p><img src="PPB-Toolkit_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="experimental-design-and-field-preparation.html#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb112-2"><a href="experimental-design-and-field-preparation.html#cb112-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mydesign<span class="sc">$</span>dlist, <span class="fu">aes</span>(<span class="at">x=</span> ROW, <span class="at">y =</span> RANGE, <span class="at">label=</span> ID, <span class="at">fill=</span> ID))<span class="sc">+</span></span>
+<span id="cb112-3"><a href="experimental-design-and-field-preparation.html#cb112-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>()<span class="sc">+</span><span class="fu">geom_text</span>()<span class="sc">+</span>           <span class="co"># Geometry for color tiles and labels</span></span>
+<span id="cb112-4"><a href="experimental-design-and-field-preparation.html#cb112-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span> <span class="st">&quot;Row&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Column&quot;</span>)       <span class="co">#Axis labels</span></span></code></pre></div>
+<p><img src="PPB-Toolkit_files/figure-html/unnamed-chunk-77-1.png" width="672" /></p>
 <p>Finally, some might find it useful to export a map in excel, with the proper genotype names. To our knowledge, DiGGer does not provide a function for this, but there are many different ways to achieve it. A very easy way involves using the function <strong>replace()</strong> from the dplyr package.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="experimental-design-and-field-preparation.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb18-2"><a href="experimental-design-and-field-preparation.html#cb18-2" aria-hidden="true" tabindex="-1"></a>myfield.withnames  <span class="ot">=</span> <span class="fu">replace</span>(<span class="at">x=</span>myfield,   <span class="co">#The object to change will be &quot;myfield </span></span>
-<span id="cb18-3"><a href="experimental-design-and-field-preparation.html#cb18-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">values =</span> mydesign<span class="sc">$</span>dlist<span class="sc">$</span>ID ) <span class="co"># I will change every value, for the values found in the &quot;ID&quot; column of my &quot;dlist&quot;</span></span>
-<span id="cb18-4"><a href="experimental-design-and-field-preparation.html#cb18-4" aria-hidden="true" tabindex="-1"></a>myfield.withnames</span></code></pre></div>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="experimental-design-and-field-preparation.html#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb113-2"><a href="experimental-design-and-field-preparation.html#cb113-2" aria-hidden="true" tabindex="-1"></a>myfield.withnames  <span class="ot">=</span> <span class="fu">replace</span>(<span class="at">x=</span>myfield,   <span class="co">#The object to change will be &quot;myfield </span></span>
+<span id="cb113-3"><a href="experimental-design-and-field-preparation.html#cb113-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">values =</span> mydesign<span class="sc">$</span>dlist<span class="sc">$</span>ID ) <span class="co"># I will change every value, for the values found in the &quot;ID&quot; column of my &quot;dlist&quot;</span></span>
+<span id="cb113-4"><a href="experimental-design-and-field-preparation.html#cb113-4" aria-hidden="true" tabindex="-1"></a>myfield.withnames</span></code></pre></div>
 <pre><code>##      [,1]     [,2]     [,3]     [,4]     [,5]     [,6]     [,7]    
 ## [1,] &quot;Var. H&quot; &quot;Var. J&quot; &quot;Var. C&quot; &quot;Var. N&quot; &quot;Var. G&quot; &quot;Var. I&quot; &quot;Var. F&quot;
 ## [2,] &quot;Var. E&quot; &quot;Var. L&quot; &quot;Var. B&quot; &quot;Var. M&quot; &quot;Var. A&quot; &quot;Var. K&quot; &quot;Var. D&quot;
 ## [3,] &quot;Var. J&quot; &quot;Var. A&quot; &quot;Var. H&quot; &quot;Var. D&quot; &quot;Var. N&quot; &quot;Var. B&quot; &quot;Var. I&quot;
 ## [4,] &quot;Var. M&quot; &quot;Var. F&quot; &quot;Var. L&quot; &quot;Var. C&quot; &quot;Var. K&quot; &quot;Var. G&quot; &quot;Var. E&quot;</code></pre>
 <p>Some small beautifying work, to change row and column names into simpler formats</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="experimental-design-and-field-preparation.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(myfield.withnames) <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span></span>
-<span id="cb20-2"><a href="experimental-design-and-field-preparation.html#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(myfield.withnames) <span class="ot">=</span>  <span class="dv">1</span><span class="sc">:</span><span class="dv">7</span></span></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="experimental-design-and-field-preparation.html#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(myfield.withnames) <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span></span>
+<span id="cb115-2"><a href="experimental-design-and-field-preparation.html#cb115-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(myfield.withnames) <span class="ot">=</span>  <span class="dv">1</span><span class="sc">:</span><span class="dv">7</span></span></code></pre></div>
 <p>Now, it’s all set up to export into excel</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="experimental-design-and-field-preparation.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(myfield.withnames,</span>
-<span id="cb21-2"><a href="experimental-design-and-field-preparation.html#cb21-2" aria-hidden="true" tabindex="-1"></a>          <span class="st">&quot;My Fiel RCBD with names.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="experimental-design-and-field-preparation.html#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(myfield.withnames,</span>
+<span id="cb116-2"><a href="experimental-design-and-field-preparation.html#cb116-2" aria-hidden="true" tabindex="-1"></a>          <span class="st">&quot;My Fiel RCBD with names.csv&quot;</span>)</span></code></pre></div>
 </div>
-<div id="incomplete-block-design-ibd" class="section level3" number="6.1.2">
-<h3><span class="header-section-number">6.1.2</span> Incomplete Block Design (IBD)</h3>
+<div id="incomplete-block-design-ibd" class="section level3" number="5.1.2">
+<h3><span class="header-section-number">5.1.2</span> Incomplete Block Design (IBD)</h3>
 <p>Now, imagine we have the same 14 varieties, and we have 7 farmers to whom distribute the seed. These farmer’s might have reduced space and it might 14 plots might be too much. We could, for example, give only 4 genotypes to every farmer.</p>
 <p>So, every “Block” is a farm with 4 genotypes. These plots could be arranged in only one row of four columns, one column of four rows, or two rows and two columns. For this example, we will choose a “strip” trial, where every farmer has a single row with 4 different plots. Thus, every block has one row and 4 columns.</p>
 <p>Again, in this case, not every combination is possible, as the design must be "resolvable. Again, the total number of plots must be equal to the number of treatments times the number of repetitions. For our case, it would look like this.</p>
@@ -387,39 +418,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 28 = 28
 \]</span></p>
 <p>Once that we are sure that our design is resolvable, we can use the function <strong>ibDiGGer()</strong> for the design. The arguments are the same as those of <strong>corDiGGer()</strong>, with the exception of the last <strong>“runSearch”</strong>. If this is not set as true, the output will only be a initial design, but with no optimization of the randomization. In this case, my resulting object will be called mydesignIB.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="experimental-design-and-field-preparation.html#cb22-1" aria-hidden="true" tabindex="-1"></a>mydesignIB <span class="ot">&lt;-</span> <span class="fu">ibDiGGer</span>(<span class="at">numberOfTreatments =</span> <span class="dv">14</span>,</span>
-<span id="cb22-2"><a href="experimental-design-and-field-preparation.html#cb22-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">treatName =</span> variety.list,</span>
-<span id="cb22-3"><a href="experimental-design-and-field-preparation.html#cb22-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">rowsInDesign =</span> <span class="dv">7</span>,         <span class="co"># Total of rows in the design is 7</span></span>
-<span id="cb22-4"><a href="experimental-design-and-field-preparation.html#cb22-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">columnsInDesign =</span> <span class="dv">4</span>,      <span class="co"># Total of columns in the design is 4</span></span>
-<span id="cb22-5"><a href="experimental-design-and-field-preparation.html#cb22-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">rowsInBlock =</span> <span class="dv">1</span>,          <span class="co"># Every Block (Farm) has only 1 row</span></span>
-<span id="cb22-6"><a href="experimental-design-and-field-preparation.html#cb22-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">columnsInBlock =</span> <span class="dv">4</span>,       <span class="co"># And 4 columns</span></span>
-<span id="cb22-7"><a href="experimental-design-and-field-preparation.html#cb22-7" aria-hidden="true" tabindex="-1"></a>                  <span class="at">runSearch =</span> T)            <span class="co"># Run the optimization </span></span></code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="experimental-design-and-field-preparation.html#cb117-1" aria-hidden="true" tabindex="-1"></a>mydesignIB <span class="ot">&lt;-</span> <span class="fu">ibDiGGer</span>(<span class="at">numberOfTreatments =</span> <span class="dv">14</span>,</span>
+<span id="cb117-2"><a href="experimental-design-and-field-preparation.html#cb117-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">treatName =</span> variety.list,</span>
+<span id="cb117-3"><a href="experimental-design-and-field-preparation.html#cb117-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">rowsInDesign =</span> <span class="dv">7</span>,         <span class="co"># Total of rows in the design is 7</span></span>
+<span id="cb117-4"><a href="experimental-design-and-field-preparation.html#cb117-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">columnsInDesign =</span> <span class="dv">4</span>,      <span class="co"># Total of columns in the design is 4</span></span>
+<span id="cb117-5"><a href="experimental-design-and-field-preparation.html#cb117-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">rowsInBlock =</span> <span class="dv">1</span>,          <span class="co"># Every Block (Farm) has only 1 row</span></span>
+<span id="cb117-6"><a href="experimental-design-and-field-preparation.html#cb117-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">columnsInBlock =</span> <span class="dv">4</span>,       <span class="co"># And 4 columns</span></span>
+<span id="cb117-7"><a href="experimental-design-and-field-preparation.html#cb117-7" aria-hidden="true" tabindex="-1"></a>                  <span class="at">runSearch =</span> T)            <span class="co"># Run the optimization </span></span></code></pre></div>
 <p>So, this is my design, where every row corresponds to a given farm, and no genotype is repeated within the same block. However, every treatment is at least twice on the design.</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="experimental-design-and-field-preparation.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mydesignIB)</span></code></pre></div>
-<p><img src="PPB-Toolkit_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="experimental-design-and-field-preparation.html#cb118-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mydesignIB)</span></code></pre></div>
+<p><img src="PPB-Toolkit_files/figure-html/unnamed-chunk-82-1.png" width="672" /></p>
 <p>The same elaboration that was done on the RCBD design can be done here. We will now run a simplified version.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="experimental-design-and-field-preparation.html#cb24-1" aria-hidden="true" tabindex="-1"></a>myfieldIB <span class="ot">=</span> mydesignIB<span class="sc">$</span>ddphase[[<span class="dv">1</span>]]<span class="sc">$</span>design   <span class="co">#Saving the design with a simpler name</span></span>
-<span id="cb24-2"><a href="experimental-design-and-field-preparation.html#cb24-2" aria-hidden="true" tabindex="-1"></a>myfieldIB.withnames<span class="ot">=</span> <span class="fu">replace</span>(<span class="at">x=</span>myfieldIB,   </span>
-<span id="cb24-3"><a href="experimental-design-and-field-preparation.html#cb24-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">values =</span> mydesignIB<span class="sc">$</span>dlist<span class="sc">$</span>ID ) <span class="co"># Changing the numbers for actual names</span></span></code></pre></div>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="experimental-design-and-field-preparation.html#cb119-1" aria-hidden="true" tabindex="-1"></a>myfieldIB <span class="ot">=</span> mydesignIB<span class="sc">$</span>ddphase[[<span class="dv">1</span>]]<span class="sc">$</span>design   <span class="co">#Saving the design with a simpler name</span></span>
+<span id="cb119-2"><a href="experimental-design-and-field-preparation.html#cb119-2" aria-hidden="true" tabindex="-1"></a>myfieldIB.withnames<span class="ot">=</span> <span class="fu">replace</span>(<span class="at">x=</span>myfieldIB,   </span>
+<span id="cb119-3"><a href="experimental-design-and-field-preparation.html#cb119-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">values =</span> mydesignIB<span class="sc">$</span>dlist<span class="sc">$</span>ID ) <span class="co"># Changing the numbers for actual names</span></span></code></pre></div>
 <p>Before saving into excel, I want name every row as the farmer’s that will actually sow these plots. Then, I just name the columns from 1 to 4, and then, check it.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="experimental-design-and-field-preparation.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(myfieldIB.withnames) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;Pippo&quot;</span>, <span class="st">&quot;Rosario&quot;</span>, <span class="st">&quot;Ugo&quot;</span>, <span class="st">&quot;Giuseppe&quot;</span>, <span class="st">&quot;Marco&quot;</span>, <span class="st">&quot;Simone&quot;</span>, <span class="st">&quot;Giandomenico&quot;</span>)</span>
-<span id="cb25-2"><a href="experimental-design-and-field-preparation.html#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(myfieldIB.withnames) <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span></span>
-<span id="cb25-3"><a href="experimental-design-and-field-preparation.html#cb25-3" aria-hidden="true" tabindex="-1"></a>myfieldIB.withnames</span></code></pre></div>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="experimental-design-and-field-preparation.html#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(myfieldIB.withnames) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;Pippo&quot;</span>, <span class="st">&quot;Rosario&quot;</span>, <span class="st">&quot;Ugo&quot;</span>, <span class="st">&quot;Giuseppe&quot;</span>, <span class="st">&quot;Marco&quot;</span>, <span class="st">&quot;Simone&quot;</span>, <span class="st">&quot;Giandomenico&quot;</span>)</span>
+<span id="cb120-2"><a href="experimental-design-and-field-preparation.html#cb120-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(myfieldIB.withnames) <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span></span>
+<span id="cb120-3"><a href="experimental-design-and-field-preparation.html#cb120-3" aria-hidden="true" tabindex="-1"></a>myfieldIB.withnames</span></code></pre></div>
 <pre><code>##              1        2        3        4       
-## Pippo        &quot;Var. B&quot; &quot;Var. C&quot; &quot;Var. E&quot; &quot;Var. G&quot;
-## Rosario      &quot;Var. D&quot; &quot;Var. M&quot; &quot;Var. J&quot; &quot;Var. F&quot;
-## Ugo          &quot;Var. L&quot; &quot;Var. I&quot; &quot;Var. B&quot; &quot;Var. N&quot;
-## Giuseppe     &quot;Var. A&quot; &quot;Var. E&quot; &quot;Var. I&quot; &quot;Var. M&quot;
-## Marco        &quot;Var. A&quot; &quot;Var. H&quot; &quot;Var. K&quot; &quot;Var. D&quot;
-## Simone       &quot;Var. F&quot; &quot;Var. K&quot; &quot;Var. L&quot; &quot;Var. C&quot;
-## Giandomenico &quot;Var. H&quot; &quot;Var. G&quot; &quot;Var. N&quot; &quot;Var. J&quot;</code></pre>
+## Pippo        &quot;Var. B&quot; &quot;Var. H&quot; &quot;Var. E&quot; &quot;Var. J&quot;
+## Rosario      &quot;Var. J&quot; &quot;Var. A&quot; &quot;Var. F&quot; &quot;Var. C&quot;
+## Ugo          &quot;Var. L&quot; &quot;Var. F&quot; &quot;Var. B&quot; &quot;Var. N&quot;
+## Giuseppe     &quot;Var. I&quot; &quot;Var. N&quot; &quot;Var. K&quot; &quot;Var. G&quot;
+## Marco        &quot;Var. C&quot; &quot;Var. I&quot; &quot;Var. E&quot; &quot;Var. D&quot;
+## Simone       &quot;Var. A&quot; &quot;Var. H&quot; &quot;Var. M&quot; &quot;Var. G&quot;
+## Giandomenico &quot;Var. M&quot; &quot;Var. D&quot; &quot;Var. K&quot; &quot;Var. L&quot;</code></pre>
 <p>And finally, save it into excel</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="experimental-design-and-field-preparation.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(myfieldIB.withnames,<span class="st">&quot;Field Map IB with names.csv&quot;</span>)</span>
-<span id="cb27-2"><a href="experimental-design-and-field-preparation.html#cb27-2" aria-hidden="true" tabindex="-1"></a>(<span class="dv">2</span><span class="sc">*</span><span class="dv">7</span>) <span class="sc">+</span> (<span class="dv">12</span><span class="sc">*</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="experimental-design-and-field-preparation.html#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(myfieldIB.withnames,<span class="st">&quot;Field Map IB with names.csv&quot;</span>)</span>
+<span id="cb122-2"><a href="experimental-design-and-field-preparation.html#cb122-2" aria-hidden="true" tabindex="-1"></a>(<span class="dv">2</span><span class="sc">*</span><span class="dv">7</span>) <span class="sc">+</span> (<span class="dv">12</span><span class="sc">*</span><span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## [1] 38</code></pre>
 </div>
-<div id="partially-replicated-block-design" class="section level3" number="6.1.3">
-<h3><span class="header-section-number">6.1.3</span> Partially Replicated Block Design</h3>
+<div id="partially-replicated-block-design" class="section level3" number="5.1.3">
+<h3><span class="header-section-number">5.1.3</span> Partially Replicated Block Design</h3>
 <p>Partially Replicated designs arebit more complex, because now, the total number of plots must be equal to the sum the number of checks times the number of blocks, plus the number of tests times the number of repetitions for the tests. That is:</p>
 <p><span class="math display">\[
    No.\ of\ Blocks\ * Plots\ per\  Block\ =  (No.\  of\  Checks\  * No. of Blocks) +  (No.\ of\  Tests * Reps)
@@ -440,34 +471,34 @@ So, to complete this design, we would need 12 different farms, each with a 4 plo
 y= 9
 \]</span></p>
 <p>In this case, because of the constraints of the design we could only include 9 of our 12 potential varieties. It is however possible, through DiGGER and other applications, to do other kinds of designs that do not satisfy these equations. For example, some farms with 5 plots and others with 4, but it would be an unbalanced design and the statistic methods used may change significantly.</p>
-<div id="section" class="section level37" number="6.1.3.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.1">
-<p class="heading" number="6.1.3.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.1"><span class="header-section-number">6.1.3.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.1</span> </p>
+<div id="section" class="section level37" number="5.1.3.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.1">
+<p class="heading" number="5.1.3.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.1"><span class="header-section-number">5.1.3.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.1</span> </p>
 <p>Moreover, let’s do design for the first example, with 2 checks, 12 tests and 12 farms. Before using the respective <strong>prDiGGer()</strong> function, we might want to prepare to useful vectors.</p>
 <p>So, out of our 14 genotypes, the first 2 will be repeated 12 times (once per block) and the rest will be only repeated twice. The vector “myreps” contains that info.</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="experimental-design-and-field-preparation.html#cb29-1" aria-hidden="true" tabindex="-1"></a>myreps <span class="ot">=</span><span class="fu">c</span>(<span class="dv">12</span>,<span class="dv">12</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>)</span>
-<span id="cb29-2"><a href="experimental-design-and-field-preparation.html#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-3"><a href="experimental-design-and-field-preparation.html#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="co"># We can check that the number ofelements is right (should be 14)</span></span>
-<span id="cb29-4"><a href="experimental-design-and-field-preparation.html#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(myreps)</span></code></pre></div>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="experimental-design-and-field-preparation.html#cb124-1" aria-hidden="true" tabindex="-1"></a>myreps <span class="ot">=</span><span class="fu">c</span>(<span class="dv">12</span>,<span class="dv">12</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>)</span>
+<span id="cb124-2"><a href="experimental-design-and-field-preparation.html#cb124-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb124-3"><a href="experimental-design-and-field-preparation.html#cb124-3" aria-hidden="true" tabindex="-1"></a><span class="co"># We can check that the number ofelements is right (should be 14)</span></span>
+<span id="cb124-4"><a href="experimental-design-and-field-preparation.html#cb124-4" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(myreps)</span></code></pre></div>
 <pre><code>## [1] 14</code></pre>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="experimental-design-and-field-preparation.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># And we can check that the sum of the reps equals the number of plots (should be 12*4 = 48)</span></span>
-<span id="cb31-2"><a href="experimental-design-and-field-preparation.html#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(myreps) </span></code></pre></div>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="experimental-design-and-field-preparation.html#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="co"># And we can check that the sum of the reps equals the number of plots (should be 12*4 = 48)</span></span>
+<span id="cb126-2"><a href="experimental-design-and-field-preparation.html#cb126-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(myreps) </span></code></pre></div>
 <pre><code>## [1] 48</code></pre>
 <p>Now, we create the vector “mygroups” that assigns each genotype to a given group. As a convention, the genotypes in group 1 will be tests and those in group 2 will be checks.</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="experimental-design-and-field-preparation.html#cb33-1" aria-hidden="true" tabindex="-1"></a>mygroups <span class="ot">=</span>  <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="experimental-design-and-field-preparation.html#cb128-1" aria-hidden="true" tabindex="-1"></a>mygroups <span class="ot">=</span>  <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>)</span></code></pre></div>
 <p>We are all set to run <strong>prDiGGer()</strong>.</p>
 </div>
-<div id="section-1" class="section level37" number="6.1.3.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2">
-<p class="heading" number="6.1.3.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2"><span class="header-section-number">6.1.3.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2</span> </p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="experimental-design-and-field-preparation.html#cb34-1" aria-hidden="true" tabindex="-1"></a>mydesignPR <span class="ot">&lt;-</span> <span class="fu">prDiGGer</span>(<span class="at">numberOfTreatments =</span> <span class="dv">14</span>,                  <span class="co"># 14 treatments</span></span>
-<span id="cb34-2"><a href="experimental-design-and-field-preparation.html#cb34-2" aria-hidden="true" tabindex="-1"></a>                       <span class="at">rowsInDesign =</span> <span class="dv">12</span>,                        <span class="co"># 12 rows (one per farm)</span></span>
-<span id="cb34-3"><a href="experimental-design-and-field-preparation.html#cb34-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">columnsInDesign =</span> <span class="dv">4</span>,                      <span class="co"># 4 columns in the design</span></span>
-<span id="cb34-4"><a href="experimental-design-and-field-preparation.html#cb34-4" aria-hidden="true" tabindex="-1"></a>                       <span class="at">treatRepPerRep =</span> myreps,                  <span class="co"># Reps per treatment</span></span>
-<span id="cb34-5"><a href="experimental-design-and-field-preparation.html#cb34-5" aria-hidden="true" tabindex="-1"></a>                       <span class="at">treatGroup=</span> mygroups,                     <span class="co"># My groups vector</span></span>
-<span id="cb34-6"><a href="experimental-design-and-field-preparation.html#cb34-6" aria-hidden="true" tabindex="-1"></a>                       <span class="at">blockSequence =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>)),             <span class="co"># Every block will have four columns and one row</span></span>
-<span id="cb34-7"><a href="experimental-design-and-field-preparation.html#cb34-7" aria-hidden="true" tabindex="-1"></a>                       <span class="at">treatName =</span> variety.list,</span>
-<span id="cb34-8"><a href="experimental-design-and-field-preparation.html#cb34-8" aria-hidden="true" tabindex="-1"></a>                       <span class="at">runSearch =</span> T)        </span></code></pre></div>
+<div id="section-1" class="section level37" number="5.1.3.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2">
+<p class="heading" number="5.1.3.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2"><span class="header-section-number">5.1.3.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2</span> </p>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="experimental-design-and-field-preparation.html#cb129-1" aria-hidden="true" tabindex="-1"></a>mydesignPR <span class="ot">&lt;-</span> <span class="fu">prDiGGer</span>(<span class="at">numberOfTreatments =</span> <span class="dv">14</span>,                  <span class="co"># 14 treatments</span></span>
+<span id="cb129-2"><a href="experimental-design-and-field-preparation.html#cb129-2" aria-hidden="true" tabindex="-1"></a>                       <span class="at">rowsInDesign =</span> <span class="dv">12</span>,                        <span class="co"># 12 rows (one per farm)</span></span>
+<span id="cb129-3"><a href="experimental-design-and-field-preparation.html#cb129-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">columnsInDesign =</span> <span class="dv">4</span>,                      <span class="co"># 4 columns in the design</span></span>
+<span id="cb129-4"><a href="experimental-design-and-field-preparation.html#cb129-4" aria-hidden="true" tabindex="-1"></a>                       <span class="at">treatRepPerRep =</span> myreps,                  <span class="co"># Reps per treatment</span></span>
+<span id="cb129-5"><a href="experimental-design-and-field-preparation.html#cb129-5" aria-hidden="true" tabindex="-1"></a>                       <span class="at">treatGroup=</span> mygroups,                     <span class="co"># My groups vector</span></span>
+<span id="cb129-6"><a href="experimental-design-and-field-preparation.html#cb129-6" aria-hidden="true" tabindex="-1"></a>                       <span class="at">blockSequence =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>)),             <span class="co"># Every block will have four columns and one row</span></span>
+<span id="cb129-7"><a href="experimental-design-and-field-preparation.html#cb129-7" aria-hidden="true" tabindex="-1"></a>                       <span class="at">treatName =</span> variety.list,</span>
+<span id="cb129-8"><a href="experimental-design-and-field-preparation.html#cb129-8" aria-hidden="true" tabindex="-1"></a>                       <span class="at">runSearch =</span> T)        </span></code></pre></div>
 <pre><code>##      Phase,    Search%,    A-measure
-## [1] 1.00000000 0.00000000 0.09259259
+## [1] 1.0 0.0 0.1
 ## [1]  1.00000000 10.00000000  0.08333333
 ## [1]  1.00000000 20.00000000  0.08333333
 ## [1]  1.00000000 30.00000000  0.08333333
@@ -481,7 +512,7 @@ y= 9
 ##  [1] 0.08333333 0.08333333 0.00000000 0.00000000 0.00000000 0.00000000
 ##  [7] 0.00000000 0.00000000 0.00000000 0.00000000
 ##      Phase,    Search%,    A-measure
-## [1] 1.0000000 0.0000000 0.7238238
+## [1] 1.0000000 0.0000000 0.7470293
 ## [1]  1.0000000 10.0000000  0.7010528
 ## [1]  1.0000000 20.0000000  0.7010528
 ## [1]  1.0000000 30.0000000  0.7010528
@@ -495,76 +526,76 @@ y= 9
 ##  [1] 0.7010528 0.7010528 0.0000000 0.0000000 0.0000000 0.0000000 0.0000000
 ##  [8] 0.0000000 0.0000000 0.0000000
 ##      Phase,    Search%,    A-measure
-## [1] 1.0000000 0.0000000 0.8135739
-## [1]  1.00000 10.00000  0.61269
-## [1]  1.0000000 20.0000000  0.6121395
-## [1]  1.0000000 30.0000000  0.6121395
-## [1]  1.0000000 40.0000000  0.6016253
-## [1]  1.0000000 50.0000000  0.6016253
-## [1]  1.0000000 60.0000000  0.6016253
-## [1]  1.0000000 70.0000000  0.6016253
-## [1]  1.0000000 80.0000000  0.6016253
-## [1]  1.0000000 90.0000000  0.6016253
-## [1]   1.0000000 100.0000000   0.6016253
-##  [1] 0.6016253 0.6016253 0.0000000 0.0000000 0.0000000 0.0000000 0.0000000
+## [1] 1.000000 0.000000 0.777708
+## [1]  1.0000000 10.0000000  0.6037085
+## [1]  1.0000000 20.0000000  0.5991073
+## [1]  1.0000000 30.0000000  0.5984773
+## [1]  1.0000000 40.0000000  0.5984773
+## [1]  1.0000000 50.0000000  0.5984773
+## [1]  1.0000000 60.0000000  0.5984773
+## [1]  1.0000000 70.0000000  0.5984773
+## [1]  1.0000000 80.0000000  0.5984773
+## [1]  1.0000000 90.0000000  0.5936747
+## [1]   1.0000000 100.0000000   0.5936747
+##  [1] 0.5936747 0.5936747 0.0000000 0.0000000 0.0000000 0.0000000 0.0000000
 ##  [8] 0.0000000 0.0000000 0.0000000</code></pre>
 <p>Ready to plot the new object called mydesignPR. We can check that treatments 1 and 2 are in every block, and all the rest are just present in two blocks.</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="experimental-design-and-field-preparation.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mydesignPR) </span></code></pre></div>
-<p><img src="PPB-Toolkit_files/figure-html/unnamed-chunk-26-1.png" width="672" height="115%" /></p>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="experimental-design-and-field-preparation.html#cb131-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mydesignPR) </span></code></pre></div>
+<p><img src="PPB-Toolkit_files/figure-html/unnamed-chunk-89-1.png" width="672" height="115%" /></p>
 <p>To further save it, we proceed in the same way as before.</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="experimental-design-and-field-preparation.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Renaming the object</span></span>
-<span id="cb37-2"><a href="experimental-design-and-field-preparation.html#cb37-2" aria-hidden="true" tabindex="-1"></a>myfieldPR <span class="ot">=</span> mydesignPR<span class="sc">$</span>ddphase[[<span class="dv">1</span>]]<span class="sc">$</span>design                  </span>
-<span id="cb37-3"><a href="experimental-design-and-field-preparation.html#cb37-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-4"><a href="experimental-design-and-field-preparation.html#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Replacing numbers with names</span></span>
-<span id="cb37-5"><a href="experimental-design-and-field-preparation.html#cb37-5" aria-hidden="true" tabindex="-1"></a>myfieldPR.withnames<span class="ot">=</span> <span class="fu">replace</span>(<span class="at">x=</span>myfieldPR,   </span>
-<span id="cb37-6"><a href="experimental-design-and-field-preparation.html#cb37-6" aria-hidden="true" tabindex="-1"></a>                             <span class="at">values =</span> mydesignPR<span class="sc">$</span>dlist<span class="sc">$</span>ID)  </span>
-<span id="cb37-7"><a href="experimental-design-and-field-preparation.html#cb37-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-8"><a href="experimental-design-and-field-preparation.html#cb37-8" aria-hidden="true" tabindex="-1"></a><span class="co">#Fixing column names</span></span>
-<span id="cb37-9"><a href="experimental-design-and-field-preparation.html#cb37-9" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(myfieldPR.withnames) <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>                         </span>
-<span id="cb37-10"><a href="experimental-design-and-field-preparation.html#cb37-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-11"><a href="experimental-design-and-field-preparation.html#cb37-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-12"><a href="experimental-design-and-field-preparation.html#cb37-12" aria-hidden="true" tabindex="-1"></a><span class="co">#Changing row names to farm names (using paste() and seq())</span></span>
-<span id="cb37-13"><a href="experimental-design-and-field-preparation.html#cb37-13" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(myfieldPR.withnames) <span class="ot">=</span> <span class="fu">paste</span>( <span class="st">&quot;Farm&quot;</span>, <span class="fu">seq</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>))</span>
-<span id="cb37-14"><a href="experimental-design-and-field-preparation.html#cb37-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-15"><a href="experimental-design-and-field-preparation.html#cb37-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-16"><a href="experimental-design-and-field-preparation.html#cb37-16" aria-hidden="true" tabindex="-1"></a><span class="co">#Final checking</span></span>
-<span id="cb37-17"><a href="experimental-design-and-field-preparation.html#cb37-17" aria-hidden="true" tabindex="-1"></a>myfieldPR.withnames</span></code></pre></div>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="experimental-design-and-field-preparation.html#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Renaming the object</span></span>
+<span id="cb132-2"><a href="experimental-design-and-field-preparation.html#cb132-2" aria-hidden="true" tabindex="-1"></a>myfieldPR <span class="ot">=</span> mydesignPR<span class="sc">$</span>ddphase[[<span class="dv">1</span>]]<span class="sc">$</span>design                  </span>
+<span id="cb132-3"><a href="experimental-design-and-field-preparation.html#cb132-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb132-4"><a href="experimental-design-and-field-preparation.html#cb132-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Replacing numbers with names</span></span>
+<span id="cb132-5"><a href="experimental-design-and-field-preparation.html#cb132-5" aria-hidden="true" tabindex="-1"></a>myfieldPR.withnames<span class="ot">=</span> <span class="fu">replace</span>(<span class="at">x=</span>myfieldPR,   </span>
+<span id="cb132-6"><a href="experimental-design-and-field-preparation.html#cb132-6" aria-hidden="true" tabindex="-1"></a>                             <span class="at">values =</span> mydesignPR<span class="sc">$</span>dlist<span class="sc">$</span>ID)  </span>
+<span id="cb132-7"><a href="experimental-design-and-field-preparation.html#cb132-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb132-8"><a href="experimental-design-and-field-preparation.html#cb132-8" aria-hidden="true" tabindex="-1"></a><span class="co">#Fixing column names</span></span>
+<span id="cb132-9"><a href="experimental-design-and-field-preparation.html#cb132-9" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(myfieldPR.withnames) <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>                         </span>
+<span id="cb132-10"><a href="experimental-design-and-field-preparation.html#cb132-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb132-11"><a href="experimental-design-and-field-preparation.html#cb132-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb132-12"><a href="experimental-design-and-field-preparation.html#cb132-12" aria-hidden="true" tabindex="-1"></a><span class="co">#Changing row names to farm names (using paste() and seq())</span></span>
+<span id="cb132-13"><a href="experimental-design-and-field-preparation.html#cb132-13" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(myfieldPR.withnames) <span class="ot">=</span> <span class="fu">paste</span>( <span class="st">&quot;Farm&quot;</span>, <span class="fu">seq</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>))</span>
+<span id="cb132-14"><a href="experimental-design-and-field-preparation.html#cb132-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb132-15"><a href="experimental-design-and-field-preparation.html#cb132-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb132-16"><a href="experimental-design-and-field-preparation.html#cb132-16" aria-hidden="true" tabindex="-1"></a><span class="co">#Final checking</span></span>
+<span id="cb132-17"><a href="experimental-design-and-field-preparation.html#cb132-17" aria-hidden="true" tabindex="-1"></a>myfieldPR.withnames</span></code></pre></div>
 <pre><code>##         1        2        3        4       
-## Farm 1  &quot;Var. A&quot; &quot;Var. K&quot; &quot;Var. B&quot; &quot;Var. N&quot;
-## Farm 2  &quot;Var. B&quot; &quot;Var. F&quot; &quot;Var. N&quot; &quot;Var. A&quot;
-## Farm 3  &quot;Var. A&quot; &quot;Var. H&quot; &quot;Var. J&quot; &quot;Var. B&quot;
-## Farm 4  &quot;Var. A&quot; &quot;Var. L&quot; &quot;Var. D&quot; &quot;Var. B&quot;
-## Farm 5  &quot;Var. A&quot; &quot;Var. G&quot; &quot;Var. F&quot; &quot;Var. B&quot;
-## Farm 6  &quot;Var. A&quot; &quot;Var. K&quot; &quot;Var. E&quot; &quot;Var. B&quot;
-## Farm 7  &quot;Var. A&quot; &quot;Var. J&quot; &quot;Var. M&quot; &quot;Var. B&quot;
-## Farm 8  &quot;Var. B&quot; &quot;Var. I&quot; &quot;Var. D&quot; &quot;Var. A&quot;
-## Farm 9  &quot;Var. A&quot; &quot;Var. E&quot; &quot;Var. H&quot; &quot;Var. B&quot;
-## Farm 10 &quot;Var. B&quot; &quot;Var. L&quot; &quot;Var. C&quot; &quot;Var. A&quot;
-## Farm 11 &quot;Var. B&quot; &quot;Var. A&quot; &quot;Var. G&quot; &quot;Var. I&quot;
-## Farm 12 &quot;Var. A&quot; &quot;Var. M&quot; &quot;Var. B&quot; &quot;Var. C&quot;</code></pre>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="experimental-design-and-field-preparation.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Exporting to excel</span></span>
-<span id="cb39-2"><a href="experimental-design-and-field-preparation.html#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(myfieldPR,<span class="st">&quot;Field Map PR with names.csv&quot;</span>)</span></code></pre></div>
+## Farm 1  &quot;Var. B&quot; &quot;Var. C&quot; &quot;Var. M&quot; &quot;Var. A&quot;
+## Farm 2  &quot;Var. B&quot; &quot;Var. G&quot; &quot;Var. H&quot; &quot;Var. A&quot;
+## Farm 3  &quot;Var. A&quot; &quot;Var. M&quot; &quot;Var. B&quot; &quot;Var. I&quot;
+## Farm 4  &quot;Var. B&quot; &quot;Var. E&quot; &quot;Var. K&quot; &quot;Var. A&quot;
+## Farm 5  &quot;Var. A&quot; &quot;Var. N&quot; &quot;Var. L&quot; &quot;Var. B&quot;
+## Farm 6  &quot;Var. A&quot; &quot;Var. K&quot; &quot;Var. I&quot; &quot;Var. B&quot;
+## Farm 7  &quot;Var. B&quot; &quot;Var. D&quot; &quot;Var. F&quot; &quot;Var. A&quot;
+## Farm 8  &quot;Var. D&quot; &quot;Var. A&quot; &quot;Var. N&quot; &quot;Var. B&quot;
+## Farm 9  &quot;Var. A&quot; &quot;Var. L&quot; &quot;Var. C&quot; &quot;Var. B&quot;
+## Farm 10 &quot;Var. B&quot; &quot;Var. E&quot; &quot;Var. A&quot; &quot;Var. G&quot;
+## Farm 11 &quot;Var. A&quot; &quot;Var. H&quot; &quot;Var. B&quot; &quot;Var. J&quot;
+## Farm 12 &quot;Var. B&quot; &quot;Var. F&quot; &quot;Var. J&quot; &quot;Var. A&quot;</code></pre>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="experimental-design-and-field-preparation.html#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Exporting to excel</span></span>
+<span id="cb134-2"><a href="experimental-design-and-field-preparation.html#cb134-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(myfieldPR,<span class="st">&quot;Field Map PR with names.csv&quot;</span>)</span></code></pre></div>
 </div>
 </div>
 </div>
-<div id="agricolae" class="section level2" number="6.2">
-<h2><span class="header-section-number">6.2</span> Agricolae</h2>
+<div id="agricolae" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Agricolae</h2>
 <p>Another package that can be used for randomizations is “agricolae.” It uses simpler algorithms, and, most importantly, does not prepare the field in a row-column matrix, but only gives a lineal order of the plots. The package can be installed easiliy by typing:</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="experimental-design-and-field-preparation.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;agricolae&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="experimental-design-and-field-preparation.html#cb135-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;agricolae&quot;</span>)</span></code></pre></div>
 <p>Once installed, the package should be “called,” by typing:</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="experimental-design-and-field-preparation.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(agricolae)</span></code></pre></div>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="experimental-design-and-field-preparation.html#cb136-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(agricolae)</span></code></pre></div>
 <p>This package offers a wide array of designs that can be consulted in it’s <a href="https://cran.r-project.org/web/packages/agricolae/agricolae.pdf">documentation</a>. We will only cover here the case of the<strong>Randomized Complete Block Design (RCBD) </strong> and <strong>Partially Replicated Block Design</strong>.</p>
-<div id="randomized-complete-block-design-1" class="section level3" number="6.2.1">
-<h3><span class="header-section-number">6.2.1</span> Randomized Complete Block Design</h3>
+<div id="randomized-complete-block-design-1" class="section level3" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> Randomized Complete Block Design</h3>
 <p>In Agricolae, this type of design is obtained through the the function <strong>design.rcbd() </strong>. To learn more about this function, and how to write the proper arguments, one could type:</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="experimental-design-and-field-preparation.html#cb42-1" aria-hidden="true" tabindex="-1"></a>?design.rcbd</span></code></pre></div>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="experimental-design-and-field-preparation.html#cb137-1" aria-hidden="true" tabindex="-1"></a>?design.rcbd</span></code></pre></div>
 <p>So, to apply the function, the first argument should be the object containing our variety list (that we prepared before). The “r” argument indicates the number of blocks or repetitions. The “serie” arguments just indicates which type of numeration to have for the plot, in this case, we will choose “serie= 2,” so that the first plot on our first block has the number “101.”In this case, we use also the “seed” argument and assign an arbitrary number (‘12345’), which allows for you and me to have the same results, despite randomization.</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="experimental-design-and-field-preparation.html#cb43-1" aria-hidden="true" tabindex="-1"></a>myfield.agricolae <span class="ot">&lt;-</span> <span class="fu">design.rcbd</span>(variety.list,        <span class="co"># My variety List</span></span>
-<span id="cb43-2"><a href="experimental-design-and-field-preparation.html#cb43-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">r=</span> <span class="dv">2</span>,                <span class="co"># Number of repetitions</span></span>
-<span id="cb43-3"><a href="experimental-design-and-field-preparation.html#cb43-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">serie=</span> <span class="dv">2</span>,            <span class="co"># Plot numeration style</span></span>
-<span id="cb43-4"><a href="experimental-design-and-field-preparation.html#cb43-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">seed=</span> <span class="dv">12345</span>)         <span class="co"># Fix randomization</span></span></code></pre></div>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="experimental-design-and-field-preparation.html#cb138-1" aria-hidden="true" tabindex="-1"></a>myfield.agricolae <span class="ot">&lt;-</span> <span class="fu">design.rcbd</span>(variety.list,        <span class="co"># My variety List</span></span>
+<span id="cb138-2"><a href="experimental-design-and-field-preparation.html#cb138-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">r=</span> <span class="dv">2</span>,                <span class="co"># Number of repetitions</span></span>
+<span id="cb138-3"><a href="experimental-design-and-field-preparation.html#cb138-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">serie=</span> <span class="dv">2</span>,            <span class="co"># Plot numeration style</span></span>
+<span id="cb138-4"><a href="experimental-design-and-field-preparation.html#cb138-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">seed=</span> <span class="dv">12345</span>)         <span class="co"># Fix randomization</span></span></code></pre></div>
 <p>The object “myfield.agricolae” contains now three different elements. It contains the paramenters used for the design, a field sketch and a “Fieldbook.” Each of these elements can be called using the ‘$’ symbol in the following for:</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="experimental-design-and-field-preparation.html#cb44-1" aria-hidden="true" tabindex="-1"></a>myfield.agricolae<span class="sc">$</span>book</span></code></pre></div>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="experimental-design-and-field-preparation.html#cb139-1" aria-hidden="true" tabindex="-1"></a>myfield.agricolae<span class="sc">$</span>book</span></code></pre></div>
 <pre><code>##    plots block variety.list
 ## 1    101     1       Var. G
 ## 2    102     1       Var. L
@@ -595,13 +626,13 @@ y= 9
 ## 27   213     2       Var. J
 ## 28   214     2       Var. E</code></pre>
 <p>Any of these objects could be exported into an excel or .csv file in your computer, both for an easier manipulation and to potentially prepare a file to take data evaluations. To export as an .csv, the function <strong>write.csv() </strong> comes in handy.</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="experimental-design-and-field-preparation.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(myfield.agricolae<span class="sc">$</span>book, <span class="st">&quot;myfield.agricolae.csv&quot;</span>, <span class="at">row.names =</span> F)</span></code></pre></div>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="experimental-design-and-field-preparation.html#cb141-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(myfield.agricolae<span class="sc">$</span>book, <span class="st">&quot;myfield.agricolae.csv&quot;</span>, <span class="at">row.names =</span> F)</span></code></pre></div>
 <p>However, this is only a list (that is however useful), but we would like to have a map. For that purpose, we could the function <strong>matrix() </strong>, and indicate that we want the rows divided into 4 columns (if that is the case)</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="experimental-design-and-field-preparation.html#cb47-1" aria-hidden="true" tabindex="-1"></a>myfield.matrix <span class="ot">=</span> <span class="fu">matrix</span>(</span>
-<span id="cb47-2"><a href="experimental-design-and-field-preparation.html#cb47-2" aria-hidden="true" tabindex="-1"></a>                 myfield.agricolae<span class="sc">$</span>book<span class="sc">$</span>variety.list,  <span class="co">#Taking only the varieties names from the fieldbook.</span></span>
-<span id="cb47-3"><a href="experimental-design-and-field-preparation.html#cb47-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">ncol=</span><span class="dv">4</span>)                   <span class="co">#Number of columns in the field.</span></span>
-<span id="cb47-4"><a href="experimental-design-and-field-preparation.html#cb47-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-5"><a href="experimental-design-and-field-preparation.html#cb47-5" aria-hidden="true" tabindex="-1"></a>myfield.matrix </span></code></pre></div>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="experimental-design-and-field-preparation.html#cb142-1" aria-hidden="true" tabindex="-1"></a>myfield.matrix <span class="ot">=</span> <span class="fu">matrix</span>(</span>
+<span id="cb142-2"><a href="experimental-design-and-field-preparation.html#cb142-2" aria-hidden="true" tabindex="-1"></a>                 myfield.agricolae<span class="sc">$</span>book<span class="sc">$</span>variety.list,  <span class="co">#Taking only the varieties names from the fieldbook.</span></span>
+<span id="cb142-3"><a href="experimental-design-and-field-preparation.html#cb142-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">ncol=</span><span class="dv">4</span>)                   <span class="co">#Number of columns in the field.</span></span>
+<span id="cb142-4"><a href="experimental-design-and-field-preparation.html#cb142-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb142-5"><a href="experimental-design-and-field-preparation.html#cb142-5" aria-hidden="true" tabindex="-1"></a>myfield.matrix </span></code></pre></div>
 <pre><code>##      [,1]     [,2]     [,3]     [,4]    
 ## [1,] &quot;Var. G&quot; &quot;Var. A&quot; &quot;Var. D&quot; &quot;Var. K&quot;
 ## [2,] &quot;Var. L&quot; &quot;Var. K&quot; &quot;Var. F&quot; &quot;Var. A&quot;
@@ -611,28 +642,28 @@ y= 9
 ## [6,] &quot;Var. N&quot; &quot;Var. E&quot; &quot;Var. C&quot; &quot;Var. J&quot;
 ## [7,] &quot;Var. D&quot; &quot;Var. I&quot; &quot;Var. G&quot; &quot;Var. E&quot;</code></pre>
 <p>This could as well be exported into a .csv file.</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="experimental-design-and-field-preparation.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(myfield.agricolae.matrix, <span class="st">&quot;myfield.matrix.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="experimental-design-and-field-preparation.html#cb144-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(myfield.agricolae.matrix, <span class="st">&quot;myfield.matrix.csv&quot;</span>)</span></code></pre></div>
 <hr />
 </div>
-<div id="partially-replicated-block-design-1" class="section level3" number="6.2.2">
-<h3><span class="header-section-number">6.2.2</span> Partially Replicated Block Design</h3>
+<div id="partially-replicated-block-design-1" class="section level3" number="5.2.2">
+<h3><span class="header-section-number">5.2.2</span> Partially Replicated Block Design</h3>
 <p>Agricolae calls this kind of design as “Augmented Block Design.” To execute it, a very similar function is used, called <strong>design.dau()</strong></p>
 <p>However, for this case, two different variety lists are needed, one containing the “check” varieties (to be present in all blocks) and the “new” varieties (to be present only once). We could use the R grammatics to select only the first two elements from the previous variety list, and name them as our checks.</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="experimental-design-and-field-preparation.html#cb50-1" aria-hidden="true" tabindex="-1"></a>variety.checks <span class="ot">=</span> variety.list[<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)]</span>
-<span id="cb50-2"><a href="experimental-design-and-field-preparation.html#cb50-2" aria-hidden="true" tabindex="-1"></a>variety.checks</span></code></pre></div>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="experimental-design-and-field-preparation.html#cb145-1" aria-hidden="true" tabindex="-1"></a>variety.checks <span class="ot">=</span> variety.list[<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)]</span>
+<span id="cb145-2"><a href="experimental-design-and-field-preparation.html#cb145-2" aria-hidden="true" tabindex="-1"></a>variety.checks</span></code></pre></div>
 <pre><code>## [1] &quot;Var. A&quot; &quot;Var. B&quot;</code></pre>
 <p>And another object with only the remaining elements of the list.</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="experimental-design-and-field-preparation.html#cb52-1" aria-hidden="true" tabindex="-1"></a>variety.new <span class="ot">=</span> variety.list[<span class="fu">c</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">14</span>)]</span>
-<span id="cb52-2"><a href="experimental-design-and-field-preparation.html#cb52-2" aria-hidden="true" tabindex="-1"></a>variety.new</span></code></pre></div>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="experimental-design-and-field-preparation.html#cb147-1" aria-hidden="true" tabindex="-1"></a>variety.new <span class="ot">=</span> variety.list[<span class="fu">c</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">14</span>)]</span>
+<span id="cb147-2"><a href="experimental-design-and-field-preparation.html#cb147-2" aria-hidden="true" tabindex="-1"></a>variety.new</span></code></pre></div>
 <pre><code>##  [1] &quot;Var. C&quot; &quot;Var. D&quot; &quot;Var. E&quot; &quot;Var. F&quot; &quot;Var. G&quot; &quot;Var. H&quot; &quot;Var. I&quot; &quot;Var. J&quot;
 ##  [9] &quot;Var. K&quot; &quot;Var. L&quot; &quot;Var. M&quot; &quot;Var. N&quot;</code></pre>
 <p>Then, we are ready to apply the function:</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="experimental-design-and-field-preparation.html#cb54-1" aria-hidden="true" tabindex="-1"></a>myfieldabd.agricolae <span class="ot">=</span> <span class="fu">design.dau</span>(<span class="at">trt1=</span> variety.checks, <span class="co"># Check varieties</span></span>
-<span id="cb54-2"><a href="experimental-design-and-field-preparation.html#cb54-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">trt2=</span> variety.new,    <span class="co"># New varieties</span></span>
-<span id="cb54-3"><a href="experimental-design-and-field-preparation.html#cb54-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">r =</span> <span class="dv">2</span>,                <span class="co"># Number of repetitions</span></span>
-<span id="cb54-4"><a href="experimental-design-and-field-preparation.html#cb54-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">seed=</span> <span class="dv">12345</span>)      <span class="co"># Fix randomization</span></span></code></pre></div>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="experimental-design-and-field-preparation.html#cb149-1" aria-hidden="true" tabindex="-1"></a>myfieldabd.agricolae <span class="ot">=</span> <span class="fu">design.dau</span>(<span class="at">trt1=</span> variety.checks, <span class="co"># Check varieties</span></span>
+<span id="cb149-2"><a href="experimental-design-and-field-preparation.html#cb149-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">trt2=</span> variety.new,    <span class="co"># New varieties</span></span>
+<span id="cb149-3"><a href="experimental-design-and-field-preparation.html#cb149-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">r =</span> <span class="dv">2</span>,                <span class="co"># Number of repetitions</span></span>
+<span id="cb149-4"><a href="experimental-design-and-field-preparation.html#cb149-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">seed=</span> <span class="dv">12345</span>)      <span class="co"># Fix randomization</span></span></code></pre></div>
 <p>Again, we have several objects within “myfieldabd.agricolae.” To see how varieties were distributed through blocks, we cab see the “book” object within “field.adb.”</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="experimental-design-and-field-preparation.html#cb55-1" aria-hidden="true" tabindex="-1"></a>myfieldabd.agricolae<span class="sc">$</span>book</span></code></pre></div>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="experimental-design-and-field-preparation.html#cb150-1" aria-hidden="true" tabindex="-1"></a>myfieldabd.agricolae<span class="sc">$</span>book</span></code></pre></div>
 <pre><code>##    plots block    trt
 ## 1    101     1 Var. E
 ## 2    102     1 Var. M
@@ -654,8 +685,8 @@ y= 9
 <hr />
 </div>
 </div>
-<div id="organic-trials" class="section level2" number="6.3">
-<h2><span class="header-section-number">6.3</span> Organic Trials</h2>
+<div id="organic-trials" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> Organic Trials</h2>
 <p>Finally, the <a href="https://seedalliance.org/">Organic Seed Alliance</a> has also developed a beatiful R based web site that can prepare Randomized Complete Block and Partially Replicated Designs. If your designs are simple and it turns out more convenient for you, this <a href="https://organicseed.shinyapps.io/OrganicTrials/">link</a> is a great option.</p>
 <hr />
 

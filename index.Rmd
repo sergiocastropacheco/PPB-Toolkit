@@ -1,5 +1,5 @@
 --- 
-title: "A PPB Toolkit in RStudio"
+title: ![](Cover.jpg){width=1in}   "A PPB Toolkit in RStudio"
 author: "Sergio Castro and Matteo Petitti"
 date: "Last Update: `r Sys.Date()`"
 site: bookdown::bookdown_site
@@ -9,15 +9,43 @@ biblio-style: apalike
 link-citations: yes
 ---
 
+\newpage
+
 <style>
 body {
 text-align: justify}
 </style>
 
 
-----------------
+![](Cover.jpg)
 
-# Preface 
+# Introduction
+
+<style>
+body {
+text-align: justify}
+</style>
+
+Participatory Plant Breeding (PPB) is becoming increasingly popular around the world, as an approach that allows for both important gains in selection efficacy and for the improvement in farmer's involvement in science and decision making [@Ceccareli2020].
+
+However, the technical and practical aspects of PPB prograrms can be very challenging. One of the biggest areas of difficulty has to do with data processing and analysis, as it may require specific skill-sets that can only be adquired by practice. Literature on this subject is increasingly growing and great overall manuals have been written; most notably,  the one from @Tech-Manual.
+
+We do not pretend to reiterate or substite this valuable resouces. What we do pretend is to offer a brief, synthetic and updates toolkit, which should be useful for participatory plant breeders during their processes. We offer this toolkit specifically in the frame of R and RStudio, an open source language and Integrated Development Environment (IDE) @Rstudio.
+
+We propose R as a very powerful tool for PPB purposes because of three main reasons:
+
+* **Open Source. **\
+Anyone can download R and use it for free. What is more, anyone can also make its own contribution and expand the possibilites of things that can be done through this language. In fact, R is constantly updated by users around the world.
+
+* **Polifunctional. **\
+Through R and RStudio, you can integrate most of the data related needs in PPB, such as Data Management, Statistical Analysis and Data Visualization.
+
+* **Reproducibile. ** \
+After developing all your designs and analysis, you can share your methods and results with the community. Then, virtually anyone with access to your data and your code can review every step you took and (hopefully) arrive to the same result.
+
+
+Furthermore, we want to insist on the fact that this is intended to be an ever growing manual, which is to be fed by the comments and experiences of those who find this resource useful.
+
 
 
 ```{r include=FALSE}

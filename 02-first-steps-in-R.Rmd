@@ -6,7 +6,7 @@ text-align: justify}
 </style>
 
 
-If you already know the basics of R, you can skip this section and go straight to the next chapter!
+If you already know the basics of R, you can skip this section and go straight to the next [chapter](#data-wrangling-and-summarizing)!
 
 ## Getting started
 

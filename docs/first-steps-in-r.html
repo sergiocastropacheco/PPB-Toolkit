@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 3 First Steps in R | A PPB Toolkit in RStudio</title>
-  <meta name="description" content="Chapter 3 First Steps in R | A PPB Toolkit in RStudio" />
+  <title>Chapter 2 First Steps in R | A PPB Toolkit in RStudio</title>
+  <meta name="description" content="Chapter 2 First Steps in R | A PPB Toolkit in RStudio" />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 3 First Steps in R | A PPB Toolkit in RStudio" />
+  <meta property="og:title" content="Chapter 2 First Steps in R | A PPB Toolkit in RStudio" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 First Steps in R | A PPB Toolkit in RStudio" />
+  <meta name="twitter:title" content="Chapter 2 First Steps in R | A PPB Toolkit in RStudio" />
   
   
   
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="introduction.html"/>
-<link rel="next" href="data-wrangling-and-summarizing.html"/>
+<link rel="next" href="data-wrangling-and-summarizing-dws.html"/>
 <script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -119,6 +119,28 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -136,59 +158,68 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">A PPB Toolkit in R and RStudio</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a></li>
-<li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
-<li class="chapter" data-level="3" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html"><i class="fa fa-check"></i><b>3</b> First Steps in R</a>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html"><i class="fa fa-check"></i><b>2</b> First Steps in R</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html#getting-started"><i class="fa fa-check"></i><b>3.1</b> Getting started</a></li>
-<li class="chapter" data-level="3.2" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html#preparing-and-reading-your-data"><i class="fa fa-check"></i><b>3.2</b> Preparing and reading your data</a></li>
-<li class="chapter" data-level="3.3" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html#basic-data-manipulation"><i class="fa fa-check"></i><b>3.3</b> Basic data manipulation</a></li>
-<li class="chapter" data-level="3.4" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html#basic-statistics-and-plots"><i class="fa fa-check"></i><b>3.4</b> Basic Statistics and Plots</a></li>
-<li class="chapter" data-level="3.5" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html#packages-in-r."><i class="fa fa-check"></i><b>3.5</b> Packages in R.</a></li>
-<li class="chapter" data-level="3.6" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html#final-considerations"><i class="fa fa-check"></i><b>3.6</b> Final considerations</a></li>
+<li class="chapter" data-level="2.1" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html#getting-started"><i class="fa fa-check"></i><b>2.1</b> Getting started</a></li>
+<li class="chapter" data-level="2.2" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html#preparing-and-reading-your-data"><i class="fa fa-check"></i><b>2.2</b> Preparing and reading your data</a></li>
+<li class="chapter" data-level="2.3" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html#basic-data-manipulation"><i class="fa fa-check"></i><b>2.3</b> Basic data manipulation</a></li>
+<li class="chapter" data-level="2.4" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html#basic-statistics-and-plots"><i class="fa fa-check"></i><b>2.4</b> Basic Statistics and Plots</a></li>
+<li class="chapter" data-level="2.5" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html#packages-in-r."><i class="fa fa-check"></i><b>2.5</b> Packages in R.</a></li>
+<li class="chapter" data-level="2.6" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html#final-considerations"><i class="fa fa-check"></i><b>2.6</b> Final considerations</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="data-wrangling-and-summarizing.html"><a href="data-wrangling-and-summarizing.html"><i class="fa fa-check"></i><b>4</b> Data Wrangling and Summarizing</a>
+<li class="chapter" data-level="3" data-path="data-wrangling-and-summarizing-dws.html"><a href="data-wrangling-and-summarizing-dws.html"><i class="fa fa-check"></i><b>3</b> Data Wrangling and Summarizing # dws</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="data-wrangling-and-summarizing.html"><a href="data-wrangling-and-summarizing.html#dplyr"><i class="fa fa-check"></i><b>4.1</b> dplyr</a></li>
+<li class="chapter" data-level="3.1" data-path="data-wrangling-and-summarizing-dws.html"><a href="data-wrangling-and-summarizing-dws.html#dplyr"><i class="fa fa-check"></i><b>3.1</b> dplyr</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html"><i class="fa fa-check"></i><b>5</b> Basics of Data Visualisation</a>
+<li class="chapter" data-level="4" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html"><i class="fa fa-check"></i><b>4</b> Basics of Data Visualisation</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#base-package"><i class="fa fa-check"></i><b>5.1</b> Base package</a>
+<li class="chapter" data-level="4.1" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#base-package"><i class="fa fa-check"></i><b>4.1</b> Base package</a>
 <ul>
-<li class="chapter" data-level="5.1.1" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#plot-vs.-index"><i class="fa fa-check"></i><b>5.1.1</b> Plot vs. Index</a></li>
-<li class="chapter" data-level="5.1.2" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#scatter-plot"><i class="fa fa-check"></i><b>5.1.2</b> Scatter plot</a></li>
-<li class="chapter" data-level="5.1.3" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#histogram"><i class="fa fa-check"></i><b>5.1.3</b> Histogram</a></li>
+<li class="chapter" data-level="4.1.1" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#plot-vs.-index"><i class="fa fa-check"></i><b>4.1.1</b> Plot vs. Index</a></li>
+<li class="chapter" data-level="4.1.2" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#scatter-plot"><i class="fa fa-check"></i><b>4.1.2</b> Scatter plot</a></li>
+<li class="chapter" data-level="4.1.3" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#histogram"><i class="fa fa-check"></i><b>4.1.3</b> Histogram</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#ggplot"><i class="fa fa-check"></i><b>5.2</b> ggplot</a>
+<li class="chapter" data-level="4.2" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#ggplot"><i class="fa fa-check"></i><b>4.2</b> ggplot</a>
 <ul>
-<li class="chapter" data-level="5.2.1" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#box-plot"><i class="fa fa-check"></i><b>5.2.1</b> Box Plot</a></li>
-<li class="chapter" data-level="5.2.2" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#scatter-plots"><i class="fa fa-check"></i><b>5.2.2</b> Scatter plots</a></li>
-<li class="chapter" data-level="5.2.3" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#bar-plots"><i class="fa fa-check"></i><b>5.2.3</b> Bar plots</a></li>
-<li class="chapter" data-level="5.2.4" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#adjusting-details"><i class="fa fa-check"></i><b>5.2.4</b> Adjusting details</a></li>
+<li class="chapter" data-level="4.2.1" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#box-plot"><i class="fa fa-check"></i><b>4.2.1</b> Box Plot</a></li>
+<li class="chapter" data-level="4.2.2" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#scatter-plots"><i class="fa fa-check"></i><b>4.2.2</b> Scatter plots</a></li>
+<li class="chapter" data-level="4.2.3" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#bar-plots"><i class="fa fa-check"></i><b>4.2.3</b> Bar plots</a></li>
+<li class="chapter" data-level="4.2.4" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#adjusting-details"><i class="fa fa-check"></i><b>4.2.4</b> Adjusting details</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#exporting-plots"><i class="fa fa-check"></i><b>5.3</b> Exporting plots</a></li>
+<li class="chapter" data-level="4.3" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#exporting-plots"><i class="fa fa-check"></i><b>4.3</b> Exporting plots</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="experimental-design-and-field-preparation.html"><a href="experimental-design-and-field-preparation.html"><i class="fa fa-check"></i><b>6</b> Experimental Design and Field Preparation</a>
+<li class="chapter" data-level="5" data-path="experimental-design-and-field-preparation.html"><a href="experimental-design-and-field-preparation.html"><i class="fa fa-check"></i><b>5</b> Experimental Design and Field Preparation</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="experimental-design-and-field-preparation.html"><a href="experimental-design-and-field-preparation.html#digger"><i class="fa fa-check"></i><b>6.1</b> DiGGer</a>
+<li class="chapter" data-level="5.1" data-path="experimental-design-and-field-preparation.html"><a href="experimental-design-and-field-preparation.html#digger"><i class="fa fa-check"></i><b>5.1</b> DiGGer</a>
 <ul>
-<li class="chapter" data-level="6.1.1" data-path="experimental-design-and-field-preparation.html"><a href="experimental-design-and-field-preparation.html#randomized-complete-block-design"><i class="fa fa-check"></i><b>6.1.1</b> Randomized Complete Block Design!</a></li>
-<li class="chapter" data-level="6.1.2" data-path="experimental-design-and-field-preparation.html"><a href="experimental-design-and-field-preparation.html#incomplete-block-design-ibd"><i class="fa fa-check"></i><b>6.1.2</b> Incomplete Block Design (IBD)</a></li>
-<li class="chapter" data-level="6.1.3" data-path="experimental-design-and-field-preparation.html"><a href="experimental-design-and-field-preparation.html#partially-replicated-block-design"><i class="fa fa-check"></i><b>6.1.3</b> Partially Replicated Block Design</a></li>
+<li class="chapter" data-level="5.1.1" data-path="experimental-design-and-field-preparation.html"><a href="experimental-design-and-field-preparation.html#randomized-complete-block-design"><i class="fa fa-check"></i><b>5.1.1</b> Randomized Complete Block Design!</a></li>
+<li class="chapter" data-level="5.1.2" data-path="experimental-design-and-field-preparation.html"><a href="experimental-design-and-field-preparation.html#incomplete-block-design-ibd"><i class="fa fa-check"></i><b>5.1.2</b> Incomplete Block Design (IBD)</a></li>
+<li class="chapter" data-level="5.1.3" data-path="experimental-design-and-field-preparation.html"><a href="experimental-design-and-field-preparation.html#partially-replicated-block-design"><i class="fa fa-check"></i><b>5.1.3</b> Partially Replicated Block Design</a></li>
 </ul></li>
-<li class="chapter" data-level="6.2" data-path="experimental-design-and-field-preparation.html"><a href="experimental-design-and-field-preparation.html#agricolae"><i class="fa fa-check"></i><b>6.2</b> Agricolae</a>
+<li class="chapter" data-level="5.2" data-path="experimental-design-and-field-preparation.html"><a href="experimental-design-and-field-preparation.html#agricolae"><i class="fa fa-check"></i><b>5.2</b> Agricolae</a>
 <ul>
-<li class="chapter" data-level="6.2.1" data-path="experimental-design-and-field-preparation.html"><a href="experimental-design-and-field-preparation.html#randomized-complete-block-design-1"><i class="fa fa-check"></i><b>6.2.1</b> Randomized Complete Block Design</a></li>
-<li class="chapter" data-level="6.2.2" data-path="experimental-design-and-field-preparation.html"><a href="experimental-design-and-field-preparation.html#partially-replicated-block-design-1"><i class="fa fa-check"></i><b>6.2.2</b> Partially Replicated Block Design</a></li>
+<li class="chapter" data-level="5.2.1" data-path="experimental-design-and-field-preparation.html"><a href="experimental-design-and-field-preparation.html#randomized-complete-block-design-1"><i class="fa fa-check"></i><b>5.2.1</b> Randomized Complete Block Design</a></li>
+<li class="chapter" data-level="5.2.2" data-path="experimental-design-and-field-preparation.html"><a href="experimental-design-and-field-preparation.html#partially-replicated-block-design-1"><i class="fa fa-check"></i><b>5.2.2</b> Partially Replicated Block Design</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="experimental-design-and-field-preparation.html"><a href="experimental-design-and-field-preparation.html#organic-trials"><i class="fa fa-check"></i><b>6.3</b> Organic Trials</a></li>
+<li class="chapter" data-level="5.3" data-path="experimental-design-and-field-preparation.html"><a href="experimental-design-and-field-preparation.html#organic-trials"><i class="fa fa-check"></i><b>5.3</b> Organic Trials</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="statistical-tests.html"><a href="statistical-tests.html"><i class="fa fa-check"></i><b>7</b> Statistical tests</a></li>
-<li class="chapter" data-level="8" data-path="spatial-analysis.html"><a href="spatial-analysis.html"><i class="fa fa-check"></i><b>8</b> Spatial Analysis</a>
+<li class="chapter" data-level="6" data-path="statistical-tests.html"><a href="statistical-tests.html"><i class="fa fa-check"></i><b>6</b> Statistical tests</a></li>
+<li class="chapter" data-level="7" data-path="spatial-analysis.html"><a href="spatial-analysis.html"><i class="fa fa-check"></i><b>7</b> Spatial Analysis</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="spatial-analysis.html"><a href="spatial-analysis.html#spats"><i class="fa fa-check"></i><b>8.1</b> SpATS</a></li>
+<li class="chapter" data-level="7.1" data-path="spatial-analysis.html"><a href="spatial-analysis.html#spats"><i class="fa fa-check"></i><b>7.1</b> SpATS</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="gge-biplots.html"><a href="gge-biplots.html"><i class="fa fa-check"></i><b>9</b> GGE Biplots</a></li>
+<li class="chapter" data-level="8" data-path="gge-biplots.html"><a href="gge-biplots.html"><i class="fa fa-check"></i><b>8</b> GGE BiPlots</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="gge-biplots.html"><a href="gge-biplots.html#metan"><i class="fa fa-check"></i><b>8.1</b> metan</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="gge-biplots.html"><a href="gge-biplots.html#which-won-where"><i class="fa fa-check"></i><b>8.1.1</b> Which won where</a></li>
+<li class="chapter" data-level="8.1.2" data-path="gge-biplots.html"><a href="gge-biplots.html#mean-vs.-stability"><i class="fa fa-check"></i><b>8.1.2</b> Mean vs. Stability</a></li>
+<li class="chapter" data-level="8.1.3" data-path="gge-biplots.html"><a href="gge-biplots.html#genotype-ranking"><i class="fa fa-check"></i><b>8.1.3</b> Genotype Ranking</a></li>
+<li class="chapter" data-level="8.1.4" data-path="gge-biplots.html"><a href="gge-biplots.html#genotype-comparison"><i class="fa fa-check"></i><b>8.1.4</b> Genotype Comparison</a></li>
+<li class="chapter" data-level="8.1.5" data-path="gge-biplots.html"><a href="gge-biplots.html#modifying-the-plot."><i class="fa fa-check"></i><b>8.1.5</b> Modifying the plot.</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -210,15 +241,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="first-steps-in-r" class="section level1" number="3">
-<h1><span class="header-section-number">Chapter 3</span> First Steps in R</h1>
+<div id="first-steps-in-r" class="section level1" number="2">
+<h1><span class="header-section-number">Chapter 2</span> First Steps in R</h1>
 <style>
 body {
 text-align: justify}
 </style>
-<p>If you already know the basics of R, you can skip this section and go straight to the next chapter!</p>
-<div id="getting-started" class="section level2" number="3.1">
-<h2><span class="header-section-number">3.1</span> Getting started</h2>
+<p>If you already know the basics of R, you can skip this section and go straight to the next <a href="#data-wrangling-and-summarizing">chapter</a>!</p>
+<div id="getting-started" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Getting started</h2>
 <p>If not, many ressources are available on line to master the language and procedures on R. If you are interested, we suggest some of them at the end of this chapter. However, this first chapter gives the most basic elements of R that will be useful later on, for the objetives of this PPB Toolkit.</p>
 <p>At this point, if you do not have it already, we suggest you to download the programming language R in this <a href="https://www.r-project.org/">link</a> and RStudio, the associated Integrated Development Environment in this <a href="https://www.rstudio.com/products/rstudio/download/">link</a>. Alternatively, you can try the cloud version <a href="https://rstudio.cloud/">R studio cloud</a>, but have in mind that most explanations in this toolkit will be done according to a locally downloaded version.</p>
 <hr />
@@ -301,8 +332,8 @@ text-align: justify}
 <p>(It’s important to finish with “.R,” to indicate your file format.)</p>
 <hr />
 </div>
-<div id="preparing-and-reading-your-data" class="section level2" number="3.2">
-<h2><span class="header-section-number">3.2</span> Preparing and reading your data</h2>
+<div id="preparing-and-reading-your-data" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Preparing and reading your data</h2>
 <p><strong>Setting up your Working Directory. </strong></p>
 <p>The Working Directory (WD) is a very important concept, and it is simply the folder in which you are working. This folder should work both for uploading files and placing the outputs of your work.</p>
 <p>The most important things to di regarding your WD are:</p>
@@ -385,8 +416,8 @@ text-align: justify}
 <p>Bottomline, we advice to always check your data when uploading. Specifically, check the data type of each variable, as this might lead to problems during the analysis and manipulation.</p>
 <hr />
 </div>
-<div id="basic-data-manipulation" class="section level2" number="3.3">
-<h2><span class="header-section-number">3.3</span> Basic data manipulation</h2>
+<div id="basic-data-manipulation" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> Basic data manipulation</h2>
 <p><strong>Accesing your data </strong></p>
 <p>Before performing statistic analysis, it is useful to understand how you can “call” a specific column or row in R, so that you can easiliy access your data. Here are two basic examples.</p>
 <ul>
@@ -445,8 +476,8 @@ text-align: justify}
 <div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="first-steps-in-r.html#cb52-1" aria-hidden="true" tabindex="-1"></a>mydata<span class="sc">$</span>mark_yield <span class="ot">&lt;-</span> newvector</span></code></pre></div>
 <hr />
 </div>
-<div id="basic-statistics-and-plots" class="section level2" number="3.4">
-<h2><span class="header-section-number">3.4</span> Basic Statistics and Plots</h2>
+<div id="basic-statistics-and-plots" class="section level2" number="2.4">
+<h2><span class="header-section-number">2.4</span> Basic Statistics and Plots</h2>
 <p><strong>Minimal statistics</strong></p>
 <p>Now that we know how to call an specifical column in the data frame, it is possible to perform some basic statistics on these variables.</p>
 <ul>
@@ -529,8 +560,8 @@ text-align: justify}
 <pre><code>## [1] 4</code></pre>
 <hr />
 </div>
-<div id="packages-in-r." class="section level2" number="3.5">
-<h2><span class="header-section-number">3.5</span> Packages in R.</h2>
+<div id="packages-in-r." class="section level2" number="2.5">
+<h2><span class="header-section-number">2.5</span> Packages in R.</h2>
 <p>Packages are what keeps the R community growing, as virtually anyone can create and upload a package in R. A package can be loosely defined as a group of functions that serve to a certain objective or area of study. Some of them are very useful to treat and analyze data from varietial trials and PPB programs, and we will see many examples later. Downloading and installing them is very easy, you have mostly two options.</p>
 <ol style="list-style-type: decimal">
 <li><p>The simplest is to click on Tools &gt; Install Packages &gt; and write the package name. This works as long as the package is on the CRAN repositoy, which is the official R repository where developers upload packages.</p></li>
@@ -544,8 +575,8 @@ text-align: justify}
 <p>We will use and install several packages in the following chapters.</p>
 <hr />
 </div>
-<div id="final-considerations" class="section level2" number="3.6">
-<h2><span class="header-section-number">3.6</span> Final considerations</h2>
+<div id="final-considerations" class="section level2" number="2.6">
+<h2><span class="header-section-number">2.6</span> Final considerations</h2>
 <p><strong>Ask questions!</strong></p>
 <p>It’s very hard to know (and to remember!) how everything is done in R. And, like any language, the only way to become fluent is to practice often. There will always be things that you might want to do, and which are not included in this very small manual. For those cases, curiosity is a gread advantage, and here is some small advice about how to proceed.</p>
 <p>Examples:</p>
@@ -576,7 +607,7 @@ text-align: justify}
         </div>
       </div>
 <a href="introduction.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="data-wrangling-and-summarizing.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="data-wrangling-and-summarizing-dws.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

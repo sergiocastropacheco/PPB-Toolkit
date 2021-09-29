@@ -1,4 +1,4 @@
-# Data Wrangling and Summarizing
+# Data Wrangling and Summarizing # dws
 
 Data wrangling is one of the most important activites that you can do in R. It allows you to, sistematically, take a given data frame (or several) and set them into the format that works best for the analysis. In the last chaper, we saw already some of the most basic elements of data wrangling (like creating a new column from two other). Now, we will see a brief summary of what can be done with dplyr, a package specifically designed for that purpose.
 

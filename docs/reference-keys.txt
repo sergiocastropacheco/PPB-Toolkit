@@ -1,4 +1,3 @@
-description
 introduction
 first-steps-in-r
 getting-started
@@ -33,11 +32,11 @@ statistical-tests
 spatial-analysis
 spats
 gge-biplots
-preface
 metan
 which-won-where
 mean-vs.-stability
 genotype-ranking
 genotype-comparison
-modifiyng-the-plot.
 modifying-the-plot.
+data-wrangling-and-summarizing-dws
+introduction-1

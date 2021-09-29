@@ -24,6 +24,67 @@
             "type": "book"
         },
         {
+            "author": [
+                {
+                    "literal": "Salvatore Ceccarelli"
+                }
+            ],
+            "id": "Tech-Manual",
+            "issued": {
+                "date-parts": [
+                    [
+                        2012
+                    ]
+                ]
+            },
+            "publisher": "International Center for Agricultural Research in the Dry Areas",
+            "publisher-place": "Aleppo, Syria",
+            "title": "Plant breeding with farmers: A technical manual",
+            "title-short": "Plant breeding with farmers",
+            "type": "book"
+        },
+        {
+            "author": [
+                {
+                    "literal": "Salvatore Ceccarelli and Stefania Grando"
+                }
+            ],
+            "container-title": "Experimental Agriculture",
+            "id": "Ceccareli2020",
+            "issued": {
+                "date-parts": [
+                    [
+                        2020
+                    ]
+                ]
+            },
+            "title": "Participatory plant breeding: Who did it, who does it and where?",
+            "title-short": "Participatory plant breeding",
+            "type": "article-journal",
+            "volume": "56"
+        },
+        {
+            "URL": "http://www.rstudio.com/",
+            "author": [
+                {
+                    "literal": "RStudio Team"
+                }
+            ],
+            "id": "Rstudio",
+            "issued": {
+                "date-parts": [
+                    [
+                        2020
+                    ]
+                ]
+            },
+            "publisher": "RStudio, PBC.",
+            "publisher-place": "Boston, MA",
+            "title": "RStudio: Integrated development environment for r",
+            "title-short": "RStudio",
+            "type": "book"
+        },
+        {
             "URL": "https://www.R-project.org/",
             "author": [
                 {
