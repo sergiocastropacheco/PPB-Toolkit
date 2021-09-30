@@ -228,7 +228,7 @@ There are mainly two ways to export a package: by clicking manually or through R
 
     + If you want to be more automatic, you can use code to export and save your image. The functions **png()** of **jpg()** can help you in this sense. To do this, you have to assign a create your ggplot, and then run your prefered function, specifying the output name and dimensions. At the end it's important to use **dev.off()** to indicate that your "export device" has been closed.
      
-```{r}
+```{r, eval = F}
 
 ggplot(data= mydata, aes(y=farmers_eval ,  x=yield))+
                    geom_point()+
