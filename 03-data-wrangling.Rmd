@@ -1,15 +1,69 @@
-# Data Wrangling and Summarizing # dws
+# Data Wrangling and Summarizing
 
-Data wrangling is one of the most important activites that you can do in R. It allows you to, sistematically, take a given data frame (or several) and set them into the format that works best for the analysis. In the last chaper, we saw already some of the most basic elements of data wrangling (like creating a new column from two other). Now, we will see a brief summary of what can be done with dplyr, a package specifically designed for that purpose.
 
-## dplyr
+<style>
+body {
+text-align: justify}
+</style>
 
-'dplyr' is a package developed by the R Core Team developers, and gives us "an easy and intuitive grammatic for data manipulation". We first have to install it (only once) and call it (every time you open R).
+![](rsrstrip.png)
+
+
+Data wrangling is one of the most important activites that you can do in R. It allows you to, sistematically, take a given data frame (or several) and set them into the format that works best for the analysis. In the last chaper, we saw already some of the most basic elements of data wrangling (like creating a new column from two other). Now, we will see a brief summary of what can be done with the native functions that come from  R, as well as two specific packages: **dplyr**, a package specifically designed for that purpose and, **metan** a package designed for analyzing multienvironmental trials.
+
+## Basic R
+
+**Subsetting your data. **
+
+Suppose you only want to work with a section of your data frame, for example, only the data for one location.
+
+There are many ways to do this, a rather simple one is using the function subset().
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE, results=F, show=F}
 setwd("C:/Users/Usuario1/Documents/Github/PPB-Toolkit")
 mydata <- read.csv("tomatoMLT2020.csv")
 ```
+
+```{r}
+soloRotonda <- subset(mydata, mydata$location == "Rotonda")
+nrow(soloRotonda)
+```
+
+Notice how we created a new subset, only with data from Rotonda. After checking, we see it has only 28 rows, as there were only 28 plots per location..
+
+Notice also how we used the "==" sign, to express a logical function stating the location had to be equal to "Rotonda"
+
+In R, the other characters to indicate logical expressions are:\
+
+     * '==' for equal\
+     * '!=' for different \
+     * '<,>' less than, more than \
+     * '<=' less or equal to  \
+     * '>=' more or equal to \
+     * '&' if we want one condition AND another.
+     * "|" if we Want one condition OR another. 
+     
+For example, we can select only the data for Rotonda, and only varieties A and B. If we check how many row we have now, we will see that, as expected we only have two rows, two for Var. A and 2 for Var. B.
+
+```{r}
+Var.AB_Rotonda <- subset(mydata, 
+                  mydata$location == "Rotonda"
+                  &  #And
+                  mydata$variety  == "Var. A" 
+                  |  #Or
+                  mydata$location == "Rotonda"
+                  &  #And
+                  mydata$variety  == "Var. B" )
+
+nrow(Var.AB_Rotonda)
+```
+
+![](rsrstrip.png)
+
+## dplyr
+
+'dplyr' is a package developed by the R Core Team developers, and gives us "an easy and intuitive grammatic for data manipulation". We first have to install it (only once) and call it (every time you open R).
+
 
 ```{r, eval = F, warning = F, results=F, message=F}
 install.packages("dplyr")
@@ -23,7 +77,7 @@ library(dplyr)
 Some of the most useful functions in dplyr R are 
 ```{r, eval = F}
 filter() # To filter rows according to criteria
-select() # TO select only certain columns
+select() # To select only certain columns
 rename() # To rename columns. 
 mutate() # TO create a new column from an old one.
 ```
@@ -34,7 +88,6 @@ For example, you can create a new dataframe that contains a reduced set of varia
 newdataframe <- select(mydata, location, variety, yield, farmers_eval, mean_fruit_weight)
 ```
 
-
 Within this new data frame, you can create a new column, which converts mean fruit weight (now in kg) to grams (g), through the function "mutate".
 
 ```{r}
@@ -44,7 +97,7 @@ newdataframe2 <- mutate(newdataframe, meanfruitweight_grams = mean_fruit_weight 
 
 **The pipeline %>% operator.**
 
-With the pipeline operator you can chain more than one operation together, instead of using temporary objects and changing them. It also allows to call my first object ('mydata') only once
+With the pipeline operator you can chain more than one operation together, instead of using temporary objects and changing them. It also allows to call my first object ('mydata') only once. Here, for example, we take 'mydata', we select the desired columns, and we change fruit weight within the same operation. 
 
 ```{r}
 newdataframe3 <- mydata %>%
@@ -55,7 +108,7 @@ newdataframe3 <- mydata %>%
 
 **Aggregate data**
 
-Finally, dplyr helps us us to calculate, for example, the mean perfomance of each variety per environment, given that there are two reps.
+Finally, dplyr helps us us to calculate, for example, the mean performance of each variety per environment, given that there are two (or more) reps.
 
 For this, you have to use the group_by() and summarize (). Under group_by, we put the aggrupating facors. Under summarize, we put the columns we want, in this case, we want the means and the standard deviations
 .
@@ -65,7 +118,7 @@ mydata_means <- mydata %>%                   #Our initial object
               summarize(mean(farmers_eval),           #Mean of farmer's evaluation
                           sd(farmers_eval),           #SD of farmer's evaluation
                           mean(yield),                #Mean of yield
-                         sd(yield))                   #SD of yield
+                          sd(yield))                   #SD of yield
 
 ```
 
@@ -77,3 +130,6 @@ Once you have created and modified and object, you can save it on the same folde
 write.csv(mydata_means, "tomatodata_means.csv")
 ```
 
+## metan
+
+This section is under progress!

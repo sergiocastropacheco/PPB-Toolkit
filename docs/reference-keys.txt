@@ -17,7 +17,6 @@ ggplot
 box-plot
 scatter-plots
 bar-plots
-adjusting-details
 exporting-plots
 experimental-design-and-field-preparation
 digger
@@ -38,5 +37,6 @@ mean-vs.-stability
 genotype-ranking
 genotype-comparison
 modifying-the-plot.
-data-wrangling-and-summarizing-dws
-introduction-1
+basic-r
+metan-1
+experimental-design

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 7 Spatial Analysis | A PPB Toolkit in RStudio</title>
-  <meta name="description" content="Chapter 7 Spatial Analysis | A PPB Toolkit in RStudio" />
+  <title>Chapter 7 Spatial Analysis | PPB-Toolkit-for-R-and-R-Studio.utf8</title>
+  <meta name="description" content="" />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 7 Spatial Analysis | A PPB Toolkit in RStudio" />
+  <meta property="og:title" content="Chapter 7 Spatial Analysis | PPB-Toolkit-for-R-and-R-Studio.utf8" />
   <meta property="og:type" content="book" />
   
   
@@ -16,12 +16,11 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 7 Spatial Analysis | A PPB Toolkit in RStudio" />
+  <meta name="twitter:title" content="Chapter 7 Spatial Analysis | PPB-Toolkit-for-R-and-R-Studio.utf8" />
   
   
   
 
-<meta name="author" content="Sergio Castro and Matteo Petitti" />
 
 
 
@@ -119,28 +118,6 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<style type="text/css">
-/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
-</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -155,10 +132,11 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A PPB Toolkit in R and RStudio</a></li>
+<li><a href="./">A PPB Toolkit in R and RStudio</a></li> 
+<img src="logo.png" width="150" height="100">
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
 <li class="chapter" data-level="2" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html"><i class="fa fa-check"></i><b>2</b> First Steps in R</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html#getting-started"><i class="fa fa-check"></i><b>2.1</b> Getting started</a></li>
@@ -185,7 +163,6 @@ div.csl-indent {
 <li class="chapter" data-level="4.2.1" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#box-plot"><i class="fa fa-check"></i><b>4.2.1</b> Box Plot</a></li>
 <li class="chapter" data-level="4.2.2" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#scatter-plots"><i class="fa fa-check"></i><b>4.2.2</b> Scatter plots</a></li>
 <li class="chapter" data-level="4.2.3" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#bar-plots"><i class="fa fa-check"></i><b>4.2.3</b> Bar plots</a></li>
-<li class="chapter" data-level="4.2.4" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#adjusting-details"><i class="fa fa-check"></i><b>4.2.4</b> Adjusting details</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#exporting-plots"><i class="fa fa-check"></i><b>4.3</b> Exporting plots</a></li>
 </ul></li>
@@ -233,7 +210,7 @@ div.csl-indent {
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A PPB Toolkit in RStudio</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
           </h1>
         </div>
 
@@ -262,7 +239,7 @@ div.csl-indent {
 <span id="cb155-6"><a href="spatial-analysis.html#cb155-6" aria-hidden="true" tabindex="-1"></a>                                                      <span class="co"># values, and in the seconed, BLUEs values.</span></span>
 <span id="cb155-7"><a href="spatial-analysis.html#cb155-7" aria-hidden="true" tabindex="-1"></a>                          <span class="at">spatial =</span> <span class="sc">~</span> <span class="fu">SAP</span>(row, col))  <span class="co">#This arguments designs the row-column distribution of the field</span></span></code></pre></div>
 <div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="spatial-analysis.html#cb156-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(spats.Sestola)</span></code></pre></div>
-<p><img src="PPB-Toolkit_files/figure-html/unnamed-chunk-108-1.png" width="672" /></p>
+<p><img src="PPB-Toolkit-for-R-and-R-Studio_files/figure-html/unnamed-chunk-108-1.png" width="672" /></p>
 <p>We are intereseted in the BLUES (or the BLUPS), which is an estimate (or a prediction) of the breeding genetic value for each genotype. In the plot, it is given as a deviation from the mean. If we add the overall mean value to that number, we would have what we call an adjusted mean. In SpATS, this can be done through <strong>predict()</strong>.</p>
 <div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="spatial-analysis.html#cb157-1" aria-hidden="true" tabindex="-1"></a>adj.means <span class="ot">=</span> <span class="fu">predict</span>(spats.Sestola, <span class="at">which =</span> <span class="st">&#39;variety&#39;</span>)</span>
 <span id="cb157-2"><a href="spatial-analysis.html#cb157-2" aria-hidden="true" tabindex="-1"></a>adj.means</span></code></pre></div>
@@ -287,13 +264,13 @@ div.csl-indent {
 <span id="cb159-3"><a href="spatial-analysis.html#cb159-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span> <span class="st">&quot;identity&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;tomato&quot;</span>)<span class="sc">+</span></span>
 <span id="cb159-4"><a href="spatial-analysis.html#cb159-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>( <span class="fu">aes</span>(<span class="at">ymax =</span> predicted.values<span class="sc">+</span> standard.errors,</span>
 <span id="cb159-5"><a href="spatial-analysis.html#cb159-5" aria-hidden="true" tabindex="-1"></a>                     <span class="at">ymin =</span> predicted.values<span class="sc">-</span> standard.errors))</span></code></pre></div>
-<p><img src="PPB-Toolkit_files/figure-html/unnamed-chunk-110-1.png" width="672" /></p>
+<p><img src="PPB-Toolkit-for-R-and-R-Studio_files/figure-html/unnamed-chunk-110-1.png" width="672" /></p>
 <p>To better understand the kind of transformation that we did to the data, we can take a look at this plot, which represents the raw yield numbers for each plot in the field.</p>
 <div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="spatial-analysis.html#cb160-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data.Sestola, <span class="fu">aes</span>(<span class="at">x=</span>row, <span class="at">y =</span> col, <span class="at">label=</span> variety, <span class="at">fill =</span> yield))<span class="sc">+</span></span>
 <span id="cb160-2"><a href="spatial-analysis.html#cb160-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>()<span class="sc">+</span></span>
 <span id="cb160-3"><a href="spatial-analysis.html#cb160-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>()<span class="sc">+</span></span>
 <span id="cb160-4"><a href="spatial-analysis.html#cb160-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_gradientn</span>(<span class="at">colors=</span><span class="fu">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;lightblue&quot;</span>, <span class="st">&quot;green3&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;red&quot;</span>))</span></code></pre></div>
-<p><img src="PPB-Toolkit_files/figure-html/unnamed-chunk-111-1.png" width="672" /></p>
+<p><img src="PPB-Toolkit-for-R-and-R-Studio_files/figure-html/unnamed-chunk-111-1.png" width="672" /></p>
 <p>We can see some examples, for instance:</p>
 <ul>
 <li><p>Var. D was the best variety. It had an outstanding performance in Column 6 Row 1 and then, an average performance in Row 3 Column 4. The combination of both performances allowed this variety to have the highest BLUEs value.</p></li>
@@ -345,7 +322,7 @@ div.csl-indent {
 <span id="cb166-10"><a href="spatial-analysis.html#cb166-10" aria-hidden="true" tabindex="-1"></a>              <span class="at">ymax=</span>yield_adj_mean <span class="sc">+</span> yield_sd),</span>
 <span id="cb166-11"><a href="spatial-analysis.html#cb166-11" aria-hidden="true" tabindex="-1"></a>              <span class="at">width=</span><span class="fl">0.2</span>)<span class="sc">+</span></span>
 <span id="cb166-12"><a href="spatial-analysis.html#cb166-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span><span class="dv">90</span>))</span></code></pre></div>
-<p><img src="PPB-Toolkit_files/figure-html/unnamed-chunk-116-1.png" width="672" /></p>
+<p><img src="PPB-Toolkit-for-R-and-R-Studio_files/figure-html/unnamed-chunk-116-1.png" width="672" /></p>
 <p>Moreover, given that ggplot can handle plotting data from two different data sources, we could do the same plot, but including also the raw data, and check for the main differences between both.</p>
 <div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="spatial-analysis.html#cb167-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span> all.means,                     <span class="co"># Our data frame</span></span>
 <span id="cb167-2"><a href="spatial-analysis.html#cb167-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x=</span>variety,                       <span class="co"># Variety is the x axis</span></span>
@@ -362,7 +339,7 @@ div.csl-indent {
 <span id="cb167-13"><a href="spatial-analysis.html#cb167-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data=</span> mydata, <span class="fu">aes</span>(<span class="at">x=</span> variety,<span class="at">y=</span>yield), <span class="at">col=</span> <span class="st">&quot;darkgreen&quot;</span>)<span class="sc">+</span>   <span class="co"># A point for every raw yield observation</span></span>
 <span id="cb167-14"><a href="spatial-analysis.html#cb167-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data=</span> mydata, <span class="fu">aes</span>(<span class="at">x=</span> variety,<span class="at">y=</span>yield), <span class="at">stat =</span> <span class="st">&quot;summary&quot;</span>,    <span class="co"># And a cross for the mean of the rar observations.</span></span>
 <span id="cb167-15"><a href="spatial-analysis.html#cb167-15" aria-hidden="true" tabindex="-1"></a>             <span class="at">fun =</span> <span class="st">&quot;mean&quot;</span>, <span class="at">col=</span> <span class="st">&quot;darkgreen&quot;</span>, <span class="at">shape=</span> <span class="dv">4</span>)</span></code></pre></div>
-<p><img src="PPB-Toolkit_files/figure-html/unnamed-chunk-117-1.png" width="672" /></p>
+<p><img src="PPB-Toolkit-for-R-and-R-Studio_files/figure-html/unnamed-chunk-117-1.png" width="672" /></p>
 
 </div>
 </div>
@@ -415,7 +392,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["PPB Toolkit.pdf", "PPB Toolkit.epub"],
+"download": ["PPB Toolkit for R and R Studio.pdf", "PPB Toolkit for R and R Studio.epub"],
 "toc": {
 "collapse": "subsection"
 }

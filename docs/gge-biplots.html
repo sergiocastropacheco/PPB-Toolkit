@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 8 GGE BiPlots | A PPB Toolkit in RStudio</title>
-  <meta name="description" content="Chapter 8 GGE BiPlots | A PPB Toolkit in RStudio" />
+  <title>Chapter 8 GGE BiPlots | PPB-Toolkit-for-R-and-R-Studio.utf8</title>
+  <meta name="description" content="" />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 8 GGE BiPlots | A PPB Toolkit in RStudio" />
+  <meta property="og:title" content="Chapter 8 GGE BiPlots | PPB-Toolkit-for-R-and-R-Studio.utf8" />
   <meta property="og:type" content="book" />
   
   
@@ -16,12 +16,11 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 8 GGE BiPlots | A PPB Toolkit in RStudio" />
+  <meta name="twitter:title" content="Chapter 8 GGE BiPlots | PPB-Toolkit-for-R-and-R-Studio.utf8" />
   
   
   
 
-<meta name="author" content="Sergio Castro and Matteo Petitti" />
 
 
 
@@ -119,28 +118,6 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<style type="text/css">
-/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
-</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -155,10 +132,11 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A PPB Toolkit in R and RStudio</a></li>
+<li><a href="./">A PPB Toolkit in R and RStudio</a></li> 
+<img src="logo.png" width="150" height="100">
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
 <li class="chapter" data-level="2" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html"><i class="fa fa-check"></i><b>2</b> First Steps in R</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html#getting-started"><i class="fa fa-check"></i><b>2.1</b> Getting started</a></li>
@@ -185,7 +163,6 @@ div.csl-indent {
 <li class="chapter" data-level="4.2.1" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#box-plot"><i class="fa fa-check"></i><b>4.2.1</b> Box Plot</a></li>
 <li class="chapter" data-level="4.2.2" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#scatter-plots"><i class="fa fa-check"></i><b>4.2.2</b> Scatter plots</a></li>
 <li class="chapter" data-level="4.2.3" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#bar-plots"><i class="fa fa-check"></i><b>4.2.3</b> Bar plots</a></li>
-<li class="chapter" data-level="4.2.4" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#adjusting-details"><i class="fa fa-check"></i><b>4.2.4</b> Adjusting details</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#exporting-plots"><i class="fa fa-check"></i><b>4.3</b> Exporting plots</a></li>
 </ul></li>
@@ -233,7 +210,7 @@ div.csl-indent {
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A PPB Toolkit in RStudio</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
           </h1>
         </div>
 
@@ -261,27 +238,27 @@ div.csl-indent {
 <span id="cb171-5"><a href="gge-biplots.html#cb171-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">scaling =</span> <span class="dv">1</span>)        <span class="co"># Divides all values observations</span></span></code></pre></div>
 <p>After that, all we need is to plot.</p>
 <div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="gge-biplots.html#cb172-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(gge_model)</span></code></pre></div>
-<p><img src="PPB-Toolkit_files/figure-html/unnamed-chunk-122-1.png" width="672" /></p>
+<p><img src="PPB-Toolkit-for-R-and-R-Studio_files/figure-html/unnamed-chunk-122-1.png" width="672" /></p>
 <p>Here, we present the simplest version of the plot. But, the package includes other variants of the GGE BiPlots which might provide aditional information and/or interpretation.</p>
 <div id="which-won-where" class="section level3" number="8.1.1">
 <h3><span class="header-section-number">8.1.1</span> Which won where</h3>
 <p>The “Which-Won-Where” type draws a polygon along the genotypes that are the farthest away from the origin, this means that they are the genotypes with longest vectors and are thus the most responsive. As a rule of thumb,
 genotypes which are on the polygon vertex had the best performances in the environments found in the same sector (Yan et al., 2007).</p>
 <div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="gge-biplots.html#cb173-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(gge_model, <span class="at">type=</span> <span class="dv">3</span>)</span></code></pre></div>
-<p><img src="PPB-Toolkit_files/figure-html/unnamed-chunk-123-1.png" width="672" /></p>
+<p><img src="PPB-Toolkit-for-R-and-R-Studio_files/figure-html/unnamed-chunk-123-1.png" width="672" /></p>
 </div>
 <div id="mean-vs.-stability" class="section level3" number="8.1.2">
 <h3><span class="header-section-number">8.1.2</span> Mean vs. Stability</h3>
 <p>The “Mean vs. Stability” feature draws a first line, the mean environmental axis, passing through the origin with an arrow representing the “ideal” environment, and then a second line perpendicular to the first, which represents the GxE interaction. Genotypes with projections close to the arrow in the first axis would be high performers in this ideal environment, while large projections on the second axis indicate low stability or high GxE interaction.</p>
 <div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="gge-biplots.html#cb174-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(gge_model, <span class="at">type =</span> <span class="dv">2</span>)</span></code></pre></div>
-<p><img src="PPB-Toolkit_files/figure-html/unnamed-chunk-124-1.png" width="672" /></p>
+<p><img src="PPB-Toolkit-for-R-and-R-Studio_files/figure-html/unnamed-chunk-124-1.png" width="672" /></p>
 </div>
 <div id="genotype-ranking" class="section level3" number="8.1.3">
 <h3><span class="header-section-number">8.1.3</span> Genotype Ranking</h3>
 <p>The “ideal” genotype is represented as a small circle within a large set of concentric circles. How close the other gentoypes are to this circle determines how close are they to this “ideal” genotype.</p>
 <div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="gge-biplots.html#cb175-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(gge_model, <span class="at">type =</span> <span class="dv">8</span>)</span></code></pre></div>
 <pre><code>## Warning: Removed 979 row(s) containing missing values (geom_path).</code></pre>
-<p><img src="PPB-Toolkit_files/figure-html/unnamed-chunk-125-1.png" width="672" /></p>
+<p><img src="PPB-Toolkit-for-R-and-R-Studio_files/figure-html/unnamed-chunk-125-1.png" width="672" /></p>
 </div>
 <div id="genotype-comparison" class="section level3" number="8.1.4">
 <h3><span class="header-section-number">8.1.4</span> Genotype Comparison</h3>
@@ -290,7 +267,7 @@ genotypes which are on the polygon vertex had the best performances in the envir
 <span id="cb177-2"><a href="gge-biplots.html#cb177-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">type =</span> <span class="dv">9</span>,</span>
 <span id="cb177-3"><a href="gge-biplots.html#cb177-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">sel_gen1 =</span> <span class="st">&quot;Var. A&quot;</span>,</span>
 <span id="cb177-4"><a href="gge-biplots.html#cb177-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">sel_gen2 =</span> <span class="st">&quot;Var. L&quot;</span>)</span></code></pre></div>
-<p><img src="PPB-Toolkit_files/figure-html/unnamed-chunk-126-1.png" width="672" /></p>
+<p><img src="PPB-Toolkit-for-R-and-R-Studio_files/figure-html/unnamed-chunk-126-1.png" width="672" /></p>
 </div>
 <div id="modifying-the-plot." class="section level3" number="8.1.5">
 <h3><span class="header-section-number">8.1.5</span> Modifying the plot.</h3>
@@ -305,7 +282,7 @@ genotypes which are on the polygon vertex had the best performances in the envir
 <span id="cb178-8"><a href="gge-biplots.html#cb178-8" aria-hidden="true" tabindex="-1"></a>     <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;My GGE Biplot&quot;</span>)<span class="sc">+</span>              <span class="co"># </span></span>
 <span id="cb178-9"><a href="gge-biplots.html#cb178-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">size=</span> <span class="dv">20</span>),          <span class="co"># We can change the title or axis font size</span></span>
 <span id="cb178-10"><a href="gge-biplots.html#cb178-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size=</span> <span class="dv">20</span>)) </span></code></pre></div>
-<p><img src="PPB-Toolkit_files/figure-html/unnamed-chunk-127-1.png" width="672" /></p>
+<p><img src="PPB-Toolkit-for-R-and-R-Studio_files/figure-html/unnamed-chunk-127-1.png" width="672" /></p>
 
 </div>
 </div>
@@ -359,7 +336,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["PPB Toolkit.pdf", "PPB Toolkit.epub"],
+"download": ["PPB Toolkit for R and R Studio.pdf", "PPB Toolkit for R and R Studio.epub"],
 "toc": {
 "collapse": "subsection"
 }

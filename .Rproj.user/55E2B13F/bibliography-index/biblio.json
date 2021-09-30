@@ -4,8 +4,7 @@
             "URL": "http://yihui.org/knitr/",
             "author": [
                 {
-                    "family": "Xie",
-                    "given": "Yihui"
+                    "family": "Xie"
                 }
             ],
             "edition": "2nd",
@@ -26,7 +25,7 @@
         {
             "author": [
                 {
-                    "literal": "Salvatore Ceccarelli"
+                    "literal": "Ceccarelli"
                 }
             ],
             "id": "Tech-Manual",
@@ -46,7 +45,10 @@
         {
             "author": [
                 {
-                    "literal": "Salvatore Ceccarelli and Stefania Grando"
+                    "family": "Ceccarelli"
+                },
+                {
+                    "family": "Grando"
                 }
             ],
             "container-title": "Experimental Agriculture",
@@ -83,6 +85,75 @@
             "title": "RStudio: Integrated development environment for r",
             "title-short": "RStudio",
             "type": "book"
+        },
+        {
+            "author": [
+                {
+                    "literal": "Rodríguez-Álvarez et al."
+                }
+            ],
+            "container-title": "Spatial Statistics",
+            "id": "spats2017",
+            "issued": {
+                "date-parts": [
+                    [
+                        2018
+                    ]
+                ]
+            },
+            "title": "Correcting for spatial heterogeneity in plant breeding experiments with p-splines",
+            "type": "article-journal",
+            "volume": "23"
+        },
+        {
+            "author": [
+                {
+                    "dropping-particle": "et",
+                    "family": "al",
+                    "given": "Singh"
+                }
+            ],
+            "container-title": "Experimental Agriculture",
+            "id": "singh2003spatial",
+            "issue": "2",
+            "issued": {
+                "date-parts": [
+                    [
+                        2003
+                    ]
+                ]
+            },
+            "page": "151-160",
+            "publisher": "Cambridge University Press",
+            "title": "Spatial variability models to improve dryland field trials",
+            "type": "article-journal",
+            "volume": "39"
+        },
+        {
+            "DOI": "10.1111/2041-210X.13384",
+            "author": [
+                {
+                    "family": "Olivoto"
+                },
+                {
+                    "family": "Dal’Col Lúcio"
+                }
+            ],
+            "container-title": "Methods in Ecology and Evolution",
+            "id": "Olivoto2020",
+            "issue": "6",
+            "issued": {
+                "date-parts": [
+                    [
+                        2020
+                    ]
+                ]
+            },
+            "page": "783-789",
+            "title": "Metan: An r package for multi-environment trial analysis",
+            "title-short": "Metan",
+            "type": "article-journal",
+            "volume": "11"
         },
         {
             "URL": "https://www.R-project.org/",

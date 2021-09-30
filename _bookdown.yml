@@ -1,4 +1,4 @@
-book_filename: "PPB Toolkit"
+book_filename: "PPB Toolkit for R and R Studio"
 output_dir: "docs"
 delete_merged_file: true
 language:

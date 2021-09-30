@@ -1,13 +1,21 @@
 # Spatial Analysis
 
+<style>
+body {
+text-align: justify}
+</style>
+
+![](rsrstrip.png)
+
+Agricultural fields are often very heterogenous, and one when one wishes to determine the genetic value of a given genotype, it is often useful to use methods that account for this variability @singh2003spatial. Several methodological and statistical approaches can be used to address this use. In this chaper, we will cover the use of **SpATS**, and (hopefully soon) the use of other packages. 
+
 ## SpATS
 
-The package "SpATS" is here explained.
+SpATS (Spatial Analysis of field Trials with Splines) is an approach for spatial analysis developed by @spats2017. In general, it uses the row-column "two-dimensional
+smooth surfaces to model random spatial variation". The proper explanation of the statistics behind can be found [here](https://www.sciencedirect.com/science/article/pii/S2211675317301070?casa_token=vtmG6I6PWwsAAAAA:UXWSox0zDSMUU3wnJfCEvtBFbTrW4FK1EOdf-GT6O00G1MVMWpMRLNevjzVwRDNf71y46ml6) and [here](https://link.springer.com/article/10.1007/s00122-017-2894-4). 
 
-The proper explanation of the statistics behind can be found [here](https://www.sciencedirect.com/science/article/pii/S2211675317301070?casa_token=vtmG6I6PWwsAAAAA:UXWSox0zDSMUU3wnJfCEvtBFbTrW4FK1EOdf-GT6O00G1MVMWpMRLNevjzVwRDNf71y46ml6) and [here](https://link.springer.com/article/10.1007/s00122-017-2894-4).
 
-
-Before using the package, it must be installed.
+As usual, before using the package, it must be installed.
 ```{r, eval = F}
 install.packages("SpATS")
 ```
@@ -17,22 +25,24 @@ And then called:
 library (SpATS)
 ```
 
-We will use the same tomato data that we have been using:
+We will use the same tomato data that we have been using in the previous chapter.
+
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, results=F}
 mydata <- read.csv("tomatoMLT2020.csv")
 ```
 
 
-So, to properly perform the analysis, we can only use data from one location, in order to grasp the spatial heterogeneity of that specific farm. So, we first subset the data from Sestola
-
+So, to properly perform the analysis, we can only use data from one location, in order to grasp the spatial heterogeneity of that specific farm. So, we first [subset](#basic-r) the data only from one of our locations called Sestola.
 
 ```{r, message= F, warning= F}
 data.Sestola <- subset(mydata, location == "Sestola")
 ```
 
 
+With this object, we can now run the function **SpATS**, as showed and explained here:
+
 ```{r message=FALSE, warning=FALSE, results=F}
-spats.Sestola  =    SpATS(data=      data.Sestola,    #My subset from Sestole   
+spats.Sestola  =    SpATS(data=      data.Sestola,    #My subset from Sestola  
                           response= "yield",          #The name of my variable
                           genotype = "variety",       #The name of my genotupe columns
                           genotype.as.random = F,     #This is a long story. Genotypes set as random or as fixed.
@@ -42,8 +52,11 @@ spats.Sestola  =    SpATS(data=      data.Sestola,    #My subset from Sestole
 
 ```
 
+We created an object called spats.Sestola and we can plot it inmediately. In this plot we can see the raw data, the data "fitted" to the spatial model, the residuals of the model.
+
 ```{r, message= F, warning= F}
 plot(spats.Sestola)
+toBibtex(citation("metan"))
 ```
 
 We are intereseted in the BLUES (or the BLUPS), which is an estimate (or a prediction) of the breeding genetic value for each genotype. In the plot, it is given as a deviation from the mean. If we add the overall mean value to that number, we would have what we call an adjusted mean. In SpATS, this can be done through **predict()**.
@@ -54,6 +67,7 @@ adj.means
 ```
 
 And I could plot them.
+
 ```{r, message= F, warning= F}
 library(ggplot2)
 ggplot(adj.means, aes(x= variety, y = predicted.values))+

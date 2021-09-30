@@ -1,4 +1,11 @@
-# Experimental Design and Field Preparation
+# Experimental Design
+
+<style>
+body {
+text-align: justify}
+</style>
+
+![](rsrstrip.png)
 
 RStudio can help us in preparing the distribution of entries in our field, according to specific experimental designs. For more information in the design of on-farm cultivar trials, we strongly suggest this [booklet]("https://www.liveseed.eu/wp-content/uploads/2021/06/LIVESEED-BOOKLET-5_FNL_web.pdf").
 
@@ -16,6 +23,8 @@ We will cover three types of design:
 
     + A reduced number of genotypes, called checks, are present in every block. The other genotypes are only present once in the design.
  
+ ![](rsrstrip.png)
+ 
 ## DiGGer 
 
 DiGGer is a very useful and used package that does experimental design by optimizing row-column arrangements. However, unlike many other packages in R, it is not on the CRAN repository and must be requested to the creators through [this site](http://nswdpibiom.org/austatgen/software/). To properly install the package on your RStudio, you can follow the next steps.
@@ -23,26 +32,25 @@ DiGGer is a very useful and used package that does experimental design by optimi
 
 * **Step  1:** 
 
-    + Go into the [link](http://nswdpibiom.org/austatgen/software/) and request the DiGGer package by writing your mail. You will briefly receive a compressed file with several files inside. Among them, you have a Quick Guide and a (longer) User Guide. You can 
+    + Go into this [link](http://nswdpibiom.org/austatgen/software/) and request the DiGGer package by writing your mail. You will soon receive a compressed file with several files inside. Among them, you have a Quick Guide and a (longer) User Guide.
  
 * **Step  2:** 
 
-    + Create a directory in your computer called "Experimental Design". We reccomend to create it inside "Documents" or in any other directory that you have specially created for R Studio and PPB projects.  Place the compressed file in this directory and decompress it. You should be able to see all the files that where once inside. 
+    + Create a directory in your computer called "Experimental Design". We reccomend to create it inside "Documents" or in any other directory that you have specially created for R Studio and PPB projects.  Place the compressed file in this directory and decompress it (through winrar or other similar programs). You should be able to see all the files that where once inside. 
  
  * **Step 3: **
  
-  + Set the RStudio working directory of R in the folder that contains the decompressed files. To check, you can use the function **list.files()** in your working directory, to see if you are in the right directory with the required files. You should see something like this:
- 
- 
+   + Set the RStudio working directory of R in the folder that contains the decompressed files. To check, you can use the function **list.files()** in your working directory, to see if you are in the right directory with the required files. You should see something like this:
+
 
 ```{r}
-setwd("C:/Users/Usuario1/Google Drive/RSR/Digger") #Momentary change of  WD
+setwd("C:/Users/Usuario1/Google Drive/RSR/Digger") #Momentary change of  WD just to show you
  list.files(getwd())
 ```
 
 * **Step  4:**
 
-+ Now, you are ready to install the package. Both the ".tgz" and the ".zip" files could work depending on your operation system. For Windows users, the ".zip" should work better.
+    + Now, you are ready to install the package. Both the ".tgz" and the ".zip" files could work depending on your operation system. For Windows users, the ".zip" should work better.
 
 ```{r, eval = F}
 #install.packages("DiGGer_1.0.5.zip", repos = NULL)
@@ -62,10 +70,12 @@ library(DiGGer)
 ```
 
 
+ ![](rsrstrip.png)
+ 
 
 ### Randomized Complete Block Design!
 
-Let's start with an example in which we have 14 different varieties. I will make a vector with their names, which, to simplify, they will be "Var. A", "Var. B", up to "Var. N".
+Let's start with an example in which we have 14 different varieties. I will make a vector with their names, which, to simplify, will be from "Var. A", "Var. B", up to "Var. N".
 
 ```{r}
 variety.list =  c("Var. A","Var. B", "Var. C","Var. D",
@@ -79,9 +89,9 @@ We will use the function **corDiGGer()**. But, before running the function,  som
 
 First, **that the function will not work if the design is not "resolvable"**. That is, for this design, the amount of treatments should be a multiple of the total amount of plots, so that the design is completely balanced. For example, if we have 14 treatments, we could have 28 total plots (14 * 2 ), 42 total plots (14 * 3), and so on.
 
-Second, even if we have several farms and locations with the same number of entries and plots, **we need to do a new RCBD for each one of them**. Repeating the same design through several locations is a typical mistake in the design of PPB programs.
+Second, if we have several farms and locations with the same number of entries and plots, **we need to do a new RCBD for each one of them**. Repeating the same design through several locations is a typical mistake in the design of PPB programs.
 
-Third, every time that the function is run, the randomization will be redone. This is useful if we want new randomizations for each new farm or location, but could be a constrain if we want to keep proper record of our work. The randomization could be fixed by using the optional argument **rngSeeds**, which takes two numbers that uses as seed of the randomization process, and allows to "fix" a given randomization
+Third, **every time that the function is run, the randomization will be redone**. This is useful if we want new randomizations for each new farm or location, but could be a constrain if we want to keep proper record of our work. The randomization could be fixed by using the optional argument **rngSeeds**, which takes two numbers that uses as seed of the randomization process, and allows to "fix" a given randomization. If you omit this argument, every time you run the function you will have a different field.
 
 
 So, the function looks like this
@@ -97,51 +107,56 @@ mydesign <- corDiGGer(numberOfTreatments= 14,    # 14 treatments or genotypes
 ```
 
 
-Once done, we could inmediatly do a plot with **plot.diGGer**
+Once done, we could inmediatly do a plot with the funcion **plot.diGGer().** There, you can see how your plots were arranged and you can check that every "block" contains all the 14 treatments.
 
 ```{r}
 plot.DiGGer(mydesign)
 ```
 
-So, we chose to name our resulting object **mydesign**, which has different objects inside, the most imporant ones are
+So, we chose to name our resulting object **mydesign**, but it could have been names as you wish. This object contains different objects inside, and the most imporant ones are:
 
 * mydesign$ddphase 
 * mydesign$dlist
 
-mydesign$ddphase has, as the first element, a map of the field with the respective entry number.
+Now, mydesign$ddphase has, as it's first element, a map of the field with the respective entry number.
 
 ```{r}
 mydesign$ddphase 
 ```
 
-To show only the map, we need a more specific approach.
+If we want to see only the map, we need a more specific approach.
 
 ```{r}
 mydesign$ddphase[[1]]$design
 ```
 
-The "[[1]]" indicates that we are taking the first elemet of the list. And then, we call exactly for the outcoming design. To handle it more easily, we could rename this map simply to "myfield"
+We know this could look extrange and complicated. The "[[1]]" indicates that we are taking the first elemet of the list. And then, we call exactly for the outcoming design. To handle it more easily, we could rename this map simply to "myfield", or any other name you wish.
 
 ```{r}
 myfield = mydesign$ddphase[[1]]$design
 ```
 
-And now, we could write it directly into excel with a ".csv" format. It will be saved in your working directory
+And now, we could write it directly into excel with a ".csv" format. It will be saved in your working directory.
+
 ```{r}
 write.csv(myfield,                    # Name of your R object
           "My Field RCBD.csv")        # Desired name of your excel file
 ```
 
 
-The other object, "mydesign$dlist" has more info, including the genotype name, the row-column position, and the block number. This could be exported as excel in the same way as before.
+The other object, "mydesign$dlist" has more info, including the genotype name, the row-column position, and the block number. This could be exported as excel in the same way as before. In this case, the "RANGE"  corresponds to what we could name "Column".
+
 ```{r}
 mydesign$dlist
 ```
 
-We could use this object, for example, to create a nice plot through ggplot
+We could use this object, for example, to create a nice plot through ggplot.
+
 ```{r}
 library(ggplot2)
-ggplot(mydesign$dlist, aes(x= ROW, y = RANGE, label= ID, fill= ID))+
+ggplot(mydesign$dlist, aes(x= ROW, y = RANGE, 
+                           label= ID,
+                           fill= ID))+ # We use the ID both as a text label, and as a factor to color the tiles
   geom_tile()+geom_text()+           # Geometry for color tiles and labels
   labs(x= "Row", y = "Column")       #Axis labels
 ```
@@ -150,38 +165,41 @@ Finally, some might find it useful to export a map in excel, with the proper gen
 
 ```{r, warning = F, message= F}
 library(dplyr)
-myfield.withnames  = replace(x=myfield,   #The object to change will be "myfield 
-                     values = mydesign$dlist$ID ) # I will change every value, for the values found in the "ID" column of my "dlist"
+myfield.withnames  = replace(x=myfield,           # The object to change will be "myfield 
+                     values = mydesign$dlist$ID ) # I will change every value in my field,
+                                                  # for the values found in the "ID" column of my "dlist"
 myfield.withnames
 ```
 
-Some small beautifying work, to change row and column names into simpler formats
+Some small beautifying work, to change row and column names into simpler formats.
 ```{r}
 rownames(myfield.withnames) = 1:4
-colnames(myfield.withnames) =  1:7
+colnames(myfield.withnames) = 1:7
 ```
 
-Now, it's all set up to export into excel
+Now, it's all set up to export into excel.
 ```{r}
 write.csv(myfield.withnames,
           "My Fiel RCBD with names.csv")
 ```
 
+ ![](rsrstrip.png)
+ 
 ###  Incomplete Block Design (IBD)
 
-Now, imagine we have the same 14 varieties, and we have 7 farmers to whom distribute the seed. These farmer's might have reduced space and it might 14 plots might be too much. We could, for example, give only 4 genotypes to every farmer.
+Now, imagine we have the same 14 varieties, and we have 7 farmers to whome want to distribute the seed. These farmer's might have reduced space and 14 plots might be too much. We could, for example, give only 4 genotypes to every farmer.
 
-So, every "Block" is a farm with 4 genotypes. These plots could be arranged in only one row of four columns, one column of four rows, or two rows and two columns. For this example, we will choose a "strip" trial, where every farmer has a single row with 4 different plots. Thus, every block has one row and 4 columns.
+So, every "Block" is a farm with 4 genotypes. These blocks could be arranged in only one row of four columns, one column of four rows, or two rows and two columns. For this example, we will choose a "strip" trial, where every farmer has a single row with 4 different plots. Thus, every block has one row and 4 columns.
 
-Again, in this case, not every combination is possible, as the design must be "resolvable. Again, the total number of plots must be equal to the number of treatments times the number of repetitions. For our case, it would look like this.
+Again, in this case, not every combination is possible, as the design must be "resolvable". Again, the total number of plots must be equal to the number of treatments times the number of repetitions. For our case, it would look like this.
 
 $$
-   Number\ of\ Blocks\ (Farms) * Plots\ per\  Block\ (Farm) = Number\  of\  Treatments\  *  Reps\  per\  Treatment  
+Blocks\ *\ Plots\ per\  Block\  = Treatments\  *\  Reps\  per\  Treatment  
 $$
 $$
-7*4 = 14*2\
-24
+7*4 = 14*2
 $$
+
 $$
 28 = 28
 $$
@@ -205,7 +223,7 @@ So, this is my design, where every row corresponds to  a given farm, and no geno
 plot(mydesignIB)
 ```
 
-The same elaboration that was done on the RCBD design can be done here. We will now run a simplified version.
+The same elaboration to change numbers to variety names that was done before can be done here. This was achieved by using the **replace()** function and the **mydesignIB$dlist** object.
 
 ```{r}
 myfieldIB = mydesignIB$ddphase[[1]]$design   #Saving the design with a simpler name
@@ -215,6 +233,7 @@ myfieldIB.withnames= replace(x=myfieldIB,
 ```
 
 Before saving into excel, I want name every row as the farmer's that will actually sow these plots. Then, I just name the columns from 1 to 4, and then, check it.
+
 ```{r}
 rownames(myfieldIB.withnames) = c("Pippo", "Rosario", "Ugo", "Giuseppe", "Marco", "Simone", "Giandomenico")
 colnames(myfieldIB.withnames) = 1:4
@@ -229,17 +248,19 @@ write.csv(myfieldIB.withnames,"Field Map IB with names.csv")
 ```
 
 
+ ![](rsrstrip.png)
+ 
 
 ### Partially Replicated Block Design
 
-Partially Replicated designs arebit more complex, because now, the total number of plots must be equal to the sum the number of checks times the number of blocks, plus the number of tests times the number of repetitions for the tests. That is:
+Partially Replicated designs are increasingly popular, because they allow to compare a large panel of genotypes by using just a handful of common checks. However, the design is a bit more complex. Now, we have genotypes that are in every block (we will call them Checks), and some other that only in one or a couple of blocks (Tests). The requisite to perform the design is the following: the total number of plots must be equal to the sum the number of checkstimes the number of blocks, plus the number of tests times the number of repetitions for the tests. That is:
 
 
 
 $$
-   No.\ of\ Blocks\ * Plots\ per\  Block\ =  (No.\  of\  Checks\  * No. of Blocks) +  (No.\ of\  Tests * Reps)
+  Blocks\ * Plots\ per\  Block\ =  ( Checks * Blocks) +  (No.\ of\  Tests\ *\  Reps)
 $$
-For example, if we hadthe same 14 varieties. But, two of them (Var. A and Var. B) will work as controls in every block or farm (we will call them Checks), and the 12 remaining varieties will only have two repetitions (we will call them Tests). In order for the design to be resolvable, I must choose my number of blocks (farms) accordingly. For this, simple algebra could be used. 
+For example, we have the same 14 varieties, but two of them (Var. A and Var. B) will work as Checks, and the 12 remaining varieties will be Tests with only  two repetitions. In order for the design to be resolvable, I must choose my number of blocks (farms) accordingly, by replacing the elements of the last equation. For this, simple algebra could be used. 
 
 $$
 n*4 = (2*n) + (12*2)
@@ -250,19 +271,19 @@ n= 12
 $$
 So, to complete this design, we would need 12 different farms, each with a 4 plot block
 
-However, in real life, we don't get to choose so freely the number of farms. Another example would be if we start from only 9 farms, and we still want to have 2 checks and an *y* number of test varieties repeated twice. Then, we would do the following.
+However, in real life, we don't get to choose so freely the number of farms. Another example would be if we start from only 9 farms, and we still want to have 2 checks and a *m* number of test varieties repeated twice. Then, we would do the following.
 
 $$
-9*4 = (2*9) + (y*2)
+9*4 = (2*9) + (m*2)
 $$
 
 $$
-y= 9
+m= 9
 $$
 
 In this case, because of the constraints of the design we could only include 9 of our 12 potential varieties. It is however possible, through DiGGER and other applications, to do other kinds of designs that do not satisfy these equations. For example, some farms with 5 plots and others with 4, but it would be an unbalanced design and the statistic methods used may change significantly.
 
-#####################################
+----
 
 Moreover, let's do design for the first example, with 2 checks, 12 tests and 12 farms. Before using the respective **prDiGGer()** function, we might want to prepare to useful vectors.
 
@@ -270,11 +291,16 @@ So, out of our 14 genotypes, the first 2 will be repeated 12 times (once per blo
 
 ```{r}
 myreps =c(12,12,2,2,2,2,2,2,2,2,2,2,2,2)
+```
 
-# We can check that the number ofelements is right (should be 14)
+
+We can check that the number of elements is right (it should be 14)
+```{r}
 length(myreps)
+```
 
-# And we can check that the sum of the reps equals the number of plots (should be 12*4 = 48)
+And we can check that the sum of the reps equals the number of plots (should be 12*4 = 48)
+```{r}
 sum(myreps) 
 ```
 
@@ -284,10 +310,8 @@ Now, we create the vector "mygroups" that assigns each genotype to a given group
 mygroups =  c(2,2,1,1,1,1,1,1,1,1,1,1,1,1)
 ```
 
-
 We are all set to run **prDiGGer()**.
 
-#####################################
 ```{r}
 mydesignPR <- prDiGGer(numberOfTreatments = 14,                  # 14 treatments
                        rowsInDesign = 12,                        # 12 rows (one per farm)
@@ -301,12 +325,10 @@ mydesignPR <- prDiGGer(numberOfTreatments = 14,                  # 14 treatments
 ```
 
 
-
-Ready to plot the new object called mydesignPR. We can check that treatments 1 and 2 are in every block, and all the rest are just present in two blocks.
+When we plot it, we can check that treatments 1 and 2 are in every block, and all the rest are just present in two blocks.
 ```{r,out.height= "115%"}
 plot(mydesignPR) 
 ```
-
 
 To further save it, we proceed in the same way as before.
 ```{r}
@@ -327,10 +349,15 @@ rownames(myfieldPR.withnames) = paste( "Farm", seq(1:12))
 
 #Final checking
 myfieldPR.withnames
+```
 
-#Exporting to excel
+
+Exporting to excel
+```{r}
 write.csv(myfieldPR,"Field Map PR with names.csv")
 ```
+
+![](rsrstrip.png)
 
 ## Agricolae
 
@@ -366,18 +393,18 @@ myfield.agricolae <- design.rcbd(variety.list,        # My variety List
                      seed= 12345)         # Fix randomization
 ```
 
-The object "myfield.agricolae" contains now three different elements. It contains the paramenters used for the design, a field sketch and a "Fieldbook". Each of these elements can be called using the '$' symbol in the following for:
+The object "myfield.agricolae" contains now three different elements. It contains the paramenters used for the design, a field sketch and a "Fieldbook". Each of these elements can be called using the '$' symbol in the following form:
 
 ```{r}
 myfield.agricolae$book
 ```
 
-Any of these objects could be exported into an excel or .csv file in your computer, both for an easier manipulation and to potentially prepare a file to take data evaluations. To export as an .csv, the function **write.csv() ** comes in handy.
+This element could be exported into an excel or .csv file in your computer, both for an easier manipulation and to potentially prepare a file to take data evaluations. To export as an .csv, the function **write.csv() ** comes in handy.
 ```{r}
 write.csv(myfield.agricolae$book, "myfield.agricolae.csv", row.names = F)
 ```
 
-However, this is only a list (that is however useful), but we would like to have a map. For that purpose, we could the function **matrix() **, and indicate that we want the rows divided into 4 columns (if that is the case)
+However, this is only a linear list (that is however useful), but we would like to have a map. For that purpose, we could the function **matrix() **, and indicate that we want the rows divided into 4 columns (if that is the case)
 
 ```{r}
 myfield.matrix = matrix(
@@ -431,12 +458,11 @@ myfieldabd.agricolae$book
 
 We confirm that varieties A and B are in both blocks, but the rest of the varieties are only represented once.
 
-------
+![](rsrstrip.png)
 
 ## Organic Trials
 
+Finally, the [Organic Seed Alliance](https://seedalliance.org/) has also developed a beatiful R based web site that can prepare Randomized Complete Block and Partially Replicated Designs. If your designs are simple and it turns out more convenient for you, [this](https://organicseed.shinyapps.io/OrganicTrials/) is a great option.
 
-Finally, the [Organic Seed Alliance](https://seedalliance.org/) has also developed a beatiful R based web site that can prepare Randomized Complete Block and Partially Replicated Designs. If your designs are simple and it turns out more convenient for you, this [link](https://organicseed.shinyapps.io/OrganicTrials/) is a great option.
 
-
-------
+![](rsrstrip.png)

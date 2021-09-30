@@ -1,16 +1,22 @@
 --- 
-title: ![](Cover.jpg){width=1in}   "A PPB Toolkit in RStudio"
-author: "Sergio Castro and Matteo Petitti"
+title: "A PPB Toolkit in R and RStudio"
+author: "By Sergio Castro and Matteo Petitti"
 date: "Last Update: `r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
+header-includes:
+  - \usepackage{titling}
+  - \pretitle{\begin{center}
+    \includegraphics[width=1in,height=1in]{Cover.jpg}\LARGE\\}
 ---
 
-\newpage
-
+```{js, echo = FALSE}
+title=document.getElementById('header');
+title.innerHTML = '<img src="Cover.jpg" alt="Test Image">' + title.innerHTML
+```
 <style>
 body {
 text-align: justify}
@@ -21,6 +27,7 @@ text-align: justify}
 
 # Introduction
 
+![](rsrstrip.png)
 <style>
 body {
 text-align: justify}
@@ -46,6 +53,7 @@ After developing all your designs and analysis, you can share your methods and r
 
 Furthermore, we want to insist on the fact that this is intended to be an ever growing manual, which is to be fed by the comments and experiences of those who find this resource useful.
 
+![](rsrstrip.png)
 
 
 ```{r include=FALSE}

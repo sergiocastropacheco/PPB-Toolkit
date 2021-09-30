@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 3 Data Wrangling and Summarizing | A PPB Toolkit in RStudio</title>
-  <meta name="description" content="Chapter 3 Data Wrangling and Summarizing | A PPB Toolkit in RStudio" />
+  <title>Chapter 3 Data Wrangling and Summarizing | A PPB Toolkit in R and RStudio</title>
+  <meta name="description" content="Chapter 3 Data Wrangling and Summarizing | A PPB Toolkit in R and RStudio" />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 3 Data Wrangling and Summarizing | A PPB Toolkit in RStudio" />
+  <meta property="og:title" content="Chapter 3 Data Wrangling and Summarizing | A PPB Toolkit in R and RStudio" />
   <meta property="og:type" content="book" />
   
   
@@ -16,12 +16,12 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 Data Wrangling and Summarizing | A PPB Toolkit in RStudio" />
+  <meta name="twitter:title" content="Chapter 3 Data Wrangling and Summarizing | A PPB Toolkit in R and RStudio" />
   
   
   
 
-<meta name="author" content="Sergio Castro and Matteo Petitti" />
+<meta name="author" content="By Sergio Castro and Matteo Petitti" />
 
 
 
@@ -119,28 +119,6 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<style type="text/css">
-/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
-</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -155,10 +133,11 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A PPB Toolkit in R and RStudio</a></li>
+<li><a href="./">A PPB Toolkit in R and RStudio</a></li> 
+<img src="logo.png" width="100" height="70" style="position:center">
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
 <li class="chapter" data-level="2" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html"><i class="fa fa-check"></i><b>2</b> First Steps in R</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html#getting-started"><i class="fa fa-check"></i><b>2.1</b> Getting started</a></li>
@@ -170,7 +149,8 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="3" data-path="data-wrangling-and-summarizing.html"><a href="data-wrangling-and-summarizing.html"><i class="fa fa-check"></i><b>3</b> Data Wrangling and Summarizing</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="data-wrangling-and-summarizing.html"><a href="data-wrangling-and-summarizing.html#dplyr"><i class="fa fa-check"></i><b>3.1</b> dplyr</a></li>
+<li class="chapter" data-level="3.1" data-path="data-wrangling-and-summarizing.html"><a href="data-wrangling-and-summarizing.html#basic-r"><i class="fa fa-check"></i><b>3.1</b> Basic R</a></li>
+<li class="chapter" data-level="3.2" data-path="data-wrangling-and-summarizing.html"><a href="data-wrangling-and-summarizing.html#dplyr"><i class="fa fa-check"></i><b>3.2</b> dplyr</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html"><i class="fa fa-check"></i><b>4</b> Basics of Data Visualisation</a>
 <ul>
@@ -185,7 +165,6 @@ div.csl-indent {
 <li class="chapter" data-level="4.2.1" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#box-plot"><i class="fa fa-check"></i><b>4.2.1</b> Box Plot</a></li>
 <li class="chapter" data-level="4.2.2" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#scatter-plots"><i class="fa fa-check"></i><b>4.2.2</b> Scatter plots</a></li>
 <li class="chapter" data-level="4.2.3" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#bar-plots"><i class="fa fa-check"></i><b>4.2.3</b> Bar plots</a></li>
-<li class="chapter" data-level="4.2.4" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#adjusting-details"><i class="fa fa-check"></i><b>4.2.4</b> Adjusting details</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#exporting-plots"><i class="fa fa-check"></i><b>4.3</b> Exporting plots</a></li>
 </ul></li>
@@ -233,7 +212,7 @@ div.csl-indent {
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A PPB Toolkit in RStudio</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A PPB Toolkit in R and RStudio</a>
           </h1>
         </div>
 
@@ -243,39 +222,75 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="data-wrangling-and-summarizing" class="section level1" number="3">
 <h1><span class="header-section-number">Chapter 3</span> Data Wrangling and Summarizing</h1>
-<p>Data wrangling is one of the most important activites that you can do in R. It allows you to, sistematically, take a given data frame (or several) and set them into the format that works best for the analysis. In the last chaper, we saw already some of the most basic elements of data wrangling (like creating a new column from two other). Now, we will see a brief summary of what can be done with dplyr, a package specifically designed for that purpose.</p>
-<div id="dplyr" class="section level2" number="3.1">
-<h2><span class="header-section-number">3.1</span> dplyr</h2>
+<p><img src="rsrstrip.png" /></p>
+<p>Data wrangling is one of the most important activites that you can do in R. It allows you to, sistematically, take a given data frame (or several) and set them into the format that works best for the analysis. In the last chaper, we saw already some of the most basic elements of data wrangling (like creating a new column from two other). Now, we will see a brief summary of what can be done with the native functions that come from R, as well as two specific packages: <strong>dplyr</strong>, a package specifically designed for that purpose and, <strong>metan</strong> a package designed for analyzing multienvironmental trials.</p>
+<div id="basic-r" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Basic R</h2>
+<p><strong>Subsetting your data. </strong></p>
+<p>Suppose you only want to work with a section of your data frame, for example, only the data for one location.</p>
+<p>There are many ways to do this, a rather simple one is using the function subset()</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="data-wrangling-and-summarizing.html#cb1-1" aria-hidden="true" tabindex="-1"></a>soloRotonda <span class="ot">&lt;-</span> <span class="fu">subset</span>(mydata, mydata<span class="sc">$</span>location <span class="sc">==</span> <span class="st">&quot;Rotonda&quot;</span>)</span>
+<span id="cb1-2"><a href="data-wrangling-and-summarizing.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(soloRotonda)</span></code></pre></div>
+<pre><code>## [1] 28</code></pre>
+<p>Notice how we created a new subset, only with data from Rotonda. After checking, we see it has only 28 rows, as there were only 28 plots per location..</p>
+<p>Notice also how we used the “==” sign, to express a logical function stating the location had to be equal to “Rotonda”</p>
+<p>In R, the other characters to indicate logical expressions are:<br />
+</p>
+<pre><code> * &#39;==&#39; for equal\
+ * &#39;!=&#39; for different \
+ * &#39;&lt;,&gt;&#39; less than, more than \
+ * &#39;&lt;=&#39; less or equal to  \
+ * &#39;&gt;=&#39; more or equal to \
+ * &#39;&amp;&#39; if we want one condition AND another.
+ * &quot;|&quot; if we Want one condition OR another. 
+ </code></pre>
+<p>For example, we can select only the data for Rotonda, and only varieties A and B. If we check how many row we have now, we will see that, as expected we only have two rows, two for Var. A and 2 for Var. B.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="data-wrangling-and-summarizing.html#cb4-1" aria-hidden="true" tabindex="-1"></a>Var.AB_Rotonda <span class="ot">&lt;-</span> <span class="fu">subset</span>(mydata, </span>
+<span id="cb4-2"><a href="data-wrangling-and-summarizing.html#cb4-2" aria-hidden="true" tabindex="-1"></a>                  mydata<span class="sc">$</span>location <span class="sc">==</span> <span class="st">&quot;Rotonda&quot;</span></span>
+<span id="cb4-3"><a href="data-wrangling-and-summarizing.html#cb4-3" aria-hidden="true" tabindex="-1"></a>                  <span class="sc">&amp;</span>  <span class="co">#And</span></span>
+<span id="cb4-4"><a href="data-wrangling-and-summarizing.html#cb4-4" aria-hidden="true" tabindex="-1"></a>                  mydata<span class="sc">$</span>variety  <span class="sc">==</span> <span class="st">&quot;Var. A&quot;</span> </span>
+<span id="cb4-5"><a href="data-wrangling-and-summarizing.html#cb4-5" aria-hidden="true" tabindex="-1"></a>                  <span class="sc">|</span>  <span class="co">#Or</span></span>
+<span id="cb4-6"><a href="data-wrangling-and-summarizing.html#cb4-6" aria-hidden="true" tabindex="-1"></a>                  mydata<span class="sc">$</span>location <span class="sc">==</span> <span class="st">&quot;Rotonda&quot;</span></span>
+<span id="cb4-7"><a href="data-wrangling-and-summarizing.html#cb4-7" aria-hidden="true" tabindex="-1"></a>                  <span class="sc">&amp;</span>  <span class="co">#And</span></span>
+<span id="cb4-8"><a href="data-wrangling-and-summarizing.html#cb4-8" aria-hidden="true" tabindex="-1"></a>                  mydata<span class="sc">$</span>variety  <span class="sc">==</span> <span class="st">&quot;Var. B&quot;</span> )</span>
+<span id="cb4-9"><a href="data-wrangling-and-summarizing.html#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="data-wrangling-and-summarizing.html#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(Var.AB_Rotonda)</span></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<p><img src="rsrstrip.png" />
+<img src="rsrstrip.png" /></p>
+</div>
+<div id="dplyr" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> dplyr</h2>
 <p>‘dplyr’ is a package developed by the R Core Team developers, and gives us “an easy and intuitive grammatic for data manipulation.” We first have to install it (only once) and call it (every time you open R).</p>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="data-wrangling-and-summarizing.html#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;dplyr&quot;</span>)</span>
-<span id="cb71-2"><a href="data-wrangling-and-summarizing.html#cb71-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="data-wrangling-and-summarizing.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;dplyr&quot;</span>)</span>
+<span id="cb6-2"><a href="data-wrangling-and-summarizing.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div>
 <p>Some of the most useful functions in dplyr R are</p>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="data-wrangling-and-summarizing.html#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>() <span class="co"># To filter rows according to criteria</span></span>
-<span id="cb72-2"><a href="data-wrangling-and-summarizing.html#cb72-2" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>() <span class="co"># TO select only certain columns</span></span>
-<span id="cb72-3"><a href="data-wrangling-and-summarizing.html#cb72-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rename</span>() <span class="co"># To rename columns. </span></span>
-<span id="cb72-4"><a href="data-wrangling-and-summarizing.html#cb72-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>() <span class="co"># TO create a new column from an old one.</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="data-wrangling-and-summarizing.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>() <span class="co"># To filter rows according to criteria</span></span>
+<span id="cb7-2"><a href="data-wrangling-and-summarizing.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>() <span class="co"># TO select only certain columns</span></span>
+<span id="cb7-3"><a href="data-wrangling-and-summarizing.html#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rename</span>() <span class="co"># To rename columns. </span></span>
+<span id="cb7-4"><a href="data-wrangling-and-summarizing.html#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>() <span class="co"># TO create a new column from an old one.</span></span></code></pre></div>
 <p>For example, you can create a new dataframe that contains a reduced set of variables.</p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="data-wrangling-and-summarizing.html#cb73-1" aria-hidden="true" tabindex="-1"></a>newdataframe <span class="ot">&lt;-</span> <span class="fu">select</span>(mydata, location, variety, yield, farmers_eval, mean_fruit_weight)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="data-wrangling-and-summarizing.html#cb8-1" aria-hidden="true" tabindex="-1"></a>newdataframe <span class="ot">&lt;-</span> <span class="fu">select</span>(mydata, location, variety, yield, farmers_eval, mean_fruit_weight)</span></code></pre></div>
 <p>Within this new data frame, you can create a new column, which converts mean fruit weight (now in kg) to grams (g), through the function “mutate.”</p>
-<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="data-wrangling-and-summarizing.html#cb74-1" aria-hidden="true" tabindex="-1"></a>newdataframe2 <span class="ot">&lt;-</span> <span class="fu">mutate</span>(newdataframe, <span class="at">meanfruitweight_grams =</span> mean_fruit_weight <span class="sc">*</span> <span class="dv">1000</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="data-wrangling-and-summarizing.html#cb9-1" aria-hidden="true" tabindex="-1"></a>newdataframe2 <span class="ot">&lt;-</span> <span class="fu">mutate</span>(newdataframe, <span class="at">meanfruitweight_grams =</span> mean_fruit_weight <span class="sc">*</span> <span class="dv">1000</span>)</span></code></pre></div>
 <p><strong>The pipeline %&gt;% operator.</strong></p>
 <p>With the pipeline operator you can chain more than one operation together, instead of using temporary objects and changing them. It also allows to call my first object (‘mydata’) only once</p>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="data-wrangling-and-summarizing.html#cb75-1" aria-hidden="true" tabindex="-1"></a>newdataframe3 <span class="ot">&lt;-</span> mydata <span class="sc">%&gt;%</span></span>
-<span id="cb75-2"><a href="data-wrangling-and-summarizing.html#cb75-2" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">select</span>(location, variety, rep, mean_fruit_weight) <span class="sc">%&gt;%</span></span>
-<span id="cb75-3"><a href="data-wrangling-and-summarizing.html#cb75-3" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">mutate</span>( <span class="at">meanfruitweight_grams =</span> mean_fruit_weight <span class="sc">*</span> <span class="dv">1000</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="data-wrangling-and-summarizing.html#cb10-1" aria-hidden="true" tabindex="-1"></a>newdataframe3 <span class="ot">&lt;-</span> mydata <span class="sc">%&gt;%</span></span>
+<span id="cb10-2"><a href="data-wrangling-and-summarizing.html#cb10-2" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">select</span>(location, variety, rep, mean_fruit_weight) <span class="sc">%&gt;%</span></span>
+<span id="cb10-3"><a href="data-wrangling-and-summarizing.html#cb10-3" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">mutate</span>( <span class="at">meanfruitweight_grams =</span> mean_fruit_weight <span class="sc">*</span> <span class="dv">1000</span>)</span></code></pre></div>
 <p><strong>Aggregate data</strong></p>
 <p>Finally, dplyr helps us us to calculate, for example, the mean perfomance of each variety per environment, given that there are two reps.</p>
 <p>For this, you have to use the group_by() and summarize (). Under group_by, we put the aggrupating facors. Under summarize, we put the columns we want, in this case, we want the means and the standard deviations
 .</p>
-<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="data-wrangling-and-summarizing.html#cb76-1" aria-hidden="true" tabindex="-1"></a>mydata_means <span class="ot">&lt;-</span> mydata <span class="sc">%&gt;%</span>                   <span class="co">#Our initial object</span></span>
-<span id="cb76-2"><a href="data-wrangling-and-summarizing.html#cb76-2" aria-hidden="true" tabindex="-1"></a>              <span class="fu">group_by</span>(variety, location) <span class="sc">%&gt;%</span>         <span class="co">#Groupped by variety and location</span></span>
-<span id="cb76-3"><a href="data-wrangling-and-summarizing.html#cb76-3" aria-hidden="true" tabindex="-1"></a>              <span class="fu">summarize</span>(<span class="fu">mean</span>(farmers_eval),           <span class="co">#Mean of farmer&#39;s evaluation</span></span>
-<span id="cb76-4"><a href="data-wrangling-and-summarizing.html#cb76-4" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">sd</span>(farmers_eval),           <span class="co">#SD of farmer&#39;s evaluation</span></span>
-<span id="cb76-5"><a href="data-wrangling-and-summarizing.html#cb76-5" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">mean</span>(yield),                <span class="co">#Mean of yield</span></span>
-<span id="cb76-6"><a href="data-wrangling-and-summarizing.html#cb76-6" aria-hidden="true" tabindex="-1"></a>                         <span class="fu">sd</span>(yield))                   <span class="co">#SD of yield</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="data-wrangling-and-summarizing.html#cb11-1" aria-hidden="true" tabindex="-1"></a>mydata_means <span class="ot">&lt;-</span> mydata <span class="sc">%&gt;%</span>                   <span class="co">#Our initial object</span></span>
+<span id="cb11-2"><a href="data-wrangling-and-summarizing.html#cb11-2" aria-hidden="true" tabindex="-1"></a>              <span class="fu">group_by</span>(variety, location) <span class="sc">%&gt;%</span>         <span class="co">#Groupped by variety and location</span></span>
+<span id="cb11-3"><a href="data-wrangling-and-summarizing.html#cb11-3" aria-hidden="true" tabindex="-1"></a>              <span class="fu">summarize</span>(<span class="fu">mean</span>(farmers_eval),           <span class="co">#Mean of farmer&#39;s evaluation</span></span>
+<span id="cb11-4"><a href="data-wrangling-and-summarizing.html#cb11-4" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">sd</span>(farmers_eval),           <span class="co">#SD of farmer&#39;s evaluation</span></span>
+<span id="cb11-5"><a href="data-wrangling-and-summarizing.html#cb11-5" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">mean</span>(yield),                <span class="co">#Mean of yield</span></span>
+<span id="cb11-6"><a href="data-wrangling-and-summarizing.html#cb11-6" aria-hidden="true" tabindex="-1"></a>                         <span class="fu">sd</span>(yield))                   <span class="co">#SD of yield</span></span></code></pre></div>
 <p><strong>Save your data</strong></p>
 <p>Once you have created and modified and object, you can save it on the same folder in a .csv format.</p>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="data-wrangling-and-summarizing.html#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(mydata_means, <span class="st">&quot;tomatodata_means.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="data-wrangling-and-summarizing.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(mydata_means, <span class="st">&quot;tomatodata_means.csv&quot;</span>)</span></code></pre></div>
 
 </div>
 </div>
@@ -328,7 +343,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["PPB Toolkit.pdf", "PPB Toolkit.epub"],
+"download": ["PPB Toolkit for R and R Studio.pdf", "PPB Toolkit for R and R Studio.epub"],
 "toc": {
 "collapse": "subsection"
 }
@@ -336,20 +351,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

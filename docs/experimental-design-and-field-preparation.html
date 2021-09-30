@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 5 Experimental Design and Field Preparation | A PPB Toolkit in RStudio</title>
-  <meta name="description" content="Chapter 5 Experimental Design and Field Preparation | A PPB Toolkit in RStudio" />
+  <title>Chapter 5 Experimental Design and Field Preparation | PPB-Toolkit-for-R-and-R-Studio.utf8</title>
+  <meta name="description" content="" />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 5 Experimental Design and Field Preparation | A PPB Toolkit in RStudio" />
+  <meta property="og:title" content="Chapter 5 Experimental Design and Field Preparation | PPB-Toolkit-for-R-and-R-Studio.utf8" />
   <meta property="og:type" content="book" />
   
   
@@ -16,12 +16,11 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 5 Experimental Design and Field Preparation | A PPB Toolkit in RStudio" />
+  <meta name="twitter:title" content="Chapter 5 Experimental Design and Field Preparation | PPB-Toolkit-for-R-and-R-Studio.utf8" />
   
   
   
 
-<meta name="author" content="Sergio Castro and Matteo Petitti" />
 
 
 
@@ -119,28 +118,6 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<style type="text/css">
-/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
-</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -155,10 +132,11 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A PPB Toolkit in R and RStudio</a></li>
+<li><a href="./">A PPB Toolkit in R and RStudio</a></li> 
+<img src="logo.png" width="150" height="100">
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
 <li class="chapter" data-level="2" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html"><i class="fa fa-check"></i><b>2</b> First Steps in R</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="first-steps-in-r.html"><a href="first-steps-in-r.html#getting-started"><i class="fa fa-check"></i><b>2.1</b> Getting started</a></li>
@@ -185,7 +163,6 @@ div.csl-indent {
 <li class="chapter" data-level="4.2.1" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#box-plot"><i class="fa fa-check"></i><b>4.2.1</b> Box Plot</a></li>
 <li class="chapter" data-level="4.2.2" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#scatter-plots"><i class="fa fa-check"></i><b>4.2.2</b> Scatter plots</a></li>
 <li class="chapter" data-level="4.2.3" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#bar-plots"><i class="fa fa-check"></i><b>4.2.3</b> Bar plots</a></li>
-<li class="chapter" data-level="4.2.4" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#adjusting-details"><i class="fa fa-check"></i><b>4.2.4</b> Adjusting details</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html#exporting-plots"><i class="fa fa-check"></i><b>4.3</b> Exporting plots</a></li>
 </ul></li>
@@ -233,7 +210,7 @@ div.csl-indent {
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A PPB Toolkit in RStudio</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
           </h1>
         </div>
 
@@ -315,7 +292,7 @@ div.csl-indent {
 <span id="cb102-7"><a href="experimental-design-and-field-preparation.html#cb102-7" aria-hidden="true" tabindex="-1"></a>                  <span class="at">rngSeeds =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">999</span>))           <span class="co"># This fixes the randomization, so your results and ours are the same</span></span></code></pre></div>
 <p>Once done, we could inmediatly do a plot with <strong>plot.diGGer</strong></p>
 <div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="experimental-design-and-field-preparation.html#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.DiGGer</span>(mydesign)</span></code></pre></div>
-<p><img src="PPB-Toolkit_files/figure-html/unnamed-chunk-71-1.png" width="672" /></p>
+<p><img src="PPB-Toolkit-for-R-and-R-Studio_files/figure-html/unnamed-chunk-71-1.png" width="672" /></p>
 <p>So, we chose to name our resulting object <strong>mydesign</strong>, which has different objects inside, the most imporant ones are</p>
 <ul>
 <li>mydesign$ddphase</li>
@@ -384,7 +361,7 @@ div.csl-indent {
 <span id="cb112-2"><a href="experimental-design-and-field-preparation.html#cb112-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mydesign<span class="sc">$</span>dlist, <span class="fu">aes</span>(<span class="at">x=</span> ROW, <span class="at">y =</span> RANGE, <span class="at">label=</span> ID, <span class="at">fill=</span> ID))<span class="sc">+</span></span>
 <span id="cb112-3"><a href="experimental-design-and-field-preparation.html#cb112-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>()<span class="sc">+</span><span class="fu">geom_text</span>()<span class="sc">+</span>           <span class="co"># Geometry for color tiles and labels</span></span>
 <span id="cb112-4"><a href="experimental-design-and-field-preparation.html#cb112-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span> <span class="st">&quot;Row&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Column&quot;</span>)       <span class="co">#Axis labels</span></span></code></pre></div>
-<p><img src="PPB-Toolkit_files/figure-html/unnamed-chunk-77-1.png" width="672" /></p>
+<p><img src="PPB-Toolkit-for-R-and-R-Studio_files/figure-html/unnamed-chunk-77-1.png" width="672" /></p>
 <p>Finally, some might find it useful to export a map in excel, with the proper genotype names. To our knowledge, DiGGer does not provide a function for this, but there are many different ways to achieve it. A very easy way involves using the function <strong>replace()</strong> from the dplyr package.</p>
 <div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="experimental-design-and-field-preparation.html#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb113-2"><a href="experimental-design-and-field-preparation.html#cb113-2" aria-hidden="true" tabindex="-1"></a>myfield.withnames  <span class="ot">=</span> <span class="fu">replace</span>(<span class="at">x=</span>myfield,   <span class="co">#The object to change will be &quot;myfield </span></span>
@@ -427,7 +404,7 @@ div.csl-indent {
 <span id="cb117-7"><a href="experimental-design-and-field-preparation.html#cb117-7" aria-hidden="true" tabindex="-1"></a>                  <span class="at">runSearch =</span> T)            <span class="co"># Run the optimization </span></span></code></pre></div>
 <p>So, this is my design, where every row corresponds to a given farm, and no genotype is repeated within the same block. However, every treatment is at least twice on the design.</p>
 <div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="experimental-design-and-field-preparation.html#cb118-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mydesignIB)</span></code></pre></div>
-<p><img src="PPB-Toolkit_files/figure-html/unnamed-chunk-82-1.png" width="672" /></p>
+<p><img src="PPB-Toolkit-for-R-and-R-Studio_files/figure-html/unnamed-chunk-82-1.png" width="672" /></p>
 <p>The same elaboration that was done on the RCBD design can be done here. We will now run a simplified version.</p>
 <div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="experimental-design-and-field-preparation.html#cb119-1" aria-hidden="true" tabindex="-1"></a>myfieldIB <span class="ot">=</span> mydesignIB<span class="sc">$</span>ddphase[[<span class="dv">1</span>]]<span class="sc">$</span>design   <span class="co">#Saving the design with a simpler name</span></span>
 <span id="cb119-2"><a href="experimental-design-and-field-preparation.html#cb119-2" aria-hidden="true" tabindex="-1"></a>myfieldIB.withnames<span class="ot">=</span> <span class="fu">replace</span>(<span class="at">x=</span>myfieldIB,   </span>
@@ -437,13 +414,13 @@ div.csl-indent {
 <span id="cb120-2"><a href="experimental-design-and-field-preparation.html#cb120-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(myfieldIB.withnames) <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span></span>
 <span id="cb120-3"><a href="experimental-design-and-field-preparation.html#cb120-3" aria-hidden="true" tabindex="-1"></a>myfieldIB.withnames</span></code></pre></div>
 <pre><code>##              1        2        3        4       
-## Pippo        &quot;Var. B&quot; &quot;Var. H&quot; &quot;Var. E&quot; &quot;Var. J&quot;
-## Rosario      &quot;Var. J&quot; &quot;Var. A&quot; &quot;Var. F&quot; &quot;Var. C&quot;
-## Ugo          &quot;Var. L&quot; &quot;Var. F&quot; &quot;Var. B&quot; &quot;Var. N&quot;
-## Giuseppe     &quot;Var. I&quot; &quot;Var. N&quot; &quot;Var. K&quot; &quot;Var. G&quot;
-## Marco        &quot;Var. C&quot; &quot;Var. I&quot; &quot;Var. E&quot; &quot;Var. D&quot;
-## Simone       &quot;Var. A&quot; &quot;Var. H&quot; &quot;Var. M&quot; &quot;Var. G&quot;
-## Giandomenico &quot;Var. M&quot; &quot;Var. D&quot; &quot;Var. K&quot; &quot;Var. L&quot;</code></pre>
+## Pippo        &quot;Var. M&quot; &quot;Var. J&quot; &quot;Var. B&quot; &quot;Var. C&quot;
+## Rosario      &quot;Var. L&quot; &quot;Var. M&quot; &quot;Var. D&quot; &quot;Var. N&quot;
+## Ugo          &quot;Var. G&quot; &quot;Var. B&quot; &quot;Var. F&quot; &quot;Var. A&quot;
+## Giuseppe     &quot;Var. K&quot; &quot;Var. H&quot; &quot;Var. D&quot; &quot;Var. F&quot;
+## Marco        &quot;Var. H&quot; &quot;Var. C&quot; &quot;Var. A&quot; &quot;Var. I&quot;
+## Simone       &quot;Var. K&quot; &quot;Var. N&quot; &quot;Var. E&quot; &quot;Var. J&quot;
+## Giandomenico &quot;Var. E&quot; &quot;Var. L&quot; &quot;Var. I&quot; &quot;Var. G&quot;</code></pre>
 <p>And finally, save it into excel</p>
 <div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="experimental-design-and-field-preparation.html#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(myfieldIB.withnames,<span class="st">&quot;Field Map IB with names.csv&quot;</span>)</span>
 <span id="cb122-2"><a href="experimental-design-and-field-preparation.html#cb122-2" aria-hidden="true" tabindex="-1"></a>(<span class="dv">2</span><span class="sc">*</span><span class="dv">7</span>) <span class="sc">+</span> (<span class="dv">12</span><span class="sc">*</span><span class="dv">2</span>)</span></code></pre></div>
@@ -498,7 +475,7 @@ y= 9
 <span id="cb129-7"><a href="experimental-design-and-field-preparation.html#cb129-7" aria-hidden="true" tabindex="-1"></a>                       <span class="at">treatName =</span> variety.list,</span>
 <span id="cb129-8"><a href="experimental-design-and-field-preparation.html#cb129-8" aria-hidden="true" tabindex="-1"></a>                       <span class="at">runSearch =</span> T)        </span></code></pre></div>
 <pre><code>##      Phase,    Search%,    A-measure
-## [1] 1.0 0.0 0.1
+## [1] 1.0000000 0.0000000 0.1190476
 ## [1]  1.00000000 10.00000000  0.08333333
 ## [1]  1.00000000 20.00000000  0.08333333
 ## [1]  1.00000000 30.00000000  0.08333333
@@ -512,7 +489,7 @@ y= 9
 ##  [1] 0.08333333 0.08333333 0.00000000 0.00000000 0.00000000 0.00000000
 ##  [7] 0.00000000 0.00000000 0.00000000 0.00000000
 ##      Phase,    Search%,    A-measure
-## [1] 1.0000000 0.0000000 0.7470293
+## [1] 1.0000000 0.0000000 0.7261638
 ## [1]  1.0000000 10.0000000  0.7010528
 ## [1]  1.0000000 20.0000000  0.7010528
 ## [1]  1.0000000 30.0000000  0.7010528
@@ -526,22 +503,22 @@ y= 9
 ##  [1] 0.7010528 0.7010528 0.0000000 0.0000000 0.0000000 0.0000000 0.0000000
 ##  [8] 0.0000000 0.0000000 0.0000000
 ##      Phase,    Search%,    A-measure
-## [1] 1.000000 0.000000 0.777708
-## [1]  1.0000000 10.0000000  0.6037085
-## [1]  1.0000000 20.0000000  0.5991073
-## [1]  1.0000000 30.0000000  0.5984773
-## [1]  1.0000000 40.0000000  0.5984773
-## [1]  1.0000000 50.0000000  0.5984773
-## [1]  1.0000000 60.0000000  0.5984773
-## [1]  1.0000000 70.0000000  0.5984773
-## [1]  1.0000000 80.0000000  0.5984773
-## [1]  1.0000000 90.0000000  0.5936747
-## [1]   1.0000000 100.0000000   0.5936747
-##  [1] 0.5936747 0.5936747 0.0000000 0.0000000 0.0000000 0.0000000 0.0000000
+## [1] 1.0000000 0.0000000 0.7416035
+## [1]  1.0000000 10.0000000  0.5979295
+## [1]  1.0000000 20.0000000  0.5979295
+## [1]  1.0000000 30.0000000  0.5979295
+## [1]  1.0000000 40.0000000  0.5979295
+## [1]  1.0000000 50.0000000  0.5979295
+## [1]  1.0000000 60.0000000  0.5979295
+## [1]  1.0000000 70.0000000  0.5979295
+## [1]  1.0000000 80.0000000  0.5979295
+## [1]  1.0000000 90.0000000  0.5965573
+## [1]   1.0000000 100.0000000   0.5946287
+##  [1] 0.5946287 0.5946287 0.0000000 0.0000000 0.0000000 0.0000000 0.0000000
 ##  [8] 0.0000000 0.0000000 0.0000000</code></pre>
 <p>Ready to plot the new object called mydesignPR. We can check that treatments 1 and 2 are in every block, and all the rest are just present in two blocks.</p>
 <div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="experimental-design-and-field-preparation.html#cb131-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mydesignPR) </span></code></pre></div>
-<p><img src="PPB-Toolkit_files/figure-html/unnamed-chunk-89-1.png" width="672" height="115%" /></p>
+<p><img src="PPB-Toolkit-for-R-and-R-Studio_files/figure-html/unnamed-chunk-89-1.png" width="672" height="115%" /></p>
 <p>To further save it, we proceed in the same way as before.</p>
 <div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="experimental-design-and-field-preparation.html#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Renaming the object</span></span>
 <span id="cb132-2"><a href="experimental-design-and-field-preparation.html#cb132-2" aria-hidden="true" tabindex="-1"></a>myfieldPR <span class="ot">=</span> mydesignPR<span class="sc">$</span>ddphase[[<span class="dv">1</span>]]<span class="sc">$</span>design                  </span>
@@ -561,18 +538,18 @@ y= 9
 <span id="cb132-16"><a href="experimental-design-and-field-preparation.html#cb132-16" aria-hidden="true" tabindex="-1"></a><span class="co">#Final checking</span></span>
 <span id="cb132-17"><a href="experimental-design-and-field-preparation.html#cb132-17" aria-hidden="true" tabindex="-1"></a>myfieldPR.withnames</span></code></pre></div>
 <pre><code>##         1        2        3        4       
-## Farm 1  &quot;Var. B&quot; &quot;Var. C&quot; &quot;Var. M&quot; &quot;Var. A&quot;
-## Farm 2  &quot;Var. B&quot; &quot;Var. G&quot; &quot;Var. H&quot; &quot;Var. A&quot;
-## Farm 3  &quot;Var. A&quot; &quot;Var. M&quot; &quot;Var. B&quot; &quot;Var. I&quot;
-## Farm 4  &quot;Var. B&quot; &quot;Var. E&quot; &quot;Var. K&quot; &quot;Var. A&quot;
-## Farm 5  &quot;Var. A&quot; &quot;Var. N&quot; &quot;Var. L&quot; &quot;Var. B&quot;
-## Farm 6  &quot;Var. A&quot; &quot;Var. K&quot; &quot;Var. I&quot; &quot;Var. B&quot;
-## Farm 7  &quot;Var. B&quot; &quot;Var. D&quot; &quot;Var. F&quot; &quot;Var. A&quot;
-## Farm 8  &quot;Var. D&quot; &quot;Var. A&quot; &quot;Var. N&quot; &quot;Var. B&quot;
-## Farm 9  &quot;Var. A&quot; &quot;Var. L&quot; &quot;Var. C&quot; &quot;Var. B&quot;
-## Farm 10 &quot;Var. B&quot; &quot;Var. E&quot; &quot;Var. A&quot; &quot;Var. G&quot;
-## Farm 11 &quot;Var. A&quot; &quot;Var. H&quot; &quot;Var. B&quot; &quot;Var. J&quot;
-## Farm 12 &quot;Var. B&quot; &quot;Var. F&quot; &quot;Var. J&quot; &quot;Var. A&quot;</code></pre>
+## Farm 1  &quot;Var. B&quot; &quot;Var. N&quot; &quot;Var. F&quot; &quot;Var. A&quot;
+## Farm 2  &quot;Var. C&quot; &quot;Var. A&quot; &quot;Var. D&quot; &quot;Var. B&quot;
+## Farm 3  &quot;Var. B&quot; &quot;Var. K&quot; &quot;Var. G&quot; &quot;Var. A&quot;
+## Farm 4  &quot;Var. A&quot; &quot;Var. C&quot; &quot;Var. N&quot; &quot;Var. B&quot;
+## Farm 5  &quot;Var. A&quot; &quot;Var. I&quot; &quot;Var. E&quot; &quot;Var. B&quot;
+## Farm 6  &quot;Var. B&quot; &quot;Var. F&quot; &quot;Var. H&quot; &quot;Var. A&quot;
+## Farm 7  &quot;Var. B&quot; &quot;Var. M&quot; &quot;Var. L&quot; &quot;Var. A&quot;
+## Farm 8  &quot;Var. M&quot; &quot;Var. A&quot; &quot;Var. I&quot; &quot;Var. B&quot;
+## Farm 9  &quot;Var. A&quot; &quot;Var. E&quot; &quot;Var. D&quot; &quot;Var. B&quot;
+## Farm 10 &quot;Var. H&quot; &quot;Var. B&quot; &quot;Var. K&quot; &quot;Var. A&quot;
+## Farm 11 &quot;Var. B&quot; &quot;Var. L&quot; &quot;Var. J&quot; &quot;Var. A&quot;
+## Farm 12 &quot;Var. A&quot; &quot;Var. G&quot; &quot;Var. B&quot; &quot;Var. J&quot;</code></pre>
 <div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="experimental-design-and-field-preparation.html#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Exporting to excel</span></span>
 <span id="cb134-2"><a href="experimental-design-and-field-preparation.html#cb134-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(myfieldPR,<span class="st">&quot;Field Map PR with names.csv&quot;</span>)</span></code></pre></div>
 </div>
@@ -741,7 +718,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["PPB Toolkit.pdf", "PPB Toolkit.epub"],
+"download": ["PPB Toolkit for R and R Studio.pdf", "PPB Toolkit for R and R Studio.epub"],
 "toc": {
 "collapse": "subsection"
 }
