@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 7 Spatial Analysis | A PPB Toolkit in R and RStudio</title>
-  <meta name="description" content="Chapter 7 Spatial Analysis | A PPB Toolkit in R and RStudio" />
+  <title>Chapter 7 Spatial Analysis | A Participatory Plant Breeding Toolkit in R and RStudio</title>
+  <meta name="description" content="Chapter 7 Spatial Analysis | A Participatory Plant Breeding Toolkit in R and RStudio" />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 7 Spatial Analysis | A PPB Toolkit in R and RStudio" />
+  <meta property="og:title" content="Chapter 7 Spatial Analysis | A Participatory Plant Breeding Toolkit in R and RStudio" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 7 Spatial Analysis | A PPB Toolkit in R and RStudio" />
+  <meta name="twitter:title" content="Chapter 7 Spatial Analysis | A Participatory Plant Breeding Toolkit in R and RStudio" />
   
   
   
@@ -155,7 +155,7 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A PPB Toolkit in R and RStudio</a></li> 
+<li><a href="./">A Participatory Plant Breeding Toolkit in R and RStudio</a></li> 
 <img src="logo.png" width="100" height="70" style="position:center">
 
 <li class="divider"></li>
@@ -235,7 +235,7 @@ div.csl-indent {
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A PPB Toolkit in R and RStudio</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A Participatory Plant Breeding Toolkit in R and RStudio</a>
           </h1>
         </div>
 
@@ -250,43 +250,35 @@ body {
 text-align: justify}
 </style>
 <p><img src="rsrstrip.png" /></p>
-<p>Agricultural fields are often very heterogenous, and one when one wishes to determine the genetic value of a given genotype, it is often useful to use methods that account for this variability <span class="citation"><a href="#ref-singh2003spatial" role="doc-biblioref">al</a> (<a href="#ref-singh2003spatial" role="doc-biblioref">2003</a>)</span>. Several methodological and statistical approaches can be used to address this use. In this chaper, we will cover the use of <strong>SpATS</strong>, and (hopefully soon) the use of other packages.</p>
+<p>Agricultural fields are often very heterogenous, and one when we intend to determine the genetic value of a given set of genotype, it is often useful to use methods that account for this variability <span class="citation">(<a href="#ref-singh2003spatial" role="doc-biblioref">Singh et al. 2003</a>)</span>. Several methodological and statistical approaches can be used to address this use. In this chaper, we will cover the use of <strong>SpATS</strong>, and (hopefully soon) the use of other packages.</p>
 <div id="spats" class="section level2" number="7.1">
 <h2><span class="header-section-number">7.1</span> SpATS</h2>
 <p>SpATS (Spatial Analysis of field Trials with Splines) is an approach for spatial analysis developed by <span class="citation"><a href="#ref-spats2017" role="doc-biblioref">Rodríguez-Álvarez et al.</a> (<a href="#ref-spats2017" role="doc-biblioref">2018</a>)</span>. In general, it uses the row-column “two-dimensional
 smooth surfaces to model random spatial variation.” The proper explanation of the statistics behind can be found <a href="https://www.sciencedirect.com/science/article/pii/S2211675317301070?casa_token=vtmG6I6PWwsAAAAA:UXWSox0zDSMUU3wnJfCEvtBFbTrW4FK1EOdf-GT6O00G1MVMWpMRLNevjzVwRDNf71y46ml6">here</a> and <a href="https://link.springer.com/article/10.1007/s00122-017-2894-4">here</a>.</p>
 <p>As usual, before using the package, it must be installed.</p>
-<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="spatial-analysis.html#cb153-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;SpATS&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="spatial-analysis.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;SpATS&quot;</span>)</span></code></pre></div>
 <p>And then called:</p>
-<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="spatial-analysis.html#cb154-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span> (SpATS)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="spatial-analysis.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span> (SpATS)</span></code></pre></div>
 <p>We will use the same tomato data that we have been using in the previous chapter.</p>
-<p>So, to properly perform the analysis, we can only use data from one location, in order to grasp the spatial heterogeneity of that specific farm. So, we first <a href="data-wrangling-and-summarizing.html#basic-r">subset</a> the data only from one of our locations called Sestola.</p>
-<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="spatial-analysis.html#cb155-1" aria-hidden="true" tabindex="-1"></a>data.Sestola <span class="ot">&lt;-</span> <span class="fu">subset</span>(mydata, location <span class="sc">==</span> <span class="st">&quot;Sestola&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="spatial-analysis.html#cb3-1" aria-hidden="true" tabindex="-1"></a>mydata <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;tomatoMLT2020.csv&quot;</span>)</span></code></pre></div>
+<p>So, to properly perform the analysis, we can only use data from one location, in order to grasp the spatial heterogeneity of that specific farm. So, we first <a href="data-wrangling-and-summarizing.html#basic-r">subset</a> the data only from Sestola, one of our four locations.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="spatial-analysis.html#cb4-1" aria-hidden="true" tabindex="-1"></a>data.Sestola <span class="ot">&lt;-</span> <span class="fu">subset</span>(mydata, location <span class="sc">==</span> <span class="st">&quot;Sestola&quot;</span>)</span></code></pre></div>
 <p>With this object, we can now run the function <strong>SpATS</strong>, as showed and explained here:</p>
-<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="spatial-analysis.html#cb156-1" aria-hidden="true" tabindex="-1"></a>spats.Sestola  <span class="ot">=</span>    <span class="fu">SpATS</span>(<span class="at">data=</span>      data.Sestola,    <span class="co">#My subset from Sestola  </span></span>
-<span id="cb156-2"><a href="spatial-analysis.html#cb156-2" aria-hidden="true" tabindex="-1"></a>                          <span class="at">response=</span> <span class="st">&quot;yield&quot;</span>,          <span class="co">#The name of my variable</span></span>
-<span id="cb156-3"><a href="spatial-analysis.html#cb156-3" aria-hidden="true" tabindex="-1"></a>                          <span class="at">genotype =</span> <span class="st">&quot;variety&quot;</span>,       <span class="co">#The name of my genotupe columns</span></span>
-<span id="cb156-4"><a href="spatial-analysis.html#cb156-4" aria-hidden="true" tabindex="-1"></a>                          <span class="at">genotype.as.random =</span> F,     <span class="co">#This is a long story. Genotypes set as random or as fixed.</span></span>
-<span id="cb156-5"><a href="spatial-analysis.html#cb156-5" aria-hidden="true" tabindex="-1"></a>                                                      <span class="co"># define my model. In the first case, I will obtain BLUPs </span></span>
-<span id="cb156-6"><a href="spatial-analysis.html#cb156-6" aria-hidden="true" tabindex="-1"></a>                                                      <span class="co"># values, and in the seconed, BLUEs values.</span></span>
-<span id="cb156-7"><a href="spatial-analysis.html#cb156-7" aria-hidden="true" tabindex="-1"></a>                          <span class="at">spatial =</span> <span class="sc">~</span> <span class="fu">SAP</span>(row, col))  <span class="co">#This arguments designs the row-column distribution of the field</span></span></code></pre></div>
-<p>We created an object called spats.Sestola and we can plot it inmediately. In this plot we can see the raw data, the data “fitted” to the spatial model, the residuals of the model.</p>
-<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="spatial-analysis.html#cb157-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(spats.Sestola)</span></code></pre></div>
-<p><img src="PPB-Toolkit-for-R-and-R-Studio_files/figure-html/unnamed-chunk-112-1.png" width="672" /></p>
-<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="spatial-analysis.html#cb158-1" aria-hidden="true" tabindex="-1"></a><span class="fu">toBibtex</span>(<span class="fu">citation</span>(<span class="st">&quot;metan&quot;</span>))</span></code></pre></div>
-<pre><code>## @Article{Olivoto2020,
-##   author = {Tiago Olivoto and Alessandro Dal&#39;Col L{&#39;{u}}cio},
-##   title = {metan: an R package for multi-environment trial analysis},
-##   journal = {Methods in Ecology and Evolution},
-##   volume = {11},
-##   number = {6},
-##   pages = {783-789},
-##   year = {2020},
-##   doi = {10.1111/2041-210X.13384},
-## }</code></pre>
-<p>We are intereseted in the BLUES (or the BLUPS), which is an estimate (or a prediction) of the breeding genetic value for each genotype. In the plot, it is given as a deviation from the mean. If we add the overall mean value to that number, we would have what we call an adjusted mean. In SpATS, this can be done through <strong>predict()</strong>.</p>
-<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="spatial-analysis.html#cb160-1" aria-hidden="true" tabindex="-1"></a>adj.means <span class="ot">=</span> <span class="fu">predict</span>(spats.Sestola, <span class="at">which =</span> <span class="st">&#39;variety&#39;</span>)</span>
-<span id="cb160-2"><a href="spatial-analysis.html#cb160-2" aria-hidden="true" tabindex="-1"></a>adj.means</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="spatial-analysis.html#cb5-1" aria-hidden="true" tabindex="-1"></a>spats.Sestola  <span class="ot">=</span>    <span class="fu">SpATS</span>(<span class="at">data=</span>      data.Sestola,    <span class="co"># My subset from Sestola  </span></span>
+<span id="cb5-2"><a href="spatial-analysis.html#cb5-2" aria-hidden="true" tabindex="-1"></a>                          <span class="at">response=</span> <span class="st">&quot;yield&quot;</span>,          <span class="co"># The name of my variable</span></span>
+<span id="cb5-3"><a href="spatial-analysis.html#cb5-3" aria-hidden="true" tabindex="-1"></a>                          <span class="at">genotype =</span> <span class="st">&quot;variety&quot;</span>,       <span class="co"># The name of my genotupe columns</span></span>
+<span id="cb5-4"><a href="spatial-analysis.html#cb5-4" aria-hidden="true" tabindex="-1"></a>                          <span class="at">genotype.as.random =</span> F,     <span class="co"># This is a long story. </span></span>
+<span id="cb5-5"><a href="spatial-analysis.html#cb5-5" aria-hidden="true" tabindex="-1"></a>                                                      <span class="co"># But this argument determines if</span></span>
+<span id="cb5-6"><a href="spatial-analysis.html#cb5-6" aria-hidden="true" tabindex="-1"></a>                                                      <span class="co"># genotypes set as random or as fixed in my model.</span></span>
+<span id="cb5-7"><a href="spatial-analysis.html#cb5-7" aria-hidden="true" tabindex="-1"></a>                                                      <span class="co"># In the first case, I will obtain BLUPs </span></span>
+<span id="cb5-8"><a href="spatial-analysis.html#cb5-8" aria-hidden="true" tabindex="-1"></a>                                                      <span class="co"># values, and in the second, BLUEs values.</span></span>
+<span id="cb5-9"><a href="spatial-analysis.html#cb5-9" aria-hidden="true" tabindex="-1"></a>                          <span class="at">spatial =</span> <span class="sc">~</span> <span class="fu">SAP</span>(row, col))  <span class="co"># This arguments designs the row-column distribution of the field</span></span></code></pre></div>
+<p>We created an object called “spats.Sestola” and we can plot it inmediately. In this plot we can see the raw data, the data “fitted” to the spatial model, the residuals of the model, the smoothed spatial trend and the BLUES values.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="spatial-analysis.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(spats.Sestola)</span></code></pre></div>
+<p><img src="PPB-Toolkit-for-R-and-R-Studio_files/figure-html/myplotSestola-1.png" width="672" /></p>
+<p>We are intereseted in the BLUES (or the BLUPS), which is an estimate (or a prediction) of the breeding genetic value for each genotype. In the plot, they are given as a deviation from the mean. If we add the overall mean value to that number, we would have what we call an adjusted mean. In SpATS, this can be done through <strong>predict()</strong>.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="spatial-analysis.html#cb7-1" aria-hidden="true" tabindex="-1"></a>adj.means <span class="ot">=</span> <span class="fu">predict</span>(spats.Sestola, <span class="at">which =</span> <span class="st">&#39;variety&#39;</span>)</span>
+<span id="cb7-2"><a href="spatial-analysis.html#cb7-2" aria-hidden="true" tabindex="-1"></a>adj.means</span></code></pre></div>
 <pre><code>##    variety      row      col predicted.values standard.errors
 ## 88  Var. A Excluded Excluded         867.3824        248.6114
 ## 91  Var. B Excluded Excluded         788.9379        212.0287
@@ -302,98 +294,99 @@ smooth surfaces to model random spatial variation.” The proper explanation of 
 ## 96  Var. L Excluded Excluded        1176.2738        254.1530
 ## 92  Var. M Excluded Excluded        1206.4843        229.8201
 ## 90  Var. N Excluded Excluded        1106.9766        226.3251</code></pre>
-<p>And I could plot them.</p>
-<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="spatial-analysis.html#cb162-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb162-2"><a href="spatial-analysis.html#cb162-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(adj.means, <span class="fu">aes</span>(<span class="at">x=</span> variety, <span class="at">y =</span> predicted.values))<span class="sc">+</span></span>
-<span id="cb162-3"><a href="spatial-analysis.html#cb162-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span> <span class="st">&quot;identity&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;tomato&quot;</span>)<span class="sc">+</span></span>
-<span id="cb162-4"><a href="spatial-analysis.html#cb162-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>( <span class="fu">aes</span>(<span class="at">ymax =</span> predicted.values<span class="sc">+</span> standard.errors,</span>
-<span id="cb162-5"><a href="spatial-analysis.html#cb162-5" aria-hidden="true" tabindex="-1"></a>                     <span class="at">ymin =</span> predicted.values<span class="sc">-</span> standard.errors))</span></code></pre></div>
-<p><img src="PPB-Toolkit-for-R-and-R-Studio_files/figure-html/unnamed-chunk-114-1.png" width="672" /></p>
+<p>And now, I could plot this adjusted means with <a href="basics-of-data-visualisation.html#ggplot">ggplot</a>.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="spatial-analysis.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb9-2"><a href="spatial-analysis.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(adj.means, <span class="fu">aes</span>(<span class="at">x=</span> variety, <span class="at">y =</span> predicted.values))<span class="sc">+</span></span>
+<span id="cb9-3"><a href="spatial-analysis.html#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span> <span class="st">&quot;identity&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;tomato&quot;</span>)<span class="sc">+</span></span>
+<span id="cb9-4"><a href="spatial-analysis.html#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>( <span class="fu">aes</span>(<span class="at">ymax =</span> predicted.values<span class="sc">+</span> standard.errors,</span>
+<span id="cb9-5"><a href="spatial-analysis.html#cb9-5" aria-hidden="true" tabindex="-1"></a>                     <span class="at">ymin =</span> predicted.values<span class="sc">-</span> standard.errors))</span></code></pre></div>
+<p><img src="PPB-Toolkit-for-R-and-R-Studio_files/figure-html/sestolaadjmeans-1.png" width="672" /></p>
 <p>To better understand the kind of transformation that we did to the data, we can take a look at this plot, which represents the raw yield numbers for each plot in the field.</p>
-<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="spatial-analysis.html#cb163-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data.Sestola, <span class="fu">aes</span>(<span class="at">x=</span>row, <span class="at">y =</span> col, <span class="at">label=</span> variety, <span class="at">fill =</span> yield))<span class="sc">+</span></span>
-<span id="cb163-2"><a href="spatial-analysis.html#cb163-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>()<span class="sc">+</span></span>
-<span id="cb163-3"><a href="spatial-analysis.html#cb163-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>()<span class="sc">+</span></span>
-<span id="cb163-4"><a href="spatial-analysis.html#cb163-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_gradientn</span>(<span class="at">colors=</span><span class="fu">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;lightblue&quot;</span>, <span class="st">&quot;green3&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;red&quot;</span>))</span></code></pre></div>
-<p><img src="PPB-Toolkit-for-R-and-R-Studio_files/figure-html/unnamed-chunk-115-1.png" width="672" /></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="spatial-analysis.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data.Sestola, <span class="fu">aes</span>(<span class="at">x=</span>row, <span class="at">y =</span> col, <span class="at">label=</span> variety, <span class="at">fill =</span> yield))<span class="sc">+</span></span>
+<span id="cb10-2"><a href="spatial-analysis.html#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>()<span class="sc">+</span></span>
+<span id="cb10-3"><a href="spatial-analysis.html#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>()<span class="sc">+</span></span>
+<span id="cb10-4"><a href="spatial-analysis.html#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_gradientn</span>(<span class="at">colors=</span><span class="fu">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;lightblue&quot;</span>, <span class="st">&quot;green3&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;red&quot;</span>))</span></code></pre></div>
+<p><img src="PPB-Toolkit-for-R-and-R-Studio_files/figure-html/rawSestola-1.png" width="672" /></p>
 <p>We can see some examples, for instance:</p>
 <ul>
-<li><p>Var. D was the best variety. It had an outstanding performance in Column 6 Row 1 and then, an average performance in Row 3 Column 4. The combination of both performances allowed this variety to have the highest BLUEs value.</p></li>
-<li><p>Var. H had the lowest adjusted mean. Both repetitions were more or less in the center of the plot, but both had bad performances.</p></li>
+<li><p>Var. D was the best variety. It had an outstanding performance in Column 6 Row 1 and then, an average performance in Row 3 Column 4. The combination of both performances allowed this variety to have the highest BLUE value.</p></li>
+<li><p>Var. H had the lowest adjusted mean. Both repetitions were more or less in the center of the plot, but both had bad performances. At the end, we end up with a very low BLUE value.</p></li>
 </ul>
-<p>Moreover, the SpATS object we have just created is full of different objects, for example</p>
-<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="spatial-analysis.html#cb164-1" aria-hidden="true" tabindex="-1"></a>spats.Sestola<span class="sc">$</span>call       <span class="co"># The original call</span></span>
-<span id="cb164-2"><a href="spatial-analysis.html#cb164-2" aria-hidden="true" tabindex="-1"></a>spats.Sestola<span class="sc">$</span>model      <span class="co"># The parameters of the model</span></span>
-<span id="cb164-3"><a href="spatial-analysis.html#cb164-3" aria-hidden="true" tabindex="-1"></a>spats.Sestola<span class="sc">$</span>deviance   <span class="co"># The deviance indicate how appropiate is the fitting of the model.</span></span>
-<span id="cb164-4"><a href="spatial-analysis.html#cb164-4" aria-hidden="true" tabindex="-1"></a>spats.Sestola<span class="sc">$</span>coeff      <span class="co"># This is the coefficient for every factor, including genotype and field position.</span></span></code></pre></div>
-<p>We then would have to do the same for every environment. We could do it manually, writing the code above for every environment. It is possible, but lenghty. We will here propose the code to do it into a loop function. Looping in R (and in general) is extremely useful, and we will use this example to show the basics on how looping is done.</p>
+<p>Moreover, the SpATS object we have just created is full of different objects, that could be further explored, for example":</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="spatial-analysis.html#cb11-1" aria-hidden="true" tabindex="-1"></a>spats.Sestola<span class="sc">$</span>call       <span class="co"># The original call</span></span>
+<span id="cb11-2"><a href="spatial-analysis.html#cb11-2" aria-hidden="true" tabindex="-1"></a>spats.Sestola<span class="sc">$</span>model      <span class="co"># The parameters of the model</span></span>
+<span id="cb11-3"><a href="spatial-analysis.html#cb11-3" aria-hidden="true" tabindex="-1"></a>spats.Sestola<span class="sc">$</span>deviance   <span class="co"># The deviance indicate how appropiate is the fitting of the model.</span></span>
+<span id="cb11-4"><a href="spatial-analysis.html#cb11-4" aria-hidden="true" tabindex="-1"></a>spats.Sestola<span class="sc">$</span>coeff      <span class="co"># This is the coefficient for every factor, including genotype and field position.</span></span></code></pre></div>
+<p>We then would have to do the same for every environment. We could do it manually, writing the code above for every environment. It is possible, but lenghty.</p>
+<p>We will here propose the code to do through a loop function. Looping in R (and in general) is extremely useful, and we will use this example to show the basics on how looping is done.</p>
 <p>First, we create a list of the elements that will be used in my loop. In our case, the list will contain the 4 location name. Alternatively, and most commonly, the lists are simply a sequence of numbers.</p>
-<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="spatial-analysis.html#cb165-1" aria-hidden="true" tabindex="-1"></a>mylocs <span class="ot">=</span> <span class="fu">unique</span>(mydata<span class="sc">$</span>loc) <span class="co"># The unique() function takes the unique values from a vector</span></span>
-<span id="cb165-2"><a href="spatial-analysis.html#cb165-2" aria-hidden="true" tabindex="-1"></a>mylocs</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="spatial-analysis.html#cb12-1" aria-hidden="true" tabindex="-1"></a>mylocs <span class="ot">=</span> <span class="fu">unique</span>(mydata<span class="sc">$</span>loc) <span class="co"># The unique() function takes the unique values from a vector</span></span>
+<span id="cb12-2"><a href="spatial-analysis.html#cb12-2" aria-hidden="true" tabindex="-1"></a>mylocs</span></code></pre></div>
 <pre><code>## [1] &quot;Molise&quot;      &quot;Rotonda&quot;     &quot;Castronuovo&quot; &quot;Sestola&quot;</code></pre>
-<p>Now, we will draw the loop. The main function is <strong>for()</strong> followed by curly braces {}. The <strong>for()</strong> defines a how to go over the loop; we will write <strong>for (i in mylocs)</strong> meaning that <em>i</em> is a variable that will take the value of each one of the elements in my list (the location names). And then, everything inside the curly braces is what will be done with i being a given value within the list</p>
-<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="spatial-analysis.html#cb167-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> mylocs){                                    <span class="co"># i is a variable that will take the value of every element in mylocs</span></span>
-<span id="cb167-2"><a href="spatial-analysis.html#cb167-2" aria-hidden="true" tabindex="-1"></a>  myenv <span class="ot">=</span> i                                           <span class="co"># Define &quot;myenv&quot; as whatever we have in i</span></span>
-<span id="cb167-3"><a href="spatial-analysis.html#cb167-3" aria-hidden="true" tabindex="-1"></a>  mysubset<span class="ot">=</span> <span class="fu">subset</span>(mydata, location <span class="sc">==</span> i)                     <span class="co"># Make a subset with environment i</span></span>
-<span id="cb167-4"><a href="spatial-analysis.html#cb167-4" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb167-5"><a href="spatial-analysis.html#cb167-5" aria-hidden="true" tabindex="-1"></a>  myspats <span class="ot">=</span>  <span class="fu">SpATS</span>(<span class="at">response =</span> <span class="st">&quot;yield&quot;</span>,                <span class="co"># This is the SpATS function we saw before</span></span>
-<span id="cb167-6"><a href="spatial-analysis.html#cb167-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">genotype =</span> <span class="st">&quot;variety&quot;</span>, </span>
-<span id="cb167-7"><a href="spatial-analysis.html#cb167-7" aria-hidden="true" tabindex="-1"></a>                 <span class="at">genotype.as.random =</span> F,</span>
-<span id="cb167-8"><a href="spatial-analysis.html#cb167-8" aria-hidden="true" tabindex="-1"></a>                 <span class="at">data=</span>      mysubset,                 <span class="co"># The data is coming from the specific subset done within the loop</span></span>
-<span id="cb167-9"><a href="spatial-analysis.html#cb167-9" aria-hidden="true" tabindex="-1"></a>                <span class="at">spatial =</span> <span class="sc">~</span> <span class="fu">SAP</span>(row, col))</span>
-<span id="cb167-10"><a href="spatial-analysis.html#cb167-10" aria-hidden="true" tabindex="-1"></a>  adjusted.means <span class="ot">&lt;-</span> <span class="fu">predict</span>(myspats,                  <span class="co">#  With &quot;myspats&quot;, we estimate the adjusted means</span></span>
-<span id="cb167-11"><a href="spatial-analysis.html#cb167-11" aria-hidden="true" tabindex="-1"></a>                            <span class="at">which =</span> <span class="st">&quot;variety&quot;</span>)   </span>
-<span id="cb167-12"><a href="spatial-analysis.html#cb167-12" aria-hidden="true" tabindex="-1"></a>  adjusted.means<span class="sc">$</span>location <span class="ot">&lt;-</span> myenv                         <span class="co"># To our &quot;adjusted.means&quot; data frame, we add a column with the name of environment                        </span></span>
-<span id="cb167-13"><a href="spatial-analysis.html#cb167-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">assign</span>(<span class="at">value  =</span> adjusted.means[,<span class="fu">c</span>(<span class="dv">6</span>,<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">5</span>)],        <span class="co"># I want to save the adjusted means object (rearrangin column order)</span></span>
-<span id="cb167-14"><a href="spatial-analysis.html#cb167-14" aria-hidden="true" tabindex="-1"></a>         <span class="at">x=</span>  <span class="fu">paste0</span>(<span class="st">&quot;means.&quot;</span>,myenv))                  <span class="co"># with a new name define as &quot;means.myenv&quot;, where myenv is the actual name of the environment</span></span>
-<span id="cb167-15"><a href="spatial-analysis.html#cb167-15" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>Now, we will draw the loop. The main function is <strong>for()</strong> followed by curly braces {}. The <strong>for()</strong> defines a how to go over the loop. We will write <strong>for (i in mylocs)</strong> meaning that <em>i</em> is a variable that will take the value of each one of the elements in my list (the location names). And then, everything inside the curly braces is what will be done with i being a given value within the list</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="spatial-analysis.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> mylocs){                                    <span class="co"># i is a variable that will take the value of every element in mylocs</span></span>
+<span id="cb14-2"><a href="spatial-analysis.html#cb14-2" aria-hidden="true" tabindex="-1"></a>  myenv <span class="ot">=</span> i                                           <span class="co"># Define &quot;myenv&quot; as whatever we have in i</span></span>
+<span id="cb14-3"><a href="spatial-analysis.html#cb14-3" aria-hidden="true" tabindex="-1"></a>  mysubset<span class="ot">=</span> <span class="fu">subset</span>(mydata, location <span class="sc">==</span> i)                     <span class="co"># Make a subset with environment i</span></span>
+<span id="cb14-4"><a href="spatial-analysis.html#cb14-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb14-5"><a href="spatial-analysis.html#cb14-5" aria-hidden="true" tabindex="-1"></a>  myspats <span class="ot">=</span>  <span class="fu">SpATS</span>(<span class="at">response =</span> <span class="st">&quot;yield&quot;</span>,                <span class="co"># This is the SpATS function we saw before</span></span>
+<span id="cb14-6"><a href="spatial-analysis.html#cb14-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">genotype =</span> <span class="st">&quot;variety&quot;</span>, </span>
+<span id="cb14-7"><a href="spatial-analysis.html#cb14-7" aria-hidden="true" tabindex="-1"></a>                 <span class="at">genotype.as.random =</span> F,</span>
+<span id="cb14-8"><a href="spatial-analysis.html#cb14-8" aria-hidden="true" tabindex="-1"></a>                 <span class="at">data=</span>      mysubset,                 <span class="co"># The data is coming from the specific subset done within the loop</span></span>
+<span id="cb14-9"><a href="spatial-analysis.html#cb14-9" aria-hidden="true" tabindex="-1"></a>                <span class="at">spatial =</span> <span class="sc">~</span> <span class="fu">SAP</span>(row, col))</span>
+<span id="cb14-10"><a href="spatial-analysis.html#cb14-10" aria-hidden="true" tabindex="-1"></a>  adjusted.means <span class="ot">&lt;-</span> <span class="fu">predict</span>(myspats,                  <span class="co">#  With &quot;myspats&quot;, we estimate the adjusted means</span></span>
+<span id="cb14-11"><a href="spatial-analysis.html#cb14-11" aria-hidden="true" tabindex="-1"></a>                            <span class="at">which =</span> <span class="st">&quot;variety&quot;</span>)   </span>
+<span id="cb14-12"><a href="spatial-analysis.html#cb14-12" aria-hidden="true" tabindex="-1"></a>  adjusted.means<span class="sc">$</span>location <span class="ot">&lt;-</span> myenv                         <span class="co"># To our &quot;adjusted.means&quot; data frame, we add a column with the name of environment                        </span></span>
+<span id="cb14-13"><a href="spatial-analysis.html#cb14-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">assign</span>(<span class="at">value  =</span> adjusted.means[,<span class="fu">c</span>(<span class="dv">6</span>,<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">5</span>)],        <span class="co"># I want to save the adjusted means object (while also rearranging column order)</span></span>
+<span id="cb14-14"><a href="spatial-analysis.html#cb14-14" aria-hidden="true" tabindex="-1"></a>         <span class="at">x=</span>  <span class="fu">paste0</span>(<span class="st">&quot;means.&quot;</span>,myenv))                  <span class="co"># with a new name define as &quot;means.myenv&quot;, where myenv is the actual name of the environment</span></span>
+<span id="cb14-15"><a href="spatial-analysis.html#cb14-15" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>The possibilities of looping are vast. We could, for example, create a new loop, within our main loop, for also obtaining the adjusted means for other variables. We will not do it for now.</p>
 <p>Now, we have four different adjusted means object, one for each environment. We could bind the with the <strong>rbind()</strong> function, which stands for rowbind.</p>
-<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="spatial-analysis.html#cb168-1" aria-hidden="true" tabindex="-1"></a>all.means <span class="ot">&lt;-</span> <span class="fu">rbind</span>(means.Castronuovo, means.Molise, means.Rotonda, means.Sestola)</span>
-<span id="cb168-2"><a href="spatial-analysis.html#cb168-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb168-3"><a href="spatial-analysis.html#cb168-3" aria-hidden="true" tabindex="-1"></a><span class="co">#We can additionally change some column names to make things more clean</span></span>
-<span id="cb168-4"><a href="spatial-analysis.html#cb168-4" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(all.means)[<span class="dv">3</span>] <span class="ot">&lt;-</span> <span class="st">&quot;yield_adj_mean&quot;</span></span>
-<span id="cb168-5"><a href="spatial-analysis.html#cb168-5" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(all.means)[<span class="dv">4</span>] <span class="ot">&lt;-</span> <span class="st">&quot;yield_sd&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="spatial-analysis.html#cb15-1" aria-hidden="true" tabindex="-1"></a>all.means <span class="ot">&lt;-</span> <span class="fu">rbind</span>(means.Castronuovo, means.Molise, means.Rotonda, means.Sestola)</span>
+<span id="cb15-2"><a href="spatial-analysis.html#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="spatial-analysis.html#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co">#We can additionally change some column names to make things more clean</span></span>
+<span id="cb15-4"><a href="spatial-analysis.html#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(all.means)[<span class="dv">3</span>] <span class="ot">&lt;-</span> <span class="st">&quot;yield_adj_mean&quot;</span></span>
+<span id="cb15-5"><a href="spatial-analysis.html#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(all.means)[<span class="dv">4</span>] <span class="ot">&lt;-</span> <span class="st">&quot;yield_sd&quot;</span></span></code></pre></div>
 <p>And we plot it:</p>
-<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="spatial-analysis.html#cb169-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span> all.means,                     <span class="co"># Our data frame</span></span>
-<span id="cb169-2"><a href="spatial-analysis.html#cb169-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x=</span>variety,                       <span class="co"># Variety is the x axis</span></span>
-<span id="cb169-3"><a href="spatial-analysis.html#cb169-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">y=</span>yield_adj_mean))<span class="sc">+</span>              <span class="co"># Yield Adjusted Means are the y axis</span></span>
-<span id="cb169-4"><a href="spatial-analysis.html#cb169-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&#39;identity&#39;</span>,                 <span class="co"># The bars are plotted according to the identity actual values in the cells</span></span>
-<span id="cb169-5"><a href="spatial-analysis.html#cb169-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">fill=</span> <span class="st">&quot;tomato&quot;</span>)<span class="sc">+</span>                 <span class="co"># and filled with &quot;tomato&quot; color</span></span>
-<span id="cb169-6"><a href="spatial-analysis.html#cb169-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(location<span class="sc">~</span>.)<span class="sc">+</span>                        <span class="co"># Make a facet per each location </span></span>
-<span id="cb169-7"><a href="spatial-analysis.html#cb169-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span> <span class="st">&quot;Genotype&quot;</span>,<span class="at">y=</span> <span class="st">&quot;Yield&quot;</span>)  <span class="sc">+</span>         <span class="co"># Axis labels</span></span>
-<span id="cb169-8"><a href="spatial-analysis.html#cb169-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(                            <span class="co">#Error bars</span></span>
-<span id="cb169-9"><a href="spatial-analysis.html#cb169-9" aria-hidden="true" tabindex="-1"></a>          <span class="fu">aes</span>(<span class="at">ymin=</span>yield_adj_mean <span class="sc">-</span> yield_sd, </span>
-<span id="cb169-10"><a href="spatial-analysis.html#cb169-10" aria-hidden="true" tabindex="-1"></a>              <span class="at">ymax=</span>yield_adj_mean <span class="sc">+</span> yield_sd),</span>
-<span id="cb169-11"><a href="spatial-analysis.html#cb169-11" aria-hidden="true" tabindex="-1"></a>              <span class="at">width=</span><span class="fl">0.2</span>)<span class="sc">+</span></span>
-<span id="cb169-12"><a href="spatial-analysis.html#cb169-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span><span class="dv">90</span>))</span></code></pre></div>
-<p><img src="PPB-Toolkit-for-R-and-R-Studio_files/figure-html/unnamed-chunk-120-1.png" width="672" /></p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="spatial-analysis.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span> all.means,                     <span class="co"># Our data frame</span></span>
+<span id="cb16-2"><a href="spatial-analysis.html#cb16-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x=</span>variety,                       <span class="co"># Variety is the x axis</span></span>
+<span id="cb16-3"><a href="spatial-analysis.html#cb16-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">y=</span>yield_adj_mean))<span class="sc">+</span>              <span class="co"># Yield Adjusted Means are the y axis</span></span>
+<span id="cb16-4"><a href="spatial-analysis.html#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&#39;identity&#39;</span>,                 <span class="co"># The bars are plotted according to the identity actual values in the cells</span></span>
+<span id="cb16-5"><a href="spatial-analysis.html#cb16-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">fill=</span> <span class="st">&quot;tomato&quot;</span>)<span class="sc">+</span>                 <span class="co"># and filled with &quot;tomato&quot; color</span></span>
+<span id="cb16-6"><a href="spatial-analysis.html#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(location<span class="sc">~</span>.)<span class="sc">+</span>                        <span class="co"># Make a facet per each location </span></span>
+<span id="cb16-7"><a href="spatial-analysis.html#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span> <span class="st">&quot;Genotype&quot;</span>,<span class="at">y=</span> <span class="st">&quot;Yield&quot;</span>)  <span class="sc">+</span>         <span class="co"># Axis labels</span></span>
+<span id="cb16-8"><a href="spatial-analysis.html#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(                            <span class="co">#Error bars</span></span>
+<span id="cb16-9"><a href="spatial-analysis.html#cb16-9" aria-hidden="true" tabindex="-1"></a>          <span class="fu">aes</span>(<span class="at">ymin=</span>yield_adj_mean <span class="sc">-</span> yield_sd, </span>
+<span id="cb16-10"><a href="spatial-analysis.html#cb16-10" aria-hidden="true" tabindex="-1"></a>              <span class="at">ymax=</span>yield_adj_mean <span class="sc">+</span> yield_sd),</span>
+<span id="cb16-11"><a href="spatial-analysis.html#cb16-11" aria-hidden="true" tabindex="-1"></a>              <span class="at">width=</span><span class="fl">0.2</span>)<span class="sc">+</span></span>
+<span id="cb16-12"><a href="spatial-analysis.html#cb16-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span><span class="dv">90</span>))</span></code></pre></div>
+<p><img src="PPB-Toolkit-for-R-and-R-Studio_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 <p>Moreover, given that ggplot can handle plotting data from two different data sources, we could do the same plot, but including also the raw data, and check for the main differences between both.</p>
-<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="spatial-analysis.html#cb170-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span> all.means,                     <span class="co"># Our data frame</span></span>
-<span id="cb170-2"><a href="spatial-analysis.html#cb170-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x=</span>variety,                       <span class="co"># Variety is the x axis</span></span>
-<span id="cb170-3"><a href="spatial-analysis.html#cb170-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">y=</span>yield_adj_mean))<span class="sc">+</span>              <span class="co"># Yield Adjusted Means are the y axis</span></span>
-<span id="cb170-4"><a href="spatial-analysis.html#cb170-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&#39;identity&#39;</span>,                 <span class="co"># The bars are plotted according to the identity actual values in the cells</span></span>
-<span id="cb170-5"><a href="spatial-analysis.html#cb170-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">fill=</span> <span class="st">&quot;tomato&quot;</span>)<span class="sc">+</span>                 <span class="co"># and filled with &quot;tomato&quot; color</span></span>
-<span id="cb170-6"><a href="spatial-analysis.html#cb170-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(location<span class="sc">~</span>.)<span class="sc">+</span>                        <span class="co"># Make a facet per each location </span></span>
-<span id="cb170-7"><a href="spatial-analysis.html#cb170-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span> <span class="st">&quot;Genotype&quot;</span>,<span class="at">y=</span> <span class="st">&quot;Yield&quot;</span>)  <span class="sc">+</span>         <span class="co"># Axis labels</span></span>
-<span id="cb170-8"><a href="spatial-analysis.html#cb170-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(                            <span class="co">#Error bars</span></span>
-<span id="cb170-9"><a href="spatial-analysis.html#cb170-9" aria-hidden="true" tabindex="-1"></a>          <span class="fu">aes</span>(<span class="at">ymin=</span>yield_adj_mean <span class="sc">-</span> yield_sd, </span>
-<span id="cb170-10"><a href="spatial-analysis.html#cb170-10" aria-hidden="true" tabindex="-1"></a>              <span class="at">ymax=</span>yield_adj_mean <span class="sc">+</span> yield_sd),</span>
-<span id="cb170-11"><a href="spatial-analysis.html#cb170-11" aria-hidden="true" tabindex="-1"></a>              <span class="at">width=</span><span class="fl">0.2</span>)<span class="sc">+</span></span>
-<span id="cb170-12"><a href="spatial-analysis.html#cb170-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span><span class="dv">90</span>))<span class="sc">+</span></span>
-<span id="cb170-13"><a href="spatial-analysis.html#cb170-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data=</span> mydata, <span class="fu">aes</span>(<span class="at">x=</span> variety,<span class="at">y=</span>yield), <span class="at">col=</span> <span class="st">&quot;darkgreen&quot;</span>)<span class="sc">+</span>   <span class="co"># A point for every raw yield observation</span></span>
-<span id="cb170-14"><a href="spatial-analysis.html#cb170-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data=</span> mydata, <span class="fu">aes</span>(<span class="at">x=</span> variety,<span class="at">y=</span>yield), <span class="at">stat =</span> <span class="st">&quot;summary&quot;</span>,    <span class="co"># And a cross for the mean of the rar observations.</span></span>
-<span id="cb170-15"><a href="spatial-analysis.html#cb170-15" aria-hidden="true" tabindex="-1"></a>             <span class="at">fun =</span> <span class="st">&quot;mean&quot;</span>, <span class="at">col=</span> <span class="st">&quot;darkgreen&quot;</span>, <span class="at">shape=</span> <span class="dv">4</span>)</span></code></pre></div>
-<p><img src="PPB-Toolkit-for-R-and-R-Studio_files/figure-html/unnamed-chunk-121-1.png" width="672" /></p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="spatial-analysis.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span> all.means,                     <span class="co"># Our data frame</span></span>
+<span id="cb17-2"><a href="spatial-analysis.html#cb17-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x=</span>variety,                       <span class="co"># Variety is the x axis</span></span>
+<span id="cb17-3"><a href="spatial-analysis.html#cb17-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">y=</span>yield_adj_mean))<span class="sc">+</span>              <span class="co"># Yield Adjusted Means are the y axis</span></span>
+<span id="cb17-4"><a href="spatial-analysis.html#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&#39;identity&#39;</span>,                 <span class="co"># The bars are plotted according to the identity actual values in the cells</span></span>
+<span id="cb17-5"><a href="spatial-analysis.html#cb17-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">fill=</span> <span class="st">&quot;tomato&quot;</span>)<span class="sc">+</span>                 <span class="co"># and filled with &quot;tomato&quot; color</span></span>
+<span id="cb17-6"><a href="spatial-analysis.html#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(location<span class="sc">~</span>.)<span class="sc">+</span>                        <span class="co"># Make a facet per each location </span></span>
+<span id="cb17-7"><a href="spatial-analysis.html#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span> <span class="st">&quot;Genotype&quot;</span>,<span class="at">y=</span> <span class="st">&quot;Yield&quot;</span>)  <span class="sc">+</span>         <span class="co"># Axis labels</span></span>
+<span id="cb17-8"><a href="spatial-analysis.html#cb17-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(                            <span class="co">#Error bars</span></span>
+<span id="cb17-9"><a href="spatial-analysis.html#cb17-9" aria-hidden="true" tabindex="-1"></a>          <span class="fu">aes</span>(<span class="at">ymin=</span>yield_adj_mean <span class="sc">-</span> yield_sd, </span>
+<span id="cb17-10"><a href="spatial-analysis.html#cb17-10" aria-hidden="true" tabindex="-1"></a>              <span class="at">ymax=</span>yield_adj_mean <span class="sc">+</span> yield_sd),</span>
+<span id="cb17-11"><a href="spatial-analysis.html#cb17-11" aria-hidden="true" tabindex="-1"></a>              <span class="at">width=</span><span class="fl">0.2</span>)<span class="sc">+</span></span>
+<span id="cb17-12"><a href="spatial-analysis.html#cb17-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span><span class="dv">90</span>))<span class="sc">+</span></span>
+<span id="cb17-13"><a href="spatial-analysis.html#cb17-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data=</span> mydata, <span class="fu">aes</span>(<span class="at">x=</span> variety,<span class="at">y=</span>yield), <span class="at">col=</span> <span class="st">&quot;darkgreen&quot;</span>)<span class="sc">+</span>   <span class="co"># A point for every raw yield observation</span></span>
+<span id="cb17-14"><a href="spatial-analysis.html#cb17-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data=</span> mydata, <span class="fu">aes</span>(<span class="at">x=</span> variety,<span class="at">y=</span>yield), <span class="at">stat =</span> <span class="st">&quot;summary&quot;</span>,    <span class="co"># And a cross for the mean of the rar observations.</span></span>
+<span id="cb17-15"><a href="spatial-analysis.html#cb17-15" aria-hidden="true" tabindex="-1"></a>             <span class="at">fun =</span> <span class="st">&quot;mean&quot;</span>, <span class="at">col=</span> <span class="st">&quot;darkgreen&quot;</span>, <span class="at">shape=</span> <span class="dv">4</span>)</span></code></pre></div>
+<p><img src="PPB-Toolkit-for-R-and-R-Studio_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
 
 </div>
 </div>
 <h3>References</h3>
 <div id="refs" class="references csl-bib-body hanging-indent">
-<div id="ref-singh2003spatial" class="csl-entry">
-al, Singh et. 2003. <span>“Spatial Variability Models to Improve Dryland Field Trials.”</span> <em>Experimental Agriculture</em> 39 (2): 151–60.
-</div>
 <div id="ref-spats2017" class="csl-entry">
 Rodríguez-Álvarez et al. 2018. <span>“Correcting for Spatial Heterogeneity in Plant Breeding Experiments with p-Splines.”</span> <em>Spatial Statistics</em> 23.
+</div>
+<div id="ref-singh2003spatial" class="csl-entry">
+Singh et al. 2003. <span>“Spatial Variability Models to Improve Dryland Field Trials.”</span> <em>Experimental Agriculture</em> 39 (2): 151–60.
 </div>
 </div>
             </section>
@@ -453,20 +446,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

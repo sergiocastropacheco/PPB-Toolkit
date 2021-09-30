@@ -7,7 +7,7 @@ text-align: justify}
 
 ![](rsrstrip.png)
 
-Agricultural fields are often very heterogenous, and one when one wishes to determine the genetic value of a given genotype, it is often useful to use methods that account for this variability @singh2003spatial. Several methodological and statistical approaches can be used to address this use. In this chaper, we will cover the use of **SpATS**, and (hopefully soon) the use of other packages. 
+Agricultural fields are often very heterogenous, and one when we intend to determine the genetic value of a given set of genotype, it is often useful to use methods that account for this variability [@singh2003spatial]. Several methodological and statistical approaches can be used to address this use. In this chaper, we will cover the use of **SpATS**, and (hopefully soon) the use of other packages. 
 
 ## SpATS
 
@@ -27,48 +27,48 @@ library (SpATS)
 
 We will use the same tomato data that we have been using in the previous chapter.
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE, results=F}
+```{r,  message=FALSE, warning=FALSE, results=F}
 mydata <- read.csv("tomatoMLT2020.csv")
 ```
 
 
-So, to properly perform the analysis, we can only use data from one location, in order to grasp the spatial heterogeneity of that specific farm. So, we first [subset](#basic-r) the data only from one of our locations called Sestola.
+So, to properly perform the analysis, we can only use data from one location, in order to grasp the spatial heterogeneity of that specific farm. So, we first [subset](#basic-r) the data only from Sestola, one of our four locations.
 
 ```{r, message= F, warning= F}
 data.Sestola <- subset(mydata, location == "Sestola")
 ```
 
-
 With this object, we can now run the function **SpATS**, as showed and explained here:
 
 ```{r message=FALSE, warning=FALSE, results=F}
-spats.Sestola  =    SpATS(data=      data.Sestola,    #My subset from Sestola  
-                          response= "yield",          #The name of my variable
-                          genotype = "variety",       #The name of my genotupe columns
-                          genotype.as.random = F,     #This is a long story. Genotypes set as random or as fixed.
-                                                      # define my model. In the first case, I will obtain BLUPs 
-                                                      # values, and in the seconed, BLUEs values.
-                          spatial = ~ SAP(row, col))  #This arguments designs the row-column distribution of the field
+spats.Sestola  =    SpATS(data=      data.Sestola,    # My subset from Sestola  
+                          response= "yield",          # The name of my variable
+                          genotype = "variety",       # The name of my genotupe columns
+                          genotype.as.random = F,     # This is a long story. 
+                                                      # But this argument determines if
+                                                      # genotypes set as random or as fixed in my model.
+                                                      # In the first case, I will obtain BLUPs 
+                                                      # values, and in the second, BLUEs values.
+                          spatial = ~ SAP(row, col))  # This arguments designs the row-column distribution of the field
 
 ```
 
-We created an object called spats.Sestola and we can plot it inmediately. In this plot we can see the raw data, the data "fitted" to the spatial model, the residuals of the model.
+We created an object called "spats.Sestola" and we can plot it inmediately. In this plot we can see the raw data, the data "fitted" to the spatial model, the residuals of the model, the smoothed spatial trend and the BLUES values.
 
-```{r, message= F, warning= F}
+```{r myplotSestola, message= F, warning= F}
 plot(spats.Sestola)
-toBibtex(citation("metan"))
 ```
 
-We are intereseted in the BLUES (or the BLUPS), which is an estimate (or a prediction) of the breeding genetic value for each genotype. In the plot, it is given as a deviation from the mean. If we add the overall mean value to that number, we would have what we call an adjusted mean. In SpATS, this can be done through **predict()**.
+We are intereseted in the BLUES (or the BLUPS), which is an estimate (or a prediction) of the breeding genetic value for each genotype. In the plot, they are given as a deviation from the mean. If we add the overall mean value to that number, we would have what we call an adjusted mean. In SpATS, this can be done through **predict()**.
 
 ```{r, message= F, warning= F}
 adj.means = predict(spats.Sestola, which = 'variety')
 adj.means
 ```
 
-And I could plot them.
+And now, I could plot this adjusted means with [ggplot](#ggplot).
 
-```{r, message= F, warning= F}
+```{r sestolaadjmeans, message= F, warning= F}
 library(ggplot2)
 ggplot(adj.means, aes(x= variety, y = predicted.values))+
   geom_bar(stat= "identity", fill = "tomato")+
@@ -79,7 +79,7 @@ ggplot(adj.means, aes(x= variety, y = predicted.values))+
 
 To better understand the kind of transformation that we did to the data, we can take a look at this plot, which represents the raw yield numbers for each plot in the field.
 
-```{r, message= F, warning= F}
+```{r rawSestola, message= F, warning= F}
 ggplot(data.Sestola, aes(x=row, y = col, label= variety, fill = yield))+
   geom_tile()+
   geom_text()+
@@ -88,11 +88,11 @@ ggplot(data.Sestola, aes(x=row, y = col, label= variety, fill = yield))+
 
 We can see some examples, for instance:
 
-* Var. D was the best variety. It had an outstanding performance in Column 6 Row 1 and then, an average performance in Row 3 Column 4. The combination of both performances allowed this variety to have the highest BLUEs value.
+* Var. D was the best variety. It had an outstanding performance in Column 6 Row 1 and then, an average performance in Row 3 Column 4. The combination of both performances allowed this variety to have the highest BLUE value.
 
-* Var. H had the lowest adjusted mean. Both repetitions were more or less in the center of the plot, but both had bad performances.
+* Var. H had the lowest adjusted mean. Both repetitions were more or less in the center of the plot, but both had bad performances. At the end, we end up with a very low BLUE value.
 
-Moreover, the SpATS object we have just created is full of different objects, for example
+Moreover, the SpATS object we have just created is full of different objects, that could be further explored, for example":
 
 ```{r, eval = F}
 spats.Sestola$call       # The original call
@@ -101,7 +101,9 @@ spats.Sestola$deviance   # The deviance indicate how appropiate is the fitting o
 spats.Sestola$coeff      # This is the coefficient for every factor, including genotype and field position.
 ```
 
-We then would have to do the same for every environment. We could do it manually, writing the code above for every environment. It is possible, but lenghty. We will here propose the code to do it into a loop function. Looping in R (and in general) is extremely useful, and we will use this example to show the basics on how looping is done.
+We then would have to do the same for every environment. We could do it manually, writing the code above for every environment. It is possible, but lenghty.
+
+We will here propose the code to do through a loop function. Looping in R (and in general) is extremely useful, and we will use this example to show the basics on how looping is done.
 
 First, we create a list of the elements that will be used in my loop. In our case, the list will contain the 4 location name. Alternatively, and most commonly, the lists are simply a sequence of numbers.
 
@@ -110,7 +112,7 @@ mylocs = unique(mydata$loc) # The unique() function takes the unique values from
 mylocs
 ```
 
-Now, we will draw the loop. The main function is **for()** followed by curly braces {}. The **for()** defines a how to go over the loop; we will write **for (i in mylocs)** meaning that *i* is a variable that will take the value of each one of the elements in my list (the location names). And then, everything inside the curly braces is what will be done with i being a given value within the list
+Now, we will draw the loop. The main function is **for()** followed by curly braces {}. The **for()** defines a how to go over the loop. We will write **for (i in mylocs)** meaning that *i* is a variable that will take the value of each one of the elements in my list (the location names). And then, everything inside the curly braces is what will be done with i being a given value within the list
 
 
 ```{r, results = "hide", message= F, results = F}
@@ -126,7 +128,7 @@ for (i in mylocs){                                    # i is a variable that wil
   adjusted.means <- predict(myspats,                  #  With "myspats", we estimate the adjusted means
                             which = "variety")   
   adjusted.means$location <- myenv                         # To our "adjusted.means" data frame, we add a column with the name of environment                        
-  assign(value  = adjusted.means[,c(6,1,4,5)],        # I want to save the adjusted means object (rearrangin column order)
+  assign(value  = adjusted.means[,c(6,1,4,5)],        # I want to save the adjusted means object (while also rearranging column order)
          x=  paste0("means.",myenv))                  # with a new name define as "means.myenv", where myenv is the actual name of the environment
 }
 

@@ -1,5 +1,5 @@
 --- 
-title: "A PPB Toolkit in R and RStudio"
+title: "A Participatory Plant Breeding Toolkit in R and RStudio"
 author: "By Sergio Castro and Matteo Petitti"
 date: "Last Update: `r Sys.Date()`"
 site: bookdown::bookdown_site
@@ -37,7 +37,7 @@ Participatory Plant Breeding (PPB) is becoming increasingly popular around the w
 
 However, the technical and practical aspects of PPB prograrms can be very challenging. One of the biggest areas of difficulty has to do with data processing and analysis, as it may require specific skill-sets that can only be adquired by practice. Literature on this subject is increasingly growing and great overall manuals have been written; most notably,  the one from @Tech-Manual.
 
-We do not pretend to reiterate or substite this valuable resouces. What we do pretend is to offer a brief, synthetic and updates toolkit, which should be useful for participatory plant breeders during their processes. We offer this toolkit specifically in the frame of R and RStudio, an open source language and Integrated Development Environment (IDE) @Rstudio.
+We do not pretend to reiterate or substite this valuable resouces. What we do pretend is to offer a brief, synthetic and updates toolkit, which should be useful for participatory plant breeders during their processes. We offer this toolkit specifically in the frame of R and RStudio, an open source language and Integrated Development Environment (IDE) @Rstudio. 
 
 We propose R as a very powerful tool for PPB purposes because of three main reasons:
 
@@ -50,6 +50,9 @@ Through R and RStudio, you can integrate most of the data related needs in PPB, 
 * **Reproducibile. ** \
 After developing all your designs and analysis, you can share your methods and results with the community. Then, virtually anyone with access to your data and your code can review every step you took and (hopefully) arrive to the same result.
 
+
+In fact, a very useful package has been released specially for the use in Participatory Plant Breeding @ppbstatsbook. We are writing this book with the 
+purpose of enriching the resources already available, and to gather information on techniques and methods that might otherwise be scattered.
 
 Furthermore, we want to insist on the fact that this is intended to be an ever growing manual, which is to be fed by the comments and experiences of those who find this resource useful.
 

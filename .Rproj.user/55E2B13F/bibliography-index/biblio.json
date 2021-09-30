@@ -25,7 +25,7 @@
         {
             "author": [
                 {
-                    "literal": "Ceccarelli"
+                    "family": "Ceccarelli"
                 }
             ],
             "id": "Tech-Manual",
@@ -108,9 +108,7 @@
         {
             "author": [
                 {
-                    "dropping-particle": "et",
-                    "family": "al",
-                    "given": "Singh"
+                    "literal": "Singh et al."
                 }
             ],
             "container-title": "Experimental Agriculture",
@@ -154,6 +152,60 @@
             "title-short": "Metan",
             "type": "article-journal",
             "volume": "11"
+        },
+        {
+            "author": [
+                {
+                    "family": "Yan",
+                    "given": "Weikai"
+                },
+                {
+                    "family": "Hunt",
+                    "given": "Leslie A"
+                },
+                {
+                    "family": "Sheng",
+                    "given": "Qinglai"
+                },
+                {
+                    "family": "Szlavnics",
+                    "given": "Zorka"
+                }
+            ],
+            "container-title": "Crop science",
+            "id": "yan2000cultivar",
+            "issue": "3",
+            "issued": {
+                "date-parts": [
+                    [
+                        2000
+                    ]
+                ]
+            },
+            "page": "597-605",
+            "publisher": "Wiley Online Library",
+            "title": "Cultivar evaluation and mega-environment investigation based on the GGE biplot",
+            "type": "article-journal",
+            "volume": "40"
+        },
+        {
+            "URL": "https://priviere.github.io/PPBstats_web_site/book/index.html",
+            "author": [
+                {
+                    "literal": "Riviere et al."
+                }
+            ],
+            "id": "ppbstatsbook",
+            "issued": {
+                "date-parts": [
+                    [
+                        2020
+                    ]
+                ]
+            },
+            "title": "PPBstats : An R package for Participatory Plant Breeding statisticial analyses.",
+            "type": "book",
+            "version": "0.26"
         },
         {
             "URL": "https://www.R-project.org/",
