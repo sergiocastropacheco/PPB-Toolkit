@@ -220,11 +220,22 @@ This section is under progress!
 
 There are mainly two ways to export a package: by clicking manually or through R code.
 
-*  by clicking manually.
+* By clicking manually.
 
+    + Once you created your plot and you see it on the lower left panel, you can click on "Export", then select your desired parameters, and save it on your WD (or elsewhere).
 
-png("ilmioplotbellino.png", width= 300, height= 300)
-plot.cor.facets
+* By code 
+
+    + If you want to be more automatic, you can use code to export and save your image. The functions **png()** of **jpg()** can help you in this sense. To do this, you have to assign a create your ggplot, and then run your prefered function, specifying the output name and dimensions. At the end it's important to use **dev.off()** to indicate that your "export device" has been closed.
+     
+```{r}
+
+ggplot(data= mydata, aes(y=farmers_eval ,  x=yield))+
+                   geom_point()+
+                   geom_smooth(method= lm) #Regression line with Linear Method (lm)
+
+png("myplot.png", width= 300, height= 300)
 dev.off()
+```
 
 ![](rsrstrip.png)
