@@ -1,5 +1,12 @@
 # GGE BiPlots
 
+<style>
+body {
+text-align: justify}
+</style>
+
+![](rsrstrip.png)
+
 Introduce description for GGE BiPlots
 
 ## metan
@@ -14,6 +21,7 @@ library(metan)
 
 ```{r, warning = F, message =F}
 library(metan)
+
 ```
 
 Then, we will use our tomato data, which we usually call 'mydata'

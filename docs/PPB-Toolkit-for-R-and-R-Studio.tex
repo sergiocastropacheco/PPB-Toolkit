@@ -1,0 +1,2613 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{book}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={A PPB Toolkit in R and RStudio},
+  pdfauthor={By Sergio Castro and Matteo Petitti},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\usepackage{booktabs}
+\usepackage{titling}
+\pretitle{\begin{center} \includegraphics[width=1in,height=1in]{Cover.jpg}\LARGE\\}
+\ifluatex
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage[]{natbib}
+\bibliographystyle{apalike}
+
+\title{A PPB Toolkit in R and RStudio}
+\author{By Sergio Castro and Matteo Petitti}
+\date{Last Update: 2021-09-30}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+\includegraphics{Cover.jpg}
+
+\hypertarget{introduction}{%
+\chapter{Introduction}\label{introduction}}
+
+\includegraphics{rsrstrip.png}
+
+Participatory Plant Breeding (PPB) is becoming increasingly popular around the world, as an approach that allows for both important gains in selection efficacy and for the improvement in farmer's involvement in science and decision making \citep{Ceccareli2020}.
+
+However, the technical and practical aspects of PPB prograrms can be very challenging. One of the biggest areas of difficulty has to do with data processing and analysis, as it may require specific skill-sets that can only be adquired by practice. Literature on this subject is increasingly growing and great overall manuals have been written; most notably, the one from \citet{Tech-Manual}.
+
+We do not pretend to reiterate or substite this valuable resouces. What we do pretend is to offer a brief, synthetic and updates toolkit, which should be useful for participatory plant breeders during their processes. We offer this toolkit specifically in the frame of R and RStudio, an open source language and Integrated Development Environment (IDE) \citet{Rstudio}.
+
+We propose R as a very powerful tool for PPB purposes because of three main reasons:
+
+\begin{itemize}
+\item
+  \textbf{Open Source. }\\
+  Anyone can download R and use it for free. What is more, anyone can also make its own contribution and expand the possibilites of things that can be done through this language. In fact, R is constantly updated by users around the world.
+\item
+  \textbf{Polifunctional. }\\
+  Through R and RStudio, you can integrate most of the data related needs in PPB, such as Data Management, Statistical Analysis and Data Visualization.
+\item
+  \textbf{Reproducibile. }\\
+  After developing all your designs and analysis, you can share your methods and results with the community. Then, virtually anyone with access to your data and your code can review every step you took and (hopefully) arrive to the same result.
+\end{itemize}
+
+Furthermore, we want to insist on the fact that this is intended to be an ever growing manual, which is to be fed by the comments and experiences of those who find this resource useful.
+
+\includegraphics{rsrstrip.png}
+
+\hypertarget{first-steps-in-r}{%
+\chapter{First Steps in R}\label{first-steps-in-r}}
+
+\includegraphics{rsrstrip.png}
+
+If you already know the basics of R, you can skip this section and go straight to the next \protect\hyperlink{data-wrangling-and-summarizing}{chapter}!
+
+\hypertarget{getting-started}{%
+\section{Getting started}\label{getting-started}}
+
+If however, you are not used to RStudio, many ressources are available on line to master the language and procedures on R. If you are interested, we suggest some of them at the end of this chapter. However, this first chapter gives the most basic elements of R that will be useful later on, for the objetives of this PPB Toolkit.
+
+At this point, if you do not have it already, we suggest you to download the programming language R through this \href{https://www.r-project.org/}{link} and RStudio, the associated Integrated Development Environment (IDE) through this \href{https://www.rstudio.com/products/rstudio/download/}{link}. Alternatively, you can try the cloud version \href{https://rstudio.cloud/}{R studio cloud}, but have in mind that most explanations in this toolkit will be done according to a locally downloaded version.
+
+\includegraphics{rsrstrip.png}
+
+\textbf{The RStudio Screen}
+
+If at this point, you have downloaded and opened RStudio, you should be looking at something similar to the image in Figure 1 (This image is provisory). In order to facilitate communication between us and to properly navigate through the RStudio screen later on, some precisions must be made about this.
+
+\includegraphics{Rstudio screen 2.png}
+\textbf{Figure 1. The RStudio Screen. 1: The Text Editor. 2: The Environment. 3: The Plots. 4: The Console. }
+
+The RStudio screen is normally divided into 4 large panels. Different tools could be assigned to those 4 panels, and their order can be inverted. However, we will here describe the most commons uses for the standard positions of these panels.
+
+The \textbf{text editor (1)} usually appears at the upper left cuadrant. It is evidently where most typing happens and what is typed can then be saved in the form of a script.
+
+The \textbf{console (2)} is at the lower left cuadrant, every line of code run passes through here, and it is also where results are usually shown. Also, when an error occurs, the explanation of the error appears here. Moreover, some other features might be shown in this cuadrant if decided by the user, such as the Terminal and R Markdown (which will not be covered in this toolkit).
+
+The \textbf{upper right corner (3)} usually shows us the objects that are present in the R environment. We will later on see what objects can be and how to use them.
+
+The \textbf{lower right cuadrant (4)} is one of the most versatile spaces. It can be used to see the plots, to browse for files and to ask for help.
+
+\includegraphics{rsrstrip.png}
+
+\textbf{Basic operations.}
+
+R can be thought simply as a calculator (but a very powerful one). Start by writing \textbf{on the console} ``1+1'', and then click the Enter button.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{1}\SpecialCharTok{+}\DecValTok{1} 
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2
+\end{verbatim}
+
+The first strip is what we typed, and the second shows the result of the request. The {[}1{]} symbol indicates that this is the first line of answers, and the only element present is a 2. Later on, we will see that certain operations will produce several lines of answers, so it is useful that results are ordered by numbers.
+
+Try to type now ``1+1'' on the text editor. Once typed, you can click on the ``Run'' button on the upper right to see the same results. Or alternatively (and faster), you can just type Ctrl+Enter while the cursor is on that line.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{1}\SpecialCharTok{+}\DecValTok{1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2
+\end{verbatim}
+
+We should expect the same results by performing operations directly on the console or on the text editor. However, the text editor is more flexible, because you can save all your text as a script, and rerun it later.
+
+\includegraphics{rsrstrip.png}
+
+\textbf{Basic Arithmetics }
+
+Let's explore a bit of other arithmetic functions. For example, if you want to multiply 6 times 9, just type "6*9" in the text editor and hit Ctrl+Enter:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{6}\SpecialCharTok{*}\DecValTok{9}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 54
+\end{verbatim}
+
+Or maybe you want to divide 3 by 2.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{3}\SpecialCharTok{/}\DecValTok{2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1.5
+\end{verbatim}
+
+Perhaps you are interested in estimating the square root of 2.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sqrt}\NormalTok{(}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1.414214
+\end{verbatim}
+
+Or in calculating 10 to the power of 2.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{10}\SpecialCharTok{\^{}}\DecValTok{2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 100
+\end{verbatim}
+
+\includegraphics{rsrstrip.png}
+
+\textbf{Basic functions}
+
+Functions are the base of R. Internally, they contain the operations that we want to execute. They are always written followed by a parenthesis and everything that is between parenthesis is called ``arguments'' . You can learn more about each function by typing the ? symbol, followed by the name of the function.
+
+Three simple examples of useful functions:
+
+\begin{verbatim}
+  Concatenate =  c() 
+  Mean = mean()
+  Standard deviation =  sd()
+\end{verbatim}
+
+How to use them?
+
+\begin{itemize}
+\tightlist
+\item
+  Use c() to put together a set of elements. In this case, numbers.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1 2 3 4
+\end{verbatim}
+
+Use mean() to estimate the mean of the four elements inside the c() function.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{mean}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2.5
+\end{verbatim}
+
+You can do the same, but with sd(), to estimate the standard deviation
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sd}\NormalTok{ (}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1.290994
+\end{verbatim}
+
+\includegraphics{rsrstrip.png}
+
+\textbf{Objects}
+
+The term ``Object'' refers to most of the information stored in your R session. An object can be a number, a character, a dataframe, a plot, or other things. You can see your objects in the upper right window of RStudio, called Environment.
+
+You can create objects by using the symbols ` = ' or ` \textless- `, although the latter is generally prefered. For example, create an object called x, containing the numbers 1, 2 and 3.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{)}
+\NormalTok{x}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1 2 3
+\end{verbatim}
+
+Or create and object called myvector, with all numbers from 1 to 5. The ``:'' symbol indicated that every number between 1 and 5 will be included.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{myvector }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{5}\NormalTok{)}
+\NormalTok{myvector}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1 2 3 4 5
+\end{verbatim}
+
+Now, you should see in the upper right window your two newly created objects, called ``x'' and ``myvector''.
+
+Two important notes regarding objects are:
+
+\begin{itemize}
+\item
+  When you create an object, it does not appear automatically in the console. To actually see the object you created, you have to ``call it'' by writing it's name on the text editor and typing Ctrl+Enter. Or, by writing it on the console and hitting simply Enter.
+\item
+  Attention to ortography and lower/upper cases!! MyVector is not myvector (typos make up the most common errors for R begginers)
+\end{itemize}
+
+\includegraphics{rsrstrip.png}
+
+\textbf{Saving your script.}
+
+You can save your script to work on it later, and, in that way, you have a proper register of the analysis you did.It's very useful to create a folder in your computer for every project you do in R. We invite you to create a folder on your documents and call it ``R PPB toolkit'' or whatever name you like better.
+
+Once created, you can save the script in which you are working by clicking on:
+
+\begin{itemize}
+\tightlist
+\item
+  File \textgreater{} Save As \textgreater{} Choose your folder and save your script as ``myscript.R''.
+\end{itemize}
+
+(It's important to finish with ``.R'', to indicate your file format.)
+
+\includegraphics{rsrstrip.png}
+
+\hypertarget{preparing-and-reading-your-data}{%
+\section{Preparing and reading your data}\label{preparing-and-reading-your-data}}
+
+\textbf{Setting up your Working Directory. }
+
+The Working Directory (WD) is a very important concept, and it is simply the folder in which you are working. This folder should work both for uploading files and placing the outputs of your work.
+
+The most important things to di regarding your WD are:
+
+\textbf{1. Knowing which folder is your actual WD, by using getwd() }
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{getwd}\NormalTok{()  }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "C:/Users/Usuario1/Documents/Github/PPB-Toolkit"
+\end{verbatim}
+
+*This is our working directory in our computer, but yours will be inevitably named diferently. In this case, our Directory (``PPB-Toolkit'') is within the a folder called ``Github'', that is located within ``Documents''.
+
+\textbf{2. Fixing your WD by writing setwd(``Folder Location'') }
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{setwd}\NormalTok{(}\StringTok{"C:/Users/Usuario1/Documents/New{-}PPB{-}Toolkit"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+So, I could set my WD to a folder inside my Documents. This step is specially tricky and works differently in PC and Mac. You should be sure that you can type precisely the location on your computer. Alternatively, you can follow step 3.
+
+\textbf{3. Fixing your WD by clicking. }
+
+You can also set your WD by clicking on RStudio.
+
+\begin{itemize}
+\tightlist
+\item
+  Session \textgreater{} Set Working Directory \textgreater{} Choose Directory \textgreater{} Manually locate your folder.
+\end{itemize}
+
+This is useful because the chances of typos and errors are reduced, but, if you have to do it every time you open RStudio, it might be annoying.
+
+*After doing this, you will see on the console that a code was automatically written, using the setwd(function). A nice trick is to copy and paste this direction into your script (inside the setwd() function), so that you are sure that is it typed correctly.
+
+\includegraphics{rsrstrip.png}
+
+\textbf{Preparing your data.}
+
+Normally, after evaluations in the field or in the laboratory, data is usually stored in a spreadsheet format in Excel, Google Sheets or other similar options. In those files, data should be kept in a format that is as tidy as possible, to facilitate further elaborations. The fundamentals of tidy data can be found \href{https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html}{here}.
+
+In this toolkit we will work mostly with data from a tomato PPB project developed in Italy (I would like to also add data from another source, maybe later). For this case, the data corresponds to a Multi Location Trial (MLT) done in 2020 at 4 different locations. The material evaluated came from a composite cross of 4 different landraces, and subjected to Natural Selection or Farmers Selection. However, to simplify this toolkit, varieties were simply named from A to N, as there were 14 different genotypes. Data also includes variables like mean of farmer's evaluations, the yield at first harvest, the total yield, the mean fruit weight and the percentage of marketable yield (as defined by the farmers).
+
+\includegraphics{tomatodata.png}
+\textbf{Figure 2. Snapshot of the spreadsheet containing the data from the tomato Multi-Location Trial as part of a PPB program. }
+
+Moreover, there are some general advices that can be given about the format of the data to upload.
+
+\begin{itemize}
+\item
+  For the column names, it is convenient to use short but explanative names and to avoid spaces. This allows for less problems in the analysis. That is why, for example, column 7 on Figure 2 reads ``farmers\_eval'' instead of ``Farmer's Evaluation''.
+\item
+  If you data frame has missing data, it is convenient to use always the same character as data frame indicator. It can be a "*" or even ``NA'', but, for now, avoid leaving blanks for the missing data.
+\end{itemize}
+
+\includegraphics{rsrstrip.png}
+
+\textbf{Uploading the data.}
+
+Data can be uploaded to R studio directly from the spreadsheet file in a excel format. However, the best way to do it is transforming your file into a ``comma separated values'' or .csv file. This is a lighter and easier to read format for most programs. To convert your spreadsheet into this format, you just have to click on ``Save As'', and choose the option ``CSV (comma delimited)''. You can know if you did it right if you open the same document in a text editor, such as Word or Notepad, and you see that now your rows have become just a long string of text separated with commas.
+
+You can \textbf{find and download the data} in this \href{https://drive.google.com/drive/folders/1y2NPXd9lYZcM51NMJEgqa-Iax8qZYs3O?usp=sharing}{Google Drive Folder}. Once your data file is on .csv format and saved in the folder you choose for Working Directory, you can upload it this way.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mydata }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"tomatoMLT2020.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+In this case, we knew that there was a file called `tomatoMLT2020.csv' in our working directory. So, through this line, we are at the same time reading the data, and assigning it to an object called ``mydata''
+
+If it doesn's work, the most probable reasons are that: i)the data is not on the right directory, or ii) you have not set properly your working directory. A small trick to check that out would be using this function. Where we ask R to list all the files within our working directory.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{list.files}\NormalTok{(}\FunctionTok{getwd}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+Another way to upload the data would be be clicking
+
+\begin{itemize}
+\tightlist
+\item
+  Import Database \textgreater{} From text(base) \textgreater{} Manually choose and select your file.
+\end{itemize}
+
+In that case, you will see that the code required to perform that operation will be automatically written on the console. A nice trick would be to copy that code and paste it on your script, to save it for later occasions.
+
+Moreover, off course that you can also import files that are in a excel format. You could, for example, click on:
+
+\begin{itemize}
+\tightlist
+\item
+  Import Database \textgreater{} From Excel \textgreater{} Manually choose and select your file.
+\end{itemize}
+
+Or, as well, use the required function, called \textbf{read\_xl()}. However, it requires to download the ``readxl'' package library ( and we will talk about them soon!).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(readxl)}
+\NormalTok{mydata }\OtherTok{\textless{}{-}} \FunctionTok{read\_xls}\NormalTok{(}\StringTok{"tomatoMLT2020.xlsx"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Moreover, more information about importing data into R can be found \href{http://www.sthda.com/english/wiki/importing-data-into-r}{here}.
+
+\textbf{Checking your data }
+
+It is generally convenient to check your data once you have uploaded it. This way, you make sure that you are choosing the right file and that no information was loss or distorted in the uploading process. Once you have uploaded the data, you can ask questions through R about the data, for example:
+
+What is the structure of my data?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{str}\NormalTok{(mydata)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 'data.frame':    112 obs. of  11 variables:
+##  $ location         : chr  "Molise" "Molise" "Molise" "Molise" ...
+##  $ plot             : int  1 2 3 4 5 6 7 8 9 10 ...
+##  $ rep              : int  1 1 2 2 1 1 2 2 1 1 ...
+##  $ row              : int  1 2 3 4 1 2 3 4 1 2 ...
+##  $ col              : int  1 1 1 1 2 2 2 2 3 3 ...
+##  $ variety          : chr  "Var. A" "Var. D" "Var. I" "Var. N" ...
+##  $ farmers_eval     : num  3.24 2.71 3.35 3.24 3.24 3.06 2.88 3.24 2.94 2.88 ...
+##  $ yield            : num  789 498 822 846 1083 ...
+##  $ yield_first      : num  11 0 24.9 46.8 28.2 ...
+##  $ perc_mark_yield  : num  57.5 55.8 76 55.3 81.2 ...
+##  $ mean_fruit_weight: num  17.43 7.37 35.54 14.19 68.85 ...
+\end{verbatim}
+
+This function is particularly useful, as you can see the data type of your columns. They might be characters, numerics, integrers (numbers without decimals) and factors, among others. For example, in this case, the location and the variety are read as characters, while they should be factors. We will soon see how to change this.
+
+We could, also do more specifical questions, like how many columns do I have? Or how many rows? What are the names of my variables?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ncol}\NormalTok{(mydata)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 11
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{nrow}\NormalTok{(mydata)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 112
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{names}\NormalTok{(mydata)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "location"          "plot"              "rep"              
+##  [4] "row"               "col"               "variety"          
+##  [7] "farmers_eval"      "yield"             "yield_first"      
+## [10] "perc_mark_yield"   "mean_fruit_weight"
+\end{verbatim}
+
+Of course, you can always choose to see your data in spreadsheet format.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{View}\NormalTok{(mydata)}
+\end{Highlighting}
+\end{Shaded}
+
+This does not appear in the book format, but in your RStudio screen, it will make a new tab appear with your data in a spreadsheet format.
+
+Bottomline, we advice to always check your data when uploading. Specifically, check the data type of each variable, as this might lead to problems during the analysis and manipulation.
+
+\includegraphics{rsrstrip.png}
+
+\hypertarget{basic-data-manipulation}{%
+\section{Basic data manipulation}\label{basic-data-manipulation}}
+
+\textbf{Accesing your data }
+
+Before performing statistic analysis, it is useful to understand how you can ``call'' a specific column or row in R, so that you can easiliy access your data. Here are two basic examples.
+
+\begin{itemize}
+\tightlist
+\item
+  To access a specific column, you can use the data frame name, followed by the ``\$'' operator and the column name. For example, if I wanted to see every data point on the column for yield, I could type.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mydata}\SpecialCharTok{$}\NormalTok{yield}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   [1]  789.25  497.75  821.90  846.50 1083.23  750.49  719.00 1163.00  854.72
+##  [10]  766.25  791.25 1023.18 1004.11  906.84  830.79  953.52  906.25  831.25
+##  [19]  698.76  977.25  671.00  999.75 1055.65  653.16  814.89 1016.23 1223.02
+##  [28]  785.00 3907.75 3679.00 2618.95 3115.58 2474.74 3199.25 3695.00 3617.00
+##  [37] 3607.63 3550.26 3619.80 3447.75 2670.28 2660.75 3262.11 1587.50 3215.00
+##  [46] 2671.75 2789.00 2646.00 2715.30 1321.75 3449.00 3362.63 3315.25 2300.00
+##  [55] 2754.25 3028.42  424.47  482.25  469.47  623.06  415.83  509.75  478.24
+##  [64]  515.60  315.00  173.00 1094.72  799.06  253.95  944.75  190.26  376.18
+##  [73]  440.79  441.30  345.53  478.68  711.75  221.75  158.25  719.25  275.00
+##  [82]  418.50  440.50  261.32 1264.85  918.07 1110.38 1171.68  893.31 1168.29
+##  [91] 1038.53 1150.23 1277.07  821.88  805.21 1195.68  655.47  695.64  988.79
+## [100] 1162.33 1556.57  876.80  868.72 1135.47 1582.41  761.53  549.38  840.05
+## [109] 1405.12  540.47  774.07  602.94
+\end{verbatim}
+
+Thus, this gives every one of the 112 observations on plot yield, in the order in which they appear in the data frame.
+
+\begin{itemize}
+\tightlist
+\item
+  You can, alternatively, use the form data{[}row,column{]}. For example, if you only want to see the data point in the third row and third column.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mydata[}\DecValTok{3}\NormalTok{,}\DecValTok{3}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2
+\end{verbatim}
+
+The same idea can be used to see only the first row, and all columns.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mydata[}\DecValTok{1}\NormalTok{,]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   location plot rep row col variety farmers_eval  yield yield_first
+## 1   Molise    1   1   1   1  Var. A         3.24 789.25          11
+##   perc_mark_yield mean_fruit_weight
+## 1           57.46             17.43
+\end{verbatim}
+
+Or also, it could be useful to see rows 1, 2 and 3, and only the second column.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mydata[}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{),}\DecValTok{5}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1 1 1
+\end{verbatim}
+
+You can also call columns by their names. In this case, lines 1 to 10 of the Farmer's Evaluations
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mydata[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{10}\NormalTok{, }\StringTok{"farmers\_eval"}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] 3.24 2.71 3.35 3.24 3.24 3.06 2.88 3.24 2.94 2.88
+\end{verbatim}
+
+\includegraphics{rsrstrip.png}
+
+\textbf{Vector arithmetics}
+
+In the same way in which you can do arithmetics with simple numbers (as seen before), you can do it with vectors (a series of numbers). Also, if you use introduce a hashtag (\#) in your text editor or console, you can freely write text that explains what you are doing. For example:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Define a v vector}
+\NormalTok{v }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{10}\NormalTok{,}\DecValTok{20}\NormalTok{, }\DecValTok{30}\NormalTok{, }\DecValTok{40}\NormalTok{, }\DecValTok{50}\NormalTok{)}
+\CommentTok{\# Define a w vector}
+\NormalTok{w }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{)}
+\CommentTok{\# Add them up to create a t vector}
+\NormalTok{t}\OtherTok{=}\NormalTok{ v }\SpecialCharTok{+}\NormalTok{ w}
+
+\CommentTok{\# t is the sum of v and w}
+\NormalTok{t}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 11 22 33 44 55
+\end{verbatim}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Create a new column. }
+
+Using vector arithmetics we could create new columns in our data frame, done through calculations performed with the existing columns. For example, in our particular data set, we have data for total yield and the data for percentage of marketable yield. A simple way to obtain only the marketable yield, would be to multiply the total yield with the percentage of marketable yield. This will create a new vector which we will simply call ``newvector''
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{newvector }\OtherTok{\textless{}{-}}\NormalTok{ mydata}\SpecialCharTok{$}\NormalTok{yield }\SpecialCharTok{*}\NormalTok{   mydata}\SpecialCharTok{$}\NormalTok{perc\_mark\_yield}
+\end{Highlighting}
+\end{Shaded}
+
+Once you created the vector, you can add it to the data frame. You can also do it directly, but we chose it this way to make it simpler to understand.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mydata}\SpecialCharTok{$}\NormalTok{mark\_yield }\OtherTok{\textless{}{-}}\NormalTok{ newvector}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{rsrstrip.png}
+
+\hypertarget{basic-statistics-and-plots}{%
+\section{Basic Statistics and Plots}\label{basic-statistics-and-plots}}
+
+\textbf{Minimal statistics}
+
+Now that we know how to call an specifical column in the data frame, it is possible to perform some basic statistics on these variables.
+
+\begin{itemize}
+\tightlist
+\item
+  Estimate the mean of a variable.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{mean}\NormalTok{(mydata}\SpecialCharTok{$}\NormalTok{yield)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1334.865
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  Estimate the median.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{median}\NormalTok{(mydata}\SpecialCharTok{$}\NormalTok{yield)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 906.545
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  Estimate the standard deviation.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sd}\NormalTok{(mydata}\SpecialCharTok{$}\NormalTok{yield)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1055.797
+\end{verbatim}
+
+\includegraphics{rsrstrip.png}
+
+\textbf{A simple plot.}
+
+Using the function plot() we can create simple exploratory graphs, which will appear on the lower right pannel.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{( }\AttributeTok{x=}\NormalTok{ mydata}\SpecialCharTok{$}\NormalTok{farmers\_eval,        }\CommentTok{\# My x axis}
+      \AttributeTok{y=}\NormalTok{ mydata}\SpecialCharTok{$}\NormalTok{yield,               }\CommentTok{\# My y axis}
+      \AttributeTok{xlab=} \StringTok{"Yield per plant (kg)"}\NormalTok{,  }\CommentTok{\# My x label}
+      \AttributeTok{ylab=} \StringTok{"Farmer\textquotesingle{}s Evaluation"}\NormalTok{ )  }\CommentTok{\# My y label}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{PPB-Toolkit-for-R-and-R-Studio_files/figure-latex/unnamed-chunk-33-1.pdf}
+
+\textbf{Another simple plot.}
+
+We could, for example plot the harvest data for each location. But first, we will check if the data types are right.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{str}\NormalTok{(mydata)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 'data.frame':    112 obs. of  12 variables:
+##  $ location         : chr  "Molise" "Molise" "Molise" "Molise" ...
+##  $ plot             : int  1 2 3 4 5 6 7 8 9 10 ...
+##  $ rep              : int  1 1 2 2 1 1 2 2 1 1 ...
+##  $ row              : int  1 2 3 4 1 2 3 4 1 2 ...
+##  $ col              : int  1 1 1 1 2 2 2 2 3 3 ...
+##  $ variety          : chr  "Var. A" "Var. D" "Var. I" "Var. N" ...
+##  $ farmers_eval     : num  3.24 2.71 3.35 3.24 3.24 3.06 2.88 3.24 2.94 2.88 ...
+##  $ yield            : num  789 498 822 846 1083 ...
+##  $ yield_first      : num  11 0 24.9 46.8 28.2 ...
+##  $ perc_mark_yield  : num  57.5 55.8 76 55.3 81.2 ...
+##  $ mean_fruit_weight: num  17.43 7.37 35.54 14.19 68.85 ...
+##  $ mark_yield       : num  45350 27750 62464 46828 88002 ...
+\end{verbatim}
+
+Looks like the location is a character variable. This means that it is just a loose string of text. We rather want it to be a factor, so that all observations with the same location can be grouped in plots. The function \textbf{as.factor()} allows me to change any type of variable into a factor
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mydata}\SpecialCharTok{$}\NormalTok{location }\OtherTok{=} \FunctionTok{as.factor}\NormalTok{(mydata}\SpecialCharTok{$}\NormalTok{location)}
+\end{Highlighting}
+\end{Shaded}
+
+And now we can do the plot. Notice that, as we plotted a factor variable (the location) against a quantitative variable (the yield), R automatically generates \href{https://en.wikipedia.org/wiki/Box_plot}{box plot}, which is useful, becuase it not only tells us the median values, but also dispersion of the data with the size of the box and it's whiskers..
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{( }\AttributeTok{x=}\NormalTok{ mydata}\SpecialCharTok{$}\NormalTok{location, }
+      \AttributeTok{y=}\NormalTok{mydata}\SpecialCharTok{$}\NormalTok{yield,}
+      \AttributeTok{ylab=} \StringTok{"Yield per plant (kg)"}\NormalTok{,}
+      \AttributeTok{xlab=} \StringTok{"Location"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{PPB-Toolkit-for-R-and-R-Studio_files/figure-latex/unnamed-chunk-36-1.pdf}
+
+\includegraphics{rsrstrip.png}
+
+\hypertarget{packages-in-r.}{%
+\section{Packages in R.}\label{packages-in-r.}}
+
+Packages are what keeps the R community growing, as virtually anyone can create and upload a package in R. A package can be loosely defined as a group of functions that serve to a certain objective or area of study. Some of them are very useful to treat and analyze data from varietial trials and PPB programs, and we will see many examples later. Downloading and installing them is very easy, you have mostly two options.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  The simplest is to click on Tools \textgreater{} Install Packages \textgreater{} and write the package name. This works as long as the package is on the CRAN repositoy, which is the official R repository where developers upload packages.
+\item
+  To make it easier, and embeded into your code, you could also write
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"yourpackagename"}\NormalTok{)}
+\CommentTok{\#Don\textquotesingle{}t try this! It\textquotesingle{}s only an example!}
+\end{Highlighting}
+\end{Shaded}
+
+Once installed, you have to call it so that it is active on R. This is true for every time you open R.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(yourpackagename)}
+\CommentTok{\#Again, don\textquotesingle{}t try this.}
+\end{Highlighting}
+\end{Shaded}
+
+We will use and install several packages in the following chapters.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{final-considerations}{%
+\section{Final considerations}\label{final-considerations}}
+
+\textbf{Ask questions!}
+
+It's very hard to know (and to remember!) how everything is done in R. And, like any language, the only way to become fluent is to practice often. There will always be things that you might want to do, and which are not included in this very small manual. For those cases, curiosity is a gread advantage, and here is some small advice about how to proceed.
+
+Examples:
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    When you wish to better understand a function and it's arguments, you can type ?functionname (and changing ``functionname'' for your actual function). This will display a window on the left lower panel which explains thoroughly the function and how is it done.
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    When you want to something in particular, but are not sure how to do it in R, A great approach is just to google: ``How to \_\_\_\_\_ in R''. This can get you out of many troubles, the tricky part is finding out how to ask the proper question.
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    When you run a piece of code and receive an error (usually displayed with red letters on the console) try to read them and see what they mean. Sometimes, these errors are hard to interpret, and one good approach is to copy-paste them in google, and see who was suffered from this before.
+  \end{enumerate}
+\end{itemize}
+
+\textbf{To learn more}
+
+These are just some sources to learn more about R:
+
+\begin{itemize}
+\item
+  The basic book is the \href{https://rc2e.com/}{R Cookbook}.
+\item
+  This site offers plenty of information with nice tutorials: \href{http://www.sthda.com/english/}{STHDA}
+\item
+  This is a cool blog where people ask questions you might have: \href{https://stackoverflow.com/}{Stack Overflow}
+\end{itemize}
+
+\hypertarget{data-wrangling-and-summarizing}{%
+\chapter{Data Wrangling and Summarizing}\label{data-wrangling-and-summarizing}}
+
+\includegraphics{rsrstrip.png}
+
+Data wrangling is one of the most important activites that you can do in R. It allows you to, sistematically, take a given data frame (or several) and set them into the format that works best for the analysis. In the last chaper, we saw already some of the most basic elements of data wrangling (like creating a new column from two other). Now, we will see a brief summary of what can be done with the native functions that come from R, as well as two specific packages: \textbf{dplyr}, a package specifically designed for that purpose and, \textbf{metan} a package designed for analyzing multienvironmental trials.
+
+\hypertarget{basic-r}{%
+\section{Basic R}\label{basic-r}}
+
+\textbf{Subsetting your data. }
+
+Suppose you only want to work with a section of your data frame, for example, only the data for one location.
+
+There are many ways to do this, a rather simple one is using the function subset().
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{soloRotonda }\OtherTok{\textless{}{-}} \FunctionTok{subset}\NormalTok{(mydata, mydata}\SpecialCharTok{$}\NormalTok{location }\SpecialCharTok{==} \StringTok{"Rotonda"}\NormalTok{)}
+\FunctionTok{nrow}\NormalTok{(soloRotonda)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 28
+\end{verbatim}
+
+Notice how we created a new subset, only with data from Rotonda. After checking, we see it has only 28 rows, as there were only 28 plots per location..
+
+Notice also how we used the ``=='' sign, to express a logical function stating the location had to be equal to ``Rotonda''
+
+In R, the other characters to indicate logical expressions are:\\
+
+\begin{verbatim}
+ * '==' for equal\
+ * '!=' for different \
+ * '<,>' less than, more than \
+ * '<=' less or equal to  \
+ * '>=' more or equal to \
+ * '&' if we want one condition AND another.
+ * "|" if we Want one condition OR another. 
+ 
+\end{verbatim}
+
+For example, we can select only the data for Rotonda, and only varieties A and B. If we check how many row we have now, we will see that, as expected we only have two rows, two for Var. A and 2 for Var. B.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Var.AB\_Rotonda }\OtherTok{\textless{}{-}} \FunctionTok{subset}\NormalTok{(mydata, }
+\NormalTok{                  mydata}\SpecialCharTok{$}\NormalTok{location }\SpecialCharTok{==} \StringTok{"Rotonda"}
+                  \SpecialCharTok{\&}  \CommentTok{\#And}
+\NormalTok{                  mydata}\SpecialCharTok{$}\NormalTok{variety  }\SpecialCharTok{==} \StringTok{"Var. A"} 
+                  \SpecialCharTok{|}  \CommentTok{\#Or}
+\NormalTok{                  mydata}\SpecialCharTok{$}\NormalTok{location }\SpecialCharTok{==} \StringTok{"Rotonda"}
+                  \SpecialCharTok{\&}  \CommentTok{\#And}
+\NormalTok{                  mydata}\SpecialCharTok{$}\NormalTok{variety  }\SpecialCharTok{==} \StringTok{"Var. B"}\NormalTok{ )}
+
+\FunctionTok{nrow}\NormalTok{(Var.AB\_Rotonda)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 4
+\end{verbatim}
+
+\includegraphics{rsrstrip.png}
+
+\hypertarget{dplyr}{%
+\section{dplyr}\label{dplyr}}
+
+`dplyr' is a package developed by the R Core Team developers, and gives us ``an easy and intuitive grammatic for data manipulation''. We first have to install it (only once) and call it (every time you open R).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"dplyr"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(dplyr)}
+\end{Highlighting}
+\end{Shaded}
+
+Some of the most useful functions in dplyr R are
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{filter}\NormalTok{() }\CommentTok{\# To filter rows according to criteria}
+\FunctionTok{select}\NormalTok{() }\CommentTok{\# To select only certain columns}
+\FunctionTok{rename}\NormalTok{() }\CommentTok{\# To rename columns. }
+\FunctionTok{mutate}\NormalTok{() }\CommentTok{\# TO create a new column from an old one.}
+\end{Highlighting}
+\end{Shaded}
+
+For example, you can create a new dataframe that contains a reduced set of variables.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{newdataframe }\OtherTok{\textless{}{-}} \FunctionTok{select}\NormalTok{(mydata, location, variety, yield, farmers\_eval, mean\_fruit\_weight)}
+\end{Highlighting}
+\end{Shaded}
+
+Within this new data frame, you can create a new column, which converts mean fruit weight (now in kg) to grams (g), through the function ``mutate''.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{newdataframe2 }\OtherTok{\textless{}{-}} \FunctionTok{mutate}\NormalTok{(newdataframe, }\AttributeTok{meanfruitweight\_grams =}\NormalTok{ mean\_fruit\_weight }\SpecialCharTok{*} \DecValTok{1000}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{The pipeline \%\textgreater\% operator.}
+
+With the pipeline operator you can chain more than one operation together, instead of using temporary objects and changing them. It also allows to call my first object (`mydata') only once. Here, for example, we take `mydata', we select the desired columns, and we change fruit weight within the same operation.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{newdataframe3 }\OtherTok{\textless{}{-}}\NormalTok{ mydata }\SpecialCharTok{\%\textgreater{}\%}
+                 \FunctionTok{select}\NormalTok{(location, variety, rep, mean\_fruit\_weight) }\SpecialCharTok{\%\textgreater{}\%}
+                 \FunctionTok{mutate}\NormalTok{( }\AttributeTok{meanfruitweight\_grams =}\NormalTok{ mean\_fruit\_weight }\SpecialCharTok{*} \DecValTok{1000}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Aggregate data}
+
+Finally, dplyr helps us us to calculate, for example, the mean performance of each variety per environment, given that there are two (or more) reps.
+
+For this, you have to use the group\_by() and summarize (). Under group\_by, we put the aggrupating facors. Under summarize, we put the columns we want, in this case, we want the means and the standard deviations
+.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mydata\_means }\OtherTok{\textless{}{-}}\NormalTok{ mydata }\SpecialCharTok{\%\textgreater{}\%}                   \CommentTok{\#Our initial object}
+              \FunctionTok{group\_by}\NormalTok{(variety, location) }\SpecialCharTok{\%\textgreater{}\%}         \CommentTok{\#Groupped by variety and location}
+              \FunctionTok{summarize}\NormalTok{(}\FunctionTok{mean}\NormalTok{(farmers\_eval),           }\CommentTok{\#Mean of farmer\textquotesingle{}s evaluation}
+                          \FunctionTok{sd}\NormalTok{(farmers\_eval),           }\CommentTok{\#SD of farmer\textquotesingle{}s evaluation}
+                          \FunctionTok{mean}\NormalTok{(yield),                }\CommentTok{\#Mean of yield}
+                          \FunctionTok{sd}\NormalTok{(yield))                   }\CommentTok{\#SD of yield}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Save your data}
+
+Once you have created and modified and object, you can save it on the same folder in a .csv format.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{write.csv}\NormalTok{(mydata\_means, }\StringTok{"tomatodata\_means.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{metan}{%
+\section{metan}\label{metan}}
+
+This section is under progress!
+
+\hypertarget{basics-of-data-visualisation}{%
+\chapter{Basics of Data Visualisation}\label{basics-of-data-visualisation}}
+
+\includegraphics{rsrstrip.png}
+
+Data visualization is, in our opinion, a remarkably important part of data analysis. Data visualization can be exploratory or explanatory. In the first case, it could allow us to check if the data has errors, or if there are any trends that we would like to explore further. In the second case, it would allow us to communicate and publish our results to other, in a way to evidenciate what our data are trying to say. Of course, for the second case, plots should usually come along with the adequate \protect\hyperlink{statistical-tests}{statistical tests} for the matter.
+
+Trough this chapter, we will see the very basics of data visualization with two of the most used packages in R, which are the \textbf{Base Package and ggplot}.
+
+\includegraphics{rsrstrip.png}
+
+\hypertarget{base-package}{%
+\section{Base package}\label{base-package}}
+
+This is the package that comes with R. It is maybe the easiest package to use, but it is less flexible. Some basic functions are:
+
+\begin{itemize}
+\tightlist
+\item
+  plot()
+\item
+  hist()
+\item
+  barplot()
+\item
+  boxplot()
+\end{itemize}
+
+\includegraphics{rsrstrip.png}
+
+\hypertarget{plot-vs.-index}{%
+\subsection{Plot vs.~Index}\label{plot-vs.-index}}
+
+If we use the most basic of functions, \textbf{plot() }, and we only indicate one variable, the other axis will be automatically assigned to an ``index'' value. This means that data will be plotted as they appear in the data frame.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#First we upload our data}
+\NormalTok{mydata }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"tomatoMLT2020.csv"}\NormalTok{)}
+
+\CommentTok{\#The we fill the plot function with only one argument}
+\FunctionTok{plot}\NormalTok{(mydata}\SpecialCharTok{$}\NormalTok{yield)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{PPB-Toolkit-for-R-and-R-Studio_files/figure-latex/unnamed-chunk-50-1.pdf}
+
+This could be useful to know if, in a given section of the data frame, the observations are notably different than the rest. In this case, because data are arranged by environment, this area of high points in the center indicate the presence of a very productive environment.
+
+\includegraphics{rsrstrip.png}
+
+\hypertarget{scatter-plot}{%
+\subsection{Scatter plot}\label{scatter-plot}}
+
+This is a kind of plot you can use if you have two quantitative variables.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{( }\AttributeTok{x=}\NormalTok{ mydata}\SpecialCharTok{$}\NormalTok{yield,                 }\CommentTok{\# The x axis is the total yield.}
+      \AttributeTok{y=}\NormalTok{ mydata}\SpecialCharTok{$}\NormalTok{farmers\_eval)          }\CommentTok{\# The y axis is the farmer\textquotesingle{}s evaluation.}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{PPB-Toolkit-for-R-and-R-Studio_files/figure-latex/unnamed-chunk-51-1.pdf}
+
+\includegraphics{rsrstrip.png}
+
+\hypertarget{histogram}{%
+\subsection{Histogram}\label{histogram}}
+
+Histograms are very useful to understand the distribution of the data In this case, we use the variable of the farmer's evaluation, set in a scale from 1 to 5. Normally, for most quantitative biological data, we could expect a \href{https://en.wikipedia.org/wiki/Normal_distribution}{normal distribution}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{hist}\NormalTok{(mydata}\SpecialCharTok{$}\NormalTok{farmers\_eval)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{PPB-Toolkit-for-R-and-R-Studio_files/figure-latex/unnamed-chunk-52-1.pdf}
+
+On the same histogram, we could do further elaborations to make it look better. We could add a main title, labels for the axes, define the number of breaks or columns, and select the name of the color, from this \href{http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf}{list}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{hist}\NormalTok{(}\AttributeTok{x=}\NormalTok{ mydata}\SpecialCharTok{$}\NormalTok{farmers\_eval,                                                   }\CommentTok{\#Variable to plot}
+     \AttributeTok{main=} \StringTok{"Histogram for Farmer\textquotesingle{}s Evaluation in Tomato PPB trials"}\NormalTok{,    }\CommentTok{\#Main Title}
+     \AttributeTok{xlab=} \StringTok{"Evaluation"}\NormalTok{, }\AttributeTok{ylab=} \StringTok{"Frequency"}\NormalTok{,                             }\CommentTok{\#Axis titles}
+     \AttributeTok{breaks=} \DecValTok{12}\NormalTok{,                                                        }\CommentTok{\#How many breaks or columns       }
+     \AttributeTok{col=} \StringTok{"coral"}\NormalTok{)   }\CommentTok{\#Color}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{PPB-Toolkit-for-R-and-R-Studio_files/figure-latex/unnamed-chunk-53-1.pdf}
+
+Elements can be added after a plot was called. For example, in this case, we can add a vertical line to the plot, and we could position that line exactly in the mean value for yield.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{hist}\NormalTok{(}\AttributeTok{x=}\NormalTok{ mydata}\SpecialCharTok{$}\NormalTok{farmers\_eval,                                                   }
+     \AttributeTok{main=} \StringTok{"Histogram for Farmer\textquotesingle{}s Evaluation in Tomato PPB trials"}\NormalTok{,    }
+     \AttributeTok{xlab=} \StringTok{"Evaluation"}\NormalTok{, }\AttributeTok{ylab=} \StringTok{"Frequency"}\NormalTok{,                             }
+     \AttributeTok{breaks=} \DecValTok{12}\NormalTok{,                                                        }
+     \AttributeTok{col=} \StringTok{"coral"}\NormalTok{)                                   }
+     \FunctionTok{abline}\NormalTok{(}\AttributeTok{v=} \FunctionTok{mean}\NormalTok{(mydata}\SpecialCharTok{$}\NormalTok{farmers\_eval),     }\CommentTok{\# Vertical line set at the mean value}
+       \AttributeTok{col =} \StringTok{"dodgerblue"}\NormalTok{,                    }\CommentTok{\# Line color}
+       \AttributeTok{lwd=} \DecValTok{4}\NormalTok{)                                }\CommentTok{\# Line width}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{PPB-Toolkit-for-R-and-R-Studio_files/figure-latex/unnamed-chunk-54-1.pdf}
+
+\includegraphics{rsrstrip.png}
+
+\textbf{Box plot}
+
+Another useful way to plot information is through a \href{https://en.wikipedia.org/wiki/Box_plot}{boxplot} which not only presents the mean values, but also the quartile distribution. It would be useful, for example to compare the overall yields of the different varieties (or in the different environments). However, for this kind of plot to work, we need at least one of the variables to be a factor. We can check the variable types with the \textbf{str() } function, and see that both the variety and the location are interpreted as characters
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{str}\NormalTok{(mydata)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 'data.frame':    112 obs. of  11 variables:
+##  $ location         : chr  "Molise" "Molise" "Molise" "Molise" ...
+##  $ plot             : int  1 2 3 4 5 6 7 8 9 10 ...
+##  $ rep              : int  1 1 2 2 1 1 2 2 1 1 ...
+##  $ row              : int  1 2 3 4 1 2 3 4 1 2 ...
+##  $ col              : int  1 1 1 1 2 2 2 2 3 3 ...
+##  $ variety          : chr  "Var. A" "Var. D" "Var. I" "Var. N" ...
+##  $ farmers_eval     : num  3.24 2.71 3.35 3.24 3.24 3.06 2.88 3.24 2.94 2.88 ...
+##  $ yield            : num  789 498 822 846 1083 ...
+##  $ yield_first      : num  11 0 24.9 46.8 28.2 ...
+##  $ perc_mark_yield  : num  57.5 55.8 76 55.3 81.2 ...
+##  $ mean_fruit_weight: num  17.43 7.37 35.54 14.19 68.85 ...
+\end{verbatim}
+
+We can change that easily with the \textbf{as.factor() } function. What we do is that replace the actual column we have, with the same column interpreted as a factor.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mydata}\SpecialCharTok{$}\NormalTok{variety }\OtherTok{\textless{}{-}} \FunctionTok{as.factor}\NormalTok{(mydata}\SpecialCharTok{$}\NormalTok{variety)}
+\NormalTok{mydata}\SpecialCharTok{$}\NormalTok{location }\OtherTok{\textless{}{-}} \FunctionTok{as.factor}\NormalTok{(mydata}\SpecialCharTok{$}\NormalTok{location)}
+\end{Highlighting}
+\end{Shaded}
+
+Now we can do the boxplot. By using the function \textbf{plot() } with a quantitative and a factor variable, a boxplot is automatically generated
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(}\AttributeTok{x=}\NormalTok{ mydata}\SpecialCharTok{$}\NormalTok{location,         }
+     \AttributeTok{y=}\NormalTok{ mydata}\SpecialCharTok{$}\NormalTok{yield,           }
+     \AttributeTok{ylab=} \StringTok{"Yield (kg)"}\NormalTok{,        }
+     \AttributeTok{xlab =} \StringTok{"Location"}\NormalTok{)         }
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[width=1.5\linewidth]{PPB-Toolkit-for-R-and-R-Studio_files/figure-latex/unnamed-chunk-57-1}
+
+\includegraphics{rsrstrip.png}
+
+\hypertarget{ggplot}{%
+\section{ggplot}\label{ggplot}}
+
+ggplot is one of the most used and versatile packages to do graphics in R. `gg' stands for ``grammar of graphics'', and it is based on a modular system that allows you to build your plots feature by feature. It can be easily installed with \textbf{install.packages() } (only once) and called with \textbf{library() } (every time that you open an R Session).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"ggplot2"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\end{Highlighting}
+\end{Shaded}
+
+The most important thing in ggplot is that every feature should be included as a layer. The main function is \textbf{ggplot() }, and the main arguments are the data frame that you are using, and \textbf{aes() }, that stands for aestithics and lets you choose the parameters for the graph. We could do one first try.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data=}\NormalTok{ mydata,   }\CommentTok{\# my data frame}
+       \FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{variety,      }\CommentTok{\# my x axis}
+           \AttributeTok{y=}\NormalTok{yield))   }\CommentTok{\# my y axis and the (very important) closure of parenthesis}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{PPB-Toolkit-for-R-and-R-Studio_files/figure-latex/unnamed-chunk-60-1.pdf}
+
+We have created the plot and it's coordinates, but we have not assigned any `geometrical' object yet. At this point, we could add bars, points, lines, boxes, etc. We will see how to do that next.
+
+\includegraphics{rsrstrip.png}
+
+\hypertarget{box-plot}{%
+\subsection{Box Plot}\label{box-plot}}
+
+For a box plot, we write the same code and add the function \textbf{geom\_boxplot() }, which can be empty of arguments, as the indispensable ones have already been declared. However, because I want my boxes to be gray, I can specify it as an argument.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data=}\NormalTok{ mydata, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{variety, }\AttributeTok{y=}\NormalTok{yield))}\SpecialCharTok{+}
+  \FunctionTok{geom\_boxplot}\NormalTok{(}\AttributeTok{fill =} \StringTok{"gray"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{PPB-Toolkit-for-R-and-R-Studio_files/figure-latex/unnamed-chunk-61-1.pdf}
+On top of the boxes, I could choose to plot every individual observation with a point, and, if I wish too, I could color those points according to the corresponding location. Notice that now, the color argument is inside an \textbf{aes() } function, because we are not assigning an arbitrary color for all points, but rather making them vary according to a parameter present in the data frame.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data=}\NormalTok{ mydata,  }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{variety,}\AttributeTok{y=}\NormalTok{yield))}\SpecialCharTok{+} 
+  \FunctionTok{geom\_boxplot}\NormalTok{(}\AttributeTok{fill =} \StringTok{"gray"}\NormalTok{)}\SpecialCharTok{+} 
+  \FunctionTok{geom\_point}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{col =}\NormalTok{ location)) }
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[width=1.5\linewidth]{PPB-Toolkit-for-R-and-R-Studio_files/figure-latex/unnamed-chunk-62-1}
+
+Overall, there is a large deal of different geometries that can be used, alone or in combinations, to represent data in many ways. In that case, a very handy ressource for geometries in ggplot is the specially designed \href{https://www.maths.usyd.edu.au/u/UG/SM/STAT3022/r/current/Misc/data-visualization-2.1.pdf}{Cheat Sheet} that they offer.
+
+Finally, if you find it akward, or too bulky two have all the information from all the locations in one plot. You could easily make a small subplot, ie. a `facet', for every location. Both functions \textbf{facet\_wrap() } and \textbf{facet\_grid() } can do this in slightly different ways. If we do this, it is convenient to remove the points colored by location. The plot would look like this:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data=}\NormalTok{ mydata,  }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{variety,}\AttributeTok{y=}\NormalTok{yield))}\SpecialCharTok{+} 
+  \FunctionTok{geom\_boxplot}\NormalTok{(}\AttributeTok{fill =} \StringTok{"gray"}\NormalTok{)}\SpecialCharTok{+} 
+  \FunctionTok{facet\_wrap}\NormalTok{(location}\SpecialCharTok{\textasciitilde{}}\NormalTok{., }\CommentTok{\# I choose to plot my locations, }
+                         \CommentTok{\# the "\textasciitilde{}" sign means allows me introduce another variable to }
+                         \CommentTok{\# to subdivide the plots, but I choose none so we just write "."}
+             \AttributeTok{ncol =}\DecValTok{1}\NormalTok{,}
+             \AttributeTok{scales=} \StringTok{\textquotesingle{}free\textquotesingle{}}\NormalTok{)    }\CommentTok{\# Additionally, we want all the subplots the be drawn in only one column}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[width=1.5\linewidth]{PPB-Toolkit-for-R-and-R-Studio_files/figure-latex/unnamed-chunk-63-1}
+
+\includegraphics{rsrstrip.png}
+
+\hypertarget{scatter-plots}{%
+\subsection{Scatter plots}\label{scatter-plots}}
+
+If I choose to plot two quantitative variables against one another, and choose the \textbf{geom\_point() } for each each point, a very useful scatter plot will come out. What is more, I could add a fitted line according to a linear model (or one of other models available).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data=}\NormalTok{ mydata, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{y=}\NormalTok{farmers\_eval ,  }\AttributeTok{x=}\NormalTok{yield))}\SpecialCharTok{+}
+                   \FunctionTok{geom\_point}\NormalTok{()}\SpecialCharTok{+}
+                   \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{method=}\NormalTok{ lm) }\CommentTok{\#Regression line with Linear Method (lm)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{PPB-Toolkit-for-R-and-R-Studio_files/figure-latex/unnamed-chunk-64-1.pdf}
+
+To this point, some evident effect of correlation can be seen between the yield and the farmer's evaluation. But we see clearly a cloud of points in the upper right, which correspond normally to our highest yielding location. We could, for example, divide environments with \textbf{facet\_wrap() } and add a small label to each point trough \textbf{geom\_text() } or \textbf{geom\_label} , indicating the corresponding variety
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data=}\NormalTok{ mydata, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{y=}\NormalTok{farmers\_eval ,  }\AttributeTok{x=}\NormalTok{yield))}\SpecialCharTok{+}
+                   \FunctionTok{geom\_point}\NormalTok{()}\SpecialCharTok{+}
+                   \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{method=}\NormalTok{ lm)}\SpecialCharTok{+}           
+                   \FunctionTok{facet\_wrap}\NormalTok{(location}\SpecialCharTok{\textasciitilde{}}\NormalTok{., }\AttributeTok{ncol=}\DecValTok{2}\NormalTok{, }\AttributeTok{scales=} \StringTok{\textquotesingle{}free\textquotesingle{}}\NormalTok{)}\SpecialCharTok{+}
+                   \FunctionTok{geom\_text}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{label =}\NormalTok{ variety),    }\CommentTok{\# we define the variety as the parameter}
+                              \AttributeTok{size=} \DecValTok{2}\NormalTok{,}
+                             \AttributeTok{nudge\_y =}\FloatTok{0.1}\NormalTok{ )                  }\CommentTok{\# and we put the small so that they don\textquotesingle{}t overlap }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{PPB-Toolkit-for-R-and-R-Studio_files/figure-latex/unnamed-chunk-65-1.pdf}
+
+plot.cor.stats \textless-plot.cor + stat\_cor(label.y= 4) \# L'argumento label.y ci da la posizione del testo
+plot.cor.stats
+
+\includegraphics{rsrstrip.png}
+
+\hypertarget{bar-plots}{%
+\subsection{Bar plots}\label{bar-plots}}
+
+This section is under progress!
+
+\includegraphics{rsrstrip.png}
+
+\hypertarget{exporting-plots}{%
+\section{Exporting plots}\label{exporting-plots}}
+
+There are mainly two ways to export a package: by clicking manually or through R code.
+
+\begin{itemize}
+\tightlist
+\item
+  by clicking manually.
+\end{itemize}
+
+png(``ilmioplotbellino.png'', width= 300, height= 300)
+plot.cor.facets
+dev.off()
+
+\includegraphics{rsrstrip.png}
+
+\hypertarget{experimental-design}{%
+\chapter{Experimental Design}\label{experimental-design}}
+
+\includegraphics{rsrstrip.png}
+
+RStudio can help us in preparing the distribution of entries in our field, according to specific experimental designs. For more information in the design of on-farm cultivar trials, we strongly suggest this \href{\%22https://www.liveseed.eu/wp-content/uploads/2021/06/LIVESEED-BOOKLET-5_FNL_web.pdf\%22}{booklet}.
+
+We will cover three types of design:
+
+\begin{itemize}
+\item
+  \textbf{Randomized Complete Block Design (RCBD)}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    In this design, every treatment (genotype) is in every block. However, every block has a different randomization of the treatments.
+  \end{itemize}
+\item
+  \textbf{Incomplete Block Design (IBD)}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    In this case, the number of treatments is bigger that the number of plots in a block, so every block has a different set of treatments.This type of design is specially used when we have a very large amount of genotypes.
+  \end{itemize}
+\item
+  \textbf{Partially Replicated Block Design (PRBD)}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    A reduced number of genotypes, called checks, are present in every block. The other genotypes are only present once in the design.
+  \end{itemize}
+\end{itemize}
+
+\includegraphics{rsrstrip.png}
+
+\hypertarget{digger}{%
+\section{DiGGer}\label{digger}}
+
+DiGGer is a very useful and used package that does experimental design by optimizing row-column arrangements. However, unlike many other packages in R, it is not on the CRAN repository and must be requested to the creators through \href{http://nswdpibiom.org/austatgen/software/}{this site}. To properly install the package on your RStudio, you can follow the next steps.
+
+\begin{itemize}
+\item
+  \textbf{Step 1:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Go into this \href{http://nswdpibiom.org/austatgen/software/}{link} and request the DiGGer package by writing your mail. You will soon receive a compressed file with several files inside. Among them, you have a Quick Guide and a (longer) User Guide.
+  \end{itemize}
+\item
+  \textbf{Step 2:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Create a directory in your computer called ``Experimental Design''. We reccomend to create it inside ``Documents'' or in any other directory that you have specially created for R Studio and PPB projects. Place the compressed file in this directory and decompress it (through winrar or other similar programs). You should be able to see all the files that where once inside.
+  \end{itemize}
+\item
+  \textbf{Step 3: }
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Set the RStudio working directory of R in the folder that contains the decompressed files. To check, you can use the function \textbf{list.files()} in your working directory, to see if you are in the right directory with the required files. You should see something like this:
+  \end{itemize}
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{setwd}\NormalTok{(}\StringTok{"C:/Users/Usuario1/Google Drive/RSR/Digger"}\NormalTok{) }\CommentTok{\#Momentary change of  WD just to show you}
+ \FunctionTok{list.files}\NormalTok{(}\FunctionTok{getwd}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "DiGGer_1.0.5.tgz"                             
+## [2] "DiGGer_1.0.5.zip"                             
+## [3] "DiGGer_1.0.5_R_x86_64-redhat-linux-gnu.tar.gz"
+## [4] "DiGGerQuickGuide.pdf"                         
+## [5] "DiGGerUserGuide29042019.pdf"                  
+## [6] "oldDiGGer_1.0.5_R_x86_64-pc-linux-gnu.tar.gz" 
+## [7] "oldExe.zip"                                   
+## [8] "oldR.zip"                                     
+## [9] "Readme.txt"
+\end{verbatim}
+
+\begin{itemize}
+\item
+  \textbf{Step 4:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Now, you are ready to install the package. Both the ``.tgz'' and the ``.zip'' files could work depending on your operation system. For Windows users, the ``.zip'' should work better.
+  \end{itemize}
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#install.packages("DiGGer\_1.0.5.zip", repos = NULL)}
+\end{Highlighting}
+\end{Shaded}
+
+For Linux and Mac users, the ``.tgz'' exxtension should work:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#install.packages("DiGGer\_1.0.5.tgz", repos = NULL)}
+\end{Highlighting}
+\end{Shaded}
+
+You might get some \textbf{warning} messages, but as long you don't receive \textbf{error} messages, we are on the right track. To finalize, you can call the package, and check if everything is alright
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(DiGGer)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{rsrstrip.png}
+
+\hypertarget{randomized-complete-block-design}{%
+\subsection{Randomized Complete Block Design!}\label{randomized-complete-block-design}}
+
+Let's start with an example in which we have 14 different varieties. I will make a vector with their names, which, to simplify, will be from ``Var. A'', ``Var. B'', up to ``Var. N''.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{variety.list }\OtherTok{=}  \FunctionTok{c}\NormalTok{(}\StringTok{"Var. A"}\NormalTok{,}\StringTok{"Var. B"}\NormalTok{, }\StringTok{"Var. C"}\NormalTok{,}\StringTok{"Var. D"}\NormalTok{,}
+                  \StringTok{"Var. E"}\NormalTok{, }\StringTok{"Var. F"}\NormalTok{, }\StringTok{"Var. G"}\NormalTok{,  }\StringTok{"Var. H"}\NormalTok{,}
+                  \StringTok{"Var. I"}\NormalTok{, }\StringTok{"Var. J"}\NormalTok{, }\StringTok{"Var. K"}\NormalTok{,  }\StringTok{"Var. L"}\NormalTok{,}
+                  \StringTok{"Var. M"}\NormalTok{, }\StringTok{"Var. N"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+We will use the function \textbf{corDiGGer()}. But, before running the function, some important aspects should be discuted.
+
+First, \textbf{that the function will not work if the design is not ``resolvable''}. That is, for this design, the amount of treatments should be a multiple of the total amount of plots, so that the design is completely balanced. For example, if we have 14 treatments, we could have 28 total plots (14 * 2 ), 42 total plots (14 * 3), and so on.
+
+Second, if we have several farms and locations with the same number of entries and plots, \textbf{we need to do a new RCBD for each one of them}. Repeating the same design through several locations is a typical mistake in the design of PPB programs.
+
+Third, \textbf{every time that the function is run, the randomization will be redone}. This is useful if we want new randomizations for each new farm or location, but could be a constrain if we want to keep proper record of our work. The randomization could be fixed by using the optional argument \textbf{rngSeeds}, which takes two numbers that uses as seed of the randomization process, and allows to ``fix'' a given randomization. If you omit this argument, every time you run the function you will have a different field.
+
+So, the function looks like this
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mydesign }\OtherTok{\textless{}{-}} \FunctionTok{corDiGGer}\NormalTok{(}\AttributeTok{numberOfTreatments=} \DecValTok{14}\NormalTok{,    }\CommentTok{\# 14 treatments or genotypes}
+                  \AttributeTok{rowsInDesign =} \DecValTok{4}\NormalTok{,              }\CommentTok{\# 4 rows in the design}
+                  \AttributeTok{columnsInDesign =} \DecValTok{7}\NormalTok{,           }\CommentTok{\# 7 columns in the design}
+                  \AttributeTok{treatRepPerRep =} \DecValTok{1}\NormalTok{,            }\CommentTok{\# Every block has only one rep per genotype}
+                  \AttributeTok{rowsInReplicate =} \DecValTok{2}\NormalTok{,           }\CommentTok{\# Every block has two columns}
+                  \AttributeTok{treatName =}\NormalTok{ variety.list,      }\CommentTok{\# Here I introduce my name vector.}
+                  \AttributeTok{rngSeeds =} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{999}\NormalTok{))           }\CommentTok{\# This fixes the randomization, so your results and ours are the same}
+\end{Highlighting}
+\end{Shaded}
+
+Once done, we could inmediatly do a plot with the funcion \textbf{plot.diGGer().} There, you can see how your plots were arranged and you can check that every ``block'' contains all the 14 treatments.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot.DiGGer}\NormalTok{(mydesign)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{PPB-Toolkit-for-R-and-R-Studio_files/figure-latex/unnamed-chunk-72-1.pdf}
+
+So, we chose to name our resulting object \textbf{mydesign}, but it could have been names as you wish. This object contains different objects inside, and the most imporant ones are:
+
+\begin{itemize}
+\tightlist
+\item
+  mydesign\$ddphase
+\item
+  mydesign\$dlist
+\end{itemize}
+
+Now, mydesign\$ddphase has, as it's first element, a map of the field with the respective entry number.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mydesign}\SpecialCharTok{$}\NormalTok{ddphase }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [[1]]
+## [[1]]$design
+##      [,1] [,2] [,3] [,4] [,5] [,6] [,7]
+## [1,]    8   10    3   14    7    9    6
+## [2,]    5   12    2   13    1   11    4
+## [3,]   10    1    8    4   14    2    9
+## [4,]   13    6   12    3   11    7    5
+## 
+## [[1]]$aMeasures
+## [1] 0.6976722 0.6976722
+## 
+## [[1]]$lastImprovement
+## [1] 90501
+\end{verbatim}
+
+If we want to see only the map, we need a more specific approach.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mydesign}\SpecialCharTok{$}\NormalTok{ddphase[[}\DecValTok{1}\NormalTok{]]}\SpecialCharTok{$}\NormalTok{design}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      [,1] [,2] [,3] [,4] [,5] [,6] [,7]
+## [1,]    8   10    3   14    7    9    6
+## [2,]    5   12    2   13    1   11    4
+## [3,]   10    1    8    4   14    2    9
+## [4,]   13    6   12    3   11    7    5
+\end{verbatim}
+
+We know this could look extrange and complicated. The ``{[}{[}1{]}{]}'' indicates that we are taking the first elemet of the list. And then, we call exactly for the outcoming design. To handle it more easily, we could rename this map simply to ``myfield'', or any other name you wish.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{myfield }\OtherTok{=}\NormalTok{ mydesign}\SpecialCharTok{$}\NormalTok{ddphase[[}\DecValTok{1}\NormalTok{]]}\SpecialCharTok{$}\NormalTok{design}
+\end{Highlighting}
+\end{Shaded}
+
+And now, we could write it directly into excel with a ``.csv'' format. It will be saved in your working directory.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{write.csv}\NormalTok{(myfield,                    }\CommentTok{\# Name of your R object}
+          \StringTok{"My Field RCBD.csv"}\NormalTok{)        }\CommentTok{\# Desired name of your excel file}
+\end{Highlighting}
+\end{Shaded}
+
+The other object, ``mydesign\$dlist'' has more info, including the genotype name, the row-column position, and the block number. This could be exported as excel in the same way as before. In this case, the ``RANGE'' corresponds to what we could name ``Column''.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mydesign}\SpecialCharTok{$}\NormalTok{dlist}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    UNIT     ID ENTRY ROW RANGE REP TRT
+## 1     1 Var. H     8   1     1   1   8
+## 2     2 Var. E     5   2     1   1   5
+## 3     3 Var. J    10   3     1   2  10
+## 4     4 Var. M    13   4     1   2  13
+## 5     5 Var. J    10   1     2   1  10
+## 6     6 Var. L    12   2     2   1  12
+## 7     7 Var. A     1   3     2   2   1
+## 8     8 Var. F     6   4     2   2   6
+## 9     9 Var. C     3   1     3   1   3
+## 10   10 Var. B     2   2     3   1   2
+## 11   11 Var. H     8   3     3   2   8
+## 12   12 Var. L    12   4     3   2  12
+## 13   13 Var. N    14   1     4   1  14
+## 14   14 Var. M    13   2     4   1  13
+## 15   15 Var. D     4   3     4   2   4
+## 16   16 Var. C     3   4     4   2   3
+## 17   17 Var. G     7   1     5   1   7
+## 18   18 Var. A     1   2     5   1   1
+## 19   19 Var. N    14   3     5   2  14
+## 20   20 Var. K    11   4     5   2  11
+## 21   21 Var. I     9   1     6   1   9
+## 22   22 Var. K    11   2     6   1  11
+## 23   23 Var. B     2   3     6   2   2
+## 24   24 Var. G     7   4     6   2   7
+## 25   25 Var. F     6   1     7   1   6
+## 26   26 Var. D     4   2     7   1   4
+## 27   27 Var. I     9   3     7   2   9
+## 28   28 Var. E     5   4     7   2   5
+\end{verbatim}
+
+We could use this object, for example, to create a nice plot through ggplot.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{ggplot}\NormalTok{(mydesign}\SpecialCharTok{$}\NormalTok{dlist, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{ ROW, }\AttributeTok{y =}\NormalTok{ RANGE, }
+                           \AttributeTok{label=}\NormalTok{ ID,}
+                           \AttributeTok{fill=}\NormalTok{ ID))}\SpecialCharTok{+} \CommentTok{\# We use the ID both as a text label, and as a factor to color the tiles}
+  \FunctionTok{geom\_tile}\NormalTok{()}\SpecialCharTok{+}\FunctionTok{geom\_text}\NormalTok{()}\SpecialCharTok{+}           \CommentTok{\# Geometry for color tiles and labels}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{x=} \StringTok{"Row"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Column"}\NormalTok{)       }\CommentTok{\#Axis labels}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{PPB-Toolkit-for-R-and-R-Studio_files/figure-latex/unnamed-chunk-78-1.pdf}
+
+Finally, some might find it useful to export a map in excel, with the proper genotype names. To our knowledge, DiGGer does not provide a function for this, but there are many different ways to achieve it. A very easy way involves using the function \textbf{replace()} from the dplyr package.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(dplyr)}
+\NormalTok{myfield.withnames  }\OtherTok{=} \FunctionTok{replace}\NormalTok{(}\AttributeTok{x=}\NormalTok{myfield,           }\CommentTok{\# The object to change will be "myfield }
+                     \AttributeTok{values =}\NormalTok{ mydesign}\SpecialCharTok{$}\NormalTok{dlist}\SpecialCharTok{$}\NormalTok{ID ) }\CommentTok{\# I will change every value in my field,}
+                                                  \CommentTok{\# for the values found in the "ID" column of my "dlist"}
+\NormalTok{myfield.withnames}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      [,1]     [,2]     [,3]     [,4]     [,5]     [,6]     [,7]    
+## [1,] "Var. H" "Var. J" "Var. C" "Var. N" "Var. G" "Var. I" "Var. F"
+## [2,] "Var. E" "Var. L" "Var. B" "Var. M" "Var. A" "Var. K" "Var. D"
+## [3,] "Var. J" "Var. A" "Var. H" "Var. D" "Var. N" "Var. B" "Var. I"
+## [4,] "Var. M" "Var. F" "Var. L" "Var. C" "Var. K" "Var. G" "Var. E"
+\end{verbatim}
+
+Some small beautifying work, to change row and column names into simpler formats.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{rownames}\NormalTok{(myfield.withnames) }\OtherTok{=} \DecValTok{1}\SpecialCharTok{:}\DecValTok{4}
+\FunctionTok{colnames}\NormalTok{(myfield.withnames) }\OtherTok{=} \DecValTok{1}\SpecialCharTok{:}\DecValTok{7}
+\end{Highlighting}
+\end{Shaded}
+
+Now, it's all set up to export into excel.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{write.csv}\NormalTok{(myfield.withnames,}
+          \StringTok{"My Fiel RCBD with names.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{rsrstrip.png}
+
+\hypertarget{incomplete-block-design-ibd}{%
+\subsection{Incomplete Block Design (IBD)}\label{incomplete-block-design-ibd}}
+
+Now, imagine we have the same 14 varieties, and we have 7 farmers to whome want to distribute the seed. These farmer's might have reduced space and 14 plots might be too much. We could, for example, give only 4 genotypes to every farmer.
+
+So, every ``Block'' is a farm with 4 genotypes. These blocks could be arranged in only one row of four columns, one column of four rows, or two rows and two columns. For this example, we will choose a ``strip'' trial, where every farmer has a single row with 4 different plots. Thus, every block has one row and 4 columns.
+
+Again, in this case, not every combination is possible, as the design must be ``resolvable''. Again, the total number of plots must be equal to the number of treatments times the number of repetitions. For our case, it would look like this.
+
+\[
+Blocks\ *\ Plots\ per\  Block\  = Treatments\  *\  Reps\  per\  Treatment  
+\]
+\[
+7*4 = 14*2
+\]
+
+\[
+28 = 28
+\]
+
+Once that we are sure that our design is resolvable, we can use the function \textbf{ibDiGGer()} for the design. The arguments are the same as those of \textbf{corDiGGer()}, with the exception of the last \textbf{``runSearch''}. If this is not set as true, the output will only be a initial design, but with no optimization of the randomization. In this case, my resulting object will be called mydesignIB.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mydesignIB }\OtherTok{\textless{}{-}} \FunctionTok{ibDiGGer}\NormalTok{(}\AttributeTok{numberOfTreatments =} \DecValTok{14}\NormalTok{,}
+                  \AttributeTok{treatName =}\NormalTok{ variety.list,}
+                  \AttributeTok{rowsInDesign =} \DecValTok{7}\NormalTok{,         }\CommentTok{\# Total of rows in the design is 7}
+                  \AttributeTok{columnsInDesign =} \DecValTok{4}\NormalTok{,      }\CommentTok{\# Total of columns in the design is 4}
+                  \AttributeTok{rowsInBlock =} \DecValTok{1}\NormalTok{,          }\CommentTok{\# Every Block (Farm) has only 1 row}
+                  \AttributeTok{columnsInBlock =} \DecValTok{4}\NormalTok{,       }\CommentTok{\# And 4 columns}
+                  \AttributeTok{runSearch =}\NormalTok{ T)            }\CommentTok{\# Run the optimization }
+\end{Highlighting}
+\end{Shaded}
+
+So, this is my design, where every row corresponds to a given farm, and no genotype is repeated within the same block. However, every treatment is at least twice on the design.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(mydesignIB)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{PPB-Toolkit-for-R-and-R-Studio_files/figure-latex/unnamed-chunk-83-1.pdf}
+
+The same elaboration to change numbers to variety names that was done before can be done here. This was achieved by using the \textbf{replace()} function and the \textbf{mydesignIB\$dlist} object.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{myfieldIB }\OtherTok{=}\NormalTok{ mydesignIB}\SpecialCharTok{$}\NormalTok{ddphase[[}\DecValTok{1}\NormalTok{]]}\SpecialCharTok{$}\NormalTok{design   }\CommentTok{\#Saving the design with a simpler name}
+\NormalTok{myfieldIB.withnames}\OtherTok{=} \FunctionTok{replace}\NormalTok{(}\AttributeTok{x=}\NormalTok{myfieldIB,   }
+                    \AttributeTok{values =}\NormalTok{ mydesignIB}\SpecialCharTok{$}\NormalTok{dlist}\SpecialCharTok{$}\NormalTok{ID ) }\CommentTok{\# Changing the numbers for actual names}
+\end{Highlighting}
+\end{Shaded}
+
+Before saving into excel, I want name every row as the farmer's that will actually sow these plots. Then, I just name the columns from 1 to 4, and then, check it.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{rownames}\NormalTok{(myfieldIB.withnames) }\OtherTok{=} \FunctionTok{c}\NormalTok{(}\StringTok{"Pippo"}\NormalTok{, }\StringTok{"Rosario"}\NormalTok{, }\StringTok{"Ugo"}\NormalTok{, }\StringTok{"Giuseppe"}\NormalTok{, }\StringTok{"Marco"}\NormalTok{, }\StringTok{"Simone"}\NormalTok{, }\StringTok{"Giandomenico"}\NormalTok{)}
+\FunctionTok{colnames}\NormalTok{(myfieldIB.withnames) }\OtherTok{=} \DecValTok{1}\SpecialCharTok{:}\DecValTok{4}
+\NormalTok{myfieldIB.withnames}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##              1        2        3        4       
+## Pippo        "Var. G" "Var. I" "Var. A" "Var. M"
+## Rosario      "Var. J" "Var. M" "Var. D" "Var. N"
+## Ugo          "Var. I" "Var. H" "Var. L" "Var. C"
+## Giuseppe     "Var. F" "Var. K" "Var. D" "Var. C"
+## Marco        "Var. B" "Var. G" "Var. K" "Var. E"
+## Simone       "Var. H" "Var. J" "Var. B" "Var. F"
+## Giandomenico "Var. E" "Var. A" "Var. N" "Var. L"
+\end{verbatim}
+
+And finally, save it into excel
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{write.csv}\NormalTok{(myfieldIB.withnames,}\StringTok{"Field Map IB with names.csv"}\NormalTok{)}
+\NormalTok{(}\DecValTok{2}\SpecialCharTok{*}\DecValTok{7}\NormalTok{) }\SpecialCharTok{+}\NormalTok{ (}\DecValTok{12}\SpecialCharTok{*}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 38
+\end{verbatim}
+
+\includegraphics{rsrstrip.png}
+
+\hypertarget{partially-replicated-block-design}{%
+\subsection{Partially Replicated Block Design}\label{partially-replicated-block-design}}
+
+Partially Replicated designs are increasingly popular, because they allow to compare a large panel of genotypes by using just a handful of common checks. However, the design is a bit more complex. Now, we have genotypes that are in every block (we will call them Checks), and some other that only in one or a couple of blocks (Tests). The requisite to perform the design is the following: the total number of plots must be equal to the sum the number of checkstimes the number of blocks, plus the number of tests times the number of repetitions for the tests. That is:
+
+\[
+  Blocks\ * Plots\ per\  Block\ =  ( Checks * Blocks) +  (No.\ of\  Tests\ *\  Reps)
+\]
+For example, we have the same 14 varieties, but two of them (Var. A and Var. B) will work as Checks, and the 12 remaining varieties will be Tests with only two repetitions. In order for the design to be resolvable, I must choose my number of blocks (farms) accordingly, by replacing the elements of the last equation. For this, simple algebra could be used.
+
+\[
+n*4 = (2*n) + (12*2)
+\]
+
+\[
+n= 12
+\]
+So, to complete this design, we would need 12 different farms, each with a 4 plot block
+
+However, in real life, we don't get to choose so freely the number of farms. Another example would be if we start from only 9 farms, and we still want to have 2 checks and a \emph{m} number of test varieties repeated twice. Then, we would do the following.
+
+\[
+9*4 = (2*9) + (m*2)
+\]
+
+\[
+m= 9
+\]
+
+In this case, because of the constraints of the design we could only include 9 of our 12 potential varieties. It is however possible, through DiGGER and other applications, to do other kinds of designs that do not satisfy these equations. For example, some farms with 5 plots and others with 4, but it would be an unbalanced design and the statistic methods used may change significantly.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+Moreover, let's do design for the first example, with 2 checks, 12 tests and 12 farms. Before using the respective \textbf{prDiGGer()} function, we might want to prepare to useful vectors.
+
+So, out of our 14 genotypes, the first 2 will be repeated 12 times (once per block) and the rest will be only repeated twice. The vector ``myreps'' contains that info.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{myreps }\OtherTok{=}\FunctionTok{c}\NormalTok{(}\DecValTok{12}\NormalTok{,}\DecValTok{12}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+We can check that the number of elements is right (it should be 14)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{length}\NormalTok{(myreps)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 14
+\end{verbatim}
+
+And we can check that the sum of the reps equals the number of plots (should be 12*4 = 48)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sum}\NormalTok{(myreps) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 48
+\end{verbatim}
+
+Now, we create the vector ``mygroups'' that assigns each genotype to a given group. As a convention, the genotypes in group 1 will be tests and those in group 2 will be checks.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mygroups }\OtherTok{=}  \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+We are all set to run \textbf{prDiGGer()}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mydesignPR }\OtherTok{\textless{}{-}} \FunctionTok{prDiGGer}\NormalTok{(}\AttributeTok{numberOfTreatments =} \DecValTok{14}\NormalTok{,                  }\CommentTok{\# 14 treatments}
+                       \AttributeTok{rowsInDesign =} \DecValTok{12}\NormalTok{,                        }\CommentTok{\# 12 rows (one per farm)}
+                       \AttributeTok{columnsInDesign =} \DecValTok{4}\NormalTok{,                      }\CommentTok{\# 4 columns in the design}
+                       \AttributeTok{treatRepPerRep =}\NormalTok{ myreps,                  }\CommentTok{\# Reps per treatment}
+                       \AttributeTok{treatGroup=}\NormalTok{ mygroups,                     }\CommentTok{\# My groups vector}
+                       \AttributeTok{blockSequence =} \FunctionTok{list}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{4}\NormalTok{)),             }\CommentTok{\# Every block will have four columns and one row}
+                       \AttributeTok{treatName =}\NormalTok{ variety.list,}
+                       \AttributeTok{runSearch =}\NormalTok{ T)        }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      Phase,    Search%,    A-measure
+## [1] 1.0000000 0.0000000 0.1136364
+## [1]  1.00000000 10.00000000  0.08333333
+## [1]  1.00000000 20.00000000  0.08333333
+## [1]  1.00000000 30.00000000  0.08333333
+## [1]  1.00000000 40.00000000  0.08333333
+## [1]  1.00000000 50.00000000  0.08333333
+## [1]  1.00000000 60.00000000  0.08333333
+## [1]  1.00000000 70.00000000  0.08333333
+## [1]  1.00000000 80.00000000  0.08333333
+## [1]  1.00000000 90.00000000  0.08333333
+## [1]   1.00000000 100.00000000   0.08333333
+##  [1] 0.08333333 0.08333333 0.00000000 0.00000000 0.00000000 0.00000000
+##  [7] 0.00000000 0.00000000 0.00000000 0.00000000
+##      Phase,    Search%,    A-measure
+## [1] 1.0000000 0.0000000 0.7340623
+## [1]  1.0000000 10.0000000  0.7010528
+## [1]  1.0000000 20.0000000  0.7010528
+## [1]  1.0000000 30.0000000  0.7010528
+## [1]  1.0000000 40.0000000  0.7010528
+## [1]  1.0000000 50.0000000  0.7010528
+## [1]  1.0000000 60.0000000  0.7010528
+## [1]  1.0000000 70.0000000  0.7010528
+## [1]  1.0000000 80.0000000  0.7010528
+## [1]  1.0000000 90.0000000  0.7010528
+## [1]   1.0000000 100.0000000   0.7010528
+##  [1] 0.7010528 0.7010528 0.0000000 0.0000000 0.0000000 0.0000000 0.0000000
+##  [8] 0.0000000 0.0000000 0.0000000
+##      Phase,    Search%,    A-measure
+## [1] 1.0000000 0.0000000 0.7885147
+## [1]  1.000000 10.000000  0.598856
+## [1]  1.000000 20.000000  0.598856
+## [1]  1.000000 30.000000  0.598856
+## [1]  1.000000 40.000000  0.598856
+## [1]  1.000000 50.000000  0.598856
+## [1]  1.000000 60.000000  0.598856
+## [1]  1.000000 70.000000  0.598856
+## [1]  1.000000 80.000000  0.598856
+## [1]  1.000000 90.000000  0.598856
+## [1]   1.000000 100.000000   0.598856
+##  [1] 0.598856 0.598856 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
+##  [9] 0.000000 0.000000
+\end{verbatim}
+
+When we plot it, we can check that treatments 1 and 2 are in every block, and all the rest are just present in two blocks.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(mydesignPR) }
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[height=1.15\textheight]{PPB-Toolkit-for-R-and-R-Studio_files/figure-latex/unnamed-chunk-92-1}
+
+To further save it, we proceed in the same way as before.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Renaming the object}
+\NormalTok{myfieldPR }\OtherTok{=}\NormalTok{ mydesignPR}\SpecialCharTok{$}\NormalTok{ddphase[[}\DecValTok{1}\NormalTok{]]}\SpecialCharTok{$}\NormalTok{design                  }
+
+\CommentTok{\#Replacing numbers with names}
+\NormalTok{myfieldPR.withnames}\OtherTok{=} \FunctionTok{replace}\NormalTok{(}\AttributeTok{x=}\NormalTok{myfieldPR,   }
+                             \AttributeTok{values =}\NormalTok{ mydesignPR}\SpecialCharTok{$}\NormalTok{dlist}\SpecialCharTok{$}\NormalTok{ID)  }
+
+\CommentTok{\#Fixing column names}
+\FunctionTok{colnames}\NormalTok{(myfieldPR.withnames) }\OtherTok{=} \DecValTok{1}\SpecialCharTok{:}\DecValTok{4}                         
+
+
+\CommentTok{\#Changing row names to farm names (using paste() and seq())}
+\FunctionTok{rownames}\NormalTok{(myfieldPR.withnames) }\OtherTok{=} \FunctionTok{paste}\NormalTok{( }\StringTok{"Farm"}\NormalTok{, }\FunctionTok{seq}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{12}\NormalTok{))}
+
+
+\CommentTok{\#Final checking}
+\NormalTok{myfieldPR.withnames}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##         1        2        3        4       
+## Farm 1  "Var. B" "Var. E" "Var. C" "Var. A"
+## Farm 2  "Var. A" "Var. G" "Var. D" "Var. B"
+## Farm 3  "Var. B" "Var. F" "Var. L" "Var. A"
+## Farm 4  "Var. H" "Var. A" "Var. K" "Var. B"
+## Farm 5  "Var. B" "Var. N" "Var. H" "Var. A"
+## Farm 6  "Var. A" "Var. K" "Var. G" "Var. B"
+## Farm 7  "Var. A" "Var. J" "Var. N" "Var. B"
+## Farm 8  "Var. B" "Var. M" "Var. D" "Var. A"
+## Farm 9  "Var. A" "Var. C" "Var. F" "Var. B"
+## Farm 10 "Var. M" "Var. B" "Var. I" "Var. A"
+## Farm 11 "Var. A" "Var. L" "Var. J" "Var. B"
+## Farm 12 "Var. B" "Var. I" "Var. E" "Var. A"
+\end{verbatim}
+
+Exporting to excel
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{write.csv}\NormalTok{(myfieldPR,}\StringTok{"Field Map PR with names.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{rsrstrip.png}
+
+\hypertarget{agricolae}{%
+\section{Agricolae}\label{agricolae}}
+
+Another package that can be used for randomizations is ``agricolae''. It uses simpler algorithms, and, most importantly, does not prepare the field in a row-column matrix, but only gives a lineal order of the plots. The package can be installed easiliy by typing:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"agricolae"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Once installed, the package should be ``called'', by typing:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(agricolae)}
+\end{Highlighting}
+\end{Shaded}
+
+This package offers a wide array of designs that can be consulted in it's \href{https://cran.r-project.org/web/packages/agricolae/agricolae.pdf}{documentation}. We will only cover here the case of the\textbf{Randomized Complete Block Design (RCBD) } and \textbf{Partially Replicated Block Design}.
+
+\hypertarget{randomized-complete-block-design-1}{%
+\subsection{Randomized Complete Block Design}\label{randomized-complete-block-design-1}}
+
+In Agricolae, this type of design is obtained through the the function \textbf{design.rcbd() }. To learn more about this function, and how to write the proper arguments, one could type:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{?design.rcbd}
+\end{Highlighting}
+\end{Shaded}
+
+So, to apply the function, the first argument should be the object containing our variety list (that we prepared before). The ``r'' argument indicates the number of blocks or repetitions. The ``serie'' arguments just indicates which type of numeration to have for the plot, in this case, we will choose ``serie= 2'', so that the first plot on our first block has the number ``101''.In this case, we use also the ``seed'' argument and assign an arbitrary number (`12345'), which allows for you and me to have the same results, despite randomization.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{myfield.agricolae }\OtherTok{\textless{}{-}} \FunctionTok{design.rcbd}\NormalTok{(variety.list,        }\CommentTok{\# My variety List}
+                     \AttributeTok{r=} \DecValTok{2}\NormalTok{,                }\CommentTok{\# Number of repetitions}
+                     \AttributeTok{serie=} \DecValTok{2}\NormalTok{,            }\CommentTok{\# Plot numeration style}
+                     \AttributeTok{seed=} \DecValTok{12345}\NormalTok{)         }\CommentTok{\# Fix randomization}
+\end{Highlighting}
+\end{Shaded}
+
+The object ``myfield.agricolae'' contains now three different elements. It contains the paramenters used for the design, a field sketch and a ``Fieldbook''. Each of these elements can be called using the `\$' symbol in the following form:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{myfield.agricolae}\SpecialCharTok{$}\NormalTok{book}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    plots block variety.list
+## 1    101     1       Var. G
+## 2    102     1       Var. L
+## 3    103     1       Var. F
+## 4    104     1       Var. J
+## 5    105     1       Var. B
+## 6    106     1       Var. N
+## 7    107     1       Var. D
+## 8    108     1       Var. A
+## 9    109     1       Var. K
+## 10   110     1       Var. M
+## 11   111     1       Var. C
+## 12   112     1       Var. H
+## 13   113     1       Var. E
+## 14   114     1       Var. I
+## 15   201     2       Var. D
+## 16   202     2       Var. F
+## 17   203     2       Var. M
+## 18   204     2       Var. H
+## 19   205     2       Var. L
+## 20   206     2       Var. C
+## 21   207     2       Var. G
+## 22   208     2       Var. K
+## 23   209     2       Var. A
+## 24   210     2       Var. B
+## 25   211     2       Var. I
+## 26   212     2       Var. N
+## 27   213     2       Var. J
+## 28   214     2       Var. E
+\end{verbatim}
+
+This element could be exported into an excel or .csv file in your computer, both for an easier manipulation and to potentially prepare a file to take data evaluations. To export as an .csv, the function \textbf{write.csv() } comes in handy.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{write.csv}\NormalTok{(myfield.agricolae}\SpecialCharTok{$}\NormalTok{book, }\StringTok{"myfield.agricolae.csv"}\NormalTok{, }\AttributeTok{row.names =}\NormalTok{ F)}
+\end{Highlighting}
+\end{Shaded}
+
+However, this is only a linear list (that is however useful), but we would like to have a map. For that purpose, we could the function \textbf{matrix() }, and indicate that we want the rows divided into 4 columns (if that is the case)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{myfield.matrix }\OtherTok{=} \FunctionTok{matrix}\NormalTok{(}
+\NormalTok{                 myfield.agricolae}\SpecialCharTok{$}\NormalTok{book}\SpecialCharTok{$}\NormalTok{variety.list,  }\CommentTok{\#Taking only the varieties names from the fieldbook.}
+                 \AttributeTok{ncol=}\DecValTok{4}\NormalTok{)                   }\CommentTok{\#Number of columns in the field.}
+
+\NormalTok{myfield.matrix }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      [,1]     [,2]     [,3]     [,4]    
+## [1,] "Var. G" "Var. A" "Var. D" "Var. K"
+## [2,] "Var. L" "Var. K" "Var. F" "Var. A"
+## [3,] "Var. F" "Var. M" "Var. M" "Var. B"
+## [4,] "Var. J" "Var. C" "Var. H" "Var. I"
+## [5,] "Var. B" "Var. H" "Var. L" "Var. N"
+## [6,] "Var. N" "Var. E" "Var. C" "Var. J"
+## [7,] "Var. D" "Var. I" "Var. G" "Var. E"
+\end{verbatim}
+
+This could as well be exported into a .csv file.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{write.csv}\NormalTok{(myfield.agricolae.matrix, }\StringTok{"myfield.matrix.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{partially-replicated-block-design-1}{%
+\subsection{Partially Replicated Block Design}\label{partially-replicated-block-design-1}}
+
+Agricolae calls this kind of design as ``Augmented Block Design''. To execute it, a very similar function is used, called \textbf{design.dau()}
+
+However, for this case, two different variety lists are needed, one containing the ``check'' varieties (to be present in all blocks) and the ``new'' varieties (to be present only once). We could use the R grammatics to select only the first two elements from the previous variety list, and name them as our checks.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{variety.checks }\OtherTok{=}\NormalTok{ variety.list[}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{)]}
+\NormalTok{variety.checks}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Var. A" "Var. B"
+\end{verbatim}
+
+And another object with only the remaining elements of the list.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{variety.new }\OtherTok{=}\NormalTok{ variety.list[}\FunctionTok{c}\NormalTok{(}\DecValTok{3}\SpecialCharTok{:}\DecValTok{14}\NormalTok{)]}
+\NormalTok{variety.new}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "Var. C" "Var. D" "Var. E" "Var. F" "Var. G" "Var. H" "Var. I" "Var. J"
+##  [9] "Var. K" "Var. L" "Var. M" "Var. N"
+\end{verbatim}
+
+Then, we are ready to apply the function:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{myfieldabd.agricolae }\OtherTok{=} \FunctionTok{design.dau}\NormalTok{(}\AttributeTok{trt1=}\NormalTok{ variety.checks, }\CommentTok{\# Check varieties}
+                        \AttributeTok{trt2=}\NormalTok{ variety.new,    }\CommentTok{\# New varieties}
+                        \AttributeTok{r =} \DecValTok{2}\NormalTok{,                }\CommentTok{\# Number of repetitions}
+                        \AttributeTok{seed=} \DecValTok{12345}\NormalTok{)      }\CommentTok{\# Fix randomization}
+\end{Highlighting}
+\end{Shaded}
+
+Again, we have several objects within ``myfieldabd.agricolae''. To see how varieties were distributed through blocks, we cab see the ``book'' object within ``field.adb''.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{myfieldabd.agricolae}\SpecialCharTok{$}\NormalTok{book}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    plots block    trt
+## 1    101     1 Var. E
+## 2    102     1 Var. M
+## 3    103     1 Var. C
+## 4    104     1 Var. D
+## 5    105     1 Var. N
+## 6    106     1 Var. F
+## 7    107     1 Var. A
+## 8    108     1 Var. B
+## 9    201     2 Var. H
+## 10   202     2 Var. I
+## 11   203     2 Var. J
+## 12   204     2 Var. L
+## 13   205     2 Var. B
+## 14   206     2 Var. A
+## 15   207     2 Var. K
+## 16   208     2 Var. G
+\end{verbatim}
+
+We confirm that varieties A and B are in both blocks, but the rest of the varieties are only represented once.
+
+\includegraphics{rsrstrip.png}
+
+\hypertarget{organic-trials}{%
+\section{Organic Trials}\label{organic-trials}}
+
+Finally, the \href{https://seedalliance.org/}{Organic Seed Alliance} has also developed a beatiful R based web site that can prepare Randomized Complete Block and Partially Replicated Designs. If your designs are simple and it turns out more convenient for you, \href{https://organicseed.shinyapps.io/OrganicTrials/}{this} is a great option.
+
+\includegraphics{rsrstrip.png}
+
+\hypertarget{statistical-tests}{%
+\chapter{Statistical tests}\label{statistical-tests}}
+
+\includegraphics{rsrstrip.png}
+
+This section is under progress and we hope to have it ready soon!
+
+\hypertarget{spatial-analysis}{%
+\chapter{Spatial Analysis}\label{spatial-analysis}}
+
+\includegraphics{rsrstrip.png}
+
+Agricultural fields are often very heterogenous, and one when one wishes to determine the genetic value of a given genotype, it is often useful to use methods that account for this variability \citet{singh2003spatial}. Several methodological and statistical approaches can be used to address this use. In this chaper, we will cover the use of \textbf{SpATS}, and (hopefully soon) the use of other packages.
+
+\hypertarget{spats}{%
+\section{SpATS}\label{spats}}
+
+SpATS (Spatial Analysis of field Trials with Splines) is an approach for spatial analysis developed by \citet{spats2017}. In general, it uses the row-column ``two-dimensional
+smooth surfaces to model random spatial variation''. The proper explanation of the statistics behind can be found \href{https://www.sciencedirect.com/science/article/pii/S2211675317301070?casa_token=vtmG6I6PWwsAAAAA:UXWSox0zDSMUU3wnJfCEvtBFbTrW4FK1EOdf-GT6O00G1MVMWpMRLNevjzVwRDNf71y46ml6}{here} and \href{https://link.springer.com/article/10.1007/s00122-017-2894-4}{here}.
+
+As usual, before using the package, it must be installed.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"SpATS"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+And then called:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{ (SpATS)}
+\end{Highlighting}
+\end{Shaded}
+
+We will use the same tomato data that we have been using in the previous chapter.
+
+So, to properly perform the analysis, we can only use data from one location, in order to grasp the spatial heterogeneity of that specific farm. So, we first \protect\hyperlink{basic-r}{subset} the data only from one of our locations called Sestola.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{data.Sestola }\OtherTok{\textless{}{-}} \FunctionTok{subset}\NormalTok{(mydata, location }\SpecialCharTok{==} \StringTok{"Sestola"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+With this object, we can now run the function \textbf{SpATS}, as showed and explained here:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{spats.Sestola  }\OtherTok{=}    \FunctionTok{SpATS}\NormalTok{(}\AttributeTok{data=}\NormalTok{      data.Sestola,    }\CommentTok{\#My subset from Sestola  }
+                          \AttributeTok{response=} \StringTok{"yield"}\NormalTok{,          }\CommentTok{\#The name of my variable}
+                          \AttributeTok{genotype =} \StringTok{"variety"}\NormalTok{,       }\CommentTok{\#The name of my genotupe columns}
+                          \AttributeTok{genotype.as.random =}\NormalTok{ F,     }\CommentTok{\#This is a long story. Genotypes set as random or as fixed.}
+                                                      \CommentTok{\# define my model. In the first case, I will obtain BLUPs }
+                                                      \CommentTok{\# values, and in the seconed, BLUEs values.}
+                          \AttributeTok{spatial =} \SpecialCharTok{\textasciitilde{}} \FunctionTok{SAP}\NormalTok{(row, col))  }\CommentTok{\#This arguments designs the row{-}column distribution of the field}
+\end{Highlighting}
+\end{Shaded}
+
+We created an object called spats.Sestola and we can plot it inmediately. In this plot we can see the raw data, the data ``fitted'' to the spatial model, the residuals of the model.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(spats.Sestola)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{PPB-Toolkit-for-R-and-R-Studio_files/figure-latex/unnamed-chunk-112-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{toBibtex}\NormalTok{(}\FunctionTok{citation}\NormalTok{(}\StringTok{"metan"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## @Article{Olivoto2020,
+##   author = {Tiago Olivoto and Alessandro Dal'Col L{'{u}}cio},
+##   title = {metan: an R package for multi-environment trial analysis},
+##   journal = {Methods in Ecology and Evolution},
+##   volume = {11},
+##   number = {6},
+##   pages = {783-789},
+##   year = {2020},
+##   doi = {10.1111/2041-210X.13384},
+## }
+\end{verbatim}
+
+We are intereseted in the BLUES (or the BLUPS), which is an estimate (or a prediction) of the breeding genetic value for each genotype. In the plot, it is given as a deviation from the mean. If we add the overall mean value to that number, we would have what we call an adjusted mean. In SpATS, this can be done through \textbf{predict()}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{adj.means }\OtherTok{=} \FunctionTok{predict}\NormalTok{(spats.Sestola, }\AttributeTok{which =} \StringTok{\textquotesingle{}variety\textquotesingle{}}\NormalTok{)}
+\NormalTok{adj.means}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    variety      row      col predicted.values standard.errors
+## 88  Var. A Excluded Excluded         867.3824        248.6114
+## 91  Var. B Excluded Excluded         788.9379        212.0287
+## 87  Var. C Excluded Excluded         893.9095        218.2514
+## 99  Var. D Excluded Excluded        1232.2897        214.7301
+## 85  Var. E Excluded Excluded        1096.1994        303.3213
+## 86  Var. F Excluded Excluded         919.5207        210.7567
+## 98  Var. G Excluded Excluded         869.4760        208.5983
+## 95  Var. H Excluded Excluded         850.8442        201.3184
+## 97  Var. I Excluded Excluded         913.4908        204.0684
+## 94  Var. J Excluded Excluded        1004.0451        199.2065
+## 93  Var. K Excluded Excluded         968.4633        208.0695
+## 96  Var. L Excluded Excluded        1176.2738        254.1530
+## 92  Var. M Excluded Excluded        1206.4843        229.8201
+## 90  Var. N Excluded Excluded        1106.9766        226.3251
+\end{verbatim}
+
+And I could plot them.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{ggplot}\NormalTok{(adj.means, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{ variety, }\AttributeTok{y =}\NormalTok{ predicted.values))}\SpecialCharTok{+}
+  \FunctionTok{geom\_bar}\NormalTok{(}\AttributeTok{stat=} \StringTok{"identity"}\NormalTok{, }\AttributeTok{fill =} \StringTok{"tomato"}\NormalTok{)}\SpecialCharTok{+}
+  \FunctionTok{geom\_errorbar}\NormalTok{( }\FunctionTok{aes}\NormalTok{(}\AttributeTok{ymax =}\NormalTok{ predicted.values}\SpecialCharTok{+}\NormalTok{ standard.errors,}
+                     \AttributeTok{ymin =}\NormalTok{ predicted.values}\SpecialCharTok{{-}}\NormalTok{ standard.errors))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{PPB-Toolkit-for-R-and-R-Studio_files/figure-latex/unnamed-chunk-114-1.pdf}
+
+To better understand the kind of transformation that we did to the data, we can take a look at this plot, which represents the raw yield numbers for each plot in the field.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(data.Sestola, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{row, }\AttributeTok{y =}\NormalTok{ col, }\AttributeTok{label=}\NormalTok{ variety, }\AttributeTok{fill =}\NormalTok{ yield))}\SpecialCharTok{+}
+  \FunctionTok{geom\_tile}\NormalTok{()}\SpecialCharTok{+}
+  \FunctionTok{geom\_text}\NormalTok{()}\SpecialCharTok{+}
+  \FunctionTok{scale\_fill\_gradientn}\NormalTok{(}\AttributeTok{colors=}\FunctionTok{c}\NormalTok{(}\StringTok{"blue"}\NormalTok{, }\StringTok{"lightblue"}\NormalTok{, }\StringTok{"green3"}\NormalTok{, }\StringTok{"yellow"}\NormalTok{, }\StringTok{"red"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{PPB-Toolkit-for-R-and-R-Studio_files/figure-latex/unnamed-chunk-115-1.pdf}
+
+We can see some examples, for instance:
+
+\begin{itemize}
+\item
+  Var. D was the best variety. It had an outstanding performance in Column 6 Row 1 and then, an average performance in Row 3 Column 4. The combination of both performances allowed this variety to have the highest BLUEs value.
+\item
+  Var. H had the lowest adjusted mean. Both repetitions were more or less in the center of the plot, but both had bad performances.
+\end{itemize}
+
+Moreover, the SpATS object we have just created is full of different objects, for example
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{spats.Sestola}\SpecialCharTok{$}\NormalTok{call       }\CommentTok{\# The original call}
+\NormalTok{spats.Sestola}\SpecialCharTok{$}\NormalTok{model      }\CommentTok{\# The parameters of the model}
+\NormalTok{spats.Sestola}\SpecialCharTok{$}\NormalTok{deviance   }\CommentTok{\# The deviance indicate how appropiate is the fitting of the model.}
+\NormalTok{spats.Sestola}\SpecialCharTok{$}\NormalTok{coeff      }\CommentTok{\# This is the coefficient for every factor, including genotype and field position.}
+\end{Highlighting}
+\end{Shaded}
+
+We then would have to do the same for every environment. We could do it manually, writing the code above for every environment. It is possible, but lenghty. We will here propose the code to do it into a loop function. Looping in R (and in general) is extremely useful, and we will use this example to show the basics on how looping is done.
+
+First, we create a list of the elements that will be used in my loop. In our case, the list will contain the 4 location name. Alternatively, and most commonly, the lists are simply a sequence of numbers.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mylocs }\OtherTok{=} \FunctionTok{unique}\NormalTok{(mydata}\SpecialCharTok{$}\NormalTok{loc) }\CommentTok{\# The unique() function takes the unique values from a vector}
+\NormalTok{mylocs}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Molise"      "Rotonda"     "Castronuovo" "Sestola"
+\end{verbatim}
+
+Now, we will draw the loop. The main function is \textbf{for()} followed by curly braces \{\}. The \textbf{for()} defines a how to go over the loop; we will write \textbf{for (i in mylocs)} meaning that \emph{i} is a variable that will take the value of each one of the elements in my list (the location names). And then, everything inside the curly braces is what will be done with i being a given value within the list
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in}\NormalTok{ mylocs)\{                                    }\CommentTok{\# i is a variable that will take the value of every element in mylocs}
+\NormalTok{  myenv }\OtherTok{=}\NormalTok{ i                                           }\CommentTok{\# Define "myenv" as whatever we have in i}
+\NormalTok{  mysubset}\OtherTok{=} \FunctionTok{subset}\NormalTok{(mydata, location }\SpecialCharTok{==}\NormalTok{ i)                     }\CommentTok{\# Make a subset with environment i}
+  
+\NormalTok{  myspats }\OtherTok{=}  \FunctionTok{SpATS}\NormalTok{(}\AttributeTok{response =} \StringTok{"yield"}\NormalTok{,                }\CommentTok{\# This is the SpATS function we saw before}
+                 \AttributeTok{genotype =} \StringTok{"variety"}\NormalTok{, }
+                 \AttributeTok{genotype.as.random =}\NormalTok{ F,}
+                 \AttributeTok{data=}\NormalTok{      mysubset,                 }\CommentTok{\# The data is coming from the specific subset done within the loop}
+                \AttributeTok{spatial =} \SpecialCharTok{\textasciitilde{}} \FunctionTok{SAP}\NormalTok{(row, col))}
+\NormalTok{  adjusted.means }\OtherTok{\textless{}{-}} \FunctionTok{predict}\NormalTok{(myspats,                  }\CommentTok{\#  With "myspats", we estimate the adjusted means}
+                            \AttributeTok{which =} \StringTok{"variety"}\NormalTok{)   }
+\NormalTok{  adjusted.means}\SpecialCharTok{$}\NormalTok{location }\OtherTok{\textless{}{-}}\NormalTok{ myenv                         }\CommentTok{\# To our "adjusted.means" data frame, we add a column with the name of environment                        }
+  \FunctionTok{assign}\NormalTok{(}\AttributeTok{value  =}\NormalTok{ adjusted.means[,}\FunctionTok{c}\NormalTok{(}\DecValTok{6}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{)],        }\CommentTok{\# I want to save the adjusted means object (rearrangin column order)}
+         \AttributeTok{x=}  \FunctionTok{paste0}\NormalTok{(}\StringTok{"means."}\NormalTok{,myenv))                  }\CommentTok{\# with a new name define as "means.myenv", where myenv is the actual name of the environment}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+The possibilities of looping are vast. We could, for example, create a new loop, within our main loop, for also obtaining the adjusted means for other variables. We will not do it for now.
+
+Now, we have four different adjusted means object, one for each environment. We could bind the with the \textbf{rbind()} function, which stands for rowbind.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{all.means }\OtherTok{\textless{}{-}} \FunctionTok{rbind}\NormalTok{(means.Castronuovo, means.Molise, means.Rotonda, means.Sestola)}
+
+\CommentTok{\#We can additionally change some column names to make things more clean}
+\FunctionTok{names}\NormalTok{(all.means)[}\DecValTok{3}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"yield\_adj\_mean"}
+\FunctionTok{names}\NormalTok{(all.means)[}\DecValTok{4}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"yield\_sd"}
+\end{Highlighting}
+\end{Shaded}
+
+And we plot it:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data=}\NormalTok{ all.means,                     }\CommentTok{\# Our data frame}
+       \FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{variety,                       }\CommentTok{\# Variety is the x axis}
+           \AttributeTok{y=}\NormalTok{yield\_adj\_mean))}\SpecialCharTok{+}              \CommentTok{\# Yield Adjusted Means are the y axis}
+  \FunctionTok{geom\_bar}\NormalTok{(}\AttributeTok{stat=}\StringTok{\textquotesingle{}identity\textquotesingle{}}\NormalTok{,                 }\CommentTok{\# The bars are plotted according to the identity actual values in the cells}
+           \AttributeTok{fill=} \StringTok{"tomato"}\NormalTok{)}\SpecialCharTok{+}                 \CommentTok{\# and filled with "tomato" color}
+  \FunctionTok{facet\_wrap}\NormalTok{(location}\SpecialCharTok{\textasciitilde{}}\NormalTok{.)}\SpecialCharTok{+}                        \CommentTok{\# Make a facet per each location }
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{x=} \StringTok{"Genotype"}\NormalTok{,}\AttributeTok{y=} \StringTok{"Yield"}\NormalTok{)  }\SpecialCharTok{+}         \CommentTok{\# Axis labels}
+  \FunctionTok{geom\_errorbar}\NormalTok{(                            }\CommentTok{\#Error bars}
+          \FunctionTok{aes}\NormalTok{(}\AttributeTok{ymin=}\NormalTok{yield\_adj\_mean }\SpecialCharTok{{-}}\NormalTok{ yield\_sd, }
+              \AttributeTok{ymax=}\NormalTok{yield\_adj\_mean }\SpecialCharTok{+}\NormalTok{ yield\_sd),}
+              \AttributeTok{width=}\FloatTok{0.2}\NormalTok{)}\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{axis.text.x =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{angle =}\DecValTok{90}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{PPB-Toolkit-for-R-and-R-Studio_files/figure-latex/unnamed-chunk-120-1.pdf}
+
+Moreover, given that ggplot can handle plotting data from two different data sources, we could do the same plot, but including also the raw data, and check for the main differences between both.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data=}\NormalTok{ all.means,                     }\CommentTok{\# Our data frame}
+       \FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{variety,                       }\CommentTok{\# Variety is the x axis}
+           \AttributeTok{y=}\NormalTok{yield\_adj\_mean))}\SpecialCharTok{+}              \CommentTok{\# Yield Adjusted Means are the y axis}
+  \FunctionTok{geom\_bar}\NormalTok{(}\AttributeTok{stat=}\StringTok{\textquotesingle{}identity\textquotesingle{}}\NormalTok{,                 }\CommentTok{\# The bars are plotted according to the identity actual values in the cells}
+           \AttributeTok{fill=} \StringTok{"tomato"}\NormalTok{)}\SpecialCharTok{+}                 \CommentTok{\# and filled with "tomato" color}
+  \FunctionTok{facet\_wrap}\NormalTok{(location}\SpecialCharTok{\textasciitilde{}}\NormalTok{.)}\SpecialCharTok{+}                        \CommentTok{\# Make a facet per each location }
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{x=} \StringTok{"Genotype"}\NormalTok{,}\AttributeTok{y=} \StringTok{"Yield"}\NormalTok{)  }\SpecialCharTok{+}         \CommentTok{\# Axis labels}
+  \FunctionTok{geom\_errorbar}\NormalTok{(                            }\CommentTok{\#Error bars}
+          \FunctionTok{aes}\NormalTok{(}\AttributeTok{ymin=}\NormalTok{yield\_adj\_mean }\SpecialCharTok{{-}}\NormalTok{ yield\_sd, }
+              \AttributeTok{ymax=}\NormalTok{yield\_adj\_mean }\SpecialCharTok{+}\NormalTok{ yield\_sd),}
+              \AttributeTok{width=}\FloatTok{0.2}\NormalTok{)}\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{axis.text.x =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{angle =}\DecValTok{90}\NormalTok{))}\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{data=}\NormalTok{ mydata, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{ variety,}\AttributeTok{y=}\NormalTok{yield), }\AttributeTok{col=} \StringTok{"darkgreen"}\NormalTok{)}\SpecialCharTok{+}   \CommentTok{\# A point for every raw yield observation}
+  \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{data=}\NormalTok{ mydata, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{ variety,}\AttributeTok{y=}\NormalTok{yield), }\AttributeTok{stat =} \StringTok{"summary"}\NormalTok{,    }\CommentTok{\# And a cross for the mean of the rar observations.}
+             \AttributeTok{fun =} \StringTok{"mean"}\NormalTok{, }\AttributeTok{col=} \StringTok{"darkgreen"}\NormalTok{, }\AttributeTok{shape=} \DecValTok{4}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{PPB-Toolkit-for-R-and-R-Studio_files/figure-latex/unnamed-chunk-121-1.pdf}
+
+\hypertarget{gge-biplots}{%
+\chapter{GGE BiPlots}\label{gge-biplots}}
+
+\includegraphics{rsrstrip.png}
+
+Introduce description for GGE BiPlots
+
+\hypertarget{metan-1}{%
+\section{metan}\label{metan-1}}
+
+To our knowledge, the most complete package for the elaboration of GGE BiPlots is the ``metan'' package, developed by Olivotto et al (2018). Here, we will overview some of it's main functions, but the more complete description can de found at \href{https://tiagoolivoto.github.io/metan/articles/vignettes_gge.html}{their site}.
+
+As usual, we must install (if it is not yet installed) and call the library:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"metan"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(metan)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(metan)}
+\end{Highlighting}
+\end{Shaded}
+
+Then, we will use our tomato data, which we usually call `mydata'
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mydata }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"tomatoMLT2020.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Now, before actually doing the plot, we prepare the GGE model with our required parameters.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gge\_model }\OtherTok{\textless{}{-}}  \FunctionTok{gge}\NormalTok{(mydata,             }\CommentTok{\# My data set }
+                  \AttributeTok{env =}\NormalTok{ location,     }\CommentTok{\# Column indicating the environment or location}
+                  \AttributeTok{gen =}\NormalTok{ variety,      }\CommentTok{\# Column indicating the genotype}
+                  \AttributeTok{resp=}\NormalTok{ yield,        }\CommentTok{\# Response column. For our case, we choose yield/}
+                  \AttributeTok{scaling =} \DecValTok{1}\NormalTok{)        }\CommentTok{\# Divides all values observations}
+\end{Highlighting}
+\end{Shaded}
+
+After that, all we need is to plot.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(gge\_model)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{PPB-Toolkit-for-R-and-R-Studio_files/figure-latex/unnamed-chunk-126-1.pdf}
+
+Here, we present the simplest version of the plot. But, the package includes other variants of the GGE BiPlots which might provide aditional information and/or interpretation.
+
+\hypertarget{which-won-where}{%
+\subsection{Which won where}\label{which-won-where}}
+
+The ``Which-Won-Where'' type draws a polygon along the genotypes that are the farthest away from the origin, this means that they are the genotypes with longest vectors and are thus the most responsive. As a rule of thumb,
+genotypes which are on the polygon vertex had the best performances in the environments found in the same sector (Yan et al., 2007).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(gge\_model, }\AttributeTok{type=} \DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{PPB-Toolkit-for-R-and-R-Studio_files/figure-latex/unnamed-chunk-127-1.pdf}
+
+\hypertarget{mean-vs.-stability}{%
+\subsection{Mean vs.~Stability}\label{mean-vs.-stability}}
+
+The ``Mean vs.~Stability'' feature draws a first line, the mean environmental axis, passing through the origin with an arrow representing the ``ideal'' environment, and then a second line perpendicular to the first, which represents the GxE interaction. Genotypes with projections close to the arrow in the first axis would be high performers in this ideal environment, while large projections on the second axis indicate low stability or high GxE interaction.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(gge\_model, }\AttributeTok{type =} \DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{PPB-Toolkit-for-R-and-R-Studio_files/figure-latex/unnamed-chunk-128-1.pdf}
+
+\hypertarget{genotype-ranking}{%
+\subsection{Genotype Ranking}\label{genotype-ranking}}
+
+The ``ideal'' genotype is represented as a small circle within a large set of concentric circles. How close the other gentoypes are to this circle determines how close are they to this ``ideal'' genotype.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(gge\_model, }\AttributeTok{type =} \DecValTok{8}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: Removed 979 row(s) containing missing values (geom_path).
+\end{verbatim}
+
+\includegraphics{PPB-Toolkit-for-R-and-R-Studio_files/figure-latex/unnamed-chunk-129-1.pdf}
+
+\hypertarget{genotype-comparison}{%
+\subsection{Genotype Comparison}\label{genotype-comparison}}
+
+A line is drawn dividing the two genotypes
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(gge\_model,}
+     \AttributeTok{type =} \DecValTok{9}\NormalTok{,}
+     \AttributeTok{sel\_gen1 =} \StringTok{"Var. A"}\NormalTok{,}
+     \AttributeTok{sel\_gen2 =} \StringTok{"Var. L"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{PPB-Toolkit-for-R-and-R-Studio_files/figure-latex/unnamed-chunk-130-1.pdf}
+
+\hypertarget{modifying-the-plot.}{%
+\subsection{Modifying the plot.}\label{modifying-the-plot.}}
+
+The GGE BiPlot is a ggplot object, so it can be easily modified. Some useful information for that matter can be found {[}here{]} (\url{http://r-statistics.co/Complete-Ggplot2-Tutorial-Part2-Customizing-Theme-With-R-Code.html}).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(ggplot2)}
+
+\FunctionTok{plot}\NormalTok{(gge\_model,}
+     \AttributeTok{col.gen =} \StringTok{"dimgray"}\NormalTok{,  }
+     \AttributeTok{col.env =} \StringTok{"red"}\NormalTok{,                            }\CommentTok{\# Changing the color of the labels for genotype and environment  }
+     \AttributeTok{size.text.env=} \DecValTok{7}\NormalTok{,                           }\CommentTok{\# Changing the size of the labels for genotype and environment}
+     \AttributeTok{size.text.gen =} \DecValTok{8}\NormalTok{)}\SpecialCharTok{+}                         \CommentTok{\# The metan function arrives up to here, from now on, we add pieces}
+     \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"My GGE Biplot"}\NormalTok{)}\SpecialCharTok{+}              \CommentTok{\# }
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{title =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size=} \DecValTok{20}\NormalTok{),          }\CommentTok{\# We can change the title or axis font size}
+        \AttributeTok{axis.title =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size=} \DecValTok{20}\NormalTok{)) }
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{PPB-Toolkit-for-R-and-R-Studio_files/figure-latex/unnamed-chunk-131-1.pdf}
+
+  \bibliography{book.bib,packages.bib}
+
+\end{document}

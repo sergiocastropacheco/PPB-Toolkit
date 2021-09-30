@@ -7,7 +7,9 @@ basic-statistics-and-plots
 packages-in-r.
 final-considerations
 data-wrangling-and-summarizing
+basic-r
 dplyr
+metan
 basics-of-data-visualisation
 base-package
 plot-vs.-index
@@ -18,7 +20,7 @@ box-plot
 scatter-plots
 bar-plots
 exporting-plots
-experimental-design-and-field-preparation
+experimental-design
 digger
 randomized-complete-block-design
 incomplete-block-design-ibd
@@ -31,12 +33,9 @@ statistical-tests
 spatial-analysis
 spats
 gge-biplots
-metan
+metan-1
 which-won-where
 mean-vs.-stability
 genotype-ranking
 genotype-comparison
 modifying-the-plot.
-basic-r
-metan-1
-experimental-design
