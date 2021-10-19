@@ -132,4 +132,50 @@ write.csv(mydata_means, "tomatodata_means.csv")
 
 ## metan
 
-This section is under progress!
+To "metan" pachkage was developed by @Olivoto2020 and "metan" stands for "Multi Environmetal Trial Analysis". It counts with plenty of useful tools for the analysis of breeding trials. 
+
+For now, we will see a very useful function that summarizes the information according to the criteria that you provide.
+
+As all the other packages, we need to install it and call it first.
+
+```{r, eval= F}
+install.packages('metan')
+library(metan)
+```
+
+
+```{r,echo= F, warning= F, message= F}
+library(metan)
+```
+
+
+Now, the function to summarize information in metan is *means_by()* and it is a bit easier to use than what we saw before in dplyr.
+
+```{r}
+means_by(mydata, variety)
+```
+If we do not specify the variables that we want to summarize, the function will summarize all numeric variables, and that is why we see the 'mean' for plot and repetition, altough it makes no actual sense. There are many turnarounds for this, but a very simple one would be to eliminate those rows from the data frame we will sumarize. This can be done in one move by using the brackets and minus sign.
+
+```{r}
+means_by(mydata[,-c(2:5)], variety)
+```
+
+In addition, if we also want to summarize every combination of variety plus location, we could do it easily this way.
+```{r}
+means_by(mydata[,-c(2:5)], variety, location)
+```
+Finally, we could also take the results of this process and store them in a .csv format.
+```{r}
+means_metan <- means_by(mydata[,-c(2:5)], variety, location)
+
+write.csv(means_metan , "means_metan .csv")
+```
+
+## Merge 
+
+Under construction
+
+## Reshape
+
+
+Under construction

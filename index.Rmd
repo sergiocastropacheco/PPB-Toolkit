@@ -37,7 +37,7 @@ Participatory Plant Breeding (PPB) is becoming increasingly popular around the w
 
 However, the technical and practical aspects of PPB prograrms can be very challenging. One of the biggest areas of difficulty has to do with data processing and analysis, as it may require specific skill-sets that can only be adquired by practice. Literature on this subject is increasingly growing and great overall manuals have been written; most notably,  the one from @Tech-Manual.
 
-We do not pretend to reiterate or substite this valuable resouces. What we do pretend is to offer a brief, synthetic and updates toolkit, which should be useful for participatory plant breeders during their processes. We offer this toolkit specifically in the frame of R and RStudio, an open source language and Integrated Development Environment (IDE) @Rstudio. 
+We do not pretend to reiterate or substitute these valuable resouces. What we do pretend is to offer a brief, synthetic and updates toolkit, which should be useful for participatory plant breeders during their processes. We offer this toolkit specifically in the frame of R and RStudio, an open source language and Integrated Development Environment (IDE) [@Rstudio]. 
 
 We propose R as a very powerful tool for PPB purposes because of three main reasons:
 

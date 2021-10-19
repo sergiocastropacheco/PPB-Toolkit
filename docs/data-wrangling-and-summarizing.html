@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 3 Data Wrangling and Summarizing | A PPB Toolkit in R and RStudio</title>
-  <meta name="description" content="Chapter 3 Data Wrangling and Summarizing | A PPB Toolkit in R and RStudio" />
+  <title>Chapter 3 Data Wrangling and Summarizing | A Participatory Plant Breeding Toolkit in R and RStudio</title>
+  <meta name="description" content="Chapter 3 Data Wrangling and Summarizing | A Participatory Plant Breeding Toolkit in R and RStudio" />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 3 Data Wrangling and Summarizing | A PPB Toolkit in R and RStudio" />
+  <meta property="og:title" content="Chapter 3 Data Wrangling and Summarizing | A Participatory Plant Breeding Toolkit in R and RStudio" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 Data Wrangling and Summarizing | A PPB Toolkit in R and RStudio" />
+  <meta name="twitter:title" content="Chapter 3 Data Wrangling and Summarizing | A Participatory Plant Breeding Toolkit in R and RStudio" />
   
   
   
@@ -155,7 +155,7 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A PPB Toolkit in R and RStudio</a></li> 
+<li><a href="./">A Participatory Plant Breeding Toolkit in R and RStudio</a></li> 
 <img src="logo.png" width="100" height="70" style="position:center">
 
 <li class="divider"></li>
@@ -174,6 +174,8 @@ div.csl-indent {
 <li class="chapter" data-level="3.1" data-path="data-wrangling-and-summarizing.html"><a href="data-wrangling-and-summarizing.html#basic-r"><i class="fa fa-check"></i><b>3.1</b> Basic R</a></li>
 <li class="chapter" data-level="3.2" data-path="data-wrangling-and-summarizing.html"><a href="data-wrangling-and-summarizing.html#dplyr"><i class="fa fa-check"></i><b>3.2</b> dplyr</a></li>
 <li class="chapter" data-level="3.3" data-path="data-wrangling-and-summarizing.html"><a href="data-wrangling-and-summarizing.html#metan"><i class="fa fa-check"></i><b>3.3</b> metan</a></li>
+<li class="chapter" data-level="3.4" data-path="data-wrangling-and-summarizing.html"><a href="data-wrangling-and-summarizing.html#merge"><i class="fa fa-check"></i><b>3.4</b> Merge</a></li>
+<li class="chapter" data-level="3.5" data-path="data-wrangling-and-summarizing.html"><a href="data-wrangling-and-summarizing.html#reshape"><i class="fa fa-check"></i><b>3.5</b> Reshape</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html"><i class="fa fa-check"></i><b>4</b> Basics of Data Visualisation</a>
 <ul>
@@ -222,6 +224,7 @@ div.csl-indent {
 <li class="chapter" data-level="8.1.5" data-path="gge-biplots.html"><a href="gge-biplots.html#modifying-the-plot."><i class="fa fa-check"></i><b>8.1.5</b> Modifying the plot.</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="9" data-path="climate-analogues.html"><a href="climate-analogues.html"><i class="fa fa-check"></i><b>9</b> Climate Analogues</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -235,7 +238,7 @@ div.csl-indent {
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A PPB Toolkit in R and RStudio</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A Participatory Plant Breeding Toolkit in R and RStudio</a>
           </h1>
         </div>
 
@@ -320,8 +323,85 @@ text-align: justify}
 </div>
 <div id="metan" class="section level2" number="3.3">
 <h2><span class="header-section-number">3.3</span> metan</h2>
-<p>This section is under progress!</p>
+<p>To “metan” pachkage was developed by <span class="citation"><a href="#ref-Olivoto2020" role="doc-biblioref">Olivoto and Dal’Col Lúcio</a> (<a href="#ref-Olivoto2020" role="doc-biblioref">2020</a>)</span> and “metan” stands for “Multi Environmetal Trial Analysis.” It counts with plenty of useful tools for the analysis of breeding trials.</p>
+<p>For now, we will see a very useful function that summarizes the information according to the criteria that you provide.</p>
+<p>As all the other packages, we need to install it and call it first.</p>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="data-wrangling-and-summarizing.html#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&#39;metan&#39;</span>)</span>
+<span id="cb78-2"><a href="data-wrangling-and-summarizing.html#cb78-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(metan)</span></code></pre></div>
+<p>Now, the function to summarize information in metan is <em>means_by()</em> and it is a bit easier to use than what we saw before in dplyr.</p>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="data-wrangling-and-summarizing.html#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">means_by</span>(mydata, variety)</span></code></pre></div>
+<pre><code>## # A tibble: 14 x 10
+##    variety  plot   rep   row   col farmers_eval yield yield_first
+##  * &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;        &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt;
+##  1 Var. A   13     1.5  2.5   3.62         2.77 1386.        98.4
+##  2 Var. B   13.1   1.5  2.62  3.62         2.55 1375.        93.8
+##  3 Var. C   11.8   1.5  2.25  3.38         2.57 1364.        86.3
+##  4 Var. D   10.2   1.5  2.25  3            2.73 1542.       119. 
+##  5 Var. E   15.5   1.5  2.5   4.25         2.84 1328.       102. 
+##  6 Var. F   12.9   1.5  2.38  3.62         2.64 1370.       107. 
+##  7 Var. G   17.4   1.5  2.38  4.75         2.62 1332.       116. 
+##  8 Var. H   16     1.5  2.5   4.38         2.36 1125.       162. 
+##  9 Var. I   13.1   1.5  2.62  3.62         2.96 1044.        68.3
+## 10 Var. J   16.8   1.5  2.75  4.5          2.56 1283.       171. 
+## 11 Var. K   15.5   1.5  2.5   4.25         2.6  1455.       174. 
+## 12 Var. L   17     1.5  2.5   4.62         2.88 1324.       137. 
+## 13 Var. M   16.1   1.5  2.62  4.38         2.64 1265.       131. 
+## 14 Var. N   14.6   1.5  2.62  4            3.12 1494.       231. 
+## # ... with 2 more variables: perc_mark_yield &lt;dbl&gt;, mean_fruit_weight &lt;dbl&gt;</code></pre>
+<p>If we do not specify the variables that we want to summarize, the function will summarize all numeric variables, and that is why we see the ‘mean’ for plot and repetition, altough it makes no actual sense. There are many turnarounds for this, but a very simple one would be to eliminate those rows from the data frame we will sumarize. This can be done in one move by using the brackets and minus sign.</p>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="data-wrangling-and-summarizing.html#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="fu">means_by</span>(mydata[,<span class="sc">-</span><span class="fu">c</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>)], variety)</span></code></pre></div>
+<pre><code>## # A tibble: 14 x 6
+##    variety farmers_eval yield yield_first perc_mark_yield mean_fruit_weight
+##  * &lt;chr&gt;          &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt;           &lt;dbl&gt;             &lt;dbl&gt;
+##  1 Var. A          2.77 1386.        98.4            44.7              71.8
+##  2 Var. B          2.55 1375.        93.8            42.0              66.7
+##  3 Var. C          2.57 1364.        86.3            47.9              55.5
+##  4 Var. D          2.73 1542.       119.             40.8              76.0
+##  5 Var. E          2.84 1328.       102.             44.9              54.4
+##  6 Var. F          2.64 1370.       107.             44.7              53.5
+##  7 Var. G          2.62 1332.       116.             43.5              59.6
+##  8 Var. H          2.36 1125.       162.             45.4              54.8
+##  9 Var. I          2.96 1044.        68.3            55.9              56.1
+## 10 Var. J          2.56 1283.       171.             44.7              44.2
+## 11 Var. K          2.6  1455.       174.             45.6              84.8
+## 12 Var. L          2.88 1324.       137.             59.7              64.9
+## 13 Var. M          2.64 1265.       131.             46.9              29.7
+## 14 Var. N          3.12 1494.       231.             44.9              61.4</code></pre>
+<p>In addition, if we also want to summarize every combination of variety plus location, we could do it easily this way.</p>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="data-wrangling-and-summarizing.html#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">means_by</span>(mydata[,<span class="sc">-</span><span class="fu">c</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>)], variety, location)</span></code></pre></div>
+<pre><code>## # A tibble: 56 x 7
+##    variety location    farmers_eval yield yield_first perc_mark_yield
+##  * &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt;           &lt;dbl&gt;
+##  1 Var. A  Castronuovo         2.23  452.       191.              0  
+##  2 Var. A  Molise              3     744.         5.5            62.2
+##  3 Var. A  Rotonda             3.06 3382.        65              90.6
+##  4 Var. A  Sestola             2.8   967.       132.             26.0
+##  5 Var. B  Castronuovo         1.92  288.       117.              0  
+##  6 Var. B  Molise              3     775.         0              58.8
+##  7 Var. B  Rotonda             3.16 3648        121.             82.0
+##  8 Var. B  Sestola             2.12  790.       137.             27.1
+##  9 Var. C  Castronuovo         1.66  259.        95.4            15.5
+## 10 Var. C  Molise              3.14 1030.        22.3            64.2
+## # ... with 46 more rows, and 1 more variable: mean_fruit_weight &lt;dbl&gt;</code></pre>
+<p>Finally, we could also take the results of this process and store them in a .csv format.</p>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="data-wrangling-and-summarizing.html#cb85-1" aria-hidden="true" tabindex="-1"></a>means_metan <span class="ot">&lt;-</span> <span class="fu">means_by</span>(mydata[,<span class="sc">-</span><span class="fu">c</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>)], variety, location)</span>
+<span id="cb85-2"><a href="data-wrangling-and-summarizing.html#cb85-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb85-3"><a href="data-wrangling-and-summarizing.html#cb85-3" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(means_metan , <span class="st">&quot;means_metan .csv&quot;</span>)</span></code></pre></div>
+</div>
+<div id="merge" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> Merge</h2>
+<p>Under construction</p>
+</div>
+<div id="reshape" class="section level2" number="3.5">
+<h2><span class="header-section-number">3.5</span> Reshape</h2>
+<p>Under construction</p>
 
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Olivoto2020" class="csl-entry">
+Olivoto, and Dal’Col Lúcio. 2020. <span>“Metan: An r Package for Multi-Environment Trial Analysis.”</span> <em>Methods in Ecology and Evolution</em> 11 (6): 783–89. <a href="https://doi.org/10.1111/2041-210X.13384">https://doi.org/10.1111/2041-210X.13384</a>.
 </div>
 </div>
             </section>

@@ -149,7 +149,7 @@ names(all.means)[4] <- "yield_sd"
 And we plot it:
 
 
-```{r}
+```{r myplotafterloop}
 ggplot(data= all.means,                     # Our data frame
        aes(x=variety,                       # Variety is the x axis
            y=yield_adj_mean))+              # Yield Adjusted Means are the y axis
@@ -165,9 +165,9 @@ ggplot(data= all.means,                     # Our data frame
 ```
 
 
-Moreover, given that ggplot can handle plotting data from two different data sources, we could do the same plot, but including also the raw data, and check for the main differences between both.
+Moreover, given that ggplot can handle plotting data from two different data sources, we could do the same plot, but including also the raw data (in green), and check for the main differences between both.
 
-```{r}
+```{r myplotafterloopcompare}
 ggplot(data= all.means,                     # Our data frame
        aes(x=variety,                       # Variety is the x axis
            y=yield_adj_mean))+              # Yield Adjusted Means are the y axis

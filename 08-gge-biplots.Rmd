@@ -32,7 +32,7 @@ mydata <- read.csv("tomatoMLT2020.csv")
 
 Now, before actually doing the plot, we prepare the GGE model with therequired parameters. In this case, we will use the yield variable. 
 
-```{r}
+```{r myfirstgge}
 gge_model <-  gge(mydata,             # My data set 
                   env = location,     # Column indicating the environment or location
                   gen = variety,      # Column indicating the genotype
@@ -81,7 +81,7 @@ plot(gge_model, type = 8)
 
 For this case, a line is drawn dividing the whole plot in two sectors, each contains one of the two genotypes compared. For each genotype, the environments contained within it's 'sector" of the plot, are the ones where it outperformed the other genotype.
 
-```{r}
+```{ ggegenocomp}
 plot(gge_model,
      type = 9,
      sel_gen1 = "Var. A",
@@ -94,7 +94,7 @@ Finally, metan produces plots that are already publication ready. It also offers
 
 However, if you want to modify other parameters, the GGE BiPlot is an object of the class "ggplot", so it can be easily modified through ggplot" functions. Some useful information for that matter can be found [here](http://r-statistics.co/Complete-Ggplot2-Tutorial-Part2-Customizing-Theme-With-R-Code.html). 
 
-```{r}
+```{r ggeedited}
 library(ggplot2)
 plot(gge_model,
      col.gen = "dimgray",  

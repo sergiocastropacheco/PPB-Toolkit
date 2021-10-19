@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="spatial-analysis.html"/>
-<link rel="next" href="references.html"/>
+<link rel="next" href="climate-analogues.html"/>
 <script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -174,6 +174,8 @@ div.csl-indent {
 <li class="chapter" data-level="3.1" data-path="data-wrangling-and-summarizing.html"><a href="data-wrangling-and-summarizing.html#basic-r"><i class="fa fa-check"></i><b>3.1</b> Basic R</a></li>
 <li class="chapter" data-level="3.2" data-path="data-wrangling-and-summarizing.html"><a href="data-wrangling-and-summarizing.html#dplyr"><i class="fa fa-check"></i><b>3.2</b> dplyr</a></li>
 <li class="chapter" data-level="3.3" data-path="data-wrangling-and-summarizing.html"><a href="data-wrangling-and-summarizing.html#metan"><i class="fa fa-check"></i><b>3.3</b> metan</a></li>
+<li class="chapter" data-level="3.4" data-path="data-wrangling-and-summarizing.html"><a href="data-wrangling-and-summarizing.html#merge"><i class="fa fa-check"></i><b>3.4</b> Merge</a></li>
+<li class="chapter" data-level="3.5" data-path="data-wrangling-and-summarizing.html"><a href="data-wrangling-and-summarizing.html#reshape"><i class="fa fa-check"></i><b>3.5</b> Reshape</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html"><i class="fa fa-check"></i><b>4</b> Basics of Data Visualisation</a>
 <ul>
@@ -222,6 +224,7 @@ div.csl-indent {
 <li class="chapter" data-level="8.1.5" data-path="gge-biplots.html"><a href="gge-biplots.html#modifying-the-plot."><i class="fa fa-check"></i><b>8.1.5</b> Modifying the plot.</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="9" data-path="climate-analogues.html"><a href="climate-analogues.html"><i class="fa fa-check"></i><b>9</b> Climate Analogues</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -255,64 +258,60 @@ text-align: justify}
 <h2><span class="header-section-number">8.1</span> metan</h2>
 <p>To our knowledge, the most complete package for the elaboration of GGE BiPlots “metan,” developed by <span class="citation"><a href="#ref-Olivoto2020" role="doc-biblioref">Olivoto and Dal’Col Lúcio</a> (<a href="#ref-Olivoto2020" role="doc-biblioref">2020</a>)</span>. Here, we will overview some of it’s main functions, but the more complete description can be found at <a href="https://tiagoolivoto.github.io/metan/articles/vignettes_gge.html">their site</a>.</p>
 <p>As usual, we must install (if it is not yet installed) and call the library:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="gge-biplots.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;metan&quot;</span>)</span>
-<span id="cb1-2"><a href="gge-biplots.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(metan)</span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="gge-biplots.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(metan)</span></code></pre></div>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="gge-biplots.html#cb179-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;metan&quot;</span>)</span>
+<span id="cb179-2"><a href="gge-biplots.html#cb179-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(metan)</span></code></pre></div>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="gge-biplots.html#cb180-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(metan)</span></code></pre></div>
 <p>Then, we will use our tomato data, which we usually call ‘mydata.’</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="gge-biplots.html#cb3-1" aria-hidden="true" tabindex="-1"></a>mydata <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;tomatoMLT2020.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="gge-biplots.html#cb181-1" aria-hidden="true" tabindex="-1"></a>mydata <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;tomatoMLT2020.csv&quot;</span>)</span></code></pre></div>
 <p>Now, before actually doing the plot, we prepare the GGE model with therequired parameters. In this case, we will use the yield variable.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="gge-biplots.html#cb4-1" aria-hidden="true" tabindex="-1"></a>gge_model <span class="ot">&lt;-</span>  <span class="fu">gge</span>(mydata,             <span class="co"># My data set </span></span>
-<span id="cb4-2"><a href="gge-biplots.html#cb4-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">env =</span> location,     <span class="co"># Column indicating the environment or location</span></span>
-<span id="cb4-3"><a href="gge-biplots.html#cb4-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">gen =</span> variety,      <span class="co"># Column indicating the genotype</span></span>
-<span id="cb4-4"><a href="gge-biplots.html#cb4-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">resp=</span> yield,        <span class="co"># Response column. For our case, we choose yield/</span></span>
-<span id="cb4-5"><a href="gge-biplots.html#cb4-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">scaling =</span> <span class="dv">1</span>)        <span class="co"># Divides all value with the standard deviation, for proper scaling through environments.</span></span></code></pre></div>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="gge-biplots.html#cb182-1" aria-hidden="true" tabindex="-1"></a>gge_model <span class="ot">&lt;-</span>  <span class="fu">gge</span>(mydata,             <span class="co"># My data set </span></span>
+<span id="cb182-2"><a href="gge-biplots.html#cb182-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">env =</span> location,     <span class="co"># Column indicating the environment or location</span></span>
+<span id="cb182-3"><a href="gge-biplots.html#cb182-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">gen =</span> variety,      <span class="co"># Column indicating the genotype</span></span>
+<span id="cb182-4"><a href="gge-biplots.html#cb182-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">resp=</span> yield,        <span class="co"># Response column. For our case, we choose yield/</span></span>
+<span id="cb182-5"><a href="gge-biplots.html#cb182-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">scaling =</span> <span class="dv">1</span>)        <span class="co"># Divides all value with the standard deviation, for proper scaling through environments.</span></span></code></pre></div>
 <p>After that, all we need is to plot.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="gge-biplots.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(gge_model)</span></code></pre></div>
-<p><img src="PPB-Toolkit-for-R-and-R-Studio_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="gge-biplots.html#cb183-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(gge_model)</span></code></pre></div>
+<p><img src="PPB-Toolkit-for-R-and-R-Studio_files/figure-html/unnamed-chunk-127-1.png" width="672" /></p>
 <p>We can interpret this plot in several different ways. However, one of the most evident things is that some environments are more similar than other. For example, Molise and Castronuovo are relatively close (and are thus very similar, regarding the performance of these genotypes), while Rotonda is very different from the rest. Moreover, genotypes closer to the environments indicate the their performance was better in that environment than at the others. A clear example is that of Var. M and Var. L for Sestola.</p>
 <p>Here, we present the simplest version of the plot. But, the package includes other variants of the GGE BiPlots which might provide aditional information and/or interpretation.</p>
 <div id="which-won-where" class="section level3" number="8.1.1">
 <h3><span class="header-section-number">8.1.1</span> Which won where</h3>
 <p>The “Which-Won-Where” type draws a polygon along the genotypes that are the farthest away from the origin, this means that they are the genotypes with longest vectors and are thus the most responsive. As a rule of thumb, genotypes which are on the polygon vertex had the best performances in the environments found in the same sector <span class="citation"><a href="#ref-yan2000cultivar" role="doc-biblioref">Yan et al.</a> (<a href="#ref-yan2000cultivar" role="doc-biblioref">2000</a>)</span>.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="gge-biplots.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(gge_model, <span class="at">type=</span> <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="gge-biplots.html#cb184-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(gge_model, <span class="at">type=</span> <span class="dv">3</span>)</span></code></pre></div>
 <p><img src="PPB-Toolkit-for-R-and-R-Studio_files/figure-html/ggemodel3-1.png" width="672" /></p>
 </div>
 <div id="mean-vs.-stability" class="section level3" number="8.1.2">
 <h3><span class="header-section-number">8.1.2</span> Mean vs. Stability</h3>
 <p>The “Mean vs. Stability” feature draws a first line, the mean environmental axis, passing through the origin with an arrow representing the “ideal” environment, and then a second line perpendicular to the first, which represents the GxE interaction. Genotypes with projections close to the arrow in the first axis would be high performers in this ideal environment, while large projections on the second axis indicate low stability or high GxE interaction.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="gge-biplots.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(gge_model, <span class="at">type =</span> <span class="dv">2</span>)</span></code></pre></div>
-<p><img src="PPB-Toolkit-for-R-and-R-Studio_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="gge-biplots.html#cb185-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(gge_model, <span class="at">type =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="PPB-Toolkit-for-R-and-R-Studio_files/figure-html/unnamed-chunk-128-1.png" width="672" /></p>
 </div>
 <div id="genotype-ranking" class="section level3" number="8.1.3">
 <h3><span class="header-section-number">8.1.3</span> Genotype Ranking</h3>
 <p>The “ideal” genotype is represented as a small circle within a large set of concentric circles. How close the other gentoypes are to this circle determines how close are they to this “ideal” genotype.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="gge-biplots.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(gge_model, <span class="at">type =</span> <span class="dv">8</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="gge-biplots.html#cb186-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(gge_model, <span class="at">type =</span> <span class="dv">8</span>)</span></code></pre></div>
 <pre><code>## Warning: Removed 979 row(s) containing missing values (geom_path).</code></pre>
-<p><img src="PPB-Toolkit-for-R-and-R-Studio_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p><img src="PPB-Toolkit-for-R-and-R-Studio_files/figure-html/unnamed-chunk-129-1.png" width="672" /></p>
 </div>
 <div id="genotype-comparison" class="section level3" number="8.1.4">
 <h3><span class="header-section-number">8.1.4</span> Genotype Comparison</h3>
 <p>For this case, a line is drawn dividing the whole plot in two sectors, each contains one of the two genotypes compared. For each genotype, the environments contained within it’s ’sector" of the plot, are the ones where it outperformed the other genotype.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="gge-biplots.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(gge_model,</span>
-<span id="cb10-2"><a href="gge-biplots.html#cb10-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">type =</span> <span class="dv">9</span>,</span>
-<span id="cb10-3"><a href="gge-biplots.html#cb10-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">sel_gen1 =</span> <span class="st">&quot;Var. A&quot;</span>,</span>
-<span id="cb10-4"><a href="gge-biplots.html#cb10-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">sel_gen2 =</span> <span class="st">&quot;Var. L&quot;</span>)</span></code></pre></div>
-<p><img src="PPB-Toolkit-for-R-and-R-Studio_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p><code>{ ggegenocomp} plot(gge_model,      type = 9,      sel_gen1 = "Var. A",      sel_gen2 = "Var. L")</code></p>
 </div>
 <div id="modifying-the-plot." class="section level3" number="8.1.5">
 <h3><span class="header-section-number">8.1.5</span> Modifying the plot.</h3>
 <p>Finally, metan produces plots that are already publication ready. It also offers a whole lot of modyfing possibilites that can be found in their <a href="https://tiagoolivoto.github.io/metan/articles/vignettes_gge.html">site</a> or in the function description (that can be accesed by writing ?plot.gge).</p>
 <p>However, if you want to modify other parameters, the GGE BiPlot is an object of the class “ggplot,” so it can be easily modified through ggplot" functions. Some useful information for that matter can be found <a href="http://r-statistics.co/Complete-Ggplot2-Tutorial-Part2-Customizing-Theme-With-R-Code.html">here</a>.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="gge-biplots.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb11-2"><a href="gge-biplots.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(gge_model,</span>
-<span id="cb11-3"><a href="gge-biplots.html#cb11-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">col.gen =</span> <span class="st">&quot;dimgray&quot;</span>,  </span>
-<span id="cb11-4"><a href="gge-biplots.html#cb11-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">col.env =</span> <span class="st">&quot;red&quot;</span>,                            <span class="co"># Changing the color of the labels for genotype and environment  </span></span>
-<span id="cb11-5"><a href="gge-biplots.html#cb11-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">size.text.env=</span> <span class="dv">7</span>,                           <span class="co"># Changing the size of the labels for genotype and environment</span></span>
-<span id="cb11-6"><a href="gge-biplots.html#cb11-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">size.text.gen =</span> <span class="dv">5</span>)<span class="sc">+</span>                         <span class="co"># The metan function arrives up to here, from now on, we add pieces</span></span>
-<span id="cb11-7"><a href="gge-biplots.html#cb11-7" aria-hidden="true" tabindex="-1"></a>     <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;My GGE Biplot&quot;</span>)<span class="sc">+</span>              <span class="co"># </span></span>
-<span id="cb11-8"><a href="gge-biplots.html#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">size=</span> <span class="dv">20</span>),          <span class="co"># We can change the title or axis font size</span></span>
-<span id="cb11-9"><a href="gge-biplots.html#cb11-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size=</span> <span class="dv">20</span>)) </span></code></pre></div>
-<p><img src="PPB-Toolkit-for-R-and-R-Studio_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="gge-biplots.html#cb188-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb188-2"><a href="gge-biplots.html#cb188-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(gge_model,</span>
+<span id="cb188-3"><a href="gge-biplots.html#cb188-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">col.gen =</span> <span class="st">&quot;dimgray&quot;</span>,  </span>
+<span id="cb188-4"><a href="gge-biplots.html#cb188-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">col.env =</span> <span class="st">&quot;red&quot;</span>,                            <span class="co"># Changing the color of the labels for genotype and environment  </span></span>
+<span id="cb188-5"><a href="gge-biplots.html#cb188-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">size.text.env=</span> <span class="dv">7</span>,                           <span class="co"># Changing the size of the labels for genotype and environment</span></span>
+<span id="cb188-6"><a href="gge-biplots.html#cb188-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">size.text.gen =</span> <span class="dv">5</span>)<span class="sc">+</span>                         <span class="co"># The metan function arrives up to here, from now on, we add pieces</span></span>
+<span id="cb188-7"><a href="gge-biplots.html#cb188-7" aria-hidden="true" tabindex="-1"></a>     <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;My GGE Biplot&quot;</span>)<span class="sc">+</span>              <span class="co"># </span></span>
+<span id="cb188-8"><a href="gge-biplots.html#cb188-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">size=</span> <span class="dv">20</span>),          <span class="co"># We can change the title or axis font size</span></span>
+<span id="cb188-9"><a href="gge-biplots.html#cb188-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size=</span> <span class="dv">20</span>)) </span></code></pre></div>
+<p><img src="PPB-Toolkit-for-R-and-R-Studio_files/figure-html/ggeedited-1.png" width="672" /></p>
 
 </div>
 </div>
@@ -332,7 +331,7 @@ Yan, Weikai, Leslie A Hunt, Qinglai Sheng, and Zorka Szlavnics. 2000. <span>“C
         </div>
       </div>
 <a href="spatial-analysis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="climate-analogues.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -383,6 +382,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
