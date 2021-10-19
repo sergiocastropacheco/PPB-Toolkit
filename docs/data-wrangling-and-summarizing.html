@@ -259,8 +259,8 @@ text-align: justify}
 <p><strong>Subsetting your data. </strong></p>
 <p>Suppose you only want to work with a section of your data frame, for example, only the data for one location.</p>
 <p>There are many ways to do this, a rather simple one is using the function subset().</p>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="data-wrangling-and-summarizing.html#cb66-1" aria-hidden="true" tabindex="-1"></a>soloRotonda <span class="ot">&lt;-</span> <span class="fu">subset</span>(mydata, mydata<span class="sc">$</span>location <span class="sc">==</span> <span class="st">&quot;Rotonda&quot;</span>)</span>
-<span id="cb66-2"><a href="data-wrangling-and-summarizing.html#cb66-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(soloRotonda)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="data-wrangling-and-summarizing.html#cb1-1" aria-hidden="true" tabindex="-1"></a>soloRotonda <span class="ot">&lt;-</span> <span class="fu">subset</span>(mydata, mydata<span class="sc">$</span>location <span class="sc">==</span> <span class="st">&quot;Rotonda&quot;</span>)</span>
+<span id="cb1-2"><a href="data-wrangling-and-summarizing.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(soloRotonda)</span></code></pre></div>
 <pre><code>## [1] 28</code></pre>
 <p>Notice how we created a new subset, only with data from Rotonda. After checking, we see it has only 28 rows, as there were only 28 plots per location..</p>
 <p>Notice also how we used the “==” sign, to express a logical function stating the location had to be equal to “Rotonda”</p>
@@ -275,61 +275,61 @@ text-align: justify}
  * &quot;|&quot; if we Want one condition OR another. 
  </code></pre>
 <p>For example, we can select only the data for Rotonda, and only varieties A and B. If we check how many row we have now, we will see that, as expected we only have two rows, two for Var. A and 2 for Var. B.</p>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="data-wrangling-and-summarizing.html#cb69-1" aria-hidden="true" tabindex="-1"></a>Var.AB_Rotonda <span class="ot">&lt;-</span> <span class="fu">subset</span>(mydata, </span>
-<span id="cb69-2"><a href="data-wrangling-and-summarizing.html#cb69-2" aria-hidden="true" tabindex="-1"></a>                  mydata<span class="sc">$</span>location <span class="sc">==</span> <span class="st">&quot;Rotonda&quot;</span></span>
-<span id="cb69-3"><a href="data-wrangling-and-summarizing.html#cb69-3" aria-hidden="true" tabindex="-1"></a>                  <span class="sc">&amp;</span>  <span class="co">#And</span></span>
-<span id="cb69-4"><a href="data-wrangling-and-summarizing.html#cb69-4" aria-hidden="true" tabindex="-1"></a>                  mydata<span class="sc">$</span>variety  <span class="sc">==</span> <span class="st">&quot;Var. A&quot;</span> </span>
-<span id="cb69-5"><a href="data-wrangling-and-summarizing.html#cb69-5" aria-hidden="true" tabindex="-1"></a>                  <span class="sc">|</span>  <span class="co">#Or</span></span>
-<span id="cb69-6"><a href="data-wrangling-and-summarizing.html#cb69-6" aria-hidden="true" tabindex="-1"></a>                  mydata<span class="sc">$</span>location <span class="sc">==</span> <span class="st">&quot;Rotonda&quot;</span></span>
-<span id="cb69-7"><a href="data-wrangling-and-summarizing.html#cb69-7" aria-hidden="true" tabindex="-1"></a>                  <span class="sc">&amp;</span>  <span class="co">#And</span></span>
-<span id="cb69-8"><a href="data-wrangling-and-summarizing.html#cb69-8" aria-hidden="true" tabindex="-1"></a>                  mydata<span class="sc">$</span>variety  <span class="sc">==</span> <span class="st">&quot;Var. B&quot;</span> )</span>
-<span id="cb69-9"><a href="data-wrangling-and-summarizing.html#cb69-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-10"><a href="data-wrangling-and-summarizing.html#cb69-10" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(Var.AB_Rotonda)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="data-wrangling-and-summarizing.html#cb4-1" aria-hidden="true" tabindex="-1"></a>Var.AB_Rotonda <span class="ot">&lt;-</span> <span class="fu">subset</span>(mydata, </span>
+<span id="cb4-2"><a href="data-wrangling-and-summarizing.html#cb4-2" aria-hidden="true" tabindex="-1"></a>                  mydata<span class="sc">$</span>location <span class="sc">==</span> <span class="st">&quot;Rotonda&quot;</span></span>
+<span id="cb4-3"><a href="data-wrangling-and-summarizing.html#cb4-3" aria-hidden="true" tabindex="-1"></a>                  <span class="sc">&amp;</span>  <span class="co">#And</span></span>
+<span id="cb4-4"><a href="data-wrangling-and-summarizing.html#cb4-4" aria-hidden="true" tabindex="-1"></a>                  mydata<span class="sc">$</span>variety  <span class="sc">==</span> <span class="st">&quot;Var. A&quot;</span> </span>
+<span id="cb4-5"><a href="data-wrangling-and-summarizing.html#cb4-5" aria-hidden="true" tabindex="-1"></a>                  <span class="sc">|</span>  <span class="co">#Or</span></span>
+<span id="cb4-6"><a href="data-wrangling-and-summarizing.html#cb4-6" aria-hidden="true" tabindex="-1"></a>                  mydata<span class="sc">$</span>location <span class="sc">==</span> <span class="st">&quot;Rotonda&quot;</span></span>
+<span id="cb4-7"><a href="data-wrangling-and-summarizing.html#cb4-7" aria-hidden="true" tabindex="-1"></a>                  <span class="sc">&amp;</span>  <span class="co">#And</span></span>
+<span id="cb4-8"><a href="data-wrangling-and-summarizing.html#cb4-8" aria-hidden="true" tabindex="-1"></a>                  mydata<span class="sc">$</span>variety  <span class="sc">==</span> <span class="st">&quot;Var. B&quot;</span> )</span>
+<span id="cb4-9"><a href="data-wrangling-and-summarizing.html#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="data-wrangling-and-summarizing.html#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(Var.AB_Rotonda)</span></code></pre></div>
 <pre><code>## [1] 4</code></pre>
 <p><img src="rsrstrip.png" /></p>
 </div>
 <div id="dplyr" class="section level2" number="3.2">
 <h2><span class="header-section-number">3.2</span> dplyr</h2>
 <p>‘dplyr’ is a package developed by the R Core Team developers, and gives us “an easy and intuitive grammatic for data manipulation.” We first have to install it (only once) and call it (every time you open R).</p>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="data-wrangling-and-summarizing.html#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;dplyr&quot;</span>)</span>
-<span id="cb71-2"><a href="data-wrangling-and-summarizing.html#cb71-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="data-wrangling-and-summarizing.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;dplyr&quot;</span>)</span>
+<span id="cb6-2"><a href="data-wrangling-and-summarizing.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div>
 <p>Some of the most useful functions in dplyr R are</p>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="data-wrangling-and-summarizing.html#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>() <span class="co"># To filter rows according to criteria</span></span>
-<span id="cb72-2"><a href="data-wrangling-and-summarizing.html#cb72-2" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>() <span class="co"># To select only certain columns</span></span>
-<span id="cb72-3"><a href="data-wrangling-and-summarizing.html#cb72-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rename</span>() <span class="co"># To rename columns. </span></span>
-<span id="cb72-4"><a href="data-wrangling-and-summarizing.html#cb72-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>() <span class="co"># TO create a new column from an old one.</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="data-wrangling-and-summarizing.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>() <span class="co"># To filter rows according to criteria</span></span>
+<span id="cb7-2"><a href="data-wrangling-and-summarizing.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>() <span class="co"># To select only certain columns</span></span>
+<span id="cb7-3"><a href="data-wrangling-and-summarizing.html#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rename</span>() <span class="co"># To rename columns. </span></span>
+<span id="cb7-4"><a href="data-wrangling-and-summarizing.html#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>() <span class="co"># TO create a new column from an old one.</span></span></code></pre></div>
 <p>For example, you can create a new dataframe that contains a reduced set of variables.</p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="data-wrangling-and-summarizing.html#cb73-1" aria-hidden="true" tabindex="-1"></a>newdataframe <span class="ot">&lt;-</span> <span class="fu">select</span>(mydata, location, variety, yield, farmers_eval, mean_fruit_weight)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="data-wrangling-and-summarizing.html#cb8-1" aria-hidden="true" tabindex="-1"></a>newdataframe <span class="ot">&lt;-</span> <span class="fu">select</span>(mydata, location, variety, yield, farmers_eval, mean_fruit_weight)</span></code></pre></div>
 <p>Within this new data frame, you can create a new column, which converts mean fruit weight (now in kg) to grams (g), through the function “mutate.”</p>
-<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="data-wrangling-and-summarizing.html#cb74-1" aria-hidden="true" tabindex="-1"></a>newdataframe2 <span class="ot">&lt;-</span> <span class="fu">mutate</span>(newdataframe, <span class="at">meanfruitweight_grams =</span> mean_fruit_weight <span class="sc">*</span> <span class="dv">1000</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="data-wrangling-and-summarizing.html#cb9-1" aria-hidden="true" tabindex="-1"></a>newdataframe2 <span class="ot">&lt;-</span> <span class="fu">mutate</span>(newdataframe, <span class="at">meanfruitweight_grams =</span> mean_fruit_weight <span class="sc">*</span> <span class="dv">1000</span>)</span></code></pre></div>
 <p><strong>The pipeline %&gt;% operator.</strong></p>
 <p>With the pipeline operator you can chain more than one operation together, instead of using temporary objects and changing them. It also allows to call my first object (‘mydata’) only once. Here, for example, we take ‘mydata,’ we select the desired columns, and we change fruit weight within the same operation.</p>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="data-wrangling-and-summarizing.html#cb75-1" aria-hidden="true" tabindex="-1"></a>newdataframe3 <span class="ot">&lt;-</span> mydata <span class="sc">%&gt;%</span></span>
-<span id="cb75-2"><a href="data-wrangling-and-summarizing.html#cb75-2" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">select</span>(location, variety, rep, mean_fruit_weight) <span class="sc">%&gt;%</span></span>
-<span id="cb75-3"><a href="data-wrangling-and-summarizing.html#cb75-3" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">mutate</span>( <span class="at">meanfruitweight_grams =</span> mean_fruit_weight <span class="sc">*</span> <span class="dv">1000</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="data-wrangling-and-summarizing.html#cb10-1" aria-hidden="true" tabindex="-1"></a>newdataframe3 <span class="ot">&lt;-</span> mydata <span class="sc">%&gt;%</span></span>
+<span id="cb10-2"><a href="data-wrangling-and-summarizing.html#cb10-2" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">select</span>(location, variety, rep, mean_fruit_weight) <span class="sc">%&gt;%</span></span>
+<span id="cb10-3"><a href="data-wrangling-and-summarizing.html#cb10-3" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">mutate</span>( <span class="at">meanfruitweight_grams =</span> mean_fruit_weight <span class="sc">*</span> <span class="dv">1000</span>)</span></code></pre></div>
 <p><strong>Aggregate data</strong></p>
 <p>Finally, dplyr helps us us to calculate, for example, the mean performance of each variety per environment, given that there are two (or more) reps.</p>
 <p>For this, you have to use the group_by() and summarize (). Under group_by, we put the aggrupating facors. Under summarize, we put the columns we want, in this case, we want the means and the standard deviations
 .</p>
-<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="data-wrangling-and-summarizing.html#cb76-1" aria-hidden="true" tabindex="-1"></a>mydata_means <span class="ot">&lt;-</span> mydata <span class="sc">%&gt;%</span>                   <span class="co">#Our initial object</span></span>
-<span id="cb76-2"><a href="data-wrangling-and-summarizing.html#cb76-2" aria-hidden="true" tabindex="-1"></a>              <span class="fu">group_by</span>(variety, location) <span class="sc">%&gt;%</span>         <span class="co">#Groupped by variety and location</span></span>
-<span id="cb76-3"><a href="data-wrangling-and-summarizing.html#cb76-3" aria-hidden="true" tabindex="-1"></a>              <span class="fu">summarize</span>(<span class="fu">mean</span>(farmers_eval),           <span class="co">#Mean of farmer&#39;s evaluation</span></span>
-<span id="cb76-4"><a href="data-wrangling-and-summarizing.html#cb76-4" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">sd</span>(farmers_eval),           <span class="co">#SD of farmer&#39;s evaluation</span></span>
-<span id="cb76-5"><a href="data-wrangling-and-summarizing.html#cb76-5" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">mean</span>(yield),                <span class="co">#Mean of yield</span></span>
-<span id="cb76-6"><a href="data-wrangling-and-summarizing.html#cb76-6" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">sd</span>(yield))                   <span class="co">#SD of yield</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="data-wrangling-and-summarizing.html#cb11-1" aria-hidden="true" tabindex="-1"></a>mydata_means <span class="ot">&lt;-</span> mydata <span class="sc">%&gt;%</span>                   <span class="co">#Our initial object</span></span>
+<span id="cb11-2"><a href="data-wrangling-and-summarizing.html#cb11-2" aria-hidden="true" tabindex="-1"></a>              <span class="fu">group_by</span>(variety, location) <span class="sc">%&gt;%</span>         <span class="co">#Groupped by variety and location</span></span>
+<span id="cb11-3"><a href="data-wrangling-and-summarizing.html#cb11-3" aria-hidden="true" tabindex="-1"></a>              <span class="fu">summarize</span>(<span class="fu">mean</span>(farmers_eval),           <span class="co">#Mean of farmer&#39;s evaluation</span></span>
+<span id="cb11-4"><a href="data-wrangling-and-summarizing.html#cb11-4" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">sd</span>(farmers_eval),           <span class="co">#SD of farmer&#39;s evaluation</span></span>
+<span id="cb11-5"><a href="data-wrangling-and-summarizing.html#cb11-5" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">mean</span>(yield),                <span class="co">#Mean of yield</span></span>
+<span id="cb11-6"><a href="data-wrangling-and-summarizing.html#cb11-6" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">sd</span>(yield))                   <span class="co">#SD of yield</span></span></code></pre></div>
 <p><strong>Save your data</strong></p>
 <p>Once you have created and modified and object, you can save it on the same folder in a .csv format.</p>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="data-wrangling-and-summarizing.html#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(mydata_means, <span class="st">&quot;tomatodata_means.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="data-wrangling-and-summarizing.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(mydata_means, <span class="st">&quot;tomatodata_means.csv&quot;</span>)</span></code></pre></div>
 </div>
 <div id="metan" class="section level2" number="3.3">
 <h2><span class="header-section-number">3.3</span> metan</h2>
 <p>To “metan” pachkage was developed by <span class="citation"><a href="#ref-Olivoto2020" role="doc-biblioref">Olivoto and Dal’Col Lúcio</a> (<a href="#ref-Olivoto2020" role="doc-biblioref">2020</a>)</span> and “metan” stands for “Multi Environmetal Trial Analysis.” It counts with plenty of useful tools for the analysis of breeding trials.</p>
 <p>For now, we will see a very useful function that summarizes the information according to the criteria that you provide.</p>
 <p>As all the other packages, we need to install it and call it first.</p>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="data-wrangling-and-summarizing.html#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&#39;metan&#39;</span>)</span>
-<span id="cb78-2"><a href="data-wrangling-and-summarizing.html#cb78-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(metan)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="data-wrangling-and-summarizing.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&#39;metan&#39;</span>)</span>
+<span id="cb13-2"><a href="data-wrangling-and-summarizing.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(metan)</span></code></pre></div>
 <p>Now, the function to summarize information in metan is <em>means_by()</em> and it is a bit easier to use than what we saw before in dplyr.</p>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="data-wrangling-and-summarizing.html#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">means_by</span>(mydata, variety)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="data-wrangling-and-summarizing.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">means_by</span>(mydata, variety)</span></code></pre></div>
 <pre><code>## # A tibble: 14 x 10
 ##    variety  plot   rep   row   col farmers_eval yield yield_first
 ##  * &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;        &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt;
@@ -349,7 +349,7 @@ text-align: justify}
 ## 14 Var. N   14.6   1.5  2.62  4            3.12 1494.       231. 
 ## # ... with 2 more variables: perc_mark_yield &lt;dbl&gt;, mean_fruit_weight &lt;dbl&gt;</code></pre>
 <p>If we do not specify the variables that we want to summarize, the function will summarize all numeric variables, and that is why we see the ‘mean’ for plot and repetition, altough it makes no actual sense. There are many turnarounds for this, but a very simple one would be to eliminate those rows from the data frame we will sumarize. This can be done in one move by using the brackets and minus sign.</p>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="data-wrangling-and-summarizing.html#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="fu">means_by</span>(mydata[,<span class="sc">-</span><span class="fu">c</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>)], variety)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="data-wrangling-and-summarizing.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">means_by</span>(mydata[,<span class="sc">-</span><span class="fu">c</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>)], variety)</span></code></pre></div>
 <pre><code>## # A tibble: 14 x 6
 ##    variety farmers_eval yield yield_first perc_mark_yield mean_fruit_weight
 ##  * &lt;chr&gt;          &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt;           &lt;dbl&gt;             &lt;dbl&gt;
@@ -368,7 +368,7 @@ text-align: justify}
 ## 13 Var. M          2.64 1265.       131.             46.9              29.7
 ## 14 Var. N          3.12 1494.       231.             44.9              61.4</code></pre>
 <p>In addition, if we also want to summarize every combination of variety plus location, we could do it easily this way.</p>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="data-wrangling-and-summarizing.html#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">means_by</span>(mydata[,<span class="sc">-</span><span class="fu">c</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>)], variety, location)</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="data-wrangling-and-summarizing.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">means_by</span>(mydata[,<span class="sc">-</span><span class="fu">c</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>)], variety, location)</span></code></pre></div>
 <pre><code>## # A tibble: 56 x 7
 ##    variety location    farmers_eval yield yield_first perc_mark_yield
 ##  * &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt;           &lt;dbl&gt;
@@ -384,9 +384,9 @@ text-align: justify}
 ## 10 Var. C  Molise              3.14 1030.        22.3            64.2
 ## # ... with 46 more rows, and 1 more variable: mean_fruit_weight &lt;dbl&gt;</code></pre>
 <p>Finally, we could also take the results of this process and store them in a .csv format.</p>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="data-wrangling-and-summarizing.html#cb85-1" aria-hidden="true" tabindex="-1"></a>means_metan <span class="ot">&lt;-</span> <span class="fu">means_by</span>(mydata[,<span class="sc">-</span><span class="fu">c</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>)], variety, location)</span>
-<span id="cb85-2"><a href="data-wrangling-and-summarizing.html#cb85-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb85-3"><a href="data-wrangling-and-summarizing.html#cb85-3" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(means_metan , <span class="st">&quot;means_metan .csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="data-wrangling-and-summarizing.html#cb20-1" aria-hidden="true" tabindex="-1"></a>means_metan <span class="ot">&lt;-</span> <span class="fu">means_by</span>(mydata[,<span class="sc">-</span><span class="fu">c</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>)], variety, location)</span>
+<span id="cb20-2"><a href="data-wrangling-and-summarizing.html#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="data-wrangling-and-summarizing.html#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(means_metan , <span class="st">&quot;means_metan .csv&quot;</span>)</span></code></pre></div>
 </div>
 <div id="merge" class="section level2" number="3.4">
 <h2><span class="header-section-number">3.4</span> Merge</h2>
@@ -461,20 +461,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>
