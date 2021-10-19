@@ -119,6 +119,28 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -152,6 +174,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.1" data-path="data-wrangling-and-summarizing.html"><a href="data-wrangling-and-summarizing.html#basic-r"><i class="fa fa-check"></i><b>3.1</b> Basic R</a></li>
 <li class="chapter" data-level="3.2" data-path="data-wrangling-and-summarizing.html"><a href="data-wrangling-and-summarizing.html#dplyr"><i class="fa fa-check"></i><b>3.2</b> dplyr</a></li>
 <li class="chapter" data-level="3.3" data-path="data-wrangling-and-summarizing.html"><a href="data-wrangling-and-summarizing.html#metan"><i class="fa fa-check"></i><b>3.3</b> metan</a></li>
+<li class="chapter" data-level="3.4" data-path="data-wrangling-and-summarizing.html"><a href="data-wrangling-and-summarizing.html#merge"><i class="fa fa-check"></i><b>3.4</b> Merge</a></li>
+<li class="chapter" data-level="3.5" data-path="data-wrangling-and-summarizing.html"><a href="data-wrangling-and-summarizing.html#reshape"><i class="fa fa-check"></i><b>3.5</b> Reshape</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="basics-of-data-visualisation.html"><a href="basics-of-data-visualisation.html"><i class="fa fa-check"></i><b>4</b> Basics of Data Visualisation</a>
 <ul>
@@ -200,6 +224,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.1.5" data-path="gge-biplots.html"><a href="gge-biplots.html#modifying-the-plot."><i class="fa fa-check"></i><b>8.1.5</b> Modifying the plot.</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="9" data-path="climate-analogues.html"><a href="climate-analogues.html"><i class="fa fa-check"></i><b>9</b> Climate Analogues</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -244,49 +269,49 @@ text-align: justify}
 <div id="plot-vs.-index" class="section level3" number="4.1.1">
 <h3><span class="header-section-number">4.1.1</span> Plot vs. Index</h3>
 <p>If we use the most basic of functions, <strong>plot() </strong>, and we only indicate one variable, the other axis will be automatically assigned to an “index” value. This means that data will be plotted as they appear in the data frame.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="basics-of-data-visualisation.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#First we upload our data</span></span>
-<span id="cb1-2"><a href="basics-of-data-visualisation.html#cb1-2" aria-hidden="true" tabindex="-1"></a>mydata <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;tomatoMLT2020.csv&quot;</span>)</span>
-<span id="cb1-3"><a href="basics-of-data-visualisation.html#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="basics-of-data-visualisation.html#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#The we fill the plot function with only one argument</span></span>
-<span id="cb1-5"><a href="basics-of-data-visualisation.html#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mydata<span class="sc">$</span>yield)</span></code></pre></div>
-<p><img src="PPB-Toolkit-for-R-and-R-Studio_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="basics-of-data-visualisation.html#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="co">#First we upload our data</span></span>
+<span id="cb86-2"><a href="basics-of-data-visualisation.html#cb86-2" aria-hidden="true" tabindex="-1"></a>mydata <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;tomatoMLT2020.csv&quot;</span>)</span>
+<span id="cb86-3"><a href="basics-of-data-visualisation.html#cb86-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-4"><a href="basics-of-data-visualisation.html#cb86-4" aria-hidden="true" tabindex="-1"></a><span class="co">#The we fill the plot function with only one argument</span></span>
+<span id="cb86-5"><a href="basics-of-data-visualisation.html#cb86-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mydata<span class="sc">$</span>yield)</span></code></pre></div>
+<p><img src="PPB-Toolkit-for-R-and-R-Studio_files/figure-html/unnamed-chunk-56-1.png" width="672" /></p>
 <p>This could be useful to know if, in a given section of the data frame, the observations are notably different than the rest. In this case, because data are arranged by environment, this area of high points in the center indicate the presence of a very productive environment.</p>
 <p><img src="rsrstrip.png" /></p>
 </div>
 <div id="scatter-plot" class="section level3" number="4.1.2">
 <h3><span class="header-section-number">4.1.2</span> Scatter plot</h3>
 <p>This is a kind of plot you can use if you have two quantitative variables.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="basics-of-data-visualisation.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>( <span class="at">x=</span> mydata<span class="sc">$</span>yield,                 <span class="co"># The x axis is the total yield.</span></span>
-<span id="cb2-2"><a href="basics-of-data-visualisation.html#cb2-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">y=</span> mydata<span class="sc">$</span>farmers_eval)          <span class="co"># The y axis is the farmer&#39;s evaluation.</span></span></code></pre></div>
-<p><img src="PPB-Toolkit-for-R-and-R-Studio_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="basics-of-data-visualisation.html#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>( <span class="at">x=</span> mydata<span class="sc">$</span>yield,                 <span class="co"># The x axis is the total yield.</span></span>
+<span id="cb87-2"><a href="basics-of-data-visualisation.html#cb87-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">y=</span> mydata<span class="sc">$</span>farmers_eval)          <span class="co"># The y axis is the farmer&#39;s evaluation.</span></span></code></pre></div>
+<p><img src="PPB-Toolkit-for-R-and-R-Studio_files/figure-html/unnamed-chunk-57-1.png" width="672" /></p>
 <p><img src="rsrstrip.png" /></p>
 </div>
 <div id="histogram" class="section level3" number="4.1.3">
 <h3><span class="header-section-number">4.1.3</span> Histogram</h3>
 <p>Histograms are very useful to understand the distribution of the data In this case, we use the variable of the farmer’s evaluation, set in a scale from 1 to 5. Normally, for most quantitative biological data, we could expect a <a href="https://en.wikipedia.org/wiki/Normal_distribution">normal distribution</a>.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="basics-of-data-visualisation.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(mydata<span class="sc">$</span>farmers_eval)</span></code></pre></div>
-<p><img src="PPB-Toolkit-for-R-and-R-Studio_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="basics-of-data-visualisation.html#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(mydata<span class="sc">$</span>farmers_eval)</span></code></pre></div>
+<p><img src="PPB-Toolkit-for-R-and-R-Studio_files/figure-html/unnamed-chunk-58-1.png" width="672" /></p>
 <p>On the same histogram, we could do further elaborations to make it look better. We could add a main title, labels for the axes, define the number of breaks or columns, and select the name of the color, from this <a href="http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf">list</a>.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="basics-of-data-visualisation.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="at">x=</span> mydata<span class="sc">$</span>farmers_eval,                                                   <span class="co">#Variable to plot</span></span>
-<span id="cb4-2"><a href="basics-of-data-visualisation.html#cb4-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">main=</span> <span class="st">&quot;Histogram for Farmer&#39;s Evaluation in Tomato PPB trials&quot;</span>,    <span class="co">#Main Title</span></span>
-<span id="cb4-3"><a href="basics-of-data-visualisation.html#cb4-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span> <span class="st">&quot;Evaluation&quot;</span>, <span class="at">ylab=</span> <span class="st">&quot;Frequency&quot;</span>,                             <span class="co">#Axis titles</span></span>
-<span id="cb4-4"><a href="basics-of-data-visualisation.html#cb4-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">breaks=</span> <span class="dv">12</span>,                                                        <span class="co">#How many breaks or columns       </span></span>
-<span id="cb4-5"><a href="basics-of-data-visualisation.html#cb4-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">col=</span> <span class="st">&quot;coral&quot;</span>)   <span class="co">#Color</span></span></code></pre></div>
-<p><img src="PPB-Toolkit-for-R-and-R-Studio_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="basics-of-data-visualisation.html#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="at">x=</span> mydata<span class="sc">$</span>farmers_eval,                                                   <span class="co">#Variable to plot</span></span>
+<span id="cb89-2"><a href="basics-of-data-visualisation.html#cb89-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">main=</span> <span class="st">&quot;Histogram for Farmer&#39;s Evaluation in Tomato PPB trials&quot;</span>,    <span class="co">#Main Title</span></span>
+<span id="cb89-3"><a href="basics-of-data-visualisation.html#cb89-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span> <span class="st">&quot;Evaluation&quot;</span>, <span class="at">ylab=</span> <span class="st">&quot;Frequency&quot;</span>,                             <span class="co">#Axis titles</span></span>
+<span id="cb89-4"><a href="basics-of-data-visualisation.html#cb89-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">breaks=</span> <span class="dv">12</span>,                                                        <span class="co">#How many breaks or columns       </span></span>
+<span id="cb89-5"><a href="basics-of-data-visualisation.html#cb89-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">col=</span> <span class="st">&quot;coral&quot;</span>)   <span class="co">#Color</span></span></code></pre></div>
+<p><img src="PPB-Toolkit-for-R-and-R-Studio_files/figure-html/unnamed-chunk-59-1.png" width="672" /></p>
 <p>Elements can be added after a plot was called. For example, in this case, we can add a vertical line to the plot, and we could position that line exactly in the mean value for yield.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="basics-of-data-visualisation.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="at">x=</span> mydata<span class="sc">$</span>farmers_eval,                                                   </span>
-<span id="cb5-2"><a href="basics-of-data-visualisation.html#cb5-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">main=</span> <span class="st">&quot;Histogram for Farmer&#39;s Evaluation in Tomato PPB trials&quot;</span>,    </span>
-<span id="cb5-3"><a href="basics-of-data-visualisation.html#cb5-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span> <span class="st">&quot;Evaluation&quot;</span>, <span class="at">ylab=</span> <span class="st">&quot;Frequency&quot;</span>,                             </span>
-<span id="cb5-4"><a href="basics-of-data-visualisation.html#cb5-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">breaks=</span> <span class="dv">12</span>,                                                        </span>
-<span id="cb5-5"><a href="basics-of-data-visualisation.html#cb5-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">col=</span> <span class="st">&quot;coral&quot;</span>)                                   </span>
-<span id="cb5-6"><a href="basics-of-data-visualisation.html#cb5-6" aria-hidden="true" tabindex="-1"></a>     <span class="fu">abline</span>(<span class="at">v=</span> <span class="fu">mean</span>(mydata<span class="sc">$</span>farmers_eval),     <span class="co"># Vertical line set at the mean value</span></span>
-<span id="cb5-7"><a href="basics-of-data-visualisation.html#cb5-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="st">&quot;dodgerblue&quot;</span>,                    <span class="co"># Line color</span></span>
-<span id="cb5-8"><a href="basics-of-data-visualisation.html#cb5-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">lwd=</span> <span class="dv">4</span>)                                <span class="co"># Line width</span></span></code></pre></div>
-<p><img src="PPB-Toolkit-for-R-and-R-Studio_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="basics-of-data-visualisation.html#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="at">x=</span> mydata<span class="sc">$</span>farmers_eval,                                                   </span>
+<span id="cb90-2"><a href="basics-of-data-visualisation.html#cb90-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">main=</span> <span class="st">&quot;Histogram for Farmer&#39;s Evaluation in Tomato PPB trials&quot;</span>,    </span>
+<span id="cb90-3"><a href="basics-of-data-visualisation.html#cb90-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span> <span class="st">&quot;Evaluation&quot;</span>, <span class="at">ylab=</span> <span class="st">&quot;Frequency&quot;</span>,                             </span>
+<span id="cb90-4"><a href="basics-of-data-visualisation.html#cb90-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">breaks=</span> <span class="dv">12</span>,                                                        </span>
+<span id="cb90-5"><a href="basics-of-data-visualisation.html#cb90-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">col=</span> <span class="st">&quot;coral&quot;</span>)                                   </span>
+<span id="cb90-6"><a href="basics-of-data-visualisation.html#cb90-6" aria-hidden="true" tabindex="-1"></a>     <span class="fu">abline</span>(<span class="at">v=</span> <span class="fu">mean</span>(mydata<span class="sc">$</span>farmers_eval),     <span class="co"># Vertical line set at the mean value</span></span>
+<span id="cb90-7"><a href="basics-of-data-visualisation.html#cb90-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="st">&quot;dodgerblue&quot;</span>,                    <span class="co"># Line color</span></span>
+<span id="cb90-8"><a href="basics-of-data-visualisation.html#cb90-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">lwd=</span> <span class="dv">4</span>)                                <span class="co"># Line width</span></span></code></pre></div>
+<p><img src="PPB-Toolkit-for-R-and-R-Studio_files/figure-html/unnamed-chunk-60-1.png" width="672" /></p>
 <p><img src="rsrstrip.png" /></p>
 <p><strong>Box plot</strong></p>
 <p>Another useful way to plot information is through a <a href="https://en.wikipedia.org/wiki/Box_plot">boxplot</a> which not only presents the mean values, but also the quartile distribution. It would be useful, for example to compare the overall yields of the different varieties (or in the different environments). However, for this kind of plot to work, we need at least one of the variables to be a factor. We can check the variable types with the <strong>str() </strong> function, and see that both the variety and the location are interpreted as characters</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="basics-of-data-visualisation.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(mydata)</span></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="basics-of-data-visualisation.html#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(mydata)</span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    112 obs. of  11 variables:
 ##  $ location         : chr  &quot;Molise&quot; &quot;Molise&quot; &quot;Molise&quot; &quot;Molise&quot; ...
 ##  $ plot             : int  1 2 3 4 5 6 7 8 9 10 ...
@@ -300,70 +325,70 @@ text-align: justify}
 ##  $ perc_mark_yield  : num  57.5 55.8 76 55.3 81.2 ...
 ##  $ mean_fruit_weight: num  17.43 7.37 35.54 14.19 68.85 ...</code></pre>
 <p>We can change that easily with the <strong>as.factor() </strong> function. What we do is that replace the actual column we have, with the same column interpreted as a factor.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="basics-of-data-visualisation.html#cb8-1" aria-hidden="true" tabindex="-1"></a>mydata<span class="sc">$</span>variety <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(mydata<span class="sc">$</span>variety)</span>
-<span id="cb8-2"><a href="basics-of-data-visualisation.html#cb8-2" aria-hidden="true" tabindex="-1"></a>mydata<span class="sc">$</span>location <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(mydata<span class="sc">$</span>location)</span></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="basics-of-data-visualisation.html#cb93-1" aria-hidden="true" tabindex="-1"></a>mydata<span class="sc">$</span>variety <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(mydata<span class="sc">$</span>variety)</span>
+<span id="cb93-2"><a href="basics-of-data-visualisation.html#cb93-2" aria-hidden="true" tabindex="-1"></a>mydata<span class="sc">$</span>location <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(mydata<span class="sc">$</span>location)</span></code></pre></div>
 <p>Now we can do the boxplot. By using the function <strong>plot() </strong> with a quantitative and a factor variable, a boxplot is automatically generated</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="basics-of-data-visualisation.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span> mydata<span class="sc">$</span>location,         </span>
-<span id="cb9-2"><a href="basics-of-data-visualisation.html#cb9-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">y=</span> mydata<span class="sc">$</span>yield,           </span>
-<span id="cb9-3"><a href="basics-of-data-visualisation.html#cb9-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span> <span class="st">&quot;Yield (kg)&quot;</span>,        </span>
-<span id="cb9-4"><a href="basics-of-data-visualisation.html#cb9-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Location&quot;</span>)         </span></code></pre></div>
-<p><img src="PPB-Toolkit-for-R-and-R-Studio_files/figure-html/unnamed-chunk-8-1.png" width="150%" /></p>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="basics-of-data-visualisation.html#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span> mydata<span class="sc">$</span>location,         </span>
+<span id="cb94-2"><a href="basics-of-data-visualisation.html#cb94-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">y=</span> mydata<span class="sc">$</span>yield,           </span>
+<span id="cb94-3"><a href="basics-of-data-visualisation.html#cb94-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span> <span class="st">&quot;Yield (kg)&quot;</span>,        </span>
+<span id="cb94-4"><a href="basics-of-data-visualisation.html#cb94-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Location&quot;</span>)         </span></code></pre></div>
+<p><img src="PPB-Toolkit-for-R-and-R-Studio_files/figure-html/unnamed-chunk-63-1.png" width="150%" /></p>
 <p><img src="rsrstrip.png" /></p>
 </div>
 </div>
 <div id="ggplot" class="section level2" number="4.2">
 <h2><span class="header-section-number">4.2</span> ggplot</h2>
 <p>ggplot is one of the most used and versatile packages to do graphics in R. ‘gg’ stands for “grammar of graphics,” and it is based on a modular system that allows you to build your plots feature by feature. It can be easily installed with <strong>install.packages() </strong> (only once) and called with <strong>library() </strong> (every time that you open an R Session).</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="basics-of-data-visualisation.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)</span>
-<span id="cb10-2"><a href="basics-of-data-visualisation.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="basics-of-data-visualisation.html#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)</span>
+<span id="cb95-2"><a href="basics-of-data-visualisation.html#cb95-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div>
 <p>The most important thing in ggplot is that every feature should be included as a layer. The main function is <strong>ggplot() </strong>, and the main arguments are the data frame that you are using, and <strong>aes() </strong>, that stands for aestithics and lets you choose the parameters for the graph. We could do one first try.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="basics-of-data-visualisation.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span> mydata,   <span class="co"># my data frame</span></span>
-<span id="cb11-2"><a href="basics-of-data-visualisation.html#cb11-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x=</span>variety,      <span class="co"># my x axis</span></span>
-<span id="cb11-3"><a href="basics-of-data-visualisation.html#cb11-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">y=</span>yield))   <span class="co"># my y axis and the (very important) closure of parenthesis</span></span></code></pre></div>
-<p><img src="PPB-Toolkit-for-R-and-R-Studio_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="basics-of-data-visualisation.html#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span> mydata,   <span class="co"># my data frame</span></span>
+<span id="cb96-2"><a href="basics-of-data-visualisation.html#cb96-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x=</span>variety,      <span class="co"># my x axis</span></span>
+<span id="cb96-3"><a href="basics-of-data-visualisation.html#cb96-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">y=</span>yield))   <span class="co"># my y axis and the (very important) closure of parenthesis</span></span></code></pre></div>
+<p><img src="PPB-Toolkit-for-R-and-R-Studio_files/figure-html/unnamed-chunk-66-1.png" width="672" /></p>
 <p>We have created the plot and it’s coordinates, but we have not assigned any ‘geometrical’ object yet. At this point, we could add bars, points, lines, boxes, etc. We will see how to do that next.</p>
 <p><img src="rsrstrip.png" /></p>
 <div id="box-plot" class="section level3" number="4.2.1">
 <h3><span class="header-section-number">4.2.1</span> Box Plot</h3>
 <p>For a box plot, we write the same code and add the function <strong>geom_boxplot() </strong>, which can be empty of arguments, as the indispensable ones have already been declared. However, because I want my boxes to be gray, I can specify it as an argument.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="basics-of-data-visualisation.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span> mydata, <span class="fu">aes</span>(<span class="at">x=</span>variety, <span class="at">y=</span>yield))<span class="sc">+</span></span>
-<span id="cb12-2"><a href="basics-of-data-visualisation.html#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">&quot;gray&quot;</span>)</span></code></pre></div>
-<p><img src="PPB-Toolkit-for-R-and-R-Studio_files/figure-html/unnamed-chunk-12-1.png" width="672" />
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="basics-of-data-visualisation.html#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span> mydata, <span class="fu">aes</span>(<span class="at">x=</span>variety, <span class="at">y=</span>yield))<span class="sc">+</span></span>
+<span id="cb97-2"><a href="basics-of-data-visualisation.html#cb97-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">&quot;gray&quot;</span>)</span></code></pre></div>
+<p><img src="PPB-Toolkit-for-R-and-R-Studio_files/figure-html/unnamed-chunk-67-1.png" width="672" />
 On top of the boxes, I could choose to plot every individual observation with a point, and, if I wish too, I could color those points according to the corresponding location. Notice that now, the color argument is inside an <strong>aes() </strong> function, because we are not assigning an arbitrary color for all points, but rather making them vary according to a parameter present in the data frame.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="basics-of-data-visualisation.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span> mydata,  <span class="fu">aes</span>(<span class="at">x=</span>variety,<span class="at">y=</span>yield))<span class="sc">+</span> </span>
-<span id="cb13-2"><a href="basics-of-data-visualisation.html#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">&quot;gray&quot;</span>)<span class="sc">+</span> </span>
-<span id="cb13-3"><a href="basics-of-data-visualisation.html#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">col =</span> location)) </span></code></pre></div>
-<p><img src="PPB-Toolkit-for-R-and-R-Studio_files/figure-html/unnamed-chunk-13-1.png" width="150%" /></p>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="basics-of-data-visualisation.html#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span> mydata,  <span class="fu">aes</span>(<span class="at">x=</span>variety,<span class="at">y=</span>yield))<span class="sc">+</span> </span>
+<span id="cb98-2"><a href="basics-of-data-visualisation.html#cb98-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">&quot;gray&quot;</span>)<span class="sc">+</span> </span>
+<span id="cb98-3"><a href="basics-of-data-visualisation.html#cb98-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">col =</span> location)) </span></code></pre></div>
+<p><img src="PPB-Toolkit-for-R-and-R-Studio_files/figure-html/unnamed-chunk-68-1.png" width="150%" /></p>
 <p>Overall, there is a large deal of different geometries that can be used, alone or in combinations, to represent data in many ways. In that case, a very handy ressource for geometries in ggplot is the specially designed <a href="https://www.maths.usyd.edu.au/u/UG/SM/STAT3022/r/current/Misc/data-visualization-2.1.pdf">Cheat Sheet</a> that they offer.</p>
 <p>Finally, if you find it akward, or too bulky two have all the information from all the locations in one plot. You could easily make a small subplot, ie. a ‘facet,’ for every location. Both functions <strong>facet_wrap() </strong> and <strong>facet_grid() </strong> can do this in slightly different ways. If we do this, it is convenient to remove the points colored by location. The plot would look like this:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="basics-of-data-visualisation.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span> mydata,  <span class="fu">aes</span>(<span class="at">x=</span>variety,<span class="at">y=</span>yield))<span class="sc">+</span> </span>
-<span id="cb14-2"><a href="basics-of-data-visualisation.html#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">&quot;gray&quot;</span>)<span class="sc">+</span> </span>
-<span id="cb14-3"><a href="basics-of-data-visualisation.html#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(location<span class="sc">~</span>., <span class="co"># I choose to plot my locations, </span></span>
-<span id="cb14-4"><a href="basics-of-data-visualisation.html#cb14-4" aria-hidden="true" tabindex="-1"></a>                         <span class="co"># the &quot;~&quot; sign means allows me introduce another variable to </span></span>
-<span id="cb14-5"><a href="basics-of-data-visualisation.html#cb14-5" aria-hidden="true" tabindex="-1"></a>                         <span class="co"># to subdivide the plots, but I choose none so we just write &quot;.&quot;</span></span>
-<span id="cb14-6"><a href="basics-of-data-visualisation.html#cb14-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">ncol =</span><span class="dv">1</span>,</span>
-<span id="cb14-7"><a href="basics-of-data-visualisation.html#cb14-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">scales=</span> <span class="st">&#39;free&#39;</span>)    <span class="co"># Additionally, we want all the subplots the be drawn in only one column</span></span></code></pre></div>
-<p><img src="PPB-Toolkit-for-R-and-R-Studio_files/figure-html/unnamed-chunk-14-1.png" width="150%" /></p>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="basics-of-data-visualisation.html#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span> mydata,  <span class="fu">aes</span>(<span class="at">x=</span>variety,<span class="at">y=</span>yield))<span class="sc">+</span> </span>
+<span id="cb99-2"><a href="basics-of-data-visualisation.html#cb99-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">&quot;gray&quot;</span>)<span class="sc">+</span> </span>
+<span id="cb99-3"><a href="basics-of-data-visualisation.html#cb99-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(location<span class="sc">~</span>., <span class="co"># I choose to plot my locations, </span></span>
+<span id="cb99-4"><a href="basics-of-data-visualisation.html#cb99-4" aria-hidden="true" tabindex="-1"></a>                         <span class="co"># the &quot;~&quot; sign means allows me introduce another variable to </span></span>
+<span id="cb99-5"><a href="basics-of-data-visualisation.html#cb99-5" aria-hidden="true" tabindex="-1"></a>                         <span class="co"># to subdivide the plots, but I choose none so we just write &quot;.&quot;</span></span>
+<span id="cb99-6"><a href="basics-of-data-visualisation.html#cb99-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">ncol =</span><span class="dv">1</span>,</span>
+<span id="cb99-7"><a href="basics-of-data-visualisation.html#cb99-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">scales=</span> <span class="st">&#39;free&#39;</span>)    <span class="co"># Additionally, we want all the subplots the be drawn in only one column</span></span></code></pre></div>
+<p><img src="PPB-Toolkit-for-R-and-R-Studio_files/figure-html/unnamed-chunk-69-1.png" width="150%" /></p>
 <p><img src="rsrstrip.png" /></p>
 </div>
 <div id="scatter-plots" class="section level3" number="4.2.2">
 <h3><span class="header-section-number">4.2.2</span> Scatter plots</h3>
 <p>If I choose to plot two quantitative variables against one another, and choose the <strong>geom_point() </strong> for each each point, a very useful scatter plot will come out. What is more, I could add a fitted line according to a linear model (or one of other models available).</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="basics-of-data-visualisation.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span> mydata, <span class="fu">aes</span>(<span class="at">y=</span>farmers_eval ,  <span class="at">x=</span>yield))<span class="sc">+</span></span>
-<span id="cb15-2"><a href="basics-of-data-visualisation.html#cb15-2" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">geom_point</span>()<span class="sc">+</span></span>
-<span id="cb15-3"><a href="basics-of-data-visualisation.html#cb15-3" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">geom_smooth</span>(<span class="at">method=</span> lm) <span class="co">#Regression line with Linear Method (lm)</span></span></code></pre></div>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="basics-of-data-visualisation.html#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span> mydata, <span class="fu">aes</span>(<span class="at">y=</span>farmers_eval ,  <span class="at">x=</span>yield))<span class="sc">+</span></span>
+<span id="cb100-2"><a href="basics-of-data-visualisation.html#cb100-2" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb100-3"><a href="basics-of-data-visualisation.html#cb100-3" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">geom_smooth</span>(<span class="at">method=</span> lm) <span class="co">#Regression line with Linear Method (lm)</span></span></code></pre></div>
 <pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="PPB-Toolkit-for-R-and-R-Studio_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p><img src="PPB-Toolkit-for-R-and-R-Studio_files/figure-html/unnamed-chunk-70-1.png" width="672" /></p>
 <p>To this point, some evident effect of correlation can be seen between the yield and the farmer’s evaluation. But we see clearly a cloud of points in the upper right, which correspond normally to our highest yielding location. We could, for example, divide environments with <strong>facet_wrap() </strong> and add a small label to each point trough <strong>geom_text() </strong> or <strong>geom_label</strong> , indicating the corresponding variety</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="basics-of-data-visualisation.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span> mydata, <span class="fu">aes</span>(<span class="at">y=</span>farmers_eval ,  <span class="at">x=</span>yield))<span class="sc">+</span></span>
-<span id="cb17-2"><a href="basics-of-data-visualisation.html#cb17-2" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">geom_point</span>()<span class="sc">+</span></span>
-<span id="cb17-3"><a href="basics-of-data-visualisation.html#cb17-3" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">geom_smooth</span>(<span class="at">method=</span> lm)<span class="sc">+</span>           </span>
-<span id="cb17-4"><a href="basics-of-data-visualisation.html#cb17-4" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">facet_wrap</span>(location<span class="sc">~</span>., <span class="at">ncol=</span><span class="dv">2</span>, <span class="at">scales=</span> <span class="st">&#39;free&#39;</span>)<span class="sc">+</span></span>
-<span id="cb17-5"><a href="basics-of-data-visualisation.html#cb17-5" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> variety),    <span class="co"># we define the variety as the parameter</span></span>
-<span id="cb17-6"><a href="basics-of-data-visualisation.html#cb17-6" aria-hidden="true" tabindex="-1"></a>                              <span class="at">size=</span> <span class="dv">2</span>,</span>
-<span id="cb17-7"><a href="basics-of-data-visualisation.html#cb17-7" aria-hidden="true" tabindex="-1"></a>                             <span class="at">nudge_y =</span><span class="fl">0.1</span> )                  <span class="co"># and we put the small so that they don&#39;t overlap </span></span></code></pre></div>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="basics-of-data-visualisation.html#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span> mydata, <span class="fu">aes</span>(<span class="at">y=</span>farmers_eval ,  <span class="at">x=</span>yield))<span class="sc">+</span></span>
+<span id="cb102-2"><a href="basics-of-data-visualisation.html#cb102-2" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb102-3"><a href="basics-of-data-visualisation.html#cb102-3" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">geom_smooth</span>(<span class="at">method=</span> lm)<span class="sc">+</span>           </span>
+<span id="cb102-4"><a href="basics-of-data-visualisation.html#cb102-4" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">facet_wrap</span>(location<span class="sc">~</span>., <span class="at">ncol=</span><span class="dv">2</span>, <span class="at">scales=</span> <span class="st">&#39;free&#39;</span>)<span class="sc">+</span></span>
+<span id="cb102-5"><a href="basics-of-data-visualisation.html#cb102-5" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> variety),    <span class="co"># we define the variety as the parameter</span></span>
+<span id="cb102-6"><a href="basics-of-data-visualisation.html#cb102-6" aria-hidden="true" tabindex="-1"></a>                              <span class="at">size=</span> <span class="dv">2</span>,</span>
+<span id="cb102-7"><a href="basics-of-data-visualisation.html#cb102-7" aria-hidden="true" tabindex="-1"></a>                             <span class="at">nudge_y =</span><span class="fl">0.1</span> )                  <span class="co"># and we put the small so that they don&#39;t overlap </span></span></code></pre></div>
 <pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="PPB-Toolkit-for-R-and-R-Studio_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<p><img src="PPB-Toolkit-for-R-and-R-Studio_files/figure-html/unnamed-chunk-71-1.png" width="672" /></p>
 <p>plot.cor.stats &lt;-plot.cor + stat_cor(label.y= 4) # L’argumento label.y ci da la posizione del testo
 plot.cor.stats</p>
 <p><img src="rsrstrip.png" /></p>
@@ -387,12 +412,12 @@ plot.cor.stats</p>
 <li>If you want to be more automatic, you can use code to export and save your image. The functions <strong>png()</strong> of <strong>jpg()</strong> can help you in this sense. To do this, you have to assign a create your ggplot, and then run your prefered function, specifying the output name and dimensions. At the end it’s important to use <strong>dev.off()</strong> to indicate that your “export device” has been closed.</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="basics-of-data-visualisation.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span> mydata, <span class="fu">aes</span>(<span class="at">y=</span>farmers_eval ,  <span class="at">x=</span>yield))<span class="sc">+</span></span>
-<span id="cb19-2"><a href="basics-of-data-visualisation.html#cb19-2" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">geom_point</span>()<span class="sc">+</span></span>
-<span id="cb19-3"><a href="basics-of-data-visualisation.html#cb19-3" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">geom_smooth</span>(<span class="at">method=</span> lm) <span class="co">#Regression line with Linear Method (lm)</span></span>
-<span id="cb19-4"><a href="basics-of-data-visualisation.html#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-5"><a href="basics-of-data-visualisation.html#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="fu">png</span>(<span class="st">&quot;myplot.png&quot;</span>, <span class="at">width=</span> <span class="dv">300</span>, <span class="at">height=</span> <span class="dv">300</span>)</span>
-<span id="cb19-6"><a href="basics-of-data-visualisation.html#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="basics-of-data-visualisation.html#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span> mydata, <span class="fu">aes</span>(<span class="at">y=</span>farmers_eval ,  <span class="at">x=</span>yield))<span class="sc">+</span></span>
+<span id="cb104-2"><a href="basics-of-data-visualisation.html#cb104-2" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb104-3"><a href="basics-of-data-visualisation.html#cb104-3" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">geom_smooth</span>(<span class="at">method=</span> lm) <span class="co">#Regression line with Linear Method (lm)</span></span>
+<span id="cb104-4"><a href="basics-of-data-visualisation.html#cb104-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb104-5"><a href="basics-of-data-visualisation.html#cb104-5" aria-hidden="true" tabindex="-1"></a><span class="fu">png</span>(<span class="st">&quot;myplot.png&quot;</span>, <span class="at">width=</span> <span class="dv">300</span>, <span class="at">height=</span> <span class="dv">300</span>)</span>
+<span id="cb104-6"><a href="basics-of-data-visualisation.html#cb104-6" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div>
 <p><img src="rsrstrip.png" /></p>
 
 </div>
@@ -454,6 +479,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
